@@ -28,16 +28,68 @@ h2 {
     right: 50px;
 }
 
+.loading-page {
+    @include size(100%, 100vh);
+    @include flex();
+    position: relative;
+    flex-direction: column;
+    border: 20px solid $main-color;
+    transition: 1s ease-in-out;
+
+    img {
+        margin-right: 30px;
+    }
+
+    &.complete{
+        opacity: 0;
+    }
+
+    .loading-bar {
+        @include size(18vw, 3vh);
+        position: relative;
+        margin-top: 43px;
+        background-color: $title-bg;
+        border-radius: 20px;
+
+        #loading {
+            @include size(0%, 3vh);
+            background-color: $store-tag-f-bg;
+            border-radius: 20px;
+        }
+
+        #loading_percent {
+            @include font($h6);
+            position: absolute;
+            top: -0.5vh;
+            right: 1vw;
+            color: #ffffff;
+        }
+    }
+}
+
 .news {
     @include size(100%, 100vh);
     @include flex();
     position: relative;
     border: 20px solid $main-color;
+    transition: 1s ease-in-out;
+    animation: fadeout 2s;
+    display: none;
 
-    .container{
+    @keyframes fadeout {
+        0%{
+            opacity: 0;
+        }
+
+        100%{
+            opacity: 1;
+        }
+    }
+
+    .container {
         @include size(80vw, 76vh);
-
-        .news-title{
+        
+        .news-title {
             position: relative;
             padding-left: 60px;
 
@@ -74,6 +126,8 @@ h2 {
     @include flex();
     position: relative;
     border: 20px solid $main-color;
+    transition: 1s ease-in-out;
+    display: none;
 
     .container {
         @include size(80vw, 68vh);
@@ -150,7 +204,7 @@ h2 {
                 }
 
                 .swiper-pagination {
-                    bottom: 19vh;
+                    bottom: 18vh;
                     left: -20vw;
 
                     span {
