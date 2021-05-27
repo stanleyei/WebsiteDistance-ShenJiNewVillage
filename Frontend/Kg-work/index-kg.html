@@ -21,10 +21,11 @@
                                 <span class="title">審計新訊</span>
                             </a>   
                          </li>
-                         <li>
+                         <li> 
+                            <a href="">
                                 <span class="icon"><i class="fab fa-angellist"></i></span>
                                 <span class="title">關於審計</span>
-                                <ul>
+                                <!-- <ul>
                                       <li> 
                                         <a href="">
                                             <span class="icon"><i class="fas fa-hotel"></i></span>
@@ -49,7 +50,8 @@
                                             <span class="title">周邊景點</span>
                                         </a> 
                                       </li>
-                             </ul>
+                             </ul> -->
+                            </a>
                          </li>
                          <li> 
                             <a href="">
@@ -64,7 +66,9 @@
                             </a>   
                         </li>
                     </ul>
-    </div>
+                    
+                    <div class="toggle"></div>
+                </div>
 </div>
 
     </header>
@@ -79,5 +83,12 @@
         <section class="contact"></section>
     </main>
     <footer></footer>
+    <script>
+        const navbar = document.querySelector('.nav');
+        document.querySelector('.toggle').onclick=function(){
+            this.classList.toggle('active');
+            navbar.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
