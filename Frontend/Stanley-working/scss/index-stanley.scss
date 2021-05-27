@@ -34,7 +34,7 @@ h2 {
     }
 
     .container {
-        @include size(85vw, 68vh);
+        @include size(80vw, 68vh);
 
         .about-us-title {
             position: relative;
@@ -73,26 +73,15 @@ h2 {
             .about-us-swiper {
                 @include size(52vw, 100%);
                 overflow: hidden;
-                position: relative;
 
                 .swiper-slide {
-                    display: -webkit-box;
-                    display: -ms-flexbox;
-                    display: -webkit-flex;
-                    display: flex;
-                    -webkit-box-pack: center;
-                    -ms-flex-pack: center;
-                    -webkit-justify-content: center;
-                    justify-content: center;
-                    -webkit-box-align: center;
-                    -ms-flex-align: center;
-                    -webkit-align-items: center;
-                    align-items: center;
+                    @include flex(start);
 
                     .img {
                         @include size(39vw, 78%);
                         display: block;
                         object-fit: cover;
+                        background-size: cover;
                     }
                 }
 
@@ -100,8 +89,13 @@ h2 {
                     color: $main-color;
 
                     &::after{
-                        font-size: 30px;
-                        font-weight: 900;
+                        @include size(50px, 50px);
+                        content: '';
+                        position: absolute;
+                        top: 45px;
+                        right: 46vw;
+                        background-image: url(../img/aboutUs-swiper-right.png);
+                        font-family: none;
                     }
                 }
 
@@ -109,12 +103,19 @@ h2 {
                     color: $main-color;
 
                     &::after{
-                        font-size: 30px;
-                        font-weight: 900;
+                        @include size(50px, 50px);
+                        content: '';
+                        position: absolute;
+                        top: 45px;
+                        left: 5vw;
+                        background-image: url(../img/aboutUs-swiper-left.png);
+                        font-family: none;
                     }
                 }
 
                 .swiper-pagination{
+                    bottom: 19vh;
+                    left: -20vw;
 
                     span{
                        background-color: $title-bg;
@@ -124,7 +125,7 @@ h2 {
 
             .about-us-content {
                 @include size(32vw, 100%);
-                @include flex();
+                @include flex(center,start);
                 flex-direction: column;
 
                 h3 {
@@ -135,6 +136,7 @@ h2 {
                 p {
                     @include size(100%, 300px);
                     @include font($h5, start, 60px);
+                    margin: 0;
                 }
             }
         }
