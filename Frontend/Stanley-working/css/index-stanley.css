@@ -1,6 +1,106 @@
-.news {
-  width: 50px;
-  height: 50px;
-  background-color: #54291c;
+.about-us-title::before {
+  content: '';
+  position: absolute;
+  background: #D28E76;
+  border-radius: 5px;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFFCF4;
+}
+
+h2 {
+  margin: 0;
+}
+
+.about-us {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Noto Sans', sans-serif;
+  color: #54291c;
+}
+
+.about-us > .container {
+  width: 85vw;
+  height: 70vh;
+}
+
+.about-us-title {
+  position: relative;
+  padding-left: 60px;
+}
+
+.about-us-title::before {
+  width: 60px;
+  height: 60px;
+  -webkit-transform: translate(-50px, -20px);
+          transform: translate(-50px, -20px);
+  z-index: -1;
+}
+
+.about-us-title > h2 {
+  font-size: 2.8125rem;
+  text-align: start;
+  line-height: inherit;
+  letter-spacing: 0.3em;
+}
+
+.about-us-title > span {
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: inherit;
+  letter-spacing: 0.1em;
+}
+
+.about-us-title > span::before {
+  content: 'About';
+  position: absolute;
+  left: 0;
+  -webkit-transform: translate(-15%, -80%) rotate(90deg);
+          transform: translate(-15%, -80%) rotate(90deg);
+  letter-spacing: 0.1em;
+}
+
+.about-us > .container > article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about-us > .container > article h3 {
+  font-size: 2.25rem;
+  text-align: start;
+  line-height: inherit;
+  letter-spacing: 0.3em;
+}
+
+.about-us > .container > article p {
+  width: 32vw;
+  height: 300px;
+  font-size: 1.5rem;
+  text-align: start;
+  line-height: 60px;
 }
 /*# sourceMappingURL=index-stanley.css.map */
