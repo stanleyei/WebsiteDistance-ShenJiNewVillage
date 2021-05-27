@@ -17,8 +17,21 @@ h2{
 .about-us{
     @include size(100%, 100vh);
     @include flex();
+    border: 20px solid $main-color;
     font-family: 'Noto Sans', sans-serif;
     color: $main-color;
+}
+
+.logo-img{
+    position: absolute;
+    top: 50px;
+    right: 250px;
+}
+
+.logo-text{
+    position: absolute;
+    top: 50px;
+    right: 50px;
 }
 
 .about-us > .container{
