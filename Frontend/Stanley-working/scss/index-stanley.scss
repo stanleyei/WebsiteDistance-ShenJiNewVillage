@@ -8,30 +8,72 @@ body {
     margin: 0;
     padding: 0;
     background-color: $body-bg;
+    font-family: 'Noto Sans', sans-serif;
+    color: $main-color;
 }
 
 h2 {
     margin: 0;
 }
 
+.logo-img {
+    position: absolute;
+    top: 50px;
+    right: 250px;
+}
+
+.logo-text {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+.news {
+    @include size(100%, 100vh);
+    @include flex();
+    position: relative;
+    border: 20px solid $main-color;
+
+    .container{
+        @include size(80vw, 76vh);
+
+        .news-title{
+            position: relative;
+            padding-left: 60px;
+
+            &::before {
+                @extend %title-cube;
+                @include size(60px, 60px);
+                transform: translate(-50px, -20px);
+                z-index: -1;
+            }
+
+            h2 {
+                @include font($h1, start);
+                letter-spacing: 0.3em;
+            }
+
+            span {
+                @include font($h5);
+                letter-spacing: 0.1em;
+
+                &::before {
+                    content: 'News';
+                    position: absolute;
+                    left: 0;
+                    transform: translate(-15%, -80%) rotate(90deg);
+                    letter-spacing: 0.1em;
+                }
+            }
+        }
+    }
+}
+
 .about-us {
     @include size(100%, 100vh);
     @include flex();
+    position: relative;
     border: 20px solid $main-color;
-    font-family: 'Noto Sans', sans-serif;
-    color: $main-color;
-
-    .logo-img {
-        position: absolute;
-        top: 50px;
-        right: 250px;
-    }
-
-    .logo-text {
-        position: absolute;
-        top: 50px;
-        right: 50px;
-    }
 
     .container {
         @include size(80vw, 68vh);
@@ -87,47 +129,39 @@ h2 {
                     }
                 }
 
-                .swiper-button-next{
-                    color: $main-color;
-
-                    &::after{
-                        @include size(50px, 50px);
-                        content: '';
-                        position: absolute;
-                        top: 45px;
-                        right: 46vw;
-                        background-image: url(../img/aboutUs-swiper-right.png);
-                        font-family: none;
-                    }
+                .swiper-button-next::after {
+                    @include size(50px, 50px);
+                    content: '';
+                    position: absolute;
+                    top: 45px;
+                    right: 46vw;
+                    background-image: url(../img/aboutUs-swiper-right.png);
+                    font-family: none;
                 }
 
-                .swiper-button-prev{
-                    color: $main-color;
-
-                    &::after{
-                        @include size(50px, 50px);
-                        content: '';
-                        position: absolute;
-                        top: 45px;
-                        left: 5vw;
-                        background-image: url(../img/aboutUs-swiper-left.png);
-                        font-family: none;
-                    }
+                .swiper-button-prev::after {
+                    @include size(50px, 50px);
+                    content: '';
+                    position: absolute;
+                    top: 45px;
+                    left: 5vw;
+                    background-image: url(../img/aboutUs-swiper-left.png);
+                    font-family: none;
                 }
 
-                .swiper-pagination{
+                .swiper-pagination {
                     bottom: 19vh;
                     left: -20vw;
 
-                    span{
-                       background-color: $title-bg;
+                    span {
+                        background-color: $title-bg;
                     }
                 }
             }
 
             .about-us-content {
                 @include size(32vw, 100%);
-                @include flex(center,start);
+                @include flex(center, start);
                 flex-direction: column;
 
                 h3 {
