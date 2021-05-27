@@ -1,0 +1,110 @@
+
+==========================================================
+==========================================================
+
+。審計新訊-ShenJiNews
+	。2021 ~ ???? 年
+		。1 ~ 12 月
+			。最新消息-NewLatest
+				。index--索引
+				。create--創建
+					縮標-(抓 日期-date、標題-title)
+					展開
+					。日期-date-活動起始日期 (xx月/xx日~xx日)
+					。標題-title
+					。圖片-img
+					。內容-content
+					。日期-date-活動起始到結束 (年/月/日~年/月/日、時間 xx:xx ~ xx:xx)
+					。地點-place
+					。主辦單位-Organizers
+					。連結-link(Google日曆)
+				。store--儲存
+				。edit--編輯
+				。update--更新
+				。delete--刪除
+			。近期活動資訊-RecentActivityInformation
+				。index--索引
+				。create--創建
+				。store--儲存
+				。edit--編輯
+				。update--更新
+				。delete--刪除
+			。活動花絮-ActivityTidbits
+				。index--索引
+				。create--創建
+				。store--儲存
+				。edit--編輯
+				。update--更新
+				。delete--刪除
+
+==========================================================
+
+。關於審計-AboutShenJi
+	。園區介紹-ParkIntroduction
+		。Id (多)
+			。圖片-img
+			。標題-title
+			。內容-content
+         =================================================
+	。園區地圖-ParkMap
+		。Id (多)
+			。圖片-img
+			。標題-title
+			。類型-style
+			。連結-link
+			。電話-phone
+			。內容-content
+         =================================================
+	。商家介紹-StoreIntroduction
+		。食物類-FoodCategory
+			。圖片-img
+			。標題-title
+			。類型-style
+			。連結-link
+			。電話-phone
+			。內容-content
+		。小物類-SmallThingsCategory
+			。圖片-img
+			。標題-title
+			。類型-style
+			。連結-link
+			。電話-phone
+			。內容-content
+         =================================================
+	。景點推薦-AttractionsRecommend
+		。卡片-Card
+			。標題-title
+			。圖片-img
+			。內容-content
+			。連結-link
+==========================================================
+
+。交通資訊
+	。前端手刻
+		。GoogleMap
+
+==========================================================
+
+。聯絡審計-ContactShenJi
+	。加入審計-JoinShenJi
+		。進駐店家-Stationed
+			。內容-content
+		。E-mail
+			。內容-content
+		。商品種類-CommodityKind
+			。內容-content
+		。其它資訊-OtherInformation
+			。內容-content
+
+	。顧客意見-CustomeRopinion
+		。顧客名稱-CustomerName
+			。內容-content
+		。E-mail
+			。內容-content
+		。反映事項-ReflectMatters
+			。內容-content
+		。想對我們說的話-SomethingToSayToUs
+			。內容-content
+
+=========================================================
+=========================================================
