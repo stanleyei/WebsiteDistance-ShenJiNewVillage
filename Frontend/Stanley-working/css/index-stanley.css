@@ -1,4 +1,4 @@
-.about-us-title::before {
+.about-us .container .about-us-title::before {
   content: '';
   position: absolute;
   background: #D28E76;
@@ -37,29 +37,29 @@ h2 {
   color: #54291c;
 }
 
-.logo-img {
+.about-us .logo-img {
   position: absolute;
   top: 50px;
   right: 250px;
 }
 
-.logo-text {
+.about-us .logo-text {
   position: absolute;
   top: 50px;
   right: 50px;
 }
 
-.about-us > .container {
+.about-us .container {
   width: 85vw;
-  height: 70vh;
+  height: 68vh;
 }
 
-.about-us-title {
+.about-us .container .about-us-title {
   position: relative;
   padding-left: 60px;
 }
 
-.about-us-title::before {
+.about-us .container .about-us-title::before {
   width: 60px;
   height: 60px;
   -webkit-transform: translate(-50px, -20px);
@@ -67,21 +67,21 @@ h2 {
   z-index: -1;
 }
 
-.about-us-title > h2 {
+.about-us .container .about-us-title h2 {
   font-size: 2.8125rem;
   text-align: start;
   line-height: inherit;
   letter-spacing: 0.3em;
 }
 
-.about-us-title > span {
+.about-us .container .about-us-title span {
   font-size: 1.5rem;
   text-align: center;
   line-height: inherit;
   letter-spacing: 0.1em;
 }
 
-.about-us-title > span::before {
+.about-us .container .about-us-title span::before {
   content: 'About';
   position: absolute;
   left: 0;
@@ -90,7 +90,7 @@ h2 {
   letter-spacing: 0.1em;
 }
 
-.about-us > .container > article {
+.about-us .container article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -100,17 +100,86 @@ h2 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
+  height: 87%;
 }
 
-.about-us > .container > article h3 {
+.about-us .container article .about-us-swiper {
+  width: 52vw;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.about-us .container article .about-us-swiper .swiper-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.about-us .container article .about-us-swiper .swiper-slide .img {
+  width: 39vw;
+  height: 78%;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.about-us .container article .about-us-swiper .swiper-button-next {
+  color: #54291c;
+}
+
+.about-us .container article .about-us-swiper .swiper-button-next::after {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.about-us .container article .about-us-swiper .swiper-button-prev {
+  color: #54291c;
+}
+
+.about-us .container article .about-us-swiper .swiper-button-prev::after {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.about-us .container article .about-us-swiper .swiper-pagination span {
+  background-color: #D28E76;
+}
+
+.about-us .container article .about-us-content {
+  width: 32vw;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.about-us .container article .about-us-content h3 {
   font-size: 2.25rem;
   text-align: start;
   line-height: inherit;
   letter-spacing: 0.3em;
 }
 
-.about-us > .container > article p {
-  width: 32vw;
+.about-us .container article .about-us-content p {
+  width: 100%;
   height: 300px;
   font-size: 1.5rem;
   text-align: start;
