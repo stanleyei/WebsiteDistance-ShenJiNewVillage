@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,CAAC,CAAA;EACG,UAAU,EAAE,UAAU;CACzB;;AACD,AAAA,IAAI,EAAC,IAAI,CAAA;EACL,OAAO,EAAE,CAAC;EACV,MAAM,EAAE,CAAC;CACZ",
+    "sources": [
+        "../scss/index-kg.scss",
+        "../scss/_variable.scss"
+    ],
+    "names": [],
+    "file": "index-kg.css"
+}
