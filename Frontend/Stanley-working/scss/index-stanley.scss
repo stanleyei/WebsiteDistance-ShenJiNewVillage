@@ -241,3 +241,17 @@ h2 {
     }
 
 }
+
+footer{
+    @include size(100vw, 700px);
+    background-color: $footer-bg;
+    position: relative;
+
+    .footer-logo-img{
+        @include position(550px, 160px, 0, 0);
+    }
+    
+    .footer-logo-text{
+        @include position(550px, 160px, 90%, 0);
+    }
+}

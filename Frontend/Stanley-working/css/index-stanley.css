@@ -360,4 +360,27 @@ h2 {
   line-height: 60px;
   margin: 0;
 }
+
+.footer {
+  width: 100vw;
+  height: 700px;
+  background-color: #596E79;
+  position: relative;
+}
+
+.footer .footer-logo-img {
+  position: absolute;
+  top: 550px;
+  left: 160px;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+.footer .footer-logo-text {
+  position: absolute;
+  top: 550px;
+  left: 160px;
+  -webkit-transform: translate(90%, 0);
+          transform: translate(90%, 0);
+}
 /*# sourceMappingURL=index-stanley.css.map */
