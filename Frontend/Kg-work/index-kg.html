@@ -21,37 +21,40 @@
                                 <span class="title">審計新訊</span>
                             </a>   
                          </li>
-                         <li> 
-                            <a href="">
+                         <li > 
+                            <a class="droplist" href="">
                                 <span class="icon"><i class="fab fa-angellist"></i></span>
                                 <span class="title">關於審計</span>
-                                <!-- <ul>
-                                      <li> 
-                                        <a href="">
-                                            <span class="icon"><i class="fas fa-hotel"></i></span>
-                                            <span class="title">園區介紹</span>
-                                        </a> 
-                                      </li>
-                                      <li>
-                                        <a href="">
-                                            <span class="icon"><i class="fas fa-map-marked-alt"></i></span>
-                                            <span class="title">園區地圖</span>
-                                        </a> 
-                                      </li>
-                                      <li>
-                                        <a href="">
-                                            <span class="icon"><i class="fas fa-store"></i></span>
-                                            <span class="title">商家介紹</span>
-                                        </a> 
-                                      </li>
-                                      <li>
-                                        <a href="">
-                                            <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
-                                            <span class="title">周邊景點</span>
-                                        </a> 
-                                      </li>
-                             </ul> -->
                             </a>
+                                <ul class="introduction">
+                                    <li> 
+                                      <a href="">
+                                          <span class="icon"><i class="fas fa-hotel"></i></span>
+                                          <span class="title">園區介紹</span>
+                                      </a> 
+                                    </li>
+                                    <li>
+                                      <a href="">
+                                          <span class="icon"><i class="fas fa-map-marked-alt"></i></span>
+                                          <span class="title">園區地圖</span>
+                                      </a> 
+                                    </li>
+                                    <li>
+                                      <a href="">
+                                          <span class="icon"><i class="fas fa-store"></i></span>
+                                          <span class="title">商家介紹</span>
+                                      </a> 
+                                    </li>
+                                    <li>
+                                      <a href="">
+                                          <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                                          <span class="title">周邊景點</span>
+                                      </a> 
+                                    </li>
+                           </ul>
+                           
+                               
+                            
                          </li>
                          <li> 
                             <a href="">
@@ -85,10 +88,16 @@
     <footer></footer>
     <script>
         const navbar = document.querySelector('.nav');
+        const droplist = document.querySelector('.droplist');
         document.querySelector('.toggle').onclick=function(){
             this.classList.toggle('active');
             navbar.classList.toggle('active');
+            // droplist.classList.toggle('active');
         }
+        //     droplist.onclick=function(){
+        //     console.log(111);
+        //     document.querySelector('.introduction').classList.add('.on');
+        // }
     </script>
 </body>
 </html>

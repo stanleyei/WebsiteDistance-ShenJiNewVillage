@@ -20,7 +20,7 @@ header{
 .nav{
     
     position: relative;
-    width: 5px;
+    width: 15px;
     height: 80vh;
     background-color: $nav-bg;
     border-radius: 10px;
@@ -53,6 +53,7 @@ header{
                    display: block;
                    width: 100%;
                    display: flex;
+                //    flex-wrap: wrap;
                    text-decoration: none;
                    color:$store-list-bg;
                    font-weight: 500;
@@ -75,7 +76,25 @@ header{
                     line-height: 60px;
                     white-space: nowrap;
                   }
+                 
                }
+               ul{
+                display: none;
+                position: relative;
+                top: 72px;
+                left: 10%;
+                transition: 2s;
+                 
+                   li{
+                       width:100%;
+                       
+                       a{
+                           width:300px;
+                           height: 40px;
+                       }
+                   }
+               
+            }
            }
     }
 }
@@ -87,11 +106,11 @@ header{
     position: absolute;
     right: 0;
     top:calc(50% - 20px);
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     background:  none;
     cursor: pointer;
-    border-right: 5px solid  $nav-bg;
+    // border-right: 5px solid  $nav-bg;
    
 
      &::before{
@@ -99,7 +118,7 @@ header{
          position: absolute;
          width: 100%;
          height: 100%;
-         line-height: 30px;
+         line-height: 20px;
          text-align: center;
          font-size: 16px;
          color:  $body-bg;
@@ -111,6 +130,20 @@ header{
      content:"<";
     }
  }
+// .droplist.active{
+//   display: unset;
+// }
 
-
-
+.on{
+    display:flex;
+}
+.droplist{
+    &:hover~.introduction{
+        display: block;
+    }
+}
+.introduction{
+    &:hover{
+        display: block;
+    }
+}
