@@ -36,33 +36,36 @@ h2 {
     border: 20px solid $main-color;
     transition: 1s ease-in-out;
 
-    img {
-        margin-right: 30px;
-    }
-
-    &.complete{
-        opacity: 0;
-    }
-
-    .loading-bar {
-        @include size(18vw, 3vh);
-        position: relative;
-        margin-top: 43px;
-        background-color: $title-bg;
-        border-radius: 20px;
-
-        #loading {
-            @include size(0%, 3vh);
-            background-color: $store-tag-f-bg;
-            border-radius: 20px;
+    .container {
+        img {
+            margin-right: 30px;
+        }
+        
+        &.complete {
+            opacity: 0;
         }
 
-        #loading_percent {
-            @include font($h6);
-            position: absolute;
-            top: -0.5vh;
-            right: 1vw;
-            color: #ffffff;
+        .loading-bar {
+            @include size(18vw, 3vh);
+            position: relative;
+            margin-top: 43px;
+            background-color: $title-bg;
+            border-radius: 20px;
+
+            #loading {
+                @include size(0%, 3vh);
+                background-color: $store-tag-f-bg;
+                border-radius: 20px;
+            }
+
+            #loading_percent {
+                @include font($h6, end, 3vh);
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding-right: 10px;
+                color: #ffffff;
+            }
         }
     }
 }
@@ -72,23 +75,22 @@ h2 {
     @include flex();
     position: relative;
     border: 20px solid $main-color;
-    transition: 1s ease-in-out;
-    animation: fadeout 2s;
-    display: none;
 
     @keyframes fadeout {
-        0%{
+        0% {
             opacity: 0;
         }
 
-        100%{
+        100% {
             opacity: 1;
         }
     }
 
     .container {
         @include size(80vw, 76vh);
-        
+        transition: 1s ease-in-out;
+        animation: fadeout 2s;
+
         .news-title {
             position: relative;
             padding-left: 60px;
@@ -127,7 +129,6 @@ h2 {
     position: relative;
     border: 20px solid $main-color;
     transition: 1s ease-in-out;
-    display: none;
 
     .container {
         @include size(80vw, 68vh);
