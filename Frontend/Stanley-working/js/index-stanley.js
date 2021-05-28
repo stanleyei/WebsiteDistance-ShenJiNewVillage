@@ -3,6 +3,7 @@ new fullpage('main', {
 	//options here
 	autoScrolling:true,
 	scrollHorizontally: true,
+  scrollBar:true,
 });
 
 //Swiper輪播套件
