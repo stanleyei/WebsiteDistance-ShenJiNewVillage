@@ -40,7 +40,7 @@ h2 {
         img {
             margin-right: 30px;
         }
-        
+
         &.complete {
             opacity: 0;
         }
@@ -76,47 +76,50 @@ h2 {
     position: relative;
     border: 20px solid $main-color;
 
-    @keyframes fadeout {
-        0% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 1;
-        }
-    }
-
-    .container {
-        @include size(80vw, 76vh);
+    .effect-area {
         transition: 1s ease-in-out;
         animation: fadeout 2s;
-
-        .news-title {
-            position: relative;
-            padding-left: 60px;
-
-            &::before {
-                @extend %title-cube;
-                @include size(60px, 60px);
-                transform: translate(-50px, -20px);
-                z-index: -1;
+        
+        @keyframes fadeout {
+            0% {
+                opacity: 0;
             }
 
-            h2 {
-                @include font($h1, start);
-                letter-spacing: 0.3em;
+            100% {
+                opacity: 1;
             }
+        }
 
-            span {
-                @include font($h5);
-                letter-spacing: 0.1em;
+        .container {
+            @include size(80vw, 76vh);
+
+            .news-title {
+                position: relative;
+                padding-left: 60px;
 
                 &::before {
-                    content: 'News';
-                    position: absolute;
-                    left: 0;
-                    transform: translate(-15%, -80%) rotate(90deg);
+                    @extend %title-cube;
+                    @include size(60px, 60px);
+                    transform: translate(-50px, -20px);
+                    z-index: -1;
+                }
+
+                h2 {
+                    @include font($h1, start);
+                    letter-spacing: 0.3em;
+                }
+
+                span {
+                    @include font($h5);
                     letter-spacing: 0.1em;
+
+                    &::before {
+                        content: 'News';
+                        position: absolute;
+                        left: 0;
+                        transform: translate(-15%, -80%) rotate(90deg);
+                        letter-spacing: 0.1em;
+                    }
                 }
             }
         }

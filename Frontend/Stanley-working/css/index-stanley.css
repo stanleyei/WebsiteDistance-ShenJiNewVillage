@@ -1,4 +1,4 @@
-.news .container .news-title::before, .about-us .container .about-us-title::before {
+.news .effect-area .container .news-title::before, .about-us .container .about-us-title::before {
   content: '';
   position: absolute;
   background: #D28E76;
@@ -107,6 +107,13 @@ h2 {
   border: 20px solid #54291c;
 }
 
+.news .effect-area {
+  -webkit-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+  -webkit-animation: fadeout 2s;
+          animation: fadeout 2s;
+}
+
 @-webkit-keyframes fadeout {
   0% {
     opacity: 0;
@@ -125,21 +132,17 @@ h2 {
   }
 }
 
-.news .container {
+.news .effect-area .container {
   width: 80vw;
   height: 76vh;
-  -webkit-transition: 1s ease-in-out;
-  transition: 1s ease-in-out;
-  -webkit-animation: fadeout 2s;
-          animation: fadeout 2s;
 }
 
-.news .container .news-title {
+.news .effect-area .container .news-title {
   position: relative;
   padding-left: 60px;
 }
 
-.news .container .news-title::before {
+.news .effect-area .container .news-title::before {
   width: 60px;
   height: 60px;
   -webkit-transform: translate(-50px, -20px);
@@ -147,21 +150,21 @@ h2 {
   z-index: -1;
 }
 
-.news .container .news-title h2 {
+.news .effect-area .container .news-title h2 {
   font-size: 2.8125rem;
   text-align: start;
   line-height: inherit;
   letter-spacing: 0.3em;
 }
 
-.news .container .news-title span {
+.news .effect-area .container .news-title span {
   font-size: 1.5rem;
   text-align: center;
   line-height: inherit;
   letter-spacing: 0.1em;
 }
 
-.news .container .news-title span::before {
+.news .effect-area .container .news-title span::before {
   content: 'News';
   position: absolute;
   left: 0;
