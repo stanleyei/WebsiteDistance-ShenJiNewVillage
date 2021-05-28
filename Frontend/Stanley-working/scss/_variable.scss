@@ -62,3 +62,11 @@ $h10:0.75rem;   //12px
     background: $title-bg;
     border-radius: 5px;
 };
+
+%title-vertical-text{
+    content: '';
+    position: absolute;
+    left: 0;
+    transform: translate(-15%, -80%) rotate(90deg);
+    letter-spacing: 0.1em;
+}
