@@ -23,5 +23,3 @@ let swiper = new Swiper(".aboutUsSwiper", {
     prevEl: ".swiper-button-prev",
   },
 });
-
-
