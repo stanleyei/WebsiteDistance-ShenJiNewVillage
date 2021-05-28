@@ -10,9 +10,9 @@ let swiper = new Swiper(".aboutUsSwiper", {
   speed: 2500,
   autoplay: {
     delay: 2500,
-    disableOnInteraction: true,
+    disableOnInteraction: false,
     waitForTransition: false,
-    pauseOnMouseEnter: true,
+    // pauseOnMouseEnter: true,
   },
   pagination: {
     el: ".swiper-pagination",
