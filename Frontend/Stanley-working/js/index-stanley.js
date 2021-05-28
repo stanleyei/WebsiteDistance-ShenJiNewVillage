@@ -1,9 +1,11 @@
+//fullpage卷軸套件
 new fullpage('main', {
 	//options here
 	autoScrolling:true,
 	scrollHorizontally: true,
 });
 
+//Swiper輪播套件
 let swiper = new Swiper(".aboutUsSwiper", {
   slidesPerView: 1,
   spaceBetween: 30,
@@ -18,7 +20,6 @@ let swiper = new Swiper(".aboutUsSwiper", {
     delay: 2500,
     disableOnInteraction: false,
     waitForTransition: false,
-    // pauseOnMouseEnter: true,
   },
   pagination: {
     el: ".swiper-pagination",
