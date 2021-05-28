@@ -1,3 +1,9 @@
+new fullpage('main', {
+	//options here
+	autoScrolling:true,
+	scrollHorizontally: true,
+});
+
 let swiper = new Swiper(".aboutUsSwiper", {
   slidesPerView: 1,
   spaceBetween: 30,
@@ -23,11 +29,3 @@ let swiper = new Swiper(".aboutUsSwiper", {
     prevEl: ".swiper-button-prev",
   },
 });
-
-// new fullpage('main', {
-// 	//options here
-// 	autoScrolling:true,
-// 	scrollHorizontally: true
-// });
-
-// fullpage_api.setAllowScrolling(false);

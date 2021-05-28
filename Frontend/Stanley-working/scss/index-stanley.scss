@@ -28,6 +28,12 @@ h2 {
     right: 50px;
 }
 
+.fp-tableCell {
+    @include flex();
+    height: calc(100vh - 40px) !important;
+    display: flex !important;
+}
+
 .loading-page {
     @include size(100%, 100vh);
     @include flex();
@@ -129,10 +135,8 @@ h2 {
 
 .about-us {
     @include size(100%, 100vh);
-    @include flex();
     position: relative;
     border: 20px solid $main-color;
-    transition: 1s ease-in-out;
 
     .about-us-container {
         @include size(80vw, 68vh);
@@ -209,7 +213,7 @@ h2 {
                     top: 50%;
                     left: -70px;
 
-                    &::after{
+                    &::after {
                         @include size(100%, 100%);
                         content: '';
                         background-image: url(../img/aboutUs-swiper-left.png);
@@ -245,4 +249,5 @@ h2 {
             }
         }
     }
+
 }
