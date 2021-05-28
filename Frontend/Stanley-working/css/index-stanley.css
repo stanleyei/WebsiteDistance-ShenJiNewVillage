@@ -1,4 +1,4 @@
-.news .effect-area .container .news-title::before, .about-us .container .about-us-title::before {
+.news .effect-area .news-container .news-title::before, .about-us .about-us-container .about-us-title::before {
   content: '';
   position: absolute;
   background: #D28E76;
@@ -135,17 +135,17 @@ h2 {
   }
 }
 
-.news .effect-area .container {
+.news .effect-area .news-container {
   width: 80vw;
   height: 76vh;
 }
 
-.news .effect-area .container .news-title {
+.news .effect-area .news-container .news-title {
   position: relative;
   padding-left: 60px;
 }
 
-.news .effect-area .container .news-title::before {
+.news .effect-area .news-container .news-title::before {
   width: 60px;
   height: 60px;
   -webkit-transform: translate(-50px, -20px);
@@ -153,21 +153,21 @@ h2 {
   z-index: -1;
 }
 
-.news .effect-area .container .news-title h2 {
+.news .effect-area .news-container .news-title h2 {
   font-size: 2.8125rem;
   text-align: start;
   line-height: inherit;
   letter-spacing: 0.3em;
 }
 
-.news .effect-area .container .news-title span {
+.news .effect-area .news-container .news-title span {
   font-size: 1.5rem;
   text-align: center;
   line-height: inherit;
   letter-spacing: 0.1em;
 }
 
-.news .effect-area .container .news-title span::before {
+.news .effect-area .news-container .news-title span::before {
   content: 'News';
   position: absolute;
   left: 0;
@@ -194,17 +194,17 @@ h2 {
   transition: 1s ease-in-out;
 }
 
-.about-us .container {
+.about-us .about-us-container {
   width: 80vw;
   height: 68vh;
 }
 
-.about-us .container .about-us-title {
+.about-us .about-us-container .about-us-title {
   position: relative;
   padding-left: 60px;
 }
 
-.about-us .container .about-us-title::before {
+.about-us .about-us-container .about-us-title::before {
   width: 60px;
   height: 60px;
   -webkit-transform: translate(-50px, -20px);
@@ -212,21 +212,21 @@ h2 {
   z-index: -1;
 }
 
-.about-us .container .about-us-title h2 {
+.about-us .about-us-container .about-us-title h2 {
   font-size: 2.8125rem;
   text-align: start;
   line-height: inherit;
   letter-spacing: 0.3em;
 }
 
-.about-us .container .about-us-title span {
+.about-us .about-us-container .about-us-title span {
   font-size: 1.5rem;
   text-align: center;
   line-height: inherit;
   letter-spacing: 0.1em;
 }
 
-.about-us .container .about-us-title span::before {
+.about-us .about-us-container .about-us-title span::before {
   content: 'About';
   position: absolute;
   left: 0;
@@ -235,7 +235,7 @@ h2 {
   letter-spacing: 0.1em;
 }
 
-.about-us .container article {
+.about-us .about-us-container article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -250,13 +250,13 @@ h2 {
   position: relative;
 }
 
-.about-us .container article .about-us-swiper {
+.about-us .about-us-container article .about-us-swiper {
   width: 52vw;
   height: 100%;
   overflow: hidden;
 }
 
-.about-us .container article .about-us-swiper .swiper-slide {
+.about-us .about-us-container article .about-us-swiper .swiper-slide {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -268,7 +268,7 @@ h2 {
           align-items: center;
 }
 
-.about-us .container article .about-us-swiper .swiper-slide .img {
+.about-us .about-us-container article .about-us-swiper .swiper-slide .img {
   width: 39vw;
   height: 78%;
   display: block;
@@ -280,7 +280,7 @@ h2 {
           filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.about-us .container article .about-us-swiper .swiper-button-next {
+.about-us .about-us-container article .about-us-swiper .swiper-button-next {
   width: 50px;
   height: 50px;
   position: absolute;
@@ -288,7 +288,7 @@ h2 {
   left: 40vw;
 }
 
-.about-us .container article .about-us-swiper .swiper-button-next::after {
+.about-us .about-us-container article .about-us-swiper .swiper-button-next::after {
   width: 100%;
   height: 100%;
   content: '';
@@ -296,7 +296,7 @@ h2 {
   font-family: none;
 }
 
-.about-us .container article .about-us-swiper .swiper-button-prev {
+.about-us .about-us-container article .about-us-swiper .swiper-button-prev {
   width: 50px;
   height: 50px;
   position: absolute;
@@ -304,7 +304,7 @@ h2 {
   left: -70px;
 }
 
-.about-us .container article .about-us-swiper .swiper-button-prev::after {
+.about-us .about-us-container article .about-us-swiper .swiper-button-prev::after {
   width: 100%;
   height: 100%;
   content: '';
@@ -312,16 +312,16 @@ h2 {
   font-family: none;
 }
 
-.about-us .container article .about-us-swiper .swiper-pagination {
+.about-us .about-us-container article .about-us-swiper .swiper-pagination {
   bottom: 2vh;
   left: -21vw;
 }
 
-.about-us .container article .about-us-swiper .swiper-pagination span {
+.about-us .about-us-container article .about-us-swiper .swiper-pagination span {
   background-color: #D28E76;
 }
 
-.about-us .container article .about-us-content {
+.about-us .about-us-container article .about-us-content {
   width: 32vw;
   height: 100%;
   display: -webkit-box;
@@ -339,14 +339,14 @@ h2 {
           flex-direction: column;
 }
 
-.about-us .container article .about-us-content h3 {
+.about-us .about-us-container article .about-us-content h3 {
   font-size: 2.25rem;
   text-align: start;
   line-height: inherit;
   letter-spacing: 0.3em;
 }
 
-.about-us .container article .about-us-content p {
+.about-us .about-us-container article .about-us-content p {
   width: 100%;
   height: 300px;
   font-size: 1.5rem;

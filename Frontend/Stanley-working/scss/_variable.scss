@@ -48,12 +48,10 @@ $h10:0.75rem;   //12px
     line-height: $lh;
 };
 
-@mixin position($tp:0, $bt:0, $lf:0, $rg:0, $tx:-50%, $ty:-50%) {
+@mixin position($tp:0, $lf:0, $tx:-50%, $ty:-50%) {
     position: absolute;
     top:$tp;
-    bottom: $bt;
     left:$lf;
-    right: $rg;
     transform: translate($tx,$ty);
 }
 

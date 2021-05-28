@@ -23,3 +23,11 @@ let swiper = new Swiper(".aboutUsSwiper", {
     prevEl: ".swiper-button-prev",
   },
 });
+
+// new fullpage('main', {
+// 	//options here
+// 	autoScrolling:true,
+// 	scrollHorizontally: true
+// });
+
+// fullpage_api.setAllowScrolling(false);
