@@ -34,9 +34,10 @@ h2 {
     position: relative;
     flex-direction: column;
     border: 20px solid $main-color;
-    transition: 1s ease-in-out;
 
     .container {
+        transition: 1s ease-in-out;
+
         img {
             margin-right: 30px;
         }

@@ -52,6 +52,9 @@ h2 {
       -ms-flex-direction: column;
           flex-direction: column;
   border: 20px solid #54291c;
+}
+
+.loading-page .container {
   -webkit-transition: 1s ease-in-out;
   transition: 1s ease-in-out;
 }
