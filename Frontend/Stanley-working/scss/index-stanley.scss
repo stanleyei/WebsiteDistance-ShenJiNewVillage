@@ -121,11 +121,8 @@ h2 {
                     letter-spacing: 0.1em;
 
                     &::before {
+                        @extend %title-vertical-text;
                         content: 'News';
-                        position: absolute;
-                        left: 0;
-                        transform: translate(-15%, -80%) rotate(90deg);
-                        letter-spacing: 0.1em;
                     }
                 }
             }
@@ -162,11 +159,8 @@ h2 {
                 letter-spacing: 0.1em;
 
                 &::before {
+                    @extend %title-vertical-text;
                     content: 'About';
-                    position: absolute;
-                    left: 0;
-                    transform: translate(-15%, -80%) rotate(90deg);
-                    letter-spacing: 0.1em;
                 }
             }
         }
@@ -195,9 +189,7 @@ h2 {
 
                 .swiper-button-next {
                     @include size(50px, 50px);
-                    position: absolute;
-                    top: 50%;
-                    left: 40vw;
+                    @include position(50%, 40vw, 0, 0);
 
                     &::after {
                         @include size(100%, 100%);
@@ -209,9 +201,7 @@ h2 {
 
                 .swiper-button-prev {
                     @include size(50px, 50px);
-                    position: absolute;
-                    top: 50%;
-                    left: -70px;
+                    @include position(50%, -70px, 0, 0);
 
                     &::after {
                         @include size(100%, 100%);

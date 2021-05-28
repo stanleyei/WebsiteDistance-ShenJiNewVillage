@@ -5,6 +5,15 @@
   border-radius: 5px;
 }
 
+.news .effect-area .news-container .news-title span::before, .about-us .about-us-container .about-us-title span::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  -webkit-transform: translate(-15%, -80%) rotate(90deg);
+          transform: translate(-15%, -80%) rotate(90deg);
+  letter-spacing: 0.1em;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -183,11 +192,6 @@ h2 {
 
 .news .effect-area .news-container .news-title span::before {
   content: 'News';
-  position: absolute;
-  left: 0;
-  -webkit-transform: translate(-15%, -80%) rotate(90deg);
-          transform: translate(-15%, -80%) rotate(90deg);
-  letter-spacing: 0.1em;
 }
 
 .about-us {
@@ -231,11 +235,6 @@ h2 {
 
 .about-us .about-us-container .about-us-title span::before {
   content: 'About';
-  position: absolute;
-  left: 0;
-  -webkit-transform: translate(-15%, -80%) rotate(90deg);
-          transform: translate(-15%, -80%) rotate(90deg);
-  letter-spacing: 0.1em;
 }
 
 .about-us .about-us-container article {
@@ -289,6 +288,8 @@ h2 {
   position: absolute;
   top: 50%;
   left: 40vw;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
 }
 
 .about-us .about-us-container article .about-us-swiper .swiper-button-next::after {
@@ -305,6 +306,8 @@ h2 {
   position: absolute;
   top: 50%;
   left: -70px;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
 }
 
 .about-us .about-us-container article .about-us-swiper .swiper-button-prev::after {
