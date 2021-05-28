@@ -9,7 +9,7 @@ let swiper = new Swiper(".aboutUsSwiper", {
   mousewheel: true,
   speed: 2500,
   autoplay: {
-    delay: 4000,
+    delay: 2500,
     disableOnInteraction: true,
     waitForTransition: false,
     pauseOnMouseEnter: true,

@@ -80,7 +80,7 @@ h2 {
     .effect-area {
         transition: 1s ease-in-out;
         animation: fadeout 2s;
-        
+
         @keyframes fadeout {
             0% {
                 opacity: 0;
@@ -170,6 +170,7 @@ h2 {
         article {
             @include flex();
             @include size(100%, 87%);
+            position: relative;
 
             .about-us-swiper {
                 @include size(52vw, 100%);
@@ -188,29 +189,37 @@ h2 {
                     }
                 }
 
-                .swiper-button-next::after {
+                .swiper-button-next {
                     @include size(50px, 50px);
-                    content: '';
                     position: absolute;
-                    top: 45px;
-                    right: 46vw;
-                    background-image: url(../img/aboutUs-swiper-right.png);
-                    font-family: none;
+                    top: 50%;
+                    left: 40vw;
+
+                    &::after {
+                        @include size(100%, 100%);
+                        content: '';
+                        background-image: url(../img/aboutUs-swiper-right.png);
+                        font-family: none;
+                    }
                 }
 
-                .swiper-button-prev::after {
+                .swiper-button-prev {
                     @include size(50px, 50px);
-                    content: '';
                     position: absolute;
-                    top: 45px;
-                    left: 5vw;
-                    background-image: url(../img/aboutUs-swiper-left.png);
-                    font-family: none;
+                    top: 50%;
+                    left: -70px;
+
+                    &::after{
+                        @include size(100%, 100%);
+                        content: '';
+                        background-image: url(../img/aboutUs-swiper-left.png);
+                        font-family: none;
+                    }
                 }
 
                 .swiper-pagination {
-                    bottom: 18vh;
-                    left: -20vw;
+                    bottom: 2vh;
+                    left: -21vw;
 
                     span {
                         background-color: $title-bg;
