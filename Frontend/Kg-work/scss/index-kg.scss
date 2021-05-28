@@ -25,7 +25,7 @@ header{
     background-color: $nav-bg;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2) ;
+    box-shadow: 0 5px 15px;
     transition: 1s;
 
     ul{
@@ -42,6 +42,10 @@ header{
 
                &:hover{
                    background-color: #efefef;
+
+                   a{
+                       color:$nav-bg;
+                   }
                }
 
                a{
@@ -81,14 +85,14 @@ header{
 }
 .toggle{
     position: absolute;
-    right: -10px;
+    right: 0;
     top:calc(50% - 20px);
     width: 40px;
     height: 40px;
-    background: #f5f5f5;
+    background:  none;
     cursor: pointer;
-    border: 5px solid  $nav-bg;
-    border-radius: 50%;
+    border-right: 5px solid  $nav-bg;
+   
 
      &::before{
          content: ">";
@@ -98,7 +102,7 @@ header{
          line-height: 30px;
          text-align: center;
          font-size: 16px;
-         color: #6843d6;
+         color:  $body-bg;
 
      }
 }
