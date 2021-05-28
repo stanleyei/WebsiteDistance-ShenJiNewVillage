@@ -91,7 +91,7 @@ h2 {
             }
         }
 
-        .container {
+        .news-container {
             @include size(80vw, 76vh);
 
             .news-title {
@@ -134,7 +134,7 @@ h2 {
     border: 20px solid $main-color;
     transition: 1s ease-in-out;
 
-    .container {
+    .about-us-container {
         @include size(80vw, 68vh);
 
         .about-us-title {
