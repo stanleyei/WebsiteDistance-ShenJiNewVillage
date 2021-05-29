@@ -266,6 +266,7 @@ footer{
             }
 
             .inf-detil{
+                @include font($h6, start, 30px, 0.15em);
                 padding-left: 28px;
             }
 
@@ -275,18 +276,18 @@ footer{
 
                 .date-box{
                     @include flex(start, start);
+                    @include font($h6, center, 30px, 0.15em);
 
                     .date-box{
                         @include size(80px, 40px);
                         @include flex();
-                        @include font($h6, center, 30px, 0.15em);
                         border: $footer-text 1px solid;
                         border-radius: 60px;
                     }
 
                     span{
                         @include size(60px, 40px);
-                        @include font($h6, center, 40px, 0.15em);
+                        line-height: 40px;
                     }
                 }
 
