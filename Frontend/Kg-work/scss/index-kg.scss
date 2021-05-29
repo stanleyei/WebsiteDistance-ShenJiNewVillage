@@ -19,11 +19,13 @@ header {
     min-height: 100vh;
     // background-color: $body-bg;
     position: fixed;
+    
 
 
     .container {
         width: 100%;
         position: relative;
+        
 
     }
 }
@@ -31,7 +33,9 @@ header {
 .nav {
 
     position: relative;
-    width: 15px;
+    // @include flex($jc:flex-end);
+    // width:15;
+
     height: 80vh;
     background-color: $nav-bg;
     border-radius: 10px;
@@ -43,8 +47,10 @@ header {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(0%, -50%);
+        transform: translate(-30%, -50%);
         width: 100%;
+        z-index: 20;
+       
 
         li {
             position: relative;
@@ -62,7 +68,7 @@ header {
             a {
                 position: relative;
                 display: block;
-                width: 100%;
+                width: 50%;
                 display: flex;
                 //    flex-wrap: wrap;
                 text-decoration: none;
@@ -74,8 +80,8 @@ header {
                     position: relative;
                     display: block;
                     min-width: 40px;
-                    height: 80px;
-                    line-height: 60px;
+                    height: 40px;
+                    line-height: 40px;
                     text-align: center;
 
                 }
@@ -83,8 +89,8 @@ header {
                 .title {
                     position: relative;
                     display: block;
-                    height: 80px;
-                    line-height: 60px;
+                    height: 40px;
+                    line-height: 40px;
                     white-space: nowrap;
                 }
 
@@ -102,7 +108,14 @@ header {
 
                     a {
                         width: 300px;
-                        height: 40px;
+                        height: 30px;
+                      
+                        .icon{
+                            line-height: 30px;
+                          }
+                          .title{
+                            line-height: 30px;
+                          }
                     }
                 }
 
@@ -215,11 +228,9 @@ header {
                 letter-spacing: 0.1em;
 
                 &::before {
+                    @extend %title-vertical-text;
                     content: 'About';
-                    position: absolute;
-                    left: 0;
-                    transform: translate(-15%, -80%) rotate(90deg);
-                    letter-spacing: 0.1em;
+                    
                 }
             }
         }
