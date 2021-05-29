@@ -1,0 +1,9 @@
+- 對group_web資料夾**點擊右鍵**>Open in Integrated Terminal
+- **下指令** composer install
+- **下指令** npm install
+- 複製 .env.example 更名成 .env
+- **下指令** php artisan generate:key
+- **開啟**MySQL
+- 在資料庫**新增**一個名稱group_web的資料庫
+- **下指令** php artisan migrate
+- **下指令** php artisan storage:link
