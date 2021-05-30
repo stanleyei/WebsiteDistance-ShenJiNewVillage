@@ -28,6 +28,20 @@ h2 {
     right: 50px;
 }
 
+#goTopButton{
+    @include size(80px, 80px);
+    @include font($h6, center, 40px);
+    border-radius: 50%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: $footer-text;
+    color: $footer-bg;
+
+    &::after{
+        @include position(55%, 50%);
+        content: 'Top';
+    }
+}
+
 .loading-page {
     @include size(100%, 100vh);
     @include flex();
@@ -268,6 +282,10 @@ footer{
             .inf-detil{
                 @include font($h6, start, 30px, 0.15em);
                 padding-left: 28px;
+
+                & > div:nth-child(2){
+                    padding-left: 60.5px;
+                }
             }
 
             .open-detil{
@@ -297,9 +315,13 @@ footer{
                     padding-top: 13px;
                 }
             }
+
+            .fb-page{
+                margin-top: 27px;
+            }
         }
 
-        p{
+        > p{
             @include font($h6, center, 30px, 0.05em);
         }
     }

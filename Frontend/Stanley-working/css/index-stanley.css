@@ -43,6 +43,29 @@ h2 {
   right: 50px;
 }
 
+#goTopButton {
+  width: 80px;
+  height: 80px;
+  font-size: 1.375rem;
+  text-align: center;
+  line-height: 40px;
+  letter-spacing: 0.1em;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #ffffff;
+  color: #596E79;
+}
+
+#goTopButton::after {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  content: 'Top';
+}
+
 .loading-page {
   width: 100%;
   height: 100vh;
@@ -429,6 +452,10 @@ footer .footer-container article .inf-detil {
   padding-left: 28px;
 }
 
+footer .footer-container article .inf-detil > div:nth-child(2) {
+  padding-left: 60.5px;
+}
+
 footer .footer-container article .open-detil {
   width: 238px;
   height: 100%;
@@ -490,7 +517,11 @@ footer .footer-container article .open-detil time {
   padding-top: 13px;
 }
 
-footer .footer-container p {
+footer .footer-container article .fb-page {
+  margin-top: 27px;
+}
+
+footer .footer-container > p {
   font-size: 1.375rem;
   text-align: center;
   line-height: 30px;
