@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\ShopImg;
-use App\Shop;
+use App\View;
+use App\ViewImg;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
-class ShopImgController extends Controller
+class ViewImgController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class ShopImgController extends Controller
      */
     public function index()
     {
-        $data = ShopImg::with('shop')->get();
-        return view('admin/shop_img/index', compact('data'));
+        $data = ViewImg::with('view')->get();
+        return view('admin/view_img/index', compact('data'));
     }
 
     /**
@@ -28,9 +28,9 @@ class ShopImgController extends Controller
      */
     public function create()
     {
-        $shop = Shop::get();;
-        $data = ShopImg::with('shop')->get();
-        return view('admin/shop_img/create', compact('data', 'shop'));
+        $view = View::get();;
+        $data = ViewImg::with('view')->get();
+        return view('admin/view_img/create', compact('data', 'view'));
     }
 
     /**
@@ -50,18 +50,18 @@ class ShopImgController extends Controller
             $path = $local->putFile('public', $file);
             $data['img'] = $local->url($path);
         }
-        $mainData = ShopImg::create($data);
+        $mainData = ViewImg::create($data);
 
-        return redirect()->route('shop_img.index');
+        return redirect()->route('view_img.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\ShopImg  $shopImg
+     * @param  \App\ViewImg  $viewImg
      * @return \Illuminate\Http\Response
      */
-    public function show(ShopImg $shopImg)
+    public function show(ViewImg $viewImg)
     {
         //
     }
@@ -69,27 +69,27 @@ class ShopImgController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ShopImg  $shopImg
+     * @param  \App\ViewImg  $viewImg
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $shop = Shop::get();;
-        $data = ShopImg::find($id);
-        return view('admin/shop_img/edit', compact('data', 'shop'));
+        $view = View::get();;
+        $data = ViewImg::find($id);
+        return view('admin/view_img/edit', compact('data', 'view'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ShopImg  $shopImg
+     * @param  \App\ViewImg  $viewImg
      * @return \Illuminate\Http\Response
      */
     public function update($id, Request $request)
     {
         $data = $request->all();
-        $dbData = ShopImg::find($id);
+        $dbData = ViewImg::find($id);
         if ($request->hasFile('img')) {
             $myfile = Storage::disk('local');
             $file = $request->file('img');
@@ -103,41 +103,40 @@ class ShopImgController extends Controller
         }
         $dbData->update($data);
 
-        return redirect()->route('shop_img.index');
+        return redirect()->route('view_img.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ShopImg  $shopImg
+     * @param  \App\ViewImg  $viewImg
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $dbData = ShopImg::find($id);
+        $dbData = ViewImg::find($id);
 
         if (isset($dbData->img)) {
             // 刪除Info圖片檔案
             File::delete(public_path($dbData->img));
         }
         // 資料庫刪除該筆資料
-        $result = ShopImg::destroy($id);
+        $result = ViewImg::destroy($id);
 
         return $result;
     }
 
     public function indexDataTable()
     {
-        $response = ShopImg::all();
+        $response = ViewImg::all();
 
         $data = [];
 
         foreach ($response as $i) {
             $data[] = [
-                'info_id' => $i->shop->name,
-                'content' => $i->content,
+                'view_id' => $i->view->name,
                 'img' => "<div class='show-img' style='background-image: url({$i->img})'></div>",
-                'editBtn' => "<a href='/admin/shop_img/{$i->id}/edit'><button class='btn btn-primary btn-edit'>編輯</button></a>",
+                'editBtn' => "<a href='/admin/view_img/{$i->id}/edit'><button class='btn btn-primary btn-edit'>編輯</button></a>",
                 'destroyBtn' => "<button class='btn btn-danger btn-destroy' onclick='destroyBtnFunction({$i->id})''>刪除</button>",
             ];
         }

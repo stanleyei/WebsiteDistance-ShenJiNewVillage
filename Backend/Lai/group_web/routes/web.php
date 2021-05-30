@@ -27,9 +27,19 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         'info_types' => 'InfoTypesController',
         'info' => 'InfoController',
         'info_img' => 'InfoImgController',
+
         'shop_type' => 'ShopTypeController',
         'shop' => 'ShopController',
         'shop_img' => 'ShopImgController',
+
+        'slider' => 'SliderController',
+
+        'view' => 'ViewController',
+        'view_img' => 'ViewImgController',
+
+        'contact_type' => 'ContactTypeController',
+        'contact' => 'ContactController',
+        'contact_content_type' => 'ContactContentTypeController',
     ]);
     Route::post('/info_types_data', 'InfoTypesController@indexDataTable')->name('info_types.data');
     Route::post('/info_data', 'InfoController@indexDataTable')->name('info.data');
@@ -38,6 +48,15 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::post('/shop_type_data', 'ShopTypeController@indexDataTable')->name('shop_type.data');
     Route::post('/shop_data', 'ShopController@indexDataTable')->name('shop.data');
     Route::post('/shop_img_data', 'ShopImgController@indexDataTable')->name('shop_img.data');
+
+    Route::post('/slider_data', 'SliderController@indexDataTable')->name('slider.data');
+
+    Route::post('/view_data', 'ViewController@indexDataTable')->name('view.data');
+    Route::post('/view_img_data', 'ViewImgController@indexDataTable')->name('view_img.data');
+
+    Route::post('/contact_type_data', 'ContactTypeController@indexDataTable')->name('contact_type.data');
+    Route::post('/contact_data', 'ContactController@indexDataTable')->name('contact.data');
+    Route::post('/contact_content_type_data', 'ContactContentTypeController@indexDataTable')->name('contact_content_type.data');
 });
 
 Route::get('/test', 'AdminController@test')->name('test');

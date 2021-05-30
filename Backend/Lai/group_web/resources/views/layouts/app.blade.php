@@ -77,16 +77,25 @@
 
                         {{-- Slider欄位 --}}
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{route('slider.index')}}">
                                 Slider<span class="caret"></span>
                             </a>
                         </li>
 
                         {{-- 景點欄位 --}}
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 景點<span class="caret"></span>
                             </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{route('view.index')}}">
+                                    景點列表
+                                </a>
+                                <a class="dropdown-item" href="{{route('view_img.index')}}">
+                                    景點圖片
+                                </a>
+                            </div>
                         </li>
 
                         {{-- 連絡欄位 --}}
@@ -96,13 +105,13 @@
                                 連絡資料<span class="caret"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="{{route('contact_type.index')}}">
                                     連絡類型
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="{{route('contact.index')}}">
                                     連絡列表
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="{{route('contact_content_type.index')}}">
                                     連絡內容類型
                                 </a>
                             </div>

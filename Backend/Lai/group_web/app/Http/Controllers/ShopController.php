@@ -77,7 +77,7 @@ class ShopController extends Controller
     public function edit($id)
     {
         $type = ShopType::get();;
-        $data = Shop::find($id);
+        $data = Shop::with('shopImgs')->find($id);
         return view('admin/shop/edit', compact('data', 'type'));
     }
 

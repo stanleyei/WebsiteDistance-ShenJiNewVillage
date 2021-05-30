@@ -52,6 +52,10 @@
     - time_open
     - time_close
 
+* view_img
+    - view_id
+    - img
+
 * contact_type  **連絡類型**
     - name
         - 加入審計

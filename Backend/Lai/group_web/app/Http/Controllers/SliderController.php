@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Slider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class SliderController extends Controller
 {
@@ -14,7 +16,8 @@ class SliderController extends Controller
      */
     public function index()
     {
-        //
+        $data = Slider::get();
+        return view('admin/slider/index', compact('data'));
     }
 
     /**
@@ -24,7 +27,8 @@ class SliderController extends Controller
      */
     public function create()
     {
-        //
+        $data = Slider::get();
+        return view('admin/slider/create', compact('data'));
     }
 
     /**
@@ -35,7 +39,18 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        if ($request->hasFile('img')) {
+            $local = Storage::disk('local');
+
+            $file = $request->file('img');
+            $path = $local->putFile('public', $file);
+            $data['img'] = $local->url($path);
+        }
+        $mainData = Slider::create($data);
+
+        return redirect()->route('slider.index');
     }
 
     /**
@@ -55,9 +70,10 @@ class SliderController extends Controller
      * @param  \App\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function edit(Slider $slider)
+    public function edit($id)
     {
-        //
+        $data = Slider::find($id);
+        return view('admin/slider/edit', compact('data'));
     }
 
     /**
@@ -67,9 +83,24 @@ class SliderController extends Controller
      * @param  \App\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Slider $slider)
+    public function update($id, Request $request)
     {
-        //
+        $data = $request->all();
+        $dbData = Slider::find($id);
+        if ($request->hasFile('img')) {
+            $myfile = Storage::disk('local');
+            $file = $request->file('img');
+            $path = $myfile->putFile('public', $file);
+            $data['img'] = $myfile->url($path);
+            // 刪掉之前的圖片檔案
+            File::delete(public_path($dbData->img));
+        }else{
+            // 沒改放舊圖
+            $data['img'] = $dbData->img;
+        }
+        $dbData->update($data);
+
+        return redirect()->route('slider.index');
     }
 
     /**
@@ -78,8 +109,38 @@ class SliderController extends Controller
      * @param  \App\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Slider $slider)
+    public function destroy($id)
     {
-        //
+        $dbData = Slider::find($id);
+
+        if (isset($dbData->img)) {
+            // 刪除Shop圖片檔案
+            File::delete(public_path($dbData->img));
+        }
+        // 資料庫刪除該筆資料
+        $result = Slider::destroy($id);
+
+        return $result;
+    }
+
+    public function indexDataTable()
+    {
+        $response = Slider::all();
+
+        $data = [];
+
+        foreach ($response as $i) {
+            $data[] = [
+                'name' => $i->name,
+                'img' => "<div class='show-img' style='background-image: url({$i->img})'></div>",
+                'content' => $i->content,
+                'editBtn' => "<a href='/admin/slider/{$i->id}/edit'><button class='btn btn-primary btn-edit'>編輯</button></a>",
+                'destroyBtn' => "<button class='btn btn-danger btn-destroy' onclick='destroyBtnFunction({$i->id})''>刪除</button>",
+            ];
+        }
+
+        $data = ['data' => $data];
+
+        return $data;
     }
 }

@@ -13,8 +13,8 @@ class View extends Model
     // {
     //     return $this->hasOne('App\ProductType', 'id', 'type_id');
     // }
-    // public function productImgs()
-    // {
-    //     return $this->hasMany('App\ProductImg', 'product_id', 'id');
-    // }
+    public function viewImgs()
+    {
+        return $this->hasMany('App\ViewImg', 'view_id', 'id');
+    }
 }
