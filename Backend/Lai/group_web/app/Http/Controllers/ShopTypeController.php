@@ -14,7 +14,8 @@ class ShopTypeController extends Controller
      */
     public function index()
     {
-        //
+        $data = ShopType::get();
+        return view('admin/shop_type/index', compact('data'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ShopTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/shop_type/create');
     }
 
     /**
@@ -35,7 +36,8 @@ class ShopTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ShopType::create($request->all());
+        return redirect()->route('shop_type.index');
     }
 
     /**
@@ -55,9 +57,10 @@ class ShopTypeController extends Controller
      * @param  \App\ShopType  $shopType
      * @return \Illuminate\Http\Response
      */
-    public function edit(ShopType $shopType)
+    public function edit($id)
     {
-        //
+        $data = ShopType::find($id);
+        return view('admin/shop_type/edit', compact('data'));
     }
 
     /**
@@ -67,9 +70,10 @@ class ShopTypeController extends Controller
      * @param  \App\ShopType  $shopType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ShopType $shopType)
+    public function update(Request $request, $id)
     {
-        //
+        ShopType::find($id)->update($request->all());
+        return redirect()->route('shop_type.index');
     }
 
     /**
@@ -78,8 +82,29 @@ class ShopTypeController extends Controller
      * @param  \App\ShopType  $shopType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ShopType $shopType)
+    public function destroy($id)
     {
-        //
+        $result = ShopType::destroy($id);
+        return $result;
+    }
+
+    public function indexDataTable()
+    {
+        $response = ShopType::all();
+
+        $data = [];
+
+        foreach ($response as $i) {
+            $data[] = [
+                'name' => $i->name,
+                'shop_count' => count($i->shops),
+                'editBtn' => "<a href='/admin/shop_type/{$i->id}/edit'><button class='btn btn-primary btn-edit'>編輯</button></a>",
+                'destroyBtn' => "<button class='btn btn-danger btn-destroy' onclick='destroyBtnFunction({$i->id})''>刪除</button>",
+            ];
+        }
+
+        $data = ['data' => $data];
+
+        return $data;
     }
 }

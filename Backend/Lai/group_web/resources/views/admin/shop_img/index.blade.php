@@ -2,23 +2,28 @@
 
 @section('css')
 
+<style>
+    .show-img {
+        width: 200px;
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+    }
+</style>
 
 @endsection
 
 @section('main')
 
 <div class="container">
-    <a href="{{route('info.create')}}"><button class="btn btn-success">新增</button></a>
+    <a href="{{route('shop_img.create')}}"><button class="btn btn-success">新增</button></a>
     <hr>
     <table id="ajaxdata" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>類型</th>
-                <th>名稱</th>
+                <th>附屬於</th>
                 <th>內容</th>
-                <th>副圖片數量</th>
-                <th>開始時間</th>
-                <th>結束時間</th>
+                <th>圖片</th>
                 <th>編輯</th>
                 <th>刪除</th>
             </tr>
@@ -36,21 +41,18 @@
     // init datatable
     const dataTable = $('#ajaxdata').DataTable({
         ajax: {
-            url: "/admin/info_data",
+            url: "/admin/shop_img_data",
             type: "POST",
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             dataType: 'json',
         },
-        order: [[ 4, "desc" ]],
+        order: [[ 0, "desc" ]],
         columns: [
-            { data: "type_id" },
-            { data: "name" },
+            { data: "info_id" },
             { data: "content" },
-            { data: "infoImgs" },
-            { data: "date_start" },
-            { data: "date_end" },
+            { data: "img" },
             { data: "editBtn" },
             { data: "destroyBtn" }
         ],
@@ -85,7 +87,7 @@
     });
 
     function destroyBtnFunction(id) {
-        const path = `/admin/info/${id}`
+        const path = `/admin/shop_img/${id}`
         if (confirm(`是否要刪除此筆資料`)) {
             axios.delete(path).then(
                 response=>{

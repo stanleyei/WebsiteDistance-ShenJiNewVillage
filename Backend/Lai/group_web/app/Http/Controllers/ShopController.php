@@ -30,7 +30,9 @@ class ShopController extends Controller
      */
     public function create()
     {
-        //
+        $type = ShopType::get();;
+        $data = Shop::with('shopType', 'shopImgs')->get();
+        return view('admin/shop/create', compact('data', 'type'));
     }
 
     /**
@@ -41,7 +43,18 @@ class ShopController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        // if ($request->hasFile('img')) {
+        //     $local = Storage::disk('local');
+
+        //     $file = $request->file('img');
+        //     $path = $local->putFile('public', $file);
+        //     $data['img'] = $local->url($path);
+        // }
+        $mainData = Shop::create($data);
+
+        return redirect()->route('shop.index');
     }
 
     /**
@@ -61,9 +74,11 @@ class ShopController extends Controller
      * @param  \App\Shop  $shop
      * @return \Illuminate\Http\Response
      */
-    public function edit(Shop $shop)
+    public function edit($id)
     {
-        //
+        $type = ShopType::get();;
+        $data = Shop::find($id);
+        return view('admin/shop/edit', compact('data', 'type'));
     }
 
     /**
@@ -73,9 +88,24 @@ class ShopController extends Controller
      * @param  \App\Shop  $shop
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Shop $shop)
+    public function update($id, Request $request)
     {
-        //
+        $data = $request->all();
+        $dbData = Shop::find($id);
+        // if ($request->hasFile('img')) {
+        //     $myfile = Storage::disk('local');
+        //     $file = $request->file('img');
+        //     $path = $myfile->putFile('public', $file);
+        //     $data['img'] = $myfile->url($path);
+        //     // 刪掉之前的圖片檔案
+        //     File::delete(public_path($dbData->img));
+        // }else{
+        //     // 沒改放舊圖
+        //     $data['img'] = $dbData->img;
+        // }
+        $dbData->update($data);
+
+        return redirect()->route('shop.index');
     }
 
     /**
@@ -84,9 +114,20 @@ class ShopController extends Controller
      * @param  \App\Shop  $shop
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Shop $shop)
+    public function destroy($id)
     {
-        //
+        $dbData = Shop::with('shopType', 'shopImgs')->find($id);
+
+        // if (isset($dbData->img)) {
+        //     // 刪除Shop圖片檔案
+        //     File::delete(public_path($dbData->img));
+        // }
+        // 資料庫刪除該筆資料
+        $result = Shop::destroy($id);
+        // 刪除副圖片檔案、資料庫資料
+        $this->deleteSubImg($id);
+
+        return $result;
     }
 
     public function indexDataTable()
@@ -99,11 +140,10 @@ class ShopController extends Controller
             $data[] = [
                 'type_id' => $i->shopType->name,
                 'name' => $i->name,
+                'phone' => $i->phone,
                 'content' => $i->content,
-                'infoImgs' => count($i->infoImgs),
-                'date_start' => Carbon::parse($i->date_start)->toDateTimeString(),
-                'date_end' => Carbon::parse($i->date_end)->toDateTimeString(),
-                'editBtn' => "<a href='/admin/info/{$i->id}/edit'><button class='btn btn-primary btn-edit'>編輯</button></a>",
+                'location' => $i->location,
+                'editBtn' => "<a href='/admin/shop/{$i->id}/edit'><button class='btn btn-primary btn-edit'>編輯</button></a>",
                 'destroyBtn' => "<button class='btn btn-danger btn-destroy' onclick='destroyBtnFunction({$i->id})''>刪除</button>",
             ];
         }
@@ -113,14 +153,14 @@ class ShopController extends Controller
         return $data;
     }
 
-    public function deleteSubImg($info_id)
+    public function deleteSubImg($shop_id)
     {
         // where內的欄位要改成相對應的
-        $infoImgs = InfoImg::where('info_id', $info_id)->get();
-        if (isset($infoImgs)) {
-            foreach ($infoImgs as $infoImg) {
-                File::delete(public_path($infoImg->img));
-                $infoImg->delete();
+        $shopImgs = ShopImg::where('shop_id', $shop_id)->get();
+        if (isset($shopImgs)) {
+            foreach ($shopImgs as $shopImg) {
+                File::delete(public_path($shopImg->img));
+                $shopImg->delete();
             }
             return true;
         } else {

@@ -34,6 +34,10 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::post('/info_types_data', 'InfoTypesController@indexDataTable')->name('info_types.data');
     Route::post('/info_data', 'InfoController@indexDataTable')->name('info.data');
     Route::post('/info_img_data', 'InfoImgController@indexDataTable')->name('info_img.data');
+
+    Route::post('/shop_type_data', 'ShopTypeController@indexDataTable')->name('shop_type.data');
+    Route::post('/shop_data', 'ShopController@indexDataTable')->name('shop.data');
+    Route::post('/shop_img_data', 'ShopImgController@indexDataTable')->name('shop_img.data');
 });
 
 Route::get('/test', 'AdminController@test')->name('test');

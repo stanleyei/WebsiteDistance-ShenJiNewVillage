@@ -8,17 +8,16 @@
 @section('main')
 
 <div class="container">
-    <a href="{{route('info.create')}}"><button class="btn btn-success">新增</button></a>
+    <a href="{{route('shop.create')}}"><button class="btn btn-success">新增</button></a>
     <hr>
     <table id="ajaxdata" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
                 <th>類型</th>
                 <th>名稱</th>
+                <th>連絡電話</th>
                 <th>內容</th>
-                <th>副圖片數量</th>
-                <th>開始時間</th>
-                <th>結束時間</th>
+                <th>地點</th>
                 <th>編輯</th>
                 <th>刪除</th>
             </tr>
@@ -36,7 +35,7 @@
     // init datatable
     const dataTable = $('#ajaxdata').DataTable({
         ajax: {
-            url: "/admin/info_data",
+            url: "/admin/shop_data",
             type: "POST",
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -47,10 +46,9 @@
         columns: [
             { data: "type_id" },
             { data: "name" },
+            { data: "phone" },
             { data: "content" },
-            { data: "infoImgs" },
-            { data: "date_start" },
-            { data: "date_end" },
+            { data: "location" },
             { data: "editBtn" },
             { data: "destroyBtn" }
         ],
@@ -85,7 +83,7 @@
     });
 
     function destroyBtnFunction(id) {
-        const path = `/admin/info/${id}`
+        const path = `/admin/shop/${id}`
         if (confirm(`是否要刪除此筆資料`)) {
             axios.delete(path).then(
                 response=>{
