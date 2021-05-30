@@ -1,11 +1,11 @@
-.view .view-container .view-title::before {
+.store .store-container .store-title::before, .view .view-container .view-title::before, .traffic .traffic-container .traffic-title::before, .contact .contact-container .contact-title::before {
   content: '';
   position: absolute;
   background: #D28E76;
   border-radius: 5px;
 }
 
-.view .view-container .view-title span::before {
+.store .store-container .store-title span::before, .view .view-container .view-title span::before, .traffic .traffic-container .traffic-title span::before, .contact .contact-container .contact-title span::before {
   content: '';
   position: absolute;
   left: 0;
@@ -40,6 +40,7 @@ header {
   width: 100%;
   min-height: 100vh;
   position: fixed;
+  z-index: 50;
 }
 
 header .container {
@@ -49,23 +50,29 @@ header .container {
 
 .nav {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 37px;
   height: 80vh;
-  background-color: rgba(84, 41, 28, 0.9);
+  background-color: #54291c;
   border-radius: 10px;
   overflow: hidden;
   -webkit-box-shadow: 0 5px 15px;
           box-shadow: 0 5px 15px;
-  -webkit-transition: 1s;
-  transition: 1s;
+  -webkit-transition: 1.2s;
+  transition: 1.2s;
 }
 
 .nav ul {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-30%, -50%);
-          transform: translate(-30%, -50%);
-  width: 100%;
+  display: none;
+  width: 20%;
   z-index: 20;
 }
 
@@ -94,97 +101,93 @@ header .container {
   color: #FBE6C3;
   font-weight: 500;
   font-size: 1.625rem;
+  letter-spacing: 0.3em;
 }
 
 .nav ul li a .icon {
   position: relative;
   display: block;
   min-width: 40px;
-  height: 40px;
-  line-height: 40px;
+  height: 60px;
+  line-height: 60px;
   text-align: center;
 }
 
 .nav ul li a .title {
   position: relative;
   display: block;
-  height: 40px;
-  line-height: 40px;
+  height: 60px;
+  line-height: 60px;
   white-space: nowrap;
 }
 
-.nav ul li ul {
+.nav .nav-img {
   display: none;
-  position: relative;
-  top: 72px;
-  left: 10%;
-  -webkit-transition: 2s;
-  transition: 2s;
-}
-
-.nav ul li ul li {
-  width: 100%;
-}
-
-.nav ul li ul li a {
-  width: 300px;
-  height: 30px;
-}
-
-.nav ul li ul li a .icon {
-  line-height: 30px;
-}
-
-.nav ul li ul li a .title {
-  line-height: 30px;
+  width: 110px;
+  height: 109px;
+  background-image: url(../img/logo-bg-img.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 7%;
+  bottom: 8%;
 }
 
 .nav.active {
   width: 50%;
   height: 100vh;
+  background-color: rgba(84, 41, 28, 0.9);
 }
 
 .toggle {
   position: absolute;
   right: 0;
-  top: calc(50% - 20px);
-  width: 20px;
-  height: 20px;
+  top: 0;
+  width: 30px;
+  height: 80vh;
   background: none;
   cursor: pointer;
 }
 
 .toggle::before {
-  content: ">";
+  content: "";
   position: absolute;
-  width: 100%;
-  height: 100%;
+  left: 15%;
+  top: 9%;
+  width: 12.5px;
+  height: 25px;
+  background-image: url(../img/nav-right.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   line-height: 20px;
   text-align: center;
-  font-size: 16px;
-  color: #FFFCF4;
+  -webkit-transition: 1.2s;
+  transition: 1.2s;
+}
+
+.toggle.active {
+  height: 100vh;
 }
 
 .toggle.active::before {
-  content: "<";
+  top: 17%;
+  background-image: url(../img/nav-left.png);
+}
+
+.ulbar.active {
+  display: block;
+}
+
+.nav-img.active {
+  display: block;
 }
 
 .on {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.droplist:hover ~ .introduction {
-  display: block;
-}
-
-.introduction:hover {
-  display: block;
-}
-
-.introduction:hover a {
-  color: violet;
 }
 
 .logo-img {
@@ -197,6 +200,58 @@ header .container {
   position: absolute;
   top: 50px;
   right: 50px;
+}
+
+.store {
+  width: 100%;
+  height: 100vh;
+  border: 20px solid #54291c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.store .store-container {
+  width: 80vw;
+  height: 68vh;
+}
+
+.store .store-container .store-title {
+  position: relative;
+  padding-left: 60px;
+}
+
+.store .store-container .store-title::before {
+  width: 60px;
+  height: 60px;
+  -webkit-transform: translate(-50px, -20px);
+          transform: translate(-50px, -20px);
+  z-index: -1;
+}
+
+.store .store-container .store-title h2 {
+  font-size: 2.8125rem;
+  text-align: start;
+  line-height: inherit;
+  letter-spacing: 0.3em;
+}
+
+.store .store-container .store-title span {
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: inherit;
+  letter-spacing: 0.1em;
+}
+
+.store .store-container .store-title span::before {
+  content: 'SHOP';
 }
 
 .view {
@@ -212,6 +267,7 @@ header .container {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
 .view .view-container {
@@ -247,6 +303,110 @@ header .container {
 }
 
 .view .view-container .view-title span::before {
+  content: 'About';
+}
+
+.traffic {
+  width: 100%;
+  height: 100vh;
+  border: 20px solid #54291c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.traffic .traffic-container {
+  width: 80vw;
+  height: 68vh;
+}
+
+.traffic .traffic-container .traffic-title {
+  position: relative;
+  padding-left: 60px;
+}
+
+.traffic .traffic-container .traffic-title::before {
+  width: 60px;
+  height: 60px;
+  -webkit-transform: translate(-50px, -20px);
+          transform: translate(-50px, -20px);
+  z-index: -1;
+}
+
+.traffic .traffic-container .traffic-title h2 {
+  font-size: 2.8125rem;
+  text-align: start;
+  line-height: inherit;
+  letter-spacing: 0.3em;
+}
+
+.traffic .traffic-container .traffic-title span {
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: inherit;
+  letter-spacing: 0.1em;
+}
+
+.traffic .traffic-container .traffic-title span::before {
+  content: 'About';
+}
+
+.contact {
+  width: 100%;
+  height: 100vh;
+  border: 20px solid #54291c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.contact .contact-container {
+  width: 80vw;
+  height: 68vh;
+}
+
+.contact .contact-container .contact-title {
+  position: relative;
+  padding-left: 60px;
+}
+
+.contact .contact-container .contact-title::before {
+  width: 60px;
+  height: 60px;
+  -webkit-transform: translate(-50px, -20px);
+          transform: translate(-50px, -20px);
+  z-index: -1;
+}
+
+.contact .contact-container .contact-title h2 {
+  font-size: 2.8125rem;
+  text-align: start;
+  line-height: inherit;
+  letter-spacing: 0.3em;
+}
+
+.contact .contact-container .contact-title span {
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: inherit;
+  letter-spacing: 0.1em;
+}
+
+.contact .contact-container .contact-title span::before {
   content: 'About';
 }
 /*# sourceMappingURL=index-kg.css.map */
