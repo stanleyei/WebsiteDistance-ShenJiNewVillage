@@ -55,8 +55,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::post('/view_img_data', 'ViewImgController@indexDataTable')->name('view_img.data');
 
     Route::post('/contact_type_data', 'ContactTypeController@indexDataTable')->name('contact_type.data');
-    Route::post('/contact_data', 'ContactController@indexDataTable')->name('contact.data');
     Route::post('/contact_content_type_data', 'ContactContentTypeController@indexDataTable')->name('contact_content_type.data');
+    Route::post('/contact_data', 'ContactController@indexDataTable')->name('contact.data');
 });
 
 Route::get('/test', 'AdminController@test')->name('test');
