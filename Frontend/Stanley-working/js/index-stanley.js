@@ -3,6 +3,7 @@ let swiper = new Swiper(".aboutUsSwiper", {
   slidesPerView: 1,
   spaceBetween: 30,
   loop: true,
+  grabCursor : true,
   effect: 'fade',
   fadeEffect: {
     crossFade: true,
@@ -22,6 +23,13 @@ let swiper = new Swiper(".aboutUsSwiper", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+});
+
+let mainSwiper = new Swiper(".main", {
+  direction: "vertical",
+  slidesPerView: 1,
+  mousewheel: true,
+  height: window.innerHeight,
 });
 
 //回到頂端按鈕

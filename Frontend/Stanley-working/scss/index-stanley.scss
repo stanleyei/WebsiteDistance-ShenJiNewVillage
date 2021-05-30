@@ -179,7 +179,7 @@ h2 {
                 @include size(52vw, 100%);
                 overflow: hidden;
 
-                .swiper-slide {
+                .about-us-slide {
                     @include flex(start);
 
                     .img {

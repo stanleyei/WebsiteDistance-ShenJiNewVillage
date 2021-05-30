@@ -15,66 +15,68 @@
 
 <body>
     <header></header>
-    <main>
-        <section class="news">
-            <div class="effect-area">
+    <main class="main">
+        <div class="swiper-wrapper">
+            <section class="news swiper-slide">
+                <div class="effect-area">
+                    <img class="logo-img" src="./img/Logo-img.png" alt="">
+                    <img class="logo-text" src="./img/Logo-text.png" alt="">
+                    <div class="news-container">
+                        <div class="news-title">
+                            <h2>審計新訊</h2>
+                            <span>Shen Ji New Village</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="about-us swiper-slide">
                 <img class="logo-img" src="./img/Logo-img.png" alt="">
                 <img class="logo-text" src="./img/Logo-text.png" alt="">
-                <div class="news-container">
-                    <div class="news-title">
-                        <h2>審計新訊</h2>
+                <div class="about-us-container">
+                    <div class="about-us-title">
+                        <h2>關於審計</h2>
                         <span>Shen Ji New Village</span>
                     </div>
-                </div>
-            </div>
-        </section>
-        <section class="about-us">
-            <img class="logo-img" src="./img/Logo-img.png" alt="">
-            <img class="logo-text" src="./img/Logo-text.png" alt="">
-            <div class="about-us-container">
-                <div class="about-us-title">
-                    <h2>關於審計</h2>
-                    <span>Shen Ji New Village</span>
-                </div>
-                <article>
-                    <div class="about-us-swiper aboutUsSwiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="img" style="background-image: url(./img/swiper-text.png);"></div>
+                    <article>   
+                        <div class="about-us-swiper aboutUsSwiper">
+                            <div class="swiper-wrapper">
+                                <div class="about-us-slide swiper-slide">
+                                    <div class="img" style="background-image: url(./img/swiper-text.png);"></div>
+                                </div>
+                                <div class="about-us-slide swiper-slide">
+                                    <div class="img" style="background-image: url(./img/nekoteacher01.jpg);"></div>
+                                </div>
+                                <div class="about-us-slide swiper-slide">
+                                    <div class="img" style="background-image: url(./img/nekoteacher02.jpg);"></div>
+                                </div>
+                                <div class="about-us-slide swiper-slide">
+                                    <div class="img" style="background-image: url(./img/nekoteacher03.jpg);"></div>
+                                </div>
+                                <div class="about-us-slide swiper-slide">
+                                    <div class="img" style="background-image: url(./img/swiper-text.png);"></div>
+                                </div>
+                                <div class="about-us-slide swiper-slide">
+                                    <div class="img" style="background-image: url(./img/nekoteacher01.jpg);"></div>
+                                </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="img" style="background-image: url(./img/nekoteacher01.jpg);"></div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="img" style="background-image: url(./img/nekoteacher02.jpg);"></div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="img" style="background-image: url(./img/nekoteacher03.jpg);"></div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="img" style="background-image: url(./img/swiper-text.png);"></div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="img" style="background-image: url(./img/nekoteacher01.jpg);"></div>
-                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
                         </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <div class="about-us-content">
-                        <h3>園區介紹</h3>
-                        <p>審計新村原為臺灣省政府審計處（今審計部教育農林審計處）與臺灣省政府新聞處（今行政院新聞傳播處地方新聞科）的宿舍，1969年興建完成，是中部繼光復新村、長安新村之後的第三批台灣省政府宿舍群。
-                        </p>
-                    </div>
-                </article>
-            </div>
-        </section>
-        <section class="map"></section>
-        <section class="store"></section>
-        <section class="view"></section>
-        <section class="traffic"></section>
-        <section class="contact"></section>
+                        <div class="about-us-content">
+                            <h3>園區介紹</h3>
+                            <p>審計新村原為臺灣省政府審計處（今審計部教育農林審計處）與臺灣省政府新聞處（今行政院新聞傳播處地方新聞科）的宿舍，1969年興建完成，是中部繼光復新村、長安新村之後的第三批台灣省政府宿舍群。
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <section class="map"></section>
+            <section class="store"></section>
+            <section class="view"></section>
+            <section class="traffic"></section>
+            <section class="contact"></section>
+        </div>
     </main>
     <footer>
         <img class="footer-logo-img" src="./img/footer-logo-img.png" alt="">
@@ -101,14 +103,21 @@
                         <time>10:00-19:00</time>
                     </div>
                 </div>
-                <div class="fb-page" data-href="https://www.facebook.com/shenji368/?ref=page_internal" data-tabs="timeline" data-width="441" data-height="192" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/shenji368/?ref=page_internal" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/shenji368/?ref=page_internal">審計368新創聚落</a></blockquote></div>
+                <div class="fb-page" data-href="https://www.facebook.com/shenji368/?ref=page_internal"
+                    data-tabs="timeline" data-width="441" data-height="192" data-small-header="true"
+                    data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/shenji368/?ref=page_internal"
+                        class="fb-xfbml-parse-ignore"><a
+                            href="https://www.facebook.com/shenji368/?ref=page_internal">審計368新創聚落</a></blockquote>
+                </div>
             </article>
             <p>Copyright © 審計新村走九遍 All reserved</p>
         </div>
     </footer>
 
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v10.0" nonce="gw7gekne"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v10.0"
+        nonce="gw7gekne"></script>
     <script src="./node_modules/swiper/swiper-bundle.min.js"></script>
     <script src="./js/index-stanley.js"></script>
 </body>
