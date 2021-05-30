@@ -9,8 +9,8 @@ class ContactType extends Model
     protected $table = 'contact_type';
     protected $fillable = ['name'];
 
-    public function contacts()
+    public function contactContentTypes()
     {
-        return $this->hasMany('App\Contact', 'type_id', 'id');
+        return $this->hasMany('App\ContactContentType', 'type_id', 'id');
     }
 }

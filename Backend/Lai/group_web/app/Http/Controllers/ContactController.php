@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\ContactContentType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class ContactController extends Controller
 {
@@ -14,7 +17,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $data = Contact::with('contactContentType')->get();
+        return view('admin/contact/index', compact('data'));
     }
 
     /**
@@ -24,7 +28,9 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        $type = ContactContentType::get();;
+        $data = Contact::with('contactContentType')->get();
+        return view('admin/contact/create', compact('data', 'type'));
     }
 
     /**
@@ -35,7 +41,18 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        // if ($request->hasFile('img')) {
+        //     $local = Storage::disk('local');
+
+        //     $file = $request->file('img');
+        //     $path = $local->putFile('public', $file);
+        //     $data['img'] = $local->url($path);
+        // }
+        $mainData = Contact::create($data);
+
+        return redirect()->route('contact.index');
     }
 
     /**
@@ -55,9 +72,11 @@ class ContactController extends Controller
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit($id)
     {
-        //
+        $type = ContactContentType::get();;
+        $data = Contact::with('contactContentType')->find($id);
+        return view('admin/contact/edit', compact('data', 'type'));
     }
 
     /**
@@ -67,9 +86,24 @@ class ContactController extends Controller
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update($id, Request $request)
     {
-        //
+        $data = $request->all();
+        $dbData = Contact::find($id);
+        // if ($request->hasFile('img')) {
+        //     $myfile = Storage::disk('local');
+        //     $file = $request->file('img');
+        //     $path = $myfile->putFile('public', $file);
+        //     $data['img'] = $myfile->url($path);
+        //     // 刪掉之前的圖片檔案
+        //     File::delete(public_path($dbData->img));
+        // }else{
+        //     // 沒改放舊圖
+        //     $data['img'] = $dbData->img;
+        // }
+        $dbData->update($data);
+
+        return redirect()->route('contact.index');
     }
 
     /**
@@ -78,8 +112,34 @@ class ContactController extends Controller
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy($id)
     {
-        //
+        $dbData = Contact::with('contactContentType')->find($id);
+        // 資料庫刪除該筆資料
+        $result = Contact::destroy($id);
+
+        return $result;
+    }
+
+    public function indexDataTable()
+    {
+        $response = Contact::all();
+
+        $data = [];
+
+        foreach ($response as $i) {
+            $data[] = [
+                'type_id' => $i->contactContentType->name,
+                'sender' => $i->sender,
+                'mail' => $i->mail,
+                'content' => $i->content,
+                'editBtn' => "<a href='/admin/contact/{$i->id}/edit'><button class='btn btn-primary btn-edit'>編輯</button></a>",
+                'destroyBtn' => "<button class='btn btn-danger btn-destroy' onclick='destroyBtnFunction({$i->id})''>刪除</button>",
+            ];
+        }
+
+        $data = ['data' => $data];
+
+        return $data;
     }
 }

@@ -108,11 +108,11 @@
                                 <a class="dropdown-item" href="{{route('contact_type.index')}}">
                                     連絡類型
                                 </a>
-                                <a class="dropdown-item" href="{{route('contact.index')}}">
-                                    連絡列表
-                                </a>
                                 <a class="dropdown-item" href="{{route('contact_content_type.index')}}">
                                     連絡內容類型
+                                </a>
+                                <a class="dropdown-item" href="{{route('contact.index')}}">
+                                    連絡內容
                                 </a>
                             </div>
                         </li>

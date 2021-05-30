@@ -61,12 +61,12 @@
         - 加入審計
         - 顧客意見
 
-* contact   **連絡資料紀錄**
+* contact_content_type
     - type_id
+    - name
+
+* contact   **連絡資料紀錄**
+    - content_id
     - sender
     - mail
     - content
-
-* contact_content_type
-    - contact_id
-    - name

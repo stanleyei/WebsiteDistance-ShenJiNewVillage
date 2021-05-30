@@ -14,7 +14,8 @@ class ContactTypeController extends Controller
      */
     public function index()
     {
-        //
+        $data = ContactType::get();
+        return view('admin/contact_type/index', compact('data'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ContactTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/contact_type/create');
     }
 
     /**
@@ -35,7 +36,8 @@ class ContactTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ContactType::create($request->all());
+        return redirect()->route('contact_type.index');
     }
 
     /**
@@ -55,9 +57,10 @@ class ContactTypeController extends Controller
      * @param  \App\ContactType  $contactType
      * @return \Illuminate\Http\Response
      */
-    public function edit(ContactType $contactType)
+    public function edit($id)
     {
-        //
+        $data = ContactType::find($id);
+        return view('admin/contact_type/edit', compact('data'));
     }
 
     /**
@@ -67,9 +70,10 @@ class ContactTypeController extends Controller
      * @param  \App\ContactType  $contactType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ContactType $contactType)
+    public function update(Request $request, $id)
     {
-        //
+        ContactType::find($id)->update($request->all());
+        return redirect()->route('contact_type.index');
     }
 
     /**
@@ -78,8 +82,29 @@ class ContactTypeController extends Controller
      * @param  \App\ContactType  $contactType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ContactType $contactType)
+    public function destroy($id)
     {
-        //
+        $result = ContactType::destroy($id);
+        return $result;
+    }
+
+    public function indexDataTable()
+    {
+        $response = ContactType::all();
+
+        $data = [];
+
+        foreach ($response as $i) {
+            $data[] = [
+                'name' => $i->name,
+                'contactContentType_count' => count($i->contactContentTypes),
+                'editBtn' => "<a href='/admin/contact_type/{$i->id}/edit'><button class='btn btn-primary btn-edit'>編輯</button></a>",
+                'destroyBtn' => "<button class='btn btn-danger btn-destroy' onclick='destroyBtnFunction({$i->id})''>刪除</button>",
+            ];
+        }
+
+        $data = ['data' => $data];
+
+        return $data;
     }
 }

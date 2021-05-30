@@ -15,7 +15,7 @@ class CreateContactContentTypeTable extends Migration
     {
         Schema::create('contact_content_type', function (Blueprint $table) {
             $table->id();
-            $table->integer('contact_id');
+            $table->integer('type_id');
             $table->string('name');
             $table->timestamps();
         });
