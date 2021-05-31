@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
     background-color: $body-bg;
@@ -28,7 +28,7 @@ h2 {
     right: 50px;
 }
 
-#goTopButton{
+#goTopButton {
     @include size(80px, 80px);
     @include font($h6, center, 40px);
     border-radius: 50%;
@@ -36,7 +36,7 @@ h2 {
     background-color: $footer-text;
     color: $footer-bg;
 
-    &::after{
+    &::after {
         @include position(55%, 50%);
         content: 'Top';
     }
@@ -85,7 +85,7 @@ h2 {
     }
 }
 
-.news {
+.about-us {
     @include size(100%, 100vh);
     @include flex();
     position: relative;
@@ -105,10 +105,10 @@ h2 {
             }
         }
 
-        .news-container {
-            @include size(80vw, 76vh);
+        .about-us-container {
+            @include size(80vw, 68vh);
 
-            .news-title {
+            .about-us-title {
                 position: relative;
                 padding-left: 60px;
 
@@ -128,7 +128,80 @@ h2 {
 
                     &::before {
                         @extend %title-vertical-text;
-                        content: 'News';
+                        content: 'About';
+                    }
+                }
+            }
+
+            article {
+                @include flex();
+                @include size(100%, 87%);
+                position: relative;
+
+                .about-us-swiper {
+                    @include size(52vw, 100%);
+                    overflow: hidden;
+
+                    .about-us-slide {
+                        @include flex(start);
+
+                        .img {
+                            @include size(39vw, 78%);
+                            display: block;
+                            object-fit: cover;
+                            background-size: cover;
+                            background-position: center;
+                            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                        }
+                    }
+
+                    .swiper-button-next {
+                        @include size(50px, 50px);
+                        @include position(50%, 40vw, 0, 0);
+
+                        &::after {
+                            @include size(100%, 100%);
+                            content: '';
+                            background-image: url(../img/aboutUs-swiper-right.png);
+                            font-family: none;
+                        }
+                    }
+
+                    .swiper-button-prev {
+                        @include size(50px, 50px);
+                        @include position(50%, -70px, 0, 0);
+
+                        &::after {
+                            @include size(100%, 100%);
+                            content: '';
+                            background-image: url(../img/aboutUs-swiper-left.png);
+                            font-family: none;
+                        }
+                    }
+
+                    .swiper-pagination {
+                        bottom: 2vh;
+                        left: -21vw;
+
+                        span {
+                            background-color: $title-bg;
+                        }
+                    }
+                }
+
+                .about-us-content {
+                    @include size(32vw, 100%);
+                    @include flex(center, start);
+                    flex-direction: column;
+
+                    h3 {
+                        @include font($h2, start, inherit, 0.3em);
+                    }
+
+                    p {
+                        @include size(100%, 300px);
+                        @include font($h5, start, 60px, normal);
+                        margin: 0;
                     }
                 }
             }
@@ -136,16 +209,16 @@ h2 {
     }
 }
 
-.about-us {
+.news {
     @include size(100%, 100vh);
     @include flex();
     position: relative;
     border: 20px solid $main-color;
 
-    .about-us-container {
-        @include size(80vw, 68vh);
+    .news-container {
+        @include size(80vw, 76vh);
 
-        .about-us-title {
+        .news-title {
             position: relative;
             padding-left: 60px;
 
@@ -165,163 +238,89 @@ h2 {
 
                 &::before {
                     @extend %title-vertical-text;
-                    content: 'About';
-                }
-            }
-        }
-
-        article {
-            @include flex();
-            @include size(100%, 87%);
-            position: relative;
-
-            .about-us-swiper {
-                @include size(52vw, 100%);
-                overflow: hidden;
-
-                .about-us-slide {
-                    @include flex(start);
-
-                    .img {
-                        @include size(39vw, 78%);
-                        display: block;
-                        object-fit: cover;
-                        background-size: cover;
-                        background-position: center;
-                        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-                    }
-                }
-
-                .swiper-button-next {
-                    @include size(50px, 50px);
-                    @include position(50%, 40vw, 0, 0);
-
-                    &::after {
-                        @include size(100%, 100%);
-                        content: '';
-                        background-image: url(../img/aboutUs-swiper-right.png);
-                        font-family: none;
-                    }
-                }
-
-                .swiper-button-prev {
-                    @include size(50px, 50px);
-                    @include position(50%, -70px, 0, 0);
-
-                    &::after {
-                        @include size(100%, 100%);
-                        content: '';
-                        background-image: url(../img/aboutUs-swiper-left.png);
-                        font-family: none;
-                    }
-                }
-
-                .swiper-pagination {
-                    bottom: 2vh;
-                    left: -21vw;
-
-                    span {
-                        background-color: $title-bg;
-                    }
-                }
-            }
-
-            .about-us-content {
-                @include size(32vw, 100%);
-                @include flex(center, start);
-                flex-direction: column;
-
-                h3 {
-                    @include font($h2, start, inherit, 0.3em);
-                }
-
-                p {
-                    @include size(100%, 300px);
-                    @include font($h5, start, 60px, normal);
-                    margin: 0;
+                    content: 'News';
                 }
             }
         }
     }
-
 }
 
-footer{
+footer {
     @include size(100%, 700px);
     @include flex();
     background-color: $footer-bg;
     position: relative;
     color: $footer-text;
 
-    .footer-logo-img{
+    .footer-logo-img {
         @include position(550px, 160px, 0, 0);
     }
-    
-    .footer-logo-text{
+
+    .footer-logo-text {
         @include position(550px, 160px, 90%, 0);
     }
 
-    .footer-container{
+    .footer-container {
         @include size(83%, 622px);
-        overflow:hidden;
+        overflow: hidden;
         margin-top: 40px;
 
-        h2{
+        h2 {
             @include font($h2, start, 49px, 0.15em);
         }
 
-        article{
+        article {
             @include size(100%, 519px);
             display: grid;
             grid-template-columns: repeat(3, 1fr);
 
-            h3{
+            h3 {
                 @include font($h4, start, inherit, 0.15em);
             }
 
-            .inf-detil{
+            .inf-detil {
                 @include font($h6, start, 30px, 0.15em);
                 padding-left: 28px;
 
-                & > div:nth-child(2){
+                &>div:nth-child(2) {
                     padding-left: 60.5px;
                 }
             }
 
-            .open-detil{
+            .open-detil {
                 @include size(238px, 100%);
                 padding-left: 18px;
 
-                .date-box{
+                .date-box {
                     @include flex(start, start);
                     @include font($h6, center, 30px, 0.15em);
 
-                    .date-box{
+                    .date-box {
                         @include size(80px, 40px);
                         @include flex();
                         border: $footer-text 1px solid;
                         border-radius: 60px;
                     }
 
-                    span{
+                    span {
                         @include size(60px, 40px);
                         line-height: 40px;
                     }
                 }
 
-                time{
+                time {
                     @include flex();
                     @include font($h6, center, 30px, 0.15em);
                     padding-top: 13px;
                 }
             }
 
-            .fb-page{
+            .fb-page {
                 margin-top: 27px;
             }
         }
 
-        > p{
+        >p {
             @include font($h6, center, 30px, 0.05em);
         }
     }
