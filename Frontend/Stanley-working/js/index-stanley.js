@@ -29,6 +29,7 @@ let mainSwiper = new Swiper(".main", {
   direction: "vertical",
   slidesPerView: 1,
   mousewheel: true,
+  releaseOnEdges: true,
   height: window.innerHeight,
 });
 
