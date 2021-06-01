@@ -243,8 +243,8 @@ h2 {
             }
         }
 
-        article{
-            .date-title{
+        article {
+            .date-title {
                 @include size(100px, 30px);
                 @include font($h8, center, 30px, 0.2em);
                 border-radius: 6px;
@@ -252,7 +252,52 @@ h2 {
                 color: $store-list-bg;
             }
 
-            
+            .date-btns {
+                @include flex(start);
+
+                button{
+                    @extend %date-btn;
+
+                    &:hover{
+                        background-color: $title-bg;
+                        color: $footer-text;
+                    }
+                }
+            }
+
+            .content-title{
+                @include flex(start);
+
+                h3{
+                    @include font($h1, center, 60px, 0.2em);
+                    position: relative;
+                    padding-left: 11px;
+
+                    &::before{
+                        @include size(122px, 24px);
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        transform: translate(-10%, -50%);
+                        border-radius: 6px;
+                        background-color: $store-list-bg;
+                        z-index: -1;
+                    }
+                }
+
+                div{
+                    @include font($h7, center, inherit, 0.2em);
+                    margin-left: 20px;
+                    padding-top: 15px;
+                    font-weight: bold;
+                }
+
+                i{
+                    margin: 0 18px;
+                    padding-top: 15px;
+                    cursor: pointer;
+                }
+            }
         }
     }
 }

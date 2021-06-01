@@ -75,14 +75,17 @@ $h10:0.75rem;   //12px
 }
 
 %date-btn{
-    width: 50px;
+    min-width: 50px;
     height: 30px;
     border-radius: 6px;
+    border: 0;
     margin: 16px 8px 0 0;
     background-color: $form-bg;
     color: $store-tag-f-bg;
     font-size: $h10;
+    font-weight: bold;
     text-align: center;
     line-height: 30px;
     letter-spacing: 0.2em;
+    cursor: pointer;
 }
