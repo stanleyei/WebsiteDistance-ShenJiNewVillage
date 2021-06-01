@@ -8,7 +8,6 @@ let swiper = new Swiper(".aboutUsSwiper", {
   fadeEffect: {
     crossFade: true,
   },
-  mousewheel: true,
   speed: 2500,
   autoplay: {
     delay: 2500,
