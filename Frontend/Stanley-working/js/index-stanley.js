@@ -1,25 +1,14 @@
-//審計新訊-切換選擇日期的效果
-const monthBtns = document.querySelectorAll('.month-btn');
-const yearsBtns = document.querySelectorAll('.years-btn');
-focusChange(monthBtns);
-focusChange(yearsBtns);
-
-function focusChange(date) {
-  date.forEach(btns => {
-    btns.addEventListener('click', function () {
-      date.forEach(btn => {
-        btn === this
-          ?
-          btn.classList.add('focus-change')
-          :
-          btn.classList.remove('focus-change');
-      });
-    });
-  });
-}
+//整頁-Swiper輪播套件
+// let mainSwiper = new Swiper(".main", {
+//   direction: "vertical",
+//   slidesPerView: 1,
+//   mousewheel: true,
+//   releaseOnEdges: true,
+//   height: window.innerHeight,
+// });
 
 //關於審計-Swiper輪播套件
-let swiper = new Swiper(".aboutUsSwiper", {
+const swiper = new Swiper(".aboutUsSwiper", {
   slidesPerView: 1,
   spaceBetween: 30,
   loop: true,
@@ -44,14 +33,25 @@ let swiper = new Swiper(".aboutUsSwiper", {
   },
 });
 
-//整頁-Swiper輪播套件
-// let mainSwiper = new Swiper(".main", {
-//   direction: "vertical",
-//   slidesPerView: 1,
-//   mousewheel: true,
-//   releaseOnEdges: true,
-//   height: window.innerHeight,
-// });
+//審計新訊-切換選擇日期的效果
+const monthBtns = document.querySelectorAll('.month-btn');
+const yearsBtns = document.querySelectorAll('.years-btn');
+focusChange(monthBtns);
+focusChange(yearsBtns);
+
+function focusChange(date) {
+  date.forEach(btns => {
+    btns.addEventListener('click', function () {
+      date.forEach(btn => {
+        btn === this
+          ?
+          btn.classList.add('focus-change')
+          :
+          btn.classList.remove('focus-change');
+      });
+    });
+  });
+}
 
 //回到頂端按鈕
 (function () {
@@ -64,12 +64,12 @@ let swiper = new Swiper(".aboutUsSwiper", {
     $body = $(document),
     $win = $(window);
   $button.on({
-    mouseover: function () { $button.css("opacity", 1); },
-    mouseout: function () { $button.css("opacity", opacity); },
-    click: function () { $("html, body").animate({ scrollTop: 0 }, speed); }
+    mouseover: () => { $button.css("opacity", 1); },
+    mouseout: () => { $button.css("opacity", opacity); },
+    click: () => { $("html, body").animate({ scrollTop: 0 }, speed); }
   });
-  window.goTopMove = function () {
-    let scrollH = $body.scrollTop(),
+  window.goTopMove = () => {
+    const scrollH = $body.scrollTop(),
       winH = $win.height(),
       css = { "top": winH * locatioin + "px", "position": "fixed", "right": right, "opacity": opacity };
     if (scrollH > 20) {
@@ -80,8 +80,8 @@ let swiper = new Swiper(".aboutUsSwiper", {
     }
   };
   $win.on({
-    scroll: function () { goTopMove(); },
-    resize: function () { goTopMove(); }
+    scroll: () => { goTopMove(); },
+    resize: () => { goTopMove(); }
   });
 })();
 
