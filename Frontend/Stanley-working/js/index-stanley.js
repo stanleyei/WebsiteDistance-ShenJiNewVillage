@@ -1,34 +1,24 @@
+//審計新訊-切換選擇日期的效果
 const monthBtns = document.querySelectorAll('.month-btn');
 const yearsBtns = document.querySelectorAll('.years-btn');
+focusChange(monthBtns);
+focusChange(yearsBtns);
 
-monthBtns.forEach(btns => {
-  btns.addEventListener('click', function () {
-    monthBtns.forEach(btn => {
-      if(btn == this){
-        btn.classList.add('focus-change');
-      }
-      else{
-        btn.classList.remove('focus-change');
-      }
+function focusChange(date) {
+  date.forEach(btns => {
+    btns.addEventListener('click', function () {
+      date.forEach(btn => {
+        btn == this
+          ?
+          btn.classList.add('focus-change')
+          :
+          btn.classList.remove('focus-change');
+      });
     });
   });
-});
+}
 
-yearsBtns.forEach(btns => {
-  btns.addEventListener('click', function () {
-    yearsBtns.forEach(btn => {
-      if(btn == this){
-        btn.classList.add('focus-change');
-      }
-      else{
-        btn.classList.remove('focus-change');
-      }
-    });
-  });
-});
-
-
-//Swiper輪播套件-關於審計
+//關於審計-Swiper輪播套件
 let swiper = new Swiper(".aboutUsSwiper", {
   slidesPerView: 1,
   spaceBetween: 30,
@@ -54,7 +44,7 @@ let swiper = new Swiper(".aboutUsSwiper", {
   },
 });
 
-//Swiper輪播套件-整頁
+//整頁-Swiper輪播套件
 // let mainSwiper = new Swiper(".main", {
 //   direction: "vertical",
 //   slidesPerView: 1,
