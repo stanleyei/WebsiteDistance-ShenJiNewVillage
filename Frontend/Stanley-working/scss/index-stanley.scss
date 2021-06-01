@@ -256,14 +256,18 @@ h2 {
             .date-btns {
                 @include flex(start);
 
+                .focus-change{
+                    background-color: $title-bg;
+                    color: $footer-text;
+                }
+
                 button {
                     @extend %date-btn;
 
-                    &:hover,:active,:visited,:focus {
+                    &:hover {
                         background-color: $title-bg;
                         color: $footer-text;
                     }
-                    
                 }
             }
 

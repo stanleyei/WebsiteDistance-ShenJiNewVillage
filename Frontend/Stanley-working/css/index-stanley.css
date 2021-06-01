@@ -463,7 +463,12 @@ h2 {
           align-items: center;
 }
 
-.news .news-container article .date-btns button:hover, .news .news-container article .date-btns button :active, .news .news-container article .date-btns button :visited, .news .news-container article .date-btns button :focus {
+.news .news-container article .date-btns .focus-change {
+  background-color: #D28E76;
+  color: #ffffff;
+}
+
+.news .news-container article .date-btns button:hover {
   background-color: #D28E76;
   color: #ffffff;
 }

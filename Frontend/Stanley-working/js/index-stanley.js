@@ -1,9 +1,39 @@
-//Swiper輪播套件
+const monthBtns = document.querySelectorAll('.month-btn');
+const yearsBtns = document.querySelectorAll('.years-btn');
+
+monthBtns.forEach(btns => {
+  btns.addEventListener('click', function () {
+    monthBtns.forEach(btn => {
+      if(btn == this){
+        btn.classList.add('focus-change');
+      }
+      else{
+        btn.classList.remove('focus-change');
+      }
+    });
+  });
+});
+
+yearsBtns.forEach(btns => {
+  btns.addEventListener('click', function () {
+    yearsBtns.forEach(btn => {
+      if(btn == this){
+        btn.classList.add('focus-change');
+      }
+      else{
+        btn.classList.remove('focus-change');
+      }
+    });
+  });
+});
+
+
+//Swiper輪播套件-關於審計
 let swiper = new Swiper(".aboutUsSwiper", {
   slidesPerView: 1,
   spaceBetween: 30,
   loop: true,
-  grabCursor : true,
+  grabCursor: true,
   effect: 'fade',
   fadeEffect: {
     crossFade: true,
@@ -24,6 +54,7 @@ let swiper = new Swiper(".aboutUsSwiper", {
   },
 });
 
+//Swiper輪播套件-整頁
 // let mainSwiper = new Swiper(".main", {
 //   direction: "vertical",
 //   slidesPerView: 1,
