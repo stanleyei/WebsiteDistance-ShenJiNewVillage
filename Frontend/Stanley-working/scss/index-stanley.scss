@@ -242,6 +242,18 @@ h2 {
                 }
             }
         }
+
+        article{
+            .date-title{
+                @include size(100px, 30px);
+                @include font($h8, center, 30px, 0.2em);
+                border-radius: 6px;
+                background-color: $main-color;
+                color: $store-list-bg;
+            }
+
+            
+        }
     }
 }
 
