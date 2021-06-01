@@ -73,3 +73,15 @@ $h10:0.75rem;   //12px
     transform: translate(-15%, -80%) rotate(90deg);
     letter-spacing: 0.1em;
 }
+
+%date-btn{
+    width: 50px;
+    height: 30px;
+    border-radius: 6px;
+    background-color: $form-bg;
+    color: $store-tag-f-bg;
+    font-size: $h10;
+    text-align: center;
+    line-height: 30px;
+    letter-spacing: 0.2em;
+}
