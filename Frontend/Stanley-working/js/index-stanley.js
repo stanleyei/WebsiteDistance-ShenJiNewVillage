@@ -8,7 +8,7 @@ function focusChange(date) {
   date.forEach(btns => {
     btns.addEventListener('click', function () {
       date.forEach(btn => {
-        btn == this
+        btn === this
           ?
           btn.classList.add('focus-change')
           :
