@@ -114,9 +114,6 @@ h2 {
 
                 &::before {
                     @extend %title-cube;
-                    @include size(60px, 60px);
-                    transform: translate(-50px, -20px);
-                    z-index: -1;
                 }
 
                 h2 {
@@ -216,7 +213,7 @@ h2 {
     border: 20px solid $main-color;
 
     .news-container {
-        @include size(80vw, 76vh);
+        @include size(70vw, 76vh);
 
         .news-title {
             position: relative;
@@ -224,9 +221,6 @@ h2 {
 
             &::before {
                 @extend %title-cube;
-                @include size(60px, 60px);
-                transform: translate(-50px, -20px);
-                z-index: -1;
             }
 
             h2 {
@@ -244,6 +238,8 @@ h2 {
         }
 
         article {
+            padding: 80px 0 0 32px;
+
             .date-title {
                 @include size(100px, 30px);
                 @include font($h8, center, 30px, 0.2em);
@@ -296,6 +292,41 @@ h2 {
                     margin: 0 18px;
                     padding-top: 15px;
                     cursor: pointer;
+                }
+            }
+
+            .content-infs{
+
+                .content-inf{
+                    @extend %news-inf;
+
+                    &::before{
+                        @extend %news-inf-before;
+                    }
+
+                    .inf-date{
+                        @include size(107px, 100%);
+                        padding-left: 38px;
+                        font-weight: bold;
+
+                        .during{
+                            @include flex(start);
+                            padding-top: 5px;
+
+                            .end-date{
+                                @include font($h10, start, 20px, 0.2em);
+                                padding:0 0 5px 10px;
+                            }
+                        }
+
+
+                        > span{
+                            @include font($h7, start, 20px, 0.2em);
+                        }
+
+
+
+                    }
                 }
             }
         }
