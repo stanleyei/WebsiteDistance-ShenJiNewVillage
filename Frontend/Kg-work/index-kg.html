@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../fontawesome-5.15.3-web/css/all.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/duotone.css" integrity="sha384-R3QzTxyukP03CMqKFe0ssp5wUvBPEyy9ZspCB+Y01fEjhMwcXixTyeot+S40+AjZ" crossorigin="anonymous"/>
-   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css" integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous"/>
+    <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
+    <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
    <link rel="stylesheet" href="./css/index-kg.css">
    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
     <title>審計新村</title>
@@ -110,12 +111,46 @@
                 <div class="contact-title">
                 <h2>聯絡審計</h2>
                 <span>Contact Shen Ji </span>
-                </div>        
+                </div> 
+                <div class="contact-main">
+                    <div class="contact-form-title">
+                        <div class="form-text">
+                           <h2>聯絡審計</h2>
+                           <p>Contact Shen Ji</p>
+                        </div>
+                    </div>
+                    <div class="contact-form-main">
+                        <form class="contact-form" id="contact-form" action="#" method="POST">
+                            <select name="kg" class="form-type">
+                                <option></option>
+                                <option>我</option>
+                                <option>超</option>
+                                <option>率</option>
+                            </select>
+                            <p>進駐店家</p>
+                            <input type="text">
+                            <p>E-mail</p>
+                            <input type="text">
+                            <p>商品種類</p>
+                            <select>
+                                <option></option>
+                                <option>我</option>
+                                <option>超</option>
+                                <option>率</option>
+                            </select>
+                            <p>詳細資訊</p>
+                            <textarea name="description" id="" cols="30" rows="10"></textarea>
+                            <input type="submit" value="送出資料">
+                         </form>
+                    </div>
+                </div>    
             </div>
         </section>
     </main>
     <footer></footer>
-    <script>
+   
+   
+   <script>
         const navbar = document.querySelector('.nav');
         const ulbar = document.querySelector('.ulbar');
         const navimg = document.querySelector('.nav-img');
