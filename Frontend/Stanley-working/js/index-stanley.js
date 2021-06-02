@@ -1,11 +1,16 @@
-//整頁-Swiper輪播套件
-// let mainSwiper = new Swiper(".main", {
-//   direction: "vertical",
-//   slidesPerView: 1,
-//   mousewheel: true,
-//   releaseOnEdges: true,
-//   height: window.innerHeight,
-// });
+// 整頁-fullpage輪播套件
+new fullpage('#fullpage', {
+  autoScrolling: true,
+	afterLoad: function(origin, destination, direction){
+		if(destination.index == 1 && direction === 'down'){
+			fullpage_api.setAutoScrolling(false);
+      
+		}
+    else if(direction === 'up'){
+      fullpage_api.setAutoScrolling(true);
+    }
+	},
+});
 
 //關於審計-Swiper輪播套件
 const swiper = new Swiper(".aboutUsSwiper", {

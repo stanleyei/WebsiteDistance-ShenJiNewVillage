@@ -10,6 +10,7 @@ body {
     background-color: $body-bg;
     font-family: 'Noto Sans', sans-serif;
     color: $main-color;
+    scroll-behavior: smooth;
 }
 
 a{
@@ -19,6 +20,11 @@ a{
 
 h2 {
     margin: 0;
+}
+
+.fp-tableCell{
+    @include flex();
+    height: calc(100vh - 40px) !important;
 }
 
 .logo-img {
@@ -97,6 +103,7 @@ h2 {
     border: 20px solid $main-color;
 
     .effect-area {
+        @include flex();
         transition: 1s ease-in-out;
         animation: fadeout 2s;
 
