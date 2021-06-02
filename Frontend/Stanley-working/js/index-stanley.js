@@ -4,7 +4,7 @@ new fullpage('#fullpage', {
 	afterLoad: function(origin, destination, direction){
 		if(destination.index == 1 && direction === 'down'){
 			fullpage_api.setAutoScrolling(false);
-      
+      fullpage_api.setFitToSection(false);
 		}
     else if(direction === 'up'){
       fullpage_api.setAutoScrolling(true);
