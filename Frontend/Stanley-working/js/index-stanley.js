@@ -1,16 +1,27 @@
 // 整頁-fullpage輪播套件
 new fullpage('#fullpage', {
   autoScrolling: true,
-	afterLoad: function(origin, destination, direction){
-		if(destination.index == 1 && direction === 'down'){
-			fullpage_api.setAutoScrolling(false);
+  afterLoad: function (origin, destination, direction) {
+    if (destination.index == 1 && direction === 'down') {
+      fullpage_api.setAutoScrolling(false);
       fullpage_api.setFitToSection(false);
-		}
-    else if(direction === 'up'){
+    }
+    else if (direction === 'up') {
       fullpage_api.setAutoScrolling(true);
     }
-	},
+  },
 });
+
+//header的點擊拉出效果
+const navbar = document.querySelector('nav');
+const ulbar = document.querySelector('.ulbar');
+const navimg = document.querySelector('.nav-img');
+document.querySelector('.toggle').onclick = function () {
+  this.classList.toggle('active');
+  navbar.classList.toggle('active');
+  ulbar.classList.toggle('active');
+  navimg.classList.toggle('active');
+};
 
 //關於審計-Swiper輪播套件
 const swiper = new Swiper(".aboutUsSwiper", {

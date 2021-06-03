@@ -13,8 +13,8 @@ body {
     scroll-behavior: smooth;
 }
 
-a{
-    text-decoration:none;
+a {
+    text-decoration: none;
     color: $main-color;
 }
 
@@ -22,7 +22,7 @@ h2 {
     margin: 0;
 }
 
-.fp-tableCell{
+.fp-tableCell {
     @include flex();
     height: calc(100vh - 40px) !important;
 }
@@ -93,6 +93,140 @@ h2 {
                 color: #ffffff;
             }
         }
+    }
+}
+
+header {
+    @include flex($jc:flex start);
+    min-height: 100vh;
+    position: fixed;
+    z-index: 50;
+
+    nav {
+        position: relative;
+        @include flex;
+        @include size($w:37px, $h:80vh);
+        background-color: $main-color;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px;
+        transition: 1s;
+
+        ul {
+            display: none;
+            width: 20%;
+            padding: 0;
+            z-index: 20;
+
+            li {
+                position: relative;
+                width: 100%;
+                border-radius: 10px;
+                list-style: none;
+
+                &:hover {
+                    background-color: #efefef;
+
+                    a {
+                        color: $nav-bg;
+                        font-weight: bold;
+                    }
+                }
+
+                a {
+                    position: relative;
+                    width: 50%;
+                    display: flex;
+                    //    flex-wrap: wrap;
+                    text-decoration: none;
+                    color: $store-list-bg;
+                    font-weight: 500;
+                    font-size: $h4;
+                    letter-spacing: 0.3em;
+
+
+                    .icon {
+                        position: relative;
+                        display: block;
+                        min-width: 40px;
+                        height: 60px;
+                        line-height: 60px;
+                        text-align: center;
+
+                    }
+
+                    .title {
+                        position: relative;
+                        display: block;
+                        height: 60px;
+                        line-height: 60px;
+                        white-space: nowrap;
+                    }
+
+                }
+
+            }
+        }
+
+        .nav-img {
+            display: none;
+            @include size($w:110px, $h:109px);
+            background-image: url(../img/logo-bg-img.png);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: absolute;
+            right: 7%;
+            bottom: 8%;
+        }
+    }
+
+
+    nav.active {
+        @include size($w:50vw, $h:100vh);
+        background-color: $nav-bg;
+    }
+
+    .toggle {
+        position: absolute;
+        right: 0;
+        top: 0;
+        @include size($w:30px, $h:80vh);
+        background: none;
+        cursor: pointer;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 15%;
+            top: 50%;
+            width: 12.5px;
+            height: 25px;
+            background-image: url(../img/nav-right.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            line-height: 20px;
+            text-align: center;
+            transition: 1.2s;
+        }
+    }
+
+    .toggle.active {
+        height: 100vh;
+
+        &::before {
+            top: 50%;
+            background-image: url(../img/nav-left.png);
+        }
+    }
+
+    .ulbar.active {
+        display: block;
+    }
+
+    .nav-img.active {
+        display: block;
     }
 }
 
@@ -263,7 +397,7 @@ h2 {
             .date-btns {
                 @include flex(start);
 
-                .focus-change{
+                .focus-change {
                     background-color: $title-bg;
                     color: $footer-text;
                 }
@@ -308,11 +442,11 @@ h2 {
                 button {
                     @extend %news-content-title-btn;
 
-                    &:hover{
+                    &:hover {
                         color: $store-tag-f-bg;
                     }
 
-                    &:active{
+                    &:active {
                         box-shadow: 0 0 $tag-bg;
                         transform: translateY(1px);
                     }
@@ -329,15 +463,15 @@ h2 {
                         @extend %news-inf-before;
                     }
 
-                    &:hover{
+                    &:hover {
                         background-color: $form-title-bg;
 
-                        &::before{
+                        &::before {
                             background-color: darken($title-bg, 5%);
                         }
                     }
-                
-                    &:active{
+
+                    &:active {
                         box-shadow: 0 0 $tag-bg;
                         transform: translateY(3px);
                     }
@@ -371,19 +505,19 @@ h2 {
                             @extend %news-inf-tag;
                         }
 
-                        h4{
+                        h4 {
                             @include font($h3, start, 60px, 0.2em);
                             margin: 0
                         }
-                        
+
                     }
-                    
+
                     >span {
                         @include size(80px, 100%);
                         @include font($h6, start, 100px, 0.2em);
                         @include flex();
                         margin-right: 30px;
-                        
+
                         i {
                             margin-left: 15px;
                             transform: translateY(20%);
@@ -391,7 +525,7 @@ h2 {
                         }
                     }
 
-                    &:nth-child(2) .inf-tag{
+                    &:nth-child(2) .inf-tag {
                         background-color: $store-tag-f-bg;
                     }
                 }
