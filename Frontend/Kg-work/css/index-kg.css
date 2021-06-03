@@ -370,7 +370,7 @@ header {
 
 .contact .contact-container {
   width: 80vw;
-  height: 68vh;
+  height: 80vh;
 }
 
 .contact .contact-container .contact-title {
@@ -451,20 +451,80 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 40px;
+  padding-top: 71px;
 }
 
 .contact .contact-container .contact-main .contact-form-main .contact-form {
-  width: 1000px;
+  width: 550px;
+  padding: 2px;
 }
 
 .contact .contact-container .contact-main .contact-form-main .contact-form .form-type {
   width: 150px;
   height: 41px;
   background-color: #D28E76;
+  border-radius: 5px;
   color: #fff;
   position: absolute;
-  top: 40px;
+  top: 140px;
   right: 43px;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form p {
+  font-size: 1.125rem;
+  line-height: 40px;
+  letter-spacing: 0.2em;
+  color: #54291c;
+  margin-left: 8px;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form input {
+  width: 546px;
+  height: 40px;
+  border: 2px solid #e0e0e0;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form select {
+  width: 193px;
+  height: 40px;
+  border-radius: 4px;
+  border: 2px solid #e0e0e0;
+  background-color: #fff;
+  color: #54291c;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form textarea {
+  width: 546px;
+  height: 135px;
+  border-radius: 6px;
+  border: 2px solid #e0e0e0;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form .form-sendout {
+  position: absolute;
+  top: 727px;
+  left: 499px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 237px;
+  height: 50px;
+  background-color: #D28E76;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 22px;
+  line-height: 50px;
+  letter-spacing: 0.2em;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form .form-storename {
+  margin-bottom: 15px;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form .form-producttype {
+  margin-bottom: 35px;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form .form-producttype p {
+  line-height: 60px;
 }
 /*# sourceMappingURL=index-kg.css.map */
