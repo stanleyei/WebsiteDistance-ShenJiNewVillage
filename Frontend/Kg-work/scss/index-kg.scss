@@ -15,16 +15,16 @@ body {
 
 header {
     @include flex($jc:flex start);
-    width: 100%;
+    // width: 100%;
     min-height: 100vh;
     position: fixed;
     z-index: 50;
 
-    .container {
-        width: 100%;
-        position: relative;
+    // .container {
+    //     width: 100%;
+    //     position: relative;
 
-    }
+    // }
 }
 
 .nav {
@@ -111,7 +111,7 @@ header {
 
 
 .nav.active {
-    @include size($w:50%, $h:100vh);
+    @include size($w:50vw, $h:100vh);
     background-color: $nav-bg;
 
 }
@@ -312,7 +312,7 @@ header {
     position: relative;
 
     .contact-container {
-        @include size($w:80vw);
+        @include size($w:80vw,$h:68vh);
 
 
         .contact-title {
