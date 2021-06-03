@@ -3,11 +3,11 @@ new fullpage('#fullpage', {
   autoScrolling: true,
   afterLoad: function (origin, destination, direction) {
     if (destination.index == 1 && direction === 'down') {
-      fullpage_api.setAutoScrolling(false);
-      fullpage_api.setFitToSection(false);
+      fullpage_api.setAutoScrolling(false); //關閉自動滾動模式
+      fullpage_api.setFitToSection(false); //關閉滾輪自動回到最近section的效果
     }
     else if (direction === 'up') {
-      fullpage_api.setAutoScrolling(true);
+      fullpage_api.setAutoScrolling(true); //開啟自動滾動模式
     }
   },
 });
@@ -25,7 +25,7 @@ document.querySelector('.toggle').onclick = function () {
 
 //關於審計-Swiper輪播套件
 const swiper = new Swiper(".aboutUsSwiper", {
-  slidesPerView: 1,
+  slidesPerView: 1, //同時顯示幾張
   spaceBetween: 30,
   loop: true,
   grabCursor: true,

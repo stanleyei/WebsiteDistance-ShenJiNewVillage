@@ -1,4 +1,4 @@
-.about-us .effect-area .about-us-container .about-us-title::before, .news .news-container .news-title::before {
+#about-us .effect-area .about-us-container .about-us-title::before, #news .news-container .news-title::before {
   width: 60px;
   height: 60px;
   content: '';
@@ -10,7 +10,7 @@
   z-index: -1;
 }
 
-.about-us .effect-area .about-us-container .about-us-title span::before, .news .news-container .news-title span::before {
+#about-us .effect-area .about-us-container .about-us-title span::before, #news .news-container .news-title span::before {
   content: '';
   position: absolute;
   left: 0;
@@ -19,7 +19,7 @@
   letter-spacing: 0.1em;
 }
 
-.news .news-container article .date-btns button {
+#news .news-container article .date-btns button {
   min-width: 50px;
   height: 30px;
   border-radius: 6px;
@@ -35,7 +35,7 @@
   cursor: pointer;
 }
 
-.news .news-container article .content-title button {
+#news .news-container article .content-title button {
   height: 20px;
   margin: 15px 0 0 18px;
   border: 0;
@@ -46,7 +46,7 @@
   cursor: pointer;
 }
 
-.news .news-container article .content-infs .content-inf {
+#news .news-container article .content-infs .content-inf {
   width: 100%;
   height: 100px;
   position: relative;
@@ -58,7 +58,7 @@
   background-color: #F2F2F2;
 }
 
-.news .news-container article .content-infs .content-inf::before {
+#news .news-container article .content-infs .content-inf::before {
   content: '';
   position: absolute;
   width: 20px;
@@ -67,7 +67,7 @@
   background-color: #D28E76;
 }
 
-.news .news-container article .content-infs .content-inf .inf-detail .inf-tag {
+#news .news-container article .content-infs .content-inf .inf-detail .inf-tag {
   width: 82px;
   height: 21px;
   margin-top: 15px;
@@ -77,6 +77,35 @@
   letter-spacing: 0.2em;
   font-size: 0.875rem;
   color: #FFFCF4;
+}
+
+header nav ul li a {
+  position: relative;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #FBE6C3;
+  font-weight: 500;
+  font-size: 1.625rem;
+  letter-spacing: 0.3em;
+}
+
+header nav ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 40px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+
+header nav ul li a .title {
+  position: relative;
+  display: block;
+  height: 60px;
+  line-height: 60px;
+  white-space: nowrap;
 }
 
 * {
@@ -215,9 +244,9 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: flex start;
-      -ms-flex-pack: flex start;
-          justify-content: flex start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -227,7 +256,8 @@ header {
 }
 
 header nav {
-  position: relative;
+  width: 37px;
+  height: 80vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -237,13 +267,12 @@ header nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 37px;
-  height: 80vh;
-  background-color: #54291c;
+  position: relative;
   border-radius: 10px;
-  overflow: hidden;
+  background-color: #54291c;
   -webkit-box-shadow: 0 5px 15px;
           box-shadow: 0 5px 15px;
+  overflow: hidden;
   -webkit-transition: 1s;
   transition: 1s;
 }
@@ -253,13 +282,13 @@ header nav ul {
   width: 20%;
   padding: 0;
   z-index: 20;
+  list-style: none;
 }
 
 header nav ul li {
   position: relative;
   width: 100%;
   border-radius: 10px;
-  list-style: none;
 }
 
 header nav ul li:hover {
@@ -271,47 +300,17 @@ header nav ul li:hover a {
   font-weight: bold;
 }
 
-header nav ul li a {
-  position: relative;
-  width: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  text-decoration: none;
-  color: #FBE6C3;
-  font-weight: 500;
-  font-size: 1.625rem;
-  letter-spacing: 0.3em;
-}
-
-header nav ul li a .icon {
-  position: relative;
-  display: block;
-  min-width: 40px;
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-}
-
-header nav ul li a .title {
-  position: relative;
-  display: block;
-  height: 60px;
-  line-height: 60px;
-  white-space: nowrap;
-}
-
 header nav .nav-img {
-  display: none;
   width: 110px;
   height: 109px;
+  display: none;
+  right: 7%;
+  bottom: 8%;
   background-image: url(../img/logo-bg-img.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   position: absolute;
-  right: 7%;
-  bottom: 8%;
 }
 
 header nav.active {
@@ -321,30 +320,28 @@ header nav.active {
 }
 
 header .toggle {
+  width: 30px;
+  height: 80vh;
   position: absolute;
   right: 0;
   top: 0;
-  width: 30px;
-  height: 80vh;
   background: none;
   cursor: pointer;
 }
 
 header .toggle::before {
+  width: 12.5px;
+  height: 25px;
   content: "";
   position: absolute;
   left: 15%;
   top: 50%;
-  width: 12.5px;
-  height: 25px;
   background-image: url(../img/nav-right.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   line-height: 20px;
   text-align: center;
-  -webkit-transition: 1.2s;
-  transition: 1.2s;
 }
 
 header .toggle.active {
@@ -364,7 +361,7 @@ header .nav-img.active {
   display: block;
 }
 
-.about-us {
+#about-us {
   width: 100%;
   height: 100vh;
   display: -webkit-box;
@@ -380,7 +377,7 @@ header .nav-img.active {
   border: 20px solid #54291c;
 }
 
-.about-us .effect-area {
+#about-us .effect-area {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -414,35 +411,35 @@ header .nav-img.active {
   }
 }
 
-.about-us .effect-area .about-us-container {
+#about-us .effect-area .about-us-container {
   width: 80vw;
   height: 68vh;
 }
 
-.about-us .effect-area .about-us-container .about-us-title {
+#about-us .effect-area .about-us-container .about-us-title {
   position: relative;
   padding-left: 60px;
 }
 
-.about-us .effect-area .about-us-container .about-us-title h2 {
+#about-us .effect-area .about-us-container .about-us-title h2 {
   font-size: 2.8125rem;
   text-align: start;
   line-height: inherit;
   letter-spacing: 0.3em;
 }
 
-.about-us .effect-area .about-us-container .about-us-title span {
+#about-us .effect-area .about-us-container .about-us-title span {
   font-size: 1.5rem;
   text-align: center;
   line-height: inherit;
   letter-spacing: 0.1em;
 }
 
-.about-us .effect-area .about-us-container .about-us-title span::before {
+#about-us .effect-area .about-us-container .about-us-title span::before {
   content: 'About';
 }
 
-.about-us .effect-area .about-us-container article {
+#about-us .effect-area .about-us-container article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -457,13 +454,13 @@ header .nav-img.active {
   position: relative;
 }
 
-.about-us .effect-area .about-us-container article .about-us-swiper {
+#about-us .effect-area .about-us-container article .about-us-swiper {
   width: 52vw;
   height: 100%;
   overflow: hidden;
 }
 
-.about-us .effect-area .about-us-container article .about-us-swiper .about-us-slide {
+#about-us .effect-area .about-us-container article .about-us-swiper .about-us-slide {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -475,7 +472,7 @@ header .nav-img.active {
           align-items: center;
 }
 
-.about-us .effect-area .about-us-container article .about-us-swiper .about-us-slide .img {
+#about-us .effect-area .about-us-container article .about-us-swiper .about-us-slide .img {
   width: 39vw;
   height: 78%;
   display: block;
@@ -487,7 +484,7 @@ header .nav-img.active {
           filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.about-us .effect-area .about-us-container article .about-us-swiper .swiper-button-next {
+#about-us .effect-area .about-us-container article .about-us-swiper .swiper-button-next {
   width: 50px;
   height: 50px;
   position: absolute;
@@ -497,7 +494,7 @@ header .nav-img.active {
           transform: translate(0, 0);
 }
 
-.about-us .effect-area .about-us-container article .about-us-swiper .swiper-button-next::after {
+#about-us .effect-area .about-us-container article .about-us-swiper .swiper-button-next::after {
   width: 100%;
   height: 100%;
   content: '';
@@ -505,7 +502,7 @@ header .nav-img.active {
   font-family: none;
 }
 
-.about-us .effect-area .about-us-container article .about-us-swiper .swiper-button-prev {
+#about-us .effect-area .about-us-container article .about-us-swiper .swiper-button-prev {
   width: 50px;
   height: 50px;
   position: absolute;
@@ -515,7 +512,7 @@ header .nav-img.active {
           transform: translate(0, 0);
 }
 
-.about-us .effect-area .about-us-container article .about-us-swiper .swiper-button-prev::after {
+#about-us .effect-area .about-us-container article .about-us-swiper .swiper-button-prev::after {
   width: 100%;
   height: 100%;
   content: '';
@@ -523,16 +520,16 @@ header .nav-img.active {
   font-family: none;
 }
 
-.about-us .effect-area .about-us-container article .about-us-swiper .swiper-pagination {
+#about-us .effect-area .about-us-container article .about-us-swiper .swiper-pagination {
   bottom: 2vh;
   left: -21vw;
 }
 
-.about-us .effect-area .about-us-container article .about-us-swiper .swiper-pagination span {
+#about-us .effect-area .about-us-container article .about-us-swiper .swiper-pagination span {
   background-color: #D28E76;
 }
 
-.about-us .effect-area .about-us-container article .about-us-content {
+#about-us .effect-area .about-us-container article .about-us-content {
   width: 32vw;
   height: 100%;
   display: -webkit-box;
@@ -550,14 +547,14 @@ header .nav-img.active {
           flex-direction: column;
 }
 
-.about-us .effect-area .about-us-container article .about-us-content h3 {
+#about-us .effect-area .about-us-container article .about-us-content h3 {
   font-size: 2.25rem;
   text-align: start;
   line-height: inherit;
   letter-spacing: 0.3em;
 }
 
-.about-us .effect-area .about-us-container article .about-us-content p {
+#about-us .effect-area .about-us-container article .about-us-content p {
   width: 100%;
   height: 300px;
   font-size: 1.5rem;
@@ -567,7 +564,7 @@ header .nav-img.active {
   margin: 0;
 }
 
-.news {
+#news {
   width: 100%;
   height: 100vh;
   display: -webkit-box;
@@ -583,39 +580,39 @@ header .nav-img.active {
   border: 20px solid #54291c;
 }
 
-.news .news-container {
+#news .news-container {
   width: 70vw;
   height: 76vh;
 }
 
-.news .news-container .news-title {
+#news .news-container .news-title {
   position: relative;
   padding-left: 60px;
 }
 
-.news .news-container .news-title h2 {
+#news .news-container .news-title h2 {
   font-size: 2.8125rem;
   text-align: start;
   line-height: inherit;
   letter-spacing: 0.3em;
 }
 
-.news .news-container .news-title span {
+#news .news-container .news-title span {
   font-size: 1.5rem;
   text-align: center;
   line-height: inherit;
   letter-spacing: 0.1em;
 }
 
-.news .news-container .news-title span::before {
+#news .news-container .news-title span::before {
   content: 'News';
 }
 
-.news .news-container article {
+#news .news-container article {
   padding: 80px 0 0 32px;
 }
 
-.news .news-container article .date-title {
+#news .news-container article .date-title {
   width: 100px;
   height: 30px;
   font-size: 1rem;
@@ -627,7 +624,7 @@ header .nav-img.active {
   color: #FBE6C3;
 }
 
-.news .news-container article .date-btns {
+#news .news-container article .date-btns {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -639,17 +636,17 @@ header .nav-img.active {
           align-items: center;
 }
 
-.news .news-container article .date-btns .focus-change {
+#news .news-container article .date-btns .focus-change {
   background-color: #D28E76;
   color: #ffffff;
 }
 
-.news .news-container article .date-btns button:hover {
+#news .news-container article .date-btns button:hover {
   background-color: #D28E76;
   color: #ffffff;
 }
 
-.news .news-container article .content-title {
+#news .news-container article .content-title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -661,7 +658,7 @@ header .nav-img.active {
           align-items: center;
 }
 
-.news .news-container article .content-title h3 {
+#news .news-container article .content-title h3 {
   font-size: 2.8125rem;
   text-align: center;
   line-height: 60px;
@@ -670,7 +667,7 @@ header .nav-img.active {
   padding-left: 11px;
 }
 
-.news .news-container article .content-title h3::before {
+#news .news-container article .content-title h3::before {
   width: 122px;
   height: 24px;
   content: '';
@@ -683,7 +680,7 @@ header .nav-img.active {
   z-index: -1;
 }
 
-.news .news-container article .content-title div {
+#news .news-container article .content-title div {
   font-size: 1.125rem;
   text-align: center;
   line-height: inherit;
@@ -693,45 +690,45 @@ header .nav-img.active {
   font-weight: bold;
 }
 
-.news .news-container article .content-title button:hover {
+#news .news-container article .content-title button:hover {
   color: #96422D;
 }
 
-.news .news-container article .content-title button:active {
+#news .news-container article .content-title button:active {
   -webkit-box-shadow: 0 0 #C4C4C4;
           box-shadow: 0 0 #C4C4C4;
   -webkit-transform: translateY(1px);
           transform: translateY(1px);
 }
 
-.news .news-container article .content-infs .content-inf {
+#news .news-container article .content-infs .content-inf {
   -webkit-box-shadow: 0 3px #C4C4C4;
           box-shadow: 0 3px #C4C4C4;
 }
 
-.news .news-container article .content-infs .content-inf:hover {
+#news .news-container article .content-infs .content-inf:hover {
   background-color: #E0E0E0;
 }
 
-.news .news-container article .content-infs .content-inf:hover::before {
+#news .news-container article .content-infs .content-inf:hover::before {
   background-color: #cc7e63;
 }
 
-.news .news-container article .content-infs .content-inf:active {
+#news .news-container article .content-infs .content-inf:active {
   -webkit-box-shadow: 0 0 #C4C4C4;
           box-shadow: 0 0 #C4C4C4;
   -webkit-transform: translateY(3px);
           transform: translateY(3px);
 }
 
-.news .news-container article .content-infs .content-inf .inf-date {
+#news .news-container article .content-infs .content-inf .inf-date {
   width: 107px;
   height: 100%;
   padding-left: 38px;
   font-weight: bold;
 }
 
-.news .news-container article .content-infs .content-inf .inf-date .during {
+#news .news-container article .content-infs .content-inf .inf-date .during {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -744,7 +741,7 @@ header .nav-img.active {
   padding-top: 5px;
 }
 
-.news .news-container article .content-infs .content-inf .inf-date .during .end-date {
+#news .news-container article .content-infs .content-inf .inf-date .during .end-date {
   font-size: 0.75rem;
   text-align: start;
   line-height: 20px;
@@ -752,21 +749,21 @@ header .nav-img.active {
   padding: 0 0 5px 10px;
 }
 
-.news .news-container article .content-infs .content-inf .inf-date > span {
+#news .news-container article .content-infs .content-inf .inf-date > span {
   font-size: 1.125rem;
   text-align: start;
   line-height: 20px;
   letter-spacing: 0.2em;
 }
 
-.news .news-container article .content-infs .content-inf .inf-detail {
+#news .news-container article .content-infs .content-inf .inf-detail {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   padding-left: 20px;
 }
 
-.news .news-container article .content-infs .content-inf .inf-detail h4 {
+#news .news-container article .content-infs .content-inf .inf-detail h4 {
   font-size: 1.75rem;
   text-align: start;
   line-height: 60px;
@@ -774,7 +771,7 @@ header .nav-img.active {
   margin: 0;
 }
 
-.news .news-container article .content-infs .content-inf > span {
+#news .news-container article .content-infs .content-inf > span {
   width: 80px;
   height: 100%;
   font-size: 1.375rem;
@@ -793,14 +790,14 @@ header .nav-img.active {
   margin-right: 30px;
 }
 
-.news .news-container article .content-infs .content-inf > span i {
+#news .news-container article .content-infs .content-inf > span i {
   margin-left: 15px;
   -webkit-transform: translateY(20%);
           transform: translateY(20%);
   font-size: 16px;
 }
 
-.news .news-container article .content-infs .content-inf:nth-child(2) .inf-tag {
+#news .news-container article .content-infs .content-inf:nth-child(2) .inf-tag {
   background-color: #96422D;
 }
 
