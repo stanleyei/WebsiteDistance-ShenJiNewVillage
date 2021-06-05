@@ -27,6 +27,92 @@ header nav ul li a .title {
   white-space: nowrap;
 }
 
+main .news-page-container .news-title::before {
+  width: 60px;
+  height: 60px;
+  content: '';
+  position: absolute;
+  background: #D28E76;
+  border-radius: 5px;
+  -webkit-transform: translate(-50px, -20px);
+          transform: translate(-50px, -20px);
+  z-index: -1;
+}
+
+main .news-page-container .news-title span::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  -webkit-transform: translate(-15%, -80%) rotate(90deg);
+          transform: translate(-15%, -80%) rotate(90deg);
+  letter-spacing: 0.1em;
+}
+
+main .news-page-container article .news-date .date-btns button {
+  min-width: 50px;
+  height: 30px;
+  border-radius: 6px;
+  border: 0;
+  margin: 16px 8px 0 0;
+  background-color: #F2F2F2;
+  color: #96422D;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 30px;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+}
+
+main .news-page-container article .content-title button {
+  height: 20px;
+  margin: 15px 0 0 18px;
+  border: 0;
+  background-color: #FFFCF4;
+  font-size: 15px;
+  color: #54291c;
+  text-shadow: 0 2px #C4C4C4;
+  cursor: pointer;
+}
+
+main .news-page-container article .content-infs .content-inf {
+  width: 100%;
+  height: 100px;
+  position: relative;
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 6px;
+  background-color: #F2F2F2;
+}
+
+main .news-page-container article .content-infs .content-inf::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 100px;
+  left: 0;
+  background-color: #D28E76;
+}
+
+main .news-page-container .aside .aside-tab {
+  width: 180px;
+  height: 60px;
+  border: 0;
+  margin-left: 30px;
+  background-color: #C4C4C4;
+  font-size: 1.375rem;
+  line-height: 30px;
+  letter-spacing: 0.2em;
+  font-weight: bold;
+  color: #333333;
+  -webkit-box-shadow: 1px 1px 3px #596E79;
+          box-shadow: 1px 1px 3px #596E79;
+  text-align: center;
+  cursor: pointer;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -189,6 +275,264 @@ header .nav-img.active {
 main {
   position: relative;
   height: 200vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .news-page-container {
+  width: 70vw;
+  height: calc(200vh - 500px);
+}
+
+main .news-page-container .news-title {
+  position: relative;
+  padding-left: 60px;
+}
+
+main .news-page-container .news-title h2 {
+  font-size: 2.8125rem;
+  text-align: start;
+  line-height: inherit;
+  letter-spacing: 0.3em;
+}
+
+main .news-page-container .news-title span {
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: inherit;
+  letter-spacing: 0.1em;
+}
+
+main .news-page-container .news-title span::before {
+  content: 'News';
+}
+
+main .news-page-container .aside {
+  width: 100%;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 40px;
+  padding-right: 30px;
+}
+
+main .news-page-container .aside .aside-tab:hover {
+  background-color: #d1d1d1;
+}
+
+main .news-page-container .aside .aside-tab:active {
+  background-color: #AB3030;
+  color: #ffffff;
+}
+
+main .news-page-container article {
+  padding: 80px 0 0 32px;
+}
+
+main .news-page-container article .news-date {
+  margin-bottom: 70px;
+}
+
+main .news-page-container article .news-date .date-title {
+  width: 100px;
+  height: 30px;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 30px;
+  letter-spacing: 0.2em;
+  border-radius: 6px;
+  background-color: #54291c;
+  color: #FBE6C3;
+}
+
+main .news-page-container article .news-date .date-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .news-page-container article .news-date .date-btns .focus-change {
+  background-color: #D28E76;
+  color: #ffffff;
+}
+
+main .news-page-container article .news-date .date-btns button:hover {
+  background-color: #D28E76;
+  color: #ffffff;
+}
+
+main .news-page-container article .content-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 60px;
+}
+
+main .news-page-container article .content-title h4 {
+  font-size: 2.8125rem;
+  text-align: center;
+  line-height: 60px;
+  letter-spacing: 0.2em;
+  position: relative;
+  padding-left: 11px;
+  margin: 0;
+}
+
+main .news-page-container article .content-title h4::before {
+  width: 122px;
+  height: 24px;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  -webkit-transform: translate(-10%, -50%);
+          transform: translate(-10%, -50%);
+  border-radius: 6px;
+  background-color: #FBE6C3;
+  z-index: -1;
+}
+
+main .news-page-container article .content-title div {
+  font-size: 1.125rem;
+  text-align: center;
+  line-height: inherit;
+  letter-spacing: 0.2em;
+  margin-left: 20px;
+  padding-top: 15px;
+  font-weight: bold;
+}
+
+main .news-page-container article .content-title button:hover {
+  color: #96422D;
+}
+
+main .news-page-container article .content-title button:active {
+  -webkit-box-shadow: 0 0 #C4C4C4;
+          box-shadow: 0 0 #C4C4C4;
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+}
+
+main .news-page-container article .content-infs .content-inf {
+  -webkit-box-shadow: 0 3px #C4C4C4;
+          box-shadow: 0 3px #C4C4C4;
+}
+
+main .news-page-container article .content-infs .content-inf:hover {
+  background-color: #E0E0E0;
+}
+
+main .news-page-container article .content-infs .content-inf:hover::before {
+  background-color: #cc7e63;
+}
+
+main .news-page-container article .content-infs .content-inf:active {
+  -webkit-box-shadow: 0 0 #C4C4C4;
+          box-shadow: 0 0 #C4C4C4;
+  -webkit-transform: translateY(3px);
+          transform: translateY(3px);
+}
+
+main .news-page-container article .content-infs .content-inf .inf-date {
+  width: 107px;
+  height: 100%;
+  padding-left: 38px;
+  font-weight: bold;
+}
+
+main .news-page-container article .content-infs .content-inf .inf-date .during {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 5px;
+}
+
+main .news-page-container article .content-infs .content-inf .inf-date .during .end-date {
+  font-size: 0.75rem;
+  text-align: start;
+  line-height: 20px;
+  letter-spacing: 0.2em;
+  padding: 0 0 5px 10px;
+}
+
+main .news-page-container article .content-infs .content-inf .inf-date > span {
+  font-size: 1.125rem;
+  text-align: start;
+  line-height: 20px;
+  letter-spacing: 0.2em;
+}
+
+main .news-page-container article .content-infs .content-inf h5 {
+  font-size: 1.75rem;
+  text-align: start;
+  line-height: 100px;
+  letter-spacing: 0.2em;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding-left: 20px;
+  margin: 0;
+}
+
+main .news-page-container article .content-infs .content-inf > i {
+  width: 80px;
+  height: 100%;
+  font-size: 1.375rem;
+  text-align: start;
+  line-height: 100px;
+  letter-spacing: 0.2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 30px;
+  margin-left: 15px;
+  font-size: 16px;
+}
+
+main .news-page-container article h3 {
+  font-size: 2.8125rem;
+  text-align: start;
+  line-height: 60px;
+  letter-spacing: 0.2em;
+  margin: 275px 0 15px 0;
+  font-family: 'Noto Sans TC', sans-serif;
 }
 
 footer {

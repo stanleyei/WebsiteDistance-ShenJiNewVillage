@@ -146,9 +146,201 @@ header {
     }
 }
 
-main{
+main {
     position: relative;
     height: 200vh;
+    @include flex();
+
+    .news-page-container {
+        @include size(70vw, calc(200vh - 500px));
+
+        .news-title {
+            position: relative;
+            padding-left: 60px;
+
+            &::before {
+                @extend %title-cube;
+            }
+
+            h2 {
+                @include font($h1, start, inherit, 0.3em);
+            }
+
+            span {
+                @include font($h5);
+
+                &::before {
+                    @extend %title-vertical-text;
+                    content: 'News';
+                }
+            }
+        }
+
+        .aside {
+            @include size(100%, 60px);
+            @include flex(flex-end);
+            margin-top: 40px;
+            padding-right: 30px;
+
+            .aside-tab {
+                @extend %news-page-aside-tag;
+
+                &:hover{
+                    background-color: lighten($tag-bg, 5%);
+                }
+
+                &:active{
+                    background-color: $news-tag-f-bg;
+                    color: $footer-text;
+                }
+            }
+        }
+
+        article {
+            padding: 80px 0 0 32px;
+
+            .news-date{
+                margin-bottom: 70px;
+                
+                .date-title {
+                    @include size(100px, 30px);
+                    @include font($h8, center, 30px, 0.2em);
+                    border-radius: 6px;
+                    background-color: $main-color;
+                    color: $store-list-bg;
+                }
+    
+                .date-btns {
+                    @include flex(start);
+    
+                    .focus-change {
+                        background-color: $title-bg;
+                        color: $footer-text;
+                    }
+    
+                    button {
+                        @extend %date-btn;
+    
+                        &:hover {
+                            background-color: $title-bg;
+                            color: $footer-text;
+                        }
+                    }
+                }
+            }
+
+            .content-title {
+                @include flex(start);
+                margin-bottom: 60px;
+
+                h4 {
+                    @include font($h1, center, 60px, 0.2em);
+                    position: relative;
+                    padding-left: 11px;
+                    margin: 0;
+
+                    &::before {
+                        @include size(122px, 24px);
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        transform: translate(-10%, -50%);
+                        border-radius: 6px;
+                        background-color: $store-list-bg;
+                        z-index: -1;
+                    }
+                }
+
+                div {
+                    @include font($h7, center, inherit, 0.2em);
+                    margin-left: 20px;
+                    padding-top: 15px;
+                    font-weight: bold;
+                }
+
+                button {
+                    @extend %news-content-title-btn;
+
+                    &:hover {
+                        color: $store-tag-f-bg;
+                    }
+
+                    &:active {
+                        box-shadow: 0 0 $tag-bg;
+                        transform: translateY(1px);
+                    }
+                }
+            }
+
+            .content-infs {
+
+                .content-inf {
+                    @extend %news-inf;
+                    box-shadow: 0 3px $tag-bg;
+
+                    &::before {
+                        @extend %news-inf-before;
+                    }
+
+                    &:hover {
+                        background-color: $form-title-bg;
+
+                        &::before {
+                            background-color: darken($title-bg, 5%);
+                        }
+                    }
+
+                    &:active {
+                        box-shadow: 0 0 $tag-bg;
+                        transform: translateY(3px);
+                    }
+
+                    .inf-date {
+                        @include size(107px, 100%);
+                        padding-left: 38px;
+                        font-weight: bold;
+
+                        .during {
+                            @include flex(start);
+                            padding-top: 5px;
+
+                            .end-date {
+                                @include font($h10, start, 20px, 0.2em);
+                                padding: 0 0 5px 10px;
+                            }
+                        }
+
+                        >span {
+                            @include font($h7, start, 20px, 0.2em);
+                        }
+
+                    }
+
+                    h5 {
+                        @include font($h3, start, 100px, 0.2em);
+                        flex: 1;
+                        padding-left: 20px;
+                        margin: 0
+                    }
+
+                    >i {
+                        @include size(80px, 100%);
+                        @include font($h6, start, 100px, 0.2em);
+                        @include flex();
+                        margin-right: 30px;
+                        margin-left: 15px;
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            h3 {
+                @include font($h1, start, 60px, 0.2em);
+                margin: 275px 0 15px 0;
+                font-family: 'Noto Sans TC', sans-serif;
+            }
+        }
+    }
 }
 
 footer {
