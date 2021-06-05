@@ -46,6 +46,7 @@ const swiper = new Swiper(".aboutUsSwiper", {
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
+    hideOnClick: true,
   },
 });
 

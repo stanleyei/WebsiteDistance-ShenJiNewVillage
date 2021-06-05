@@ -255,11 +255,15 @@ header {
             article {
                 @include flex();
                 @include size(100%, 87%);
-                position: relative;
 
                 .about-us-swiper {
                     @include size(52vw, 100%);
+                    position: relative;
                     overflow: hidden;
+
+                    &:hover .swiper-button{
+                        opacity: 1;
+                    }
 
                     .about-us-slide {
                         @include flex(start);
@@ -275,24 +279,25 @@ header {
                     }
 
                     .swiper-button-next {
-                        @include size(50px, 50px);
-                        @include position(50%, 40vw, 0, 0);
+                        @extend %about-us-swiper-button;
+                        right: 11vw;
 
                         &::after {
                             @include size(100%, 100%);
                             content: '';
+                            transform: translateX(3px);
                             background-image: url(../img/aboutUs-swiper-right.png);
                             font-family: none;
                         }
                     }
 
                     .swiper-button-prev {
-                        @include size(50px, 50px);
-                        @include position(50%, -70px, 0, 0);
+                        @extend %about-us-swiper-button;
 
                         &::after {
                             @include size(100%, 100%);
                             content: '';
+                            transform: translateX(-3px);
                             background-image: url(../img/aboutUs-swiper-left.png);
                             font-family: none;
                         }
@@ -300,7 +305,7 @@ header {
 
                     .swiper-pagination {
                         bottom: 2vh;
-                        left: -21vw;
+                        left: -5.5vw;
 
                         span {
                             background-color: $title-bg;
