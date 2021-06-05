@@ -97,6 +97,7 @@ header nav ul li a .title {
   display: flex;
   border-radius: 6px;
   background-color: #F2F2F2;
+  cursor: pointer;
 }
 
 #news .news-container article .content-infs .content-inf::before {
@@ -105,6 +106,8 @@ header nav ul li a .title {
   width: 20px;
   height: 100px;
   left: 0;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
   background-color: #D28E76;
 }
 

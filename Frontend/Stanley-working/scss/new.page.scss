@@ -17,10 +17,30 @@ body {
 a {
     text-decoration: none;
     color: $main-color;
+
+    &:hover{
+        text-decoration: none;
+        color: $main-color;
+    }
 }
 
 h2 {
     margin: 0;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
 }
 
 .logo-img {
@@ -148,11 +168,11 @@ header {
 
 main {
     position: relative;
-    height: 200vh;
     @include flex();
 
     .news-page-container {
-        @include size(70vw, calc(200vh - 500px));
+        @include size(65vw, 100%);
+        padding: 250px 0;
 
         .news-title {
             position: relative;
@@ -185,11 +205,11 @@ main {
             .aside-tab {
                 @extend %news-page-aside-tag;
 
-                &:hover{
+                &:hover {
                     background-color: lighten($tag-bg, 5%);
                 }
 
-                &:active{
+                &:active {
                     background-color: $news-tag-f-bg;
                     color: $footer-text;
                 }
@@ -199,9 +219,9 @@ main {
         article {
             padding: 80px 0 0 32px;
 
-            .news-date{
+            .news-date {
                 margin-bottom: 70px;
-                
+
                 .date-title {
                     @include size(100px, 30px);
                     @include font($h8, center, 30px, 0.2em);
@@ -209,18 +229,18 @@ main {
                     background-color: $main-color;
                     color: $store-list-bg;
                 }
-    
+
                 .date-btns {
                     @include flex(start);
-    
+
                     .focus-change {
                         background-color: $title-bg;
                         color: $footer-text;
                     }
-    
+
                     button {
                         @extend %date-btn;
-    
+
                         &:hover {
                             background-color: $title-bg;
                             color: $footer-text;
@@ -293,6 +313,7 @@ main {
                     &:active {
                         box-shadow: 0 0 $tag-bg;
                         transform: translateY(3px);
+                        color: $footer-text;
                     }
 
                     .inf-date {
@@ -332,6 +353,96 @@ main {
                         font-size: 16px;
                     }
                 }
+
+                .inf-detail {
+                    border-bottom-left-radius: 6px;
+                    border-bottom-right-radius: 6px;
+                    background-color: $form-bg;
+                    font-weight: bold;
+                    transition: 0.6s ease-in-out;
+
+                    >span {
+                        display: block;
+                        padding: 25px 0 0 3.5vh;
+                        font-weight: bold;
+                    }
+
+                    .card-body {
+                        padding: 40px 4.7vw 0;
+
+                        .card-imgs {
+                            @include flex(space-between);
+
+                            figure {
+                                @include size(26vw, 15vw);
+                                background-repeat: no-repeat;
+                            }
+                        }
+
+                        .card-content {
+                            @include font($h7, start, 30px 0.2em);
+                            display: grid;
+                            grid-template-columns: repeat(3, 1fr);
+                            padding: 55px 50px 0 50px;
+
+                            span {
+                                display: block;
+                                padding: 0;
+                            }
+                        }
+                    }
+
+                    .card-other-inf {
+                        display: grid;
+                        grid-row: 2;
+                        grid-template-columns: repeat(2, 1fr);
+
+                        >div {
+                            @include flex(flex-start);
+                            @include font($h10, center, 30px, 0.2em);
+                            padding-left: 7.5vw;
+                            font-weight: bold;
+                            height: 140px;
+
+
+                            i {
+                                margin-right: 10px;
+                                font-size: $h4;
+                            }
+
+                            time {
+                                padding-top: 20px;
+                                margin-left: 30px;
+                                display: flex;
+                                flex-direction: column;
+                                justify-self: flex-end;
+                                line-height: 20px;
+                            }
+
+                            >img {
+                                margin-left: 30px;
+                            }
+
+                            span {
+                                padding: 0;
+                            }
+
+                            a{
+                                display: flex;
+
+                                &:hover{
+                                    border-bottom: 3px solid $main-color;
+                                }
+                            }
+                        }
+
+                        >div:nth-child(1),
+                        >div:nth-child(2) {
+                            border-top: 3px solid $body-bg;
+                            border-bottom: 3px solid $body-bg;
+                        }
+                    }
+                }
             }
 
             h3 {
@@ -365,6 +476,7 @@ footer {
 
         h2 {
             @include font($h2, start, 49px, 0.15em);
+            margin-bottom: 70px;
         }
 
         article {
@@ -411,10 +523,6 @@ footer {
                     @include font($h6, center, 30px, 0.15em);
                     padding-top: 13px;
                 }
-            }
-
-            .fb-page {
-                margin-top: 27px;
             }
         }
 

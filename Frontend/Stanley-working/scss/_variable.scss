@@ -151,6 +151,7 @@ $h10:0.75rem;   //12px
     display: flex;
     border-radius: 6px;
     background-color: $form-bg;
+    cursor: pointer;
 }
 
 %news-inf-before{
@@ -159,6 +160,8 @@ $h10:0.75rem;   //12px
     width: 20px;
     height: 100px;
     left: 0;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
     background-color: $title-bg;
 }
 
@@ -189,4 +192,6 @@ $h10:0.75rem;   //12px
     text-align: center;
     cursor: pointer;
 }
+
+
 

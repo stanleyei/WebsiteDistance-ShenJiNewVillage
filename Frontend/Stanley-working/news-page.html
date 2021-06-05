@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
@@ -19,7 +21,6 @@
 </head>
 
 <body>
-
     <header>
         <nav>
             <ul class="ulbar">
@@ -97,8 +98,9 @@
                             <button class="fas fa-chevron-left"></button>
                             <button class="fas fa-chevron-right"></button>
                         </div>
-                        <div class="content-infs">
-                            <a class="content-inf" href="">
+                        <div class="content-infs" id="content-infs-now">
+                            <div class="content-inf" data-toggle="collapse" data-target="#collapseOne"
+                                aria-expanded="true" aria-controls="collapseOne">
                                 <div class="inf-date">
                                     <div class="during">
                                         <div class="start-date">03</div>
@@ -108,29 +110,66 @@
                                 </div>
                                 <h5>防疫重要通知 審計新村假日市集皆停辦</h5>
                                 <i class="fas fa-chevron-down"></i>
-                            </a>
-                            <a class="content-inf" href="">
-                                <div class="inf-date">
-                                    <div class="during">
-                                        <div class="start-date">03</div>
-                                        <div class="end-date">-14</div>
+                            </div>
+                            <div class="inf-detail collapse show" id="collapseOne" aria-labelledby="headingOne"
+                                data-parent="#content-infs-now">
+                                <span class="far fa-edit"> 活動詳情</span>
+                                <div class="card-body">
+                                    <div class="card-imgs">
+                                        <figure style="background-image: url(./img/news-event-image-1.png);"></figure>
+                                        <figure style="background-image: url(./img/news-event-image-2.png);"></figure>
                                     </div>
-                                    <span>五月</span>
-                                </div>
-                                <h5>防疫重要通知 審計新村假日市集皆停辦</h5>
-                                <i class="fas fa-chevron-down"></i>
-                            </a>
-                            <a class="content-inf" href="">
-                                <div class="inf-date">
-                                    <div class="during">
-                                        <div class="start-date">03</div>
-                                        <div class="end-date">-14</div>
+                                    <div class="card-content">
+                                        <p>
+                                            <span>☆平面設計 / 手繪類</span>
+                                            <span>#Drifting In Life</span>
+                                            <span>#小田月所</span>
+                                            <span>翻滾酪梨 Rolin is rolling</span>
+                                            <span>鳥人鳥事多</span>
+                                        </p>
+                                        <p>
+                                            <span>☆香氛 / 手工皂類</span>
+                                            <span>#angel_candle_tw</span>
+                                            <span>も Monster</span>
+                                            <span>Yiweiya 創意手作設計</span>
+                                            <span>晴空手作皂 Clear Sky</span>
+                                        </p>
+                                        <p>
+                                            <span>☆植栽 / 木作類</span>
+                                            <span>深白曙光工房</span>
+                                            <span>Lady Is Gaga 手木系</span>
+                                            <span>古夜天工坊</span>
+                                            <span>Tadpole Teak 得寶老柚木</span>
+                                        </p>
                                     </div>
-                                    <span>五月</span>
                                 </div>
-                                <h5>防疫重要通知 審計新村假日市集皆停辦</h5>
-                                <i class="fas fa-chevron-down"></i>
-                            </a>
+                                <div class="card-other-inf">
+                                    <div>
+                                        <i class="far fa-clock"></i>
+                                        <div>時間</div>
+                                        <time>
+                                            <span>2021/05/03(一)-05/14(五)</span>
+                                            <div>10:00-19:00</div>
+                                        </time>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>地點<span>
+                                                <span>台中市西區民生路368巷</span>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-suitcase"></i>
+                                        <span>主辦單位</span>
+                                        <img src="./img/news-event-logo.png" alt="">
+                                    </div>
+                                    <div>
+                                        <a href="">
+                                            <i class="far fa-calendar-minus"></i>
+                                            <div>加入google日曆</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <h3>下月活動預告</h3>
                         <div class="content-title">
@@ -139,41 +178,7 @@
                             <button class="fas fa-chevron-left"></button>
                             <button class="fas fa-chevron-right"></button>
                         </div>
-                        <div class="content-infs">
-                            <a class="content-inf" href="">
-                                <div class="inf-date">
-                                    <div class="during">
-                                        <div class="start-date">03</div>
-                                        <div class="end-date">-14</div>
-                                    </div>
-                                    <span>五月</span>
-                                </div>
-                                <h5>防疫重要通知 審計新村假日市集皆停辦</h5>
-                                <i class="fas fa-chevron-down"></i>
-                            </a>
-                            <a class="content-inf" href="">
-                                <div class="inf-date">
-                                    <div class="during">
-                                        <div class="start-date">03</div>
-                                        <div class="end-date">-14</div>
-                                    </div>
-                                    <span>五月</span>
-                                </div>
-                                <h5>防疫重要通知 審計新村假日市集皆停辦</h5>
-                                <i class="fas fa-chevron-down"></i>
-                            </a>
-                            <a class="content-inf" href="">
-                                <div class="inf-date">
-                                    <div class="during">
-                                        <div class="start-date">03</div>
-                                        <div class="end-date">-14</div>
-                                    </div>
-                                    <span>五月</span>
-                                </div>
-                                <h5>防疫重要通知 審計新村假日市集皆停辦</h5>
-                                <i class="fas fa-chevron-down"></i>
-                            </a>
-                        </div>
+                        <div class="content-infs" id="content-infs-next"></div>
                     </div>
                 </div>
             </article>
@@ -227,6 +232,12 @@
         integrity="sha512-HqbDsHIJoZ36Csd7NMupWFxC7e7aX2qm213sX+hirN+yEx/eUNlZrTWPs1dUQDEW4fMVkerv1PfMohR1WdFFJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
     <script src="./js/news.page.js"></script>
 </body>
 

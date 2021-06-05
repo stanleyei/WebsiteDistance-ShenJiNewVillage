@@ -85,6 +85,7 @@ main .news-page-container article .content-infs .content-inf {
   display: flex;
   border-radius: 6px;
   background-color: #F2F2F2;
+  cursor: pointer;
 }
 
 main .news-page-container article .content-infs .content-inf::before {
@@ -93,6 +94,8 @@ main .news-page-container article .content-infs .content-inf::before {
   width: 20px;
   height: 100px;
   left: 0;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
   background-color: #D28E76;
 }
 
@@ -133,8 +136,28 @@ a {
   color: #54291c;
 }
 
+a:hover {
+  text-decoration: none;
+  color: #54291c;
+}
+
 h2 {
   margin: 0;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
 }
 
 .logo-img {
@@ -274,7 +297,6 @@ header .nav-img.active {
 
 main {
   position: relative;
-  height: 200vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -287,8 +309,9 @@ main {
 }
 
 main .news-page-container {
-  width: 70vw;
-  height: calc(200vh - 500px);
+  width: 65vw;
+  height: 100%;
+  padding: 250px 0;
 }
 
 main .news-page-container .news-title {
@@ -456,6 +479,7 @@ main .news-page-container article .content-infs .content-inf:active {
           box-shadow: 0 0 #C4C4C4;
   -webkit-transform: translateY(3px);
           transform: translateY(3px);
+  color: #ffffff;
 }
 
 main .news-page-container article .content-infs .content-inf .inf-date {
@@ -526,6 +550,131 @@ main .news-page-container article .content-infs .content-inf > i {
   font-size: 16px;
 }
 
+main .news-page-container article .content-infs .inf-detail {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  background-color: #F2F2F2;
+  font-weight: bold;
+  -webkit-transition: 0.6s ease-in-out;
+  transition: 0.6s ease-in-out;
+}
+
+main .news-page-container article .content-infs .inf-detail > span {
+  display: block;
+  padding: 25px 0 0 3.5vh;
+  font-weight: bold;
+}
+
+main .news-page-container article .content-infs .inf-detail .card-body {
+  padding: 40px 4.7vw 0;
+}
+
+main .news-page-container article .content-infs .inf-detail .card-body .card-imgs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .news-page-container article .content-infs .inf-detail .card-body .card-imgs figure {
+  width: 26vw;
+  height: 15vw;
+  background-repeat: no-repeat;
+}
+
+main .news-page-container article .content-infs .inf-detail .card-body .card-content {
+  font-size: 1.125rem;
+  text-align: start;
+  line-height: 30px 0.2em;
+  letter-spacing: 0.1em;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  padding: 55px 50px 0 50px;
+}
+
+main .news-page-container article .content-infs .inf-detail .card-body .card-content span {
+  display: block;
+  padding: 0;
+}
+
+main .news-page-container article .content-infs .inf-detail .card-other-inf {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+}
+
+main .news-page-container article .content-infs .inf-detail .card-other-inf > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 0.75rem;
+  text-align: center;
+  line-height: 30px;
+  letter-spacing: 0.2em;
+  padding-left: 7.5vw;
+  font-weight: bold;
+  height: 140px;
+}
+
+main .news-page-container article .content-infs .inf-detail .card-other-inf > div i {
+  margin-right: 10px;
+  font-size: 1.625rem;
+}
+
+main .news-page-container article .content-infs .inf-detail .card-other-inf > div time {
+  padding-top: 20px;
+  margin-left: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-self: flex-end;
+  line-height: 20px;
+}
+
+main .news-page-container article .content-infs .inf-detail .card-other-inf > div > img {
+  margin-left: 30px;
+}
+
+main .news-page-container article .content-infs .inf-detail .card-other-inf > div span {
+  padding: 0;
+}
+
+main .news-page-container article .content-infs .inf-detail .card-other-inf > div a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main .news-page-container article .content-infs .inf-detail .card-other-inf > div a:hover {
+  border-bottom: 3px solid #54291c;
+}
+
+main .news-page-container article .content-infs .inf-detail .card-other-inf > div:nth-child(1),
+main .news-page-container article .content-infs .inf-detail .card-other-inf > div:nth-child(2) {
+  border-top: 3px solid #FFFCF4;
+  border-bottom: 3px solid #FFFCF4;
+}
+
 main .news-page-container article h3 {
   font-size: 2.8125rem;
   text-align: start;
@@ -580,6 +729,7 @@ footer .footer-container h2 {
   text-align: start;
   line-height: 49px;
   letter-spacing: 0.15em;
+  margin-bottom: 70px;
 }
 
 footer .footer-container article {
@@ -669,10 +819,6 @@ footer .footer-container article .open-detil time {
   line-height: 30px;
   letter-spacing: 0.15em;
   padding-top: 13px;
-}
-
-footer .footer-container article .fb-page {
-  margin-top: 27px;
 }
 
 footer .footer-container > p {
