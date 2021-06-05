@@ -1,0 +1,592 @@
+@import 'group_web_variable';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $body-bg;
+    font-family: 'Noto Sans', sans-serif;
+    color: $main-color;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: $main-color;
+}
+
+h2 {
+    margin: 0;
+}
+
+.fp-tableCell {
+    @include flex();
+    height: calc(100vh - 40px) !important;
+}
+
+.logo-img {
+    position: absolute;
+    top: 50px;
+    right: 250px;
+}
+
+.logo-text {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+#goTopButton {
+    @include size(80px, 80px);
+    @include font($h6, center, 40px);
+    border-radius: 50%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: $footer-text;
+    color: $footer-bg;
+
+    &::after {
+        @include position(55%, 50%);
+        content: 'Top';
+    }
+}
+
+.loading-page {
+    @include size(100%, 100vh);
+    @include flex();
+    position: relative;
+    flex-direction: column;
+    border: 20px solid $main-color;
+
+    .container {
+        transition: 1s ease-in-out;
+
+        img {
+            margin-right: 30px;
+        }
+
+        &.complete {
+            opacity: 0;
+        }
+
+        .loading-bar {
+            @include size(18vw, 3vh);
+            position: relative;
+            margin-top: 43px;
+            background-color: $title-bg;
+            border-radius: 20px;
+
+            #loading {
+                @include size(0%, 3vh);
+                background-color: $store-tag-f-bg;
+                border-radius: 20px;
+            }
+
+            #loading_percent {
+                @include font($h6, end, 3vh);
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding-right: 10px;
+                color: #ffffff;
+            }
+        }
+    }
+}
+
+header {
+    @include flex();
+    min-height: 100vh;
+    position: fixed;
+    z-index: 50;
+
+    nav {
+        @include size(37px, 80vh);
+        @include flex;
+        position: relative;
+        border-radius: 10px;
+        background-color: $main-color;
+        box-shadow: 0 5px 15px;
+        overflow: hidden;
+        transition: 1s;
+
+        ul {
+            display: none;
+            width: 20%;
+            padding: 0;
+            z-index: 20;
+            list-style: none;
+
+            li {
+                position: relative;
+                width: 100%;
+                border-radius: 10px;
+
+                &:hover {
+                    background-color: #efefef;
+
+                    a {
+                        color: $nav-bg;
+                        font-weight: bold;
+                    }
+                }
+
+                a {
+                    @extend %header-section-btn;
+
+                    .icon {
+                        @extend %header-section-btn-icon;
+                    }
+
+                    .title {
+                        @extend %header-section-btn-title;
+                    }
+                }
+            }
+        }
+
+        .nav-img {
+            @include size(110px, 109px);
+            display: none;
+            right: 7%;
+            bottom: 8%;
+            background-image: url(../img/logo-bg-img.png);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: absolute;
+        }
+    }
+
+    nav.active {
+        @include size(50vw, 100vh);
+        background-color: $nav-bg;
+    }
+
+    .toggle {
+        @include size(30px, 80vh);
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: none;
+        cursor: pointer;
+
+        &::before {
+            @include size(12.5px, 25px);
+            content: "";
+            position: absolute;
+            left: 15%;
+            top: 50%;
+            background-image: url(../img/nav-right.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            line-height: 20px;
+            text-align: center;
+        }
+    }
+
+    .toggle.active {
+        height: 100vh;
+
+        &::before {
+            top: 50%;
+            background-image: url(../img/nav-left.png);
+        }
+    }
+
+    .ulbar.active {
+        display: block;
+    }
+
+    .nav-img.active {
+        display: block;
+    }
+}
+
+#about-us {
+    @include size(100%, 100vh);
+    @include flex();
+    position: relative;
+    border: 20px solid $main-color;
+
+    .effect-area {
+        @include flex();
+        transition: 1s ease-in-out;
+        animation: fadeout 2s;
+
+        @keyframes fadeout {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .about-us-container {
+            @include size(80vw, 68vh);
+
+            .about-us-title {
+                position: relative;
+                padding-left: 60px;
+
+                &::before {
+                    @extend %title-cube;
+                }
+
+                h2 {
+                    @include font($h1, start, inherit, 0.3em);
+                }
+
+                span {
+                    @include font($h5);
+
+                    &::before {
+                        @extend %title-vertical-text;
+                        content: 'About';
+                    }
+                }
+            }
+
+            article {
+                @include flex();
+                @include size(100%, 87%);
+                position: relative;
+
+                .about-us-swiper {
+                    @include size(52vw, 100%);
+                    overflow: hidden;
+
+                    .about-us-slide {
+                        @include flex(start);
+
+                        .img {
+                            @include size(39vw, 78%);
+                            display: block;
+                            object-fit: cover;
+                            background-size: cover;
+                            background-position: center;
+                            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                        }
+                    }
+
+                    .swiper-button-next {
+                        @include size(50px, 50px);
+                        @include position(50%, 40vw, 0, 0);
+
+                        &::after {
+                            @include size(100%, 100%);
+                            content: '';
+                            background-image: url(../img/aboutUs-swiper-right.png);
+                            font-family: none;
+                        }
+                    }
+
+                    .swiper-button-prev {
+                        @include size(50px, 50px);
+                        @include position(50%, -70px, 0, 0);
+
+                        &::after {
+                            @include size(100%, 100%);
+                            content: '';
+                            background-image: url(../img/aboutUs-swiper-left.png);
+                            font-family: none;
+                        }
+                    }
+
+                    .swiper-pagination {
+                        bottom: 2vh;
+                        left: -21vw;
+
+                        span {
+                            background-color: $title-bg;
+                        }
+                    }
+                }
+
+                .about-us-content {
+                    @include size(32vw, 100%);
+                    @include flex(center, start);
+                    flex-direction: column;
+
+                    h3 {
+                        @include font($h2, start, inherit, 0.3em);
+                    }
+
+                    p {
+                        @include size(100%, 300px);
+                        @include font($h5, start, 60px, normal);
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#news {
+    @include size(100%, 100vh);
+    @include flex();
+    position: relative;
+    border: 20px solid $main-color;
+
+    .news-container {
+        @include size(70vw, 76vh);
+
+        .news-title {
+            position: relative;
+            padding-left: 60px;
+
+            &::before {
+                @extend %title-cube;
+            }
+
+            h2 {
+                @include font($h1, start, inherit, 0.3em);
+            }
+
+            span {
+                @include font($h5);
+
+                &::before {
+                    @extend %title-vertical-text;
+                    content: 'News';
+                }
+            }
+        }
+
+        article {
+            padding: 80px 0 0 32px;
+
+            .date-title {
+                @include size(100px, 30px);
+                @include font($h8, center, 30px, 0.2em);
+                border-radius: 6px;
+                background-color: $main-color;
+                color: $store-list-bg;
+            }
+
+            .date-btns {
+                @include flex(start);
+
+                .focus-change {
+                    background-color: $title-bg;
+                    color: $footer-text;
+                }
+
+                button {
+                    @extend %date-btn;
+
+                    &:hover {
+                        background-color: $title-bg;
+                        color: $footer-text;
+                    }
+                }
+            }
+
+            .content-title {
+                @include flex(start);
+
+                h3 {
+                    @include font($h1, center, 60px, 0.2em);
+                    position: relative;
+                    padding-left: 11px;
+
+                    &::before {
+                        @include size(122px, 24px);
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        transform: translate(-10%, -50%);
+                        border-radius: 6px;
+                        background-color: $store-list-bg;
+                        z-index: -1;
+                    }
+                }
+
+                div {
+                    @include font($h7, center, inherit, 0.2em);
+                    margin-left: 20px;
+                    padding-top: 15px;
+                    font-weight: bold;
+                }
+
+                button {
+                    @extend %news-content-title-btn;
+
+                    &:hover {
+                        color: $store-tag-f-bg;
+                    }
+
+                    &:active {
+                        box-shadow: 0 0 $tag-bg;
+                        transform: translateY(1px);
+                    }
+                }
+            }
+
+            .content-infs {
+
+                .content-inf {
+                    @extend %news-inf;
+                    box-shadow: 0 3px $tag-bg;
+
+                    &::before {
+                        @extend %news-inf-before;
+                    }
+
+                    &:hover {
+                        background-color: $form-title-bg;
+
+                        &::before {
+                            background-color: darken($title-bg, 5%);
+                        }
+                    }
+
+                    &:active {
+                        box-shadow: 0 0 $tag-bg;
+                        transform: translateY(3px);
+                    }
+
+                    .inf-date {
+                        @include size(107px, 100%);
+                        padding-left: 38px;
+                        font-weight: bold;
+
+                        .during {
+                            @include flex(start);
+                            padding-top: 5px;
+
+                            .end-date {
+                                @include font($h10, start, 20px, 0.2em);
+                                padding: 0 0 5px 10px;
+                            }
+                        }
+
+                        >span {
+                            @include font($h7, start, 20px, 0.2em);
+                        }
+
+                    }
+
+                    .inf-detail {
+                        flex: 1;
+                        padding-left: 20px;
+
+                        .inf-tag {
+                            @extend %news-inf-tag;
+                        }
+
+                        h4 {
+                            @include font($h3, start, 60px, 0.2em);
+                            margin: 0
+                        }
+
+                    }
+
+                    >span {
+                        @include size(80px, 100%);
+                        @include font($h6, start, 100px, 0.2em);
+                        @include flex();
+                        margin-right: 30px;
+
+                        i {
+                            margin-left: 15px;
+                            transform: translateY(20%);
+                            font-size: 16px;
+                        }
+                    }
+
+                    &:nth-child(2) .inf-tag {
+                        background-color: $store-tag-f-bg;
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer {
+    @include size(100%, 700px);
+    @include flex();
+    background-color: $footer-bg;
+    position: relative;
+    color: $footer-text;
+
+    .footer-logo-img {
+        @include position(550px, 160px, 0, 0);
+    }
+
+    .footer-logo-text {
+        @include position(550px, 160px, 90%, 0);
+    }
+
+    .footer-container {
+        @include size(83%, 622px);
+        overflow: hidden;
+        margin-top: 40px;
+
+        h2 {
+            @include font($h2, start, 49px, 0.15em);
+        }
+
+        article {
+            @include size(100%, 519px);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            h3 {
+                @include font($h4, start, inherit, 0.15em);
+            }
+
+            .inf-detil {
+                @include font($h6, start, 30px, 0.15em);
+                padding-left: 28px;
+
+                &>div:nth-child(2) {
+                    padding-left: 60.5px;
+                }
+            }
+
+            .open-detil {
+                @include size(238px, 100%);
+                padding-left: 18px;
+
+                .date-box {
+                    @include flex(start, start);
+                    @include font($h6, center, 30px, 0.15em);
+
+                    .date-box {
+                        @include size(80px, 40px);
+                        @include flex();
+                        border: $footer-text 1px solid;
+                        border-radius: 60px;
+                    }
+
+                    span {
+                        @include size(60px, 40px);
+                        line-height: 40px;
+                    }
+                }
+
+                time {
+                    @include flex();
+                    @include font($h6, center, 30px, 0.15em);
+                    padding-top: 13px;
+                }
+            }
+
+            .fb-page {
+                margin-top: 27px;
+            }
+        }
+
+        >p {
+            @include font($h6, center, 30px, 0.05em);
+        }
+    }
+}
