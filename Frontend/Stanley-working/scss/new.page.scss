@@ -1,0 +1,233 @@
+@import 'variable';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    border: 20px solid $main-color;
+    background-color: $body-bg;
+    font-family: 'Noto Sans', sans-serif;
+    color: $main-color;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: $main-color;
+}
+
+h2 {
+    margin: 0;
+}
+
+.logo-img {
+    position: absolute;
+    top: 50px;
+    right: 250px;
+}
+
+.logo-text {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+header {
+    @include flex();
+    min-height: 100vh;
+    position: fixed;
+    transform: translate(-20px, -20px);
+    z-index: 50;
+
+    nav {
+        @include size(37px, 80vh);
+        @include flex;
+        position: relative;
+        border-radius: 10px;
+        background-color: $main-color;
+        box-shadow: 0 5px 15px;
+        overflow: hidden;
+        transition: 1s;
+
+        ul {
+            display: none;
+            width: 20%;
+            padding: 0;
+            z-index: 20;
+            list-style: none;
+
+            li {
+                position: relative;
+                width: 100%;
+                border-radius: 10px;
+
+                &:hover {
+                    background-color: #efefef;
+
+                    a {
+                        color: $nav-bg;
+                        font-weight: bold;
+                    }
+                }
+
+                a {
+                    @extend %header-section-btn;
+
+                    .icon {
+                        @extend %header-section-btn-icon;
+                    }
+
+                    .title {
+                        @extend %header-section-btn-title;
+                    }
+                }
+            }
+        }
+
+        .nav-img {
+            @include size(110px, 109px);
+            display: none;
+            right: 7%;
+            bottom: 8%;
+            background-image: url(../img/logo-bg-img.png);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: absolute;
+        }
+    }
+
+    nav.active {
+        @include size(50vw, 100vh);
+        background-color: $nav-bg;
+    }
+
+    .toggle {
+        @include size(30px, 80vh);
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: none;
+        cursor: pointer;
+
+        &::before {
+            @include size(12.5px, 25px);
+            content: "";
+            position: absolute;
+            left: 15%;
+            top: 50%;
+            background-image: url(../img/nav-right.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            line-height: 20px;
+            text-align: center;
+        }
+    }
+
+    .toggle.active {
+        height: 100vh;
+
+        &::before {
+            top: 50%;
+            background-image: url(../img/nav-left.png);
+        }
+    }
+
+    .ulbar.active {
+        display: block;
+    }
+
+    .nav-img.active {
+        display: block;
+    }
+}
+
+main{
+    position: relative;
+    height: 200vh;
+}
+
+footer {
+    @include size(100%, 700px);
+    @include flex();
+    background-color: $footer-bg;
+    position: relative;
+    color: $footer-text;
+
+    .footer-logo-img {
+        @include position(550px, 160px, 0, 0);
+    }
+
+    .footer-logo-text {
+        @include position(550px, 160px, 90%, 0);
+    }
+
+    .footer-container {
+        @include size(83%, 622px);
+        overflow: hidden;
+        margin-top: 40px;
+
+        h2 {
+            @include font($h2, start, 49px, 0.15em);
+        }
+
+        article {
+            @include size(100%, 519px);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            h3 {
+                @include font($h4, start, inherit, 0.15em);
+            }
+
+            .inf-detil {
+                @include font($h6, start, 30px, 0.15em);
+                padding-left: 28px;
+
+                &>div:nth-child(2) {
+                    padding-left: 60.5px;
+                }
+            }
+
+            .open-detil {
+                @include size(238px, 100%);
+                padding-left: 18px;
+
+                .date-box {
+                    @include flex(start, start);
+                    @include font($h6, center, 30px, 0.15em);
+
+                    .date-box {
+                        @include size(80px, 40px);
+                        @include flex();
+                        border: $footer-text 1px solid;
+                        border-radius: 60px;
+                    }
+
+                    span {
+                        @include size(60px, 40px);
+                        line-height: 40px;
+                    }
+                }
+
+                time {
+                    @include flex();
+                    @include font($h6, center, 30px, 0.15em);
+                    padding-top: 13px;
+                }
+            }
+
+            .fb-page {
+                margin-top: 27px;
+            }
+        }
+
+        >p {
+            @include font($h6, center, 30px, 0.05em);
+        }
+    }
+}
