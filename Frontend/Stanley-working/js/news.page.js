@@ -50,15 +50,15 @@ function focusChange(date) {
 //生出活動內容結構
 const contentInfsNow = document.querySelector('#content-infs-now');
 const contentInfsNext = document.querySelector('#content-infs-next');
-for (let i = 0; i < 2; i++) {
-  contentInfsNow.innerHTML += infCard('now',i);
+for (let i = 0; i < 3; i++) {
+  contentInfsNow.innerHTML += infCard('now', i);
 };
-for (let i = 2; i < 5; i++) {
-  contentInfsNext.innerHTML += infCard('next',i);
+for (let i = 3; i < 6; i++) {
+  contentInfsNext.innerHTML += infCard('next', i);
 };
 
-function infCard(id,i){
-  ic =   `<div class="content-inf" data-toggle="collapse" data-target="#collapse${i}"
+function infCard(id, i) {
+  ic = `<div class="content-inf" data-toggle="collapse" data-target="#collapse${i}"
   aria-expanded="true" aria-controls="collapse${i}">
   <div class="inf-date">
       <div class="during">
@@ -129,5 +129,25 @@ function infCard(id,i){
       </div>
   </div>
 </div>`;
-return ic;
+  return ic;
 };
+
+//活動資訊點擊後click變色效果
+const contentInfs = document.querySelectorAll('.content-inf');
+let iconSwitch;
+contentInfs.forEach(infs => {
+  infs.addEventListener('click', function () {
+    this.querySelector('i').classList.toggle('fa-chevron-up');
+    this.classList.contains('inf-focus')
+      ?
+      this.classList.remove('inf-focus')
+      :
+      contentInfs.forEach(inf => {
+        inf === this
+          ?
+          inf.classList.add('inf-focus')
+          :
+          inf.classList.remove('inf-focus');
+      });
+  });
+});

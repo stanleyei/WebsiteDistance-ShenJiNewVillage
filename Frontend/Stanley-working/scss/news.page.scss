@@ -311,7 +311,7 @@ main {
                     }
 
                     &:active {
-                        box-shadow: 0 0 $tag-bg;
+                        box-shadow: none;
                         transform: translateY(3px);
                         color: $footer-text;
                     }
@@ -452,6 +452,11 @@ main {
             }
         }
     }
+}
+
+.inf-focus{
+    box-shadow: 0 0 0 white !important;
+    color: $footer-text;
 }
 
 footer {
