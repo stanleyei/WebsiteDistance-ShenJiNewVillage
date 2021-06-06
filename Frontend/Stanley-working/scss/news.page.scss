@@ -462,6 +462,7 @@ main {
 
             .inf-focus{
                 box-shadow: 0 0 0 white !important;
+                background-color: $tag-bg !important;
                 color: $footer-text;
             }
         }

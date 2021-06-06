@@ -696,6 +696,7 @@ main .news-page-container article h3 {
 main .news-page-container article .inf-focus {
   -webkit-box-shadow: 0 0 0 white !important;
           box-shadow: 0 0 0 white !important;
+  background-color: #C4C4C4 !important;
   color: #ffffff;
 }
 
