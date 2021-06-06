@@ -165,7 +165,6 @@ function infsFocusStyle(infsName, iconsName) {
         this.querySelector('i').classList.remove('fa-chevron-up')
         :
         this.querySelector('i').classList.add('fa-chevron-up');
-
       this.classList.contains('inf-focus')
         ?
         this.classList.remove('inf-focus')
