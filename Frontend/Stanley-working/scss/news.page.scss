@@ -1,4 +1,4 @@
-@import 'variable';
+@import 'group_web_variable';
 
 * {
     box-sizing: border-box;
@@ -53,6 +53,20 @@ h6 {
     position: absolute;
     top: 50px;
     right: 50px;
+}
+
+#goTopButton {
+    @include size(80px, 80px);
+    @include font($h6, center, 40px);
+    border-radius: 50%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: $footer-text;
+    color: $footer-bg;
+
+    &::after {
+        @include position(55%, 50%);
+        content: 'Top';
+    }
 }
 
 header {
@@ -468,9 +482,6 @@ main {
         }
     }
 }
-
-
-
 
 footer {
     @include size(100%, 700px);

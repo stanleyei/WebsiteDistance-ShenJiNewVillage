@@ -119,7 +119,7 @@ function infCard(id, i) {
       <div>
           <i class="fas fa-suitcase"></i>
           <span>主辦單位</span>
-          <img src="/img/news-event-logo.png" alt="">
+          <img src="./img/news-event-logo.png" alt="">
       </div>
       <div>
           <a href="">
@@ -157,25 +157,53 @@ infsFocusStyle(NextInfs, iconsNext);
 function infsFocusStyle(infsName, iconsName) {
   infsName.forEach(infs => {
     infs.addEventListener('click', function () {
-      iconsName.forEach(icon => {
-        icon.classList.remove('fa-chevron-up');
+      infsName.forEach(inf => {
+        inf === this
+          ?
+          inf.classList.toggle('inf-focus')
+          :
+          inf.classList.remove('inf-focus');
       });
-      this.querySelector('i').classList.contains('fa-chevron-up')
-        ?
-        this.querySelector('i').classList.remove('fa-chevron-up')
-        :
-        this.querySelector('i').classList.add('fa-chevron-up');
-      this.classList.contains('inf-focus')
-        ?
-        this.classList.remove('inf-focus')
-        :
-        infsName.forEach(inf => {
-          inf === this
-            ?
-            inf.classList.add('inf-focus')
-            :
-            inf.classList.remove('inf-focus');
-        });
+      iconsName.forEach(icon => {
+        icon === this.querySelector('i')
+          ?
+          this.querySelector('i').classList.toggle('fa-chevron-up')
+          :
+          icon.classList.remove('fa-chevron-up');
+      });
     });
   });
 }
+
+//回到頂端按鈕
+(function () {
+  $("body").append("<div id='goTopButton' class='fas fa-chevron-up' style='display: none; z-index: 5; cursor: pointer;' title='回到頂端'/></div>");
+  const locatioin = 3 / 5, // 按鈕出現在螢幕的高度
+    right = 10, // 距離右邊 px 值
+    opacity = 0.5, // 透明度
+    speed = 500, // 捲動速度
+    $button = $("#goTopButton"),
+    $body = $(document),
+    $win = $(window);
+  $button.on({
+    mouseover: () => { $button.css("opacity", 1); },
+    mouseout: () => { $button.css("opacity", opacity); },
+    click: () => { $("html, body").animate({ scrollTop: 0 }, speed); }
+  });
+  window.goTopMove = () => {
+    const scrollH = $body.scrollTop(),
+      winH = $win.height(),
+      css = { "top": winH * locatioin + "px", "position": "fixed", "right": right, "opacity": opacity };
+    if (scrollH > 20) {
+      $button.css(css);
+      $button.fadeIn("slow");
+    } else {
+      $button.fadeOut("slow");
+    }
+  };
+  $win.on({
+    scroll: () => { goTopMove(); },
+    resize: () => { goTopMove(); }
+  });
+})();
+
