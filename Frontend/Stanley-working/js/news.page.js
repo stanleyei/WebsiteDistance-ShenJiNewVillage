@@ -178,8 +178,8 @@ function infsFocusStyle(infsName, iconsName) {
 //回到頂端按鈕
 (function () {
   $("body").append("<div id='goTopButton' class='fas fa-chevron-up' style='display: none; z-index: 5; cursor: pointer;' title='回到頂端'/></div>");
-  const locatioin = 3 / 5, // 按鈕出現在螢幕的高度
-    right = 10, // 距離右邊 px 值
+  const locatioin = 2 / 3, // 按鈕出現在螢幕的高度
+    right = 10, // 距離右邊 px 值 
     opacity = 0.5, // 透明度
     speed = 500, // 捲動速度
     $button = $("#goTopButton"),
