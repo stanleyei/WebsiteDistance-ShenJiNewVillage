@@ -134,7 +134,6 @@ function infCard(id, i) {
 
 //活動資訊點擊後click變色效果
 const contentInfs = document.querySelectorAll('.content-inf');
-let iconSwitch;
 contentInfs.forEach(infs => {
   infs.addEventListener('click', function () {
     this.querySelector('i').classList.toggle('fa-chevron-up');
