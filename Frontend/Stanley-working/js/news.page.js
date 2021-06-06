@@ -132,6 +132,20 @@ function infCard(id, i) {
   return ic;
 };
 
+//news-aside-tap被點擊後的效果
+const asideTabs = document.querySelectorAll('.aside-tab');
+asideTabs.forEach(tabs => {
+  tabs.addEventListener('click', function () {
+    asideTabs.forEach(tab => {
+      tab === this
+      ?
+      tab.classList.add('aside-tab-focus')
+      :
+      tab.classList.remove('aside-tab-focus');
+    });
+  });
+});
+
 //活動資訊點擊後click變色效果
 const contentInfs = document.querySelectorAll('.content-inf');
 contentInfs.forEach(infs => {

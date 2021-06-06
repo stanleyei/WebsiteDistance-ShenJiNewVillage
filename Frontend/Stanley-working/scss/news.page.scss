@@ -214,6 +214,15 @@ main {
                     color: $footer-text;
                 }
             }
+
+            .aside-tab-focus{
+                background-color: $news-tag-f-bg;
+                color: $footer-text;
+
+                &:hover {
+                    background-color: lighten($news-tag-f-bg, 5%);
+                }
+            }
         }
 
         article {
@@ -450,14 +459,17 @@ main {
                 margin: 275px 0 15px 0;
                 font-family: 'Noto Sans TC', sans-serif;
             }
+
+            .inf-focus{
+                box-shadow: 0 0 0 white !important;
+                color: $footer-text;
+            }
         }
     }
 }
 
-.inf-focus{
-    box-shadow: 0 0 0 white !important;
-    color: $footer-text;
-}
+
+
 
 footer {
     @include size(100%, 700px);
