@@ -59,7 +59,7 @@ $h10:0.75rem;   //12px
     transform: translate($tx,$ty);
 }
 
-//元件變數
+//元件變數-首頁
 %header-section-btn{
     position: relative;
     width: 50%;
@@ -177,6 +177,7 @@ $h10:0.75rem;   //12px
     color: $body-bg;
 }
 
+//元件變數-內頁
 %news-page-aside-tag{
     width: 180px;
     height: 60px;

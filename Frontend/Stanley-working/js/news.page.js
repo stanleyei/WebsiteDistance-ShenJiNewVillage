@@ -119,7 +119,7 @@ function infCard(id,i){
       <div>
           <i class="fas fa-suitcase"></i>
           <span>主辦單位</span>
-          <img src="./img/news-event-logo.png" alt="">
+          <img src="/img/news-event-logo.png" alt="">
       </div>
       <div>
           <a href="">
