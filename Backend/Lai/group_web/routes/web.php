@@ -21,6 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('admin');
+Route::post('/react_user_name', 'AdminController@reactUserName');
 
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resources([
