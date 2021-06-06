@@ -36,8 +36,8 @@
                             <div class="img" style="background-image: url(/img/nekoteacher01.jpg);"></div>
                         </div>
                     </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button swiper-button-next"></div>
+                    <div class="swiper-button swiper-button-prev"></div>
                     <div class="swiper-pagination"></div>
                 </div>
                 <div class="about-us-content">
@@ -66,7 +66,7 @@
             <div class="news-content">
                 <div class="content-title">
                     <h3>六月</h3>
-                    <div>May,2021</div>
+                    <div>June,2021</div>
                     <button class="fas fa-chevron-left"></button>
                     <button class="fas fa-chevron-right"></button>
                 </div>
