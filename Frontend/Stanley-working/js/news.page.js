@@ -138,29 +138,45 @@ asideTabs.forEach(tabs => {
   tabs.addEventListener('click', function () {
     asideTabs.forEach(tab => {
       tab === this
-      ?
-      tab.classList.add('aside-tab-focus')
-      :
-      tab.classList.remove('aside-tab-focus');
+        ?
+        tab.classList.add('aside-tab-focus')
+        :
+        tab.classList.remove('aside-tab-focus');
     });
   });
 });
 
 //活動資訊點擊後click變色效果
-const contentInfs = document.querySelectorAll('.content-inf');
-contentInfs.forEach(infs => {
-  infs.addEventListener('click', function () {
-    this.querySelector('i').classList.toggle('fa-chevron-up');
-    this.classList.contains('inf-focus')
-      ?
-      this.classList.remove('inf-focus')
-      :
-      contentInfs.forEach(inf => {
-        inf === this
-          ?
-          inf.classList.add('inf-focus')
-          :
-          inf.classList.remove('inf-focus');
+const NowInfs = document.querySelectorAll('#content-infs-now .content-inf');
+const NextInfs = document.querySelectorAll('#content-infs-next .content-inf');
+const iconsNow = document.querySelectorAll('#content-infs-now .content-inf i');
+const iconsNext = document.querySelectorAll('#content-infs-next .content-inf i');
+infsFocusStyle(NowInfs, iconsNow);
+infsFocusStyle(NextInfs, iconsNext);
+
+function infsFocusStyle(infsName, iconsName) {
+  infsName.forEach(infs => {
+    infs.addEventListener('click', function () {
+      iconsName.forEach(icon => {
+        icon.classList.remove('fa-chevron-up');
       });
+      this.querySelector('i').classList.contains('fa-chevron-up')
+        ?
+        this.querySelector('i').classList.remove('fa-chevron-up')
+        :
+        this.querySelector('i').classList.add('fa-chevron-up');
+
+      this.classList.contains('inf-focus')
+        ?
+        this.classList.remove('inf-focus')
+        :
+        infsName.forEach(inf => {
+          inf === this
+            ?
+            inf.classList.add('inf-focus')
+            :
+            inf.classList.remove('inf-focus');
+        });
+    });
   });
-});
+}
