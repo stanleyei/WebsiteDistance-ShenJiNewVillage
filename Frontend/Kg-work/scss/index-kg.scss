@@ -229,7 +229,7 @@ header {
     position: relative;
 
     .view-container {
-        @include size($w:80vw, $h:68vh);
+        @include size($w:80vw, $h:80vh);
 
 
         .view-title {
@@ -272,7 +272,6 @@ header {
     .traffic-container {
         @include size($w:80vw, $h:80vh);
 
-
         .traffic-title {
             position: relative;
             padding-left: 60px;
@@ -289,7 +288,7 @@ header {
                 letter-spacing: 0.3em;
             }
 
-            span {
+            .tra-title-icon {
                 @include font($h5);
                 letter-spacing: 0.1em;
 
@@ -299,6 +298,141 @@ header {
 
                 }
             }
+            .traffic-type {          
+                    display: inline-block;
+                    @include size(364px, 48px);
+                    border-bottom: 24px solid $store-list-bg;
+                    text-align: center;
+                    @include position(64%,44%,0,0);
+                    
+
+                    p {
+                        font-size: $h2;
+                        list-style: 60px;
+                        letter-spacing: 0.2em;
+                    }
+               
+            }
+
+        }
+
+        .traffic-main {
+            @include size(990px, 800px);
+            margin: 66px auto 0 auto;            
+            .traffic-bus {
+                width: 100%;
+                display: flex;
+
+                .traffic-logo {
+                    @include size(190px, 190px);
+
+                    .traffic-icon {
+                        @extend %title-tra-circle;
+                    }
+
+                    p {
+                        @extend %title-tra-logotext;
+                    }
+                }
+
+                .traffic-content {
+                    height: 190px;
+                    display: flex;
+                    align-items: center;
+                    
+                    .traffic-content-text {
+                        @include size(685px, 160px);
+                        @extend %title-tra-contentarea;
+                        p {
+                            @extend %title-tra-contenttext;
+                            line-height: 45px;
+                        }
+
+                        span {
+                            display: inline-block;
+                            @include size(194px, 48px);
+                            border-bottom: 24px solid $store-list-bg;
+                            text-align: center;
+                            margin: 0 0 9px 54px;
+
+                            p {
+                                margin: 0px;
+                                line-height: 60px;
+
+                            }
+                        }
+
+                    }
+                }
+            }
+
+            .traffic-car {
+                width: 100%;
+                margin-top: 60px;
+                display: flex;
+
+                .traffic-logo {
+                    @include size(190px, 190px);
+
+                    .traffic-icon {
+                        @extend %title-tra-circle;
+                    }
+
+                    p {
+                        @extend %title-tra-logotext;
+                    }
+                }
+
+                .traffic-content {
+                    height: 190px;
+                    display: flex;
+                    align-items: center;
+                    .traffic-content-text {
+                        @include size(685px, 114px);
+                        @extend %title-tra-contentarea;
+                        display: flex;
+                        align-items: center;
+                        p {
+                            @extend %title-tra-contenttext;
+                            line-height: 60px;
+                        }
+                    }
+                }
+            }
+            .traffic-bike {
+                width: 100%;
+                margin-top: 60px;
+                display: flex;
+
+                .traffic-logo {
+                    @include size(190px, 190px);
+
+                    .traffic-icon {
+                        @extend %title-tra-circle;
+                    }
+
+                    p {
+                        @extend %title-tra-logotext;
+                    }
+                }
+
+                .traffic-content {
+                    height: 190px;
+                    display: flex;
+                    align-items: center;
+                    .traffic-content-text {
+                        @include size(685px, 114px);
+                        @extend %title-tra-contentarea;
+                        display: flex;
+                        align-items: center;
+                        p {
+                            @extend %title-tra-contenttext;
+                            line-height: 60px;
+                        }
+                    }
+                }
+            }
+
         }
 
     }
@@ -312,7 +446,7 @@ header {
     position: relative;
 
     .contact-container {
-        @include size($w:80vw,$h:80vh);
+        @include size($w:80vw, $h:80vh);
 
 
         .contact-title {
@@ -392,38 +526,42 @@ header {
                         top: 140px;
                         right: 43px;
                     }
-                    
-                    
-                    p{
+
+
+                    p {
                         font-size: $h7;
                         line-height: 40px;
                         letter-spacing: 0.2em;
-                        color:$main-color;
+                        color: $main-color;
                         margin-left: 8px;
                     }
-                    input{
-                        @include size($w:546px,$h:40px);
+
+                    input {
+                        @include size($w:546px, $h:40px);
                         border: 2px solid #e0e0e0;
-                        
-                    }
-                    select{
-                        @include size($w:193px,$h:40px);
-                        border-radius:4px;
-                        border: 2px solid #e0e0e0;
-                        background-color: #fff;
-                        color:$main-color;
 
                     }
-                    textarea{
-                        @include size($w:546px,$h:135px);
-                        border-radius:6px;
+
+                    select {
+                        @include size($w:193px, $h:40px);
+                        border-radius: 4px;
+                        border: 2px solid #e0e0e0;
+                        background-color: #fff;
+                        color: $main-color;
+
+                    }
+
+                    textarea {
+                        @include size($w:546px, $h:135px);
+                        border-radius: 6px;
                         border: 2px solid #e0e0e0;
                     }
-                    .form-sendout{
-                        @include position($tp:727px,$lf:499px);
-                        @include size($w:237px,$h:50px);
-                         // transform:translate(10%,10%);
-                        background-color:  $title-bg;
+
+                    .form-sendout {
+                        @include position($tp:727px, $lf:499px);
+                        @include size($w:237px, $h:50px);
+                        // transform:translate(10%,10%);
+                        background-color: $title-bg;
                         border-radius: 6px;
                         color: #fff;
                         font-size: 22px;
@@ -431,12 +569,14 @@ header {
                         letter-spacing: 0.2em;
                     }
 
-                    .form-storename{
+                    .form-storename {
                         margin-bottom: 15px;
                     }
-                    .form-producttype{
+
+                    .form-producttype {
                         margin-bottom: 35px;
-                        p{
+
+                        p {
                             line-height: 60px;
                         }
                     }

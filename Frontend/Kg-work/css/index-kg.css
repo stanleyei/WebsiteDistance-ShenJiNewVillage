@@ -5,13 +5,50 @@
   border-radius: 5px;
 }
 
-.store .store-container .store-title span::before, .view .view-container .view-title span::before, .traffic .traffic-container .traffic-title span::before, .contact .contact-container .contact-title span::before {
+.store .store-container .store-title span::before, .view .view-container .view-title span::before, .traffic .traffic-container .traffic-title .tra-title-icon::before, .contact .contact-container .contact-title span::before {
   content: '';
   position: absolute;
   left: 0;
   -webkit-transform: translate(-15%, -80%) rotate(90deg);
           transform: translate(-15%, -80%) rotate(90deg);
   letter-spacing: 0.1em;
+}
+
+.traffic .traffic-container .traffic-main .traffic-bus .traffic-logo .traffic-icon, .traffic .traffic-container .traffic-main .traffic-car .traffic-logo .traffic-icon, .traffic .traffic-container .traffic-main .traffic-bike .traffic-logo .traffic-icon {
+  width: 130px;
+  height: 130px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  border-radius: 50%;
+  background-color: #D28E76;
+}
+
+.traffic .traffic-container .traffic-main .traffic-bus .traffic-logo p, .traffic .traffic-container .traffic-main .traffic-car .traffic-logo p, .traffic .traffic-container .traffic-main .traffic-bike .traffic-logo p {
+  text-align: center;
+  font-size: 1.375rem;
+  line-height: 60px;
+  letter-spacing: 10%;
+}
+
+.traffic .traffic-container .traffic-main .traffic-bus .traffic-content .traffic-content-text, .traffic .traffic-container .traffic-main .traffic-car .traffic-content .traffic-content-text, .traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text {
+  margin-left: 100px;
+  background-color: #F2F2F2;
+  border-radius: 10px 0 0 10px;
+  border-right: 30px solid #D28E76;
+}
+
+.traffic .traffic-container .traffic-main .traffic-bus .traffic-content .traffic-content-text p, .traffic .traffic-container .traffic-main .traffic-car .traffic-content .traffic-content-text p, .traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text p {
+  margin-left: 43px;
+  font-size: 1.625rem;
+  letter-spacing: 0.2em;
 }
 
 * {
@@ -266,7 +303,7 @@ header {
 
 .view .view-container {
   width: 80vw;
-  height: 68vh;
+  height: 80vh;
 }
 
 .view .view-container .view-title {
@@ -341,15 +378,161 @@ header {
   letter-spacing: 0.3em;
 }
 
-.traffic .traffic-container .traffic-title span {
+.traffic .traffic-container .traffic-title .tra-title-icon {
   font-size: 1.5rem;
   text-align: center;
   line-height: inherit;
   letter-spacing: 0.1em;
 }
 
-.traffic .traffic-container .traffic-title span::before {
+.traffic .traffic-container .traffic-title .tra-title-icon::before {
   content: 'About';
+}
+
+.traffic .traffic-container .traffic-title .traffic-type {
+  display: inline-block;
+  width: 364px;
+  height: 48px;
+  border-bottom: 24px solid #FBE6C3;
+  text-align: center;
+  position: absolute;
+  top: 64%;
+  left: 44%;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+.traffic .traffic-container .traffic-title .traffic-type p {
+  font-size: 2.25rem;
+  list-style: 60px;
+  letter-spacing: 0.2em;
+}
+
+.traffic .traffic-container .traffic-main {
+  width: 990px;
+  height: 800px;
+  margin: 66px auto 0 auto;
+}
+
+.traffic .traffic-container .traffic-main .traffic-bus {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.traffic .traffic-container .traffic-main .traffic-bus .traffic-logo {
+  width: 190px;
+  height: 190px;
+}
+
+.traffic .traffic-container .traffic-main .traffic-bus .traffic-content {
+  height: 190px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.traffic .traffic-container .traffic-main .traffic-bus .traffic-content .traffic-content-text {
+  width: 685px;
+  height: 160px;
+}
+
+.traffic .traffic-container .traffic-main .traffic-bus .traffic-content .traffic-content-text p {
+  line-height: 45px;
+}
+
+.traffic .traffic-container .traffic-main .traffic-bus .traffic-content .traffic-content-text span {
+  display: inline-block;
+  width: 194px;
+  height: 48px;
+  border-bottom: 24px solid #FBE6C3;
+  text-align: center;
+  margin: 0 0 9px 54px;
+}
+
+.traffic .traffic-container .traffic-main .traffic-bus .traffic-content .traffic-content-text span p {
+  margin: 0px;
+  line-height: 60px;
+}
+
+.traffic .traffic-container .traffic-main .traffic-car {
+  width: 100%;
+  margin-top: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.traffic .traffic-container .traffic-main .traffic-car .traffic-logo {
+  width: 190px;
+  height: 190px;
+}
+
+.traffic .traffic-container .traffic-main .traffic-car .traffic-content {
+  height: 190px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.traffic .traffic-container .traffic-main .traffic-car .traffic-content .traffic-content-text {
+  width: 685px;
+  height: 114px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.traffic .traffic-container .traffic-main .traffic-car .traffic-content .traffic-content-text p {
+  line-height: 60px;
+}
+
+.traffic .traffic-container .traffic-main .traffic-bike {
+  width: 100%;
+  margin-top: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.traffic .traffic-container .traffic-main .traffic-bike .traffic-logo {
+  width: 190px;
+  height: 190px;
+}
+
+.traffic .traffic-container .traffic-main .traffic-bike .traffic-content {
+  height: 190px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text {
+  width: 685px;
+  height: 114px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text p {
+  line-height: 60px;
 }
 
 .contact {

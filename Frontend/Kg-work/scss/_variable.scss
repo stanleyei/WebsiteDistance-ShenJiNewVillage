@@ -82,3 +82,30 @@ $h10:0.75rem;
     transform: translate(-15%, -80%) rotate(90deg);
     letter-spacing: 0.1em;
 }
+
+// kg create
+%title-tra-circle{
+    @include size(130px,130px);
+    @include flex;
+    margin: auto;
+    border-radius:50%;
+    background-color:$title-bg;
+}
+%title-tra-logotext{
+    text-align: center;
+    font-size: $h6;
+    line-height: 60px;
+    letter-spacing: 10%;
+}
+%title-tra-contentarea{
+    margin-left: 100px;
+    background-color: $form-bg;
+    border-radius: 10px 0 0 10px;
+    border-right: 30px solid $title-bg;
+
+}
+%title-tra-contenttext{
+    margin-left: 43px;
+    font-size: $h4;
+    letter-spacing: 0.2em;
+}
