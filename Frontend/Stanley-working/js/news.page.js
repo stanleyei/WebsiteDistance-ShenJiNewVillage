@@ -48,14 +48,14 @@ function focusChange(date) {
 }
 
 //生出活動內容結構
-const contentInfsNow = document.querySelector('#content-infs-now');
-const contentInfsNext = document.querySelector('#content-infs-next');
-for (let i = 0; i < 3; i++) {
-  contentInfsNow.innerHTML += infCard('now', i);
-};
-for (let i = 3; i < 6; i++) {
-  contentInfsNext.innerHTML += infCard('next', i);
-};
+// const contentInfsNow = document.querySelector('#content-infs-now');
+// const contentInfsNext = document.querySelector('#content-infs-next');
+// for (let i = 0; i < 3; i++) {
+//   contentInfsNow.innerHTML += infCard('now', i);
+// };
+// for (let i = 3; i < 6; i++) {
+//   contentInfsNext.innerHTML += infCard('next', i);
+// };
 
 function infCard(id, i) {
   ic = `<div class="content-inf" data-toggle="collapse" data-target="#collapse${i}"
@@ -206,4 +206,65 @@ function infsFocusStyle(infsName, iconsName) {
     resize: () => { goTopMove(); }
   });
 })();
+
+//客製化下拉試選單
+var x, i, j, selElmnt, a, b, c;
+x = document.getElementsByClassName("custom-select-list");
+for (i = 0; i < x.length; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 0; j < selElmnt.length; j++) {
+    c = document.createElement("DIV");
+    if (j == 0){
+      c.setAttribute("class", "active");
+    }
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    b.appendChild(c);
+    c.addEventListener("click", function(e) {
+      var y, i, k, s, h;
+      s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+      h = this.parentNode.previousSibling;
+      for (i = 0; i < s.length; i++) {
+        if (s.options[i].innerHTML == this.innerHTML) {
+          s.selectedIndex = i;
+          h.innerHTML = this.innerHTML;
+          y = this.parentNode.getElementsByClassName("active");
+          for (k = 0; k < y.length; k++) {
+            y[k].removeAttribute("class");
+          }
+          this.setAttribute("class", "active");
+          break;
+        }
+      }
+    });
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+    e.stopPropagation();
+    closeAllSelect(this);
+    this.nextSibling.classList.toggle("select-hide");
+  });
+}
+
+function closeAllSelect(elmnt) {
+  var x, y, i, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  for (i = 0; i < y.length; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i);
+    }
+  }
+  for (i = 0; i < x.length; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+document.addEventListener("click", closeAllSelect);
 

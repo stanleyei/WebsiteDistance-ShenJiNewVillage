@@ -442,23 +442,47 @@ main .news-page-container article .content-title button:active {
   transform: translateY(1px);
 }
 
-main .news-page-container article .content-title select {
+main .news-page-container article .content-title .custom-select-list {
+  width: 215px;
   height: 40px;
   position: absolute;
-  right: 20px;
-  padding-left: 5px;
-  border: 0;
-  outline: none;
-  border-radius: 4px;
-  background-color: #D28E76;
-  font-size: 1.375rem;
-  font-weight: bold;
-  color: #FFFCF4;
-  cursor: pointer;
+  right: 0;
+  top: 0;
 }
 
-main .news-page-container article .content-title select option.decorated:hover {
-  background-color: #fff;
+main .news-page-container article .content-title .custom-select-list select {
+  display: none;
+}
+
+main .news-page-container article .content-title .select-items div,
+main .news-page-container article .content-title .select-selected {
+  width: 215px;
+  height: 40px;
+  padding: 7px 12px;
+  background-color: #D28E76;
+  color: #ffffff;
+  text-align: start;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+}
+
+main .news-page-container article .content-title .select-items {
+  position: absolute;
+  top: 40px;
+  left: -20px;
+  z-index: 99;
+}
+
+main .news-page-container article .content-title .select-hide {
+  display: none;
+}
+
+main .news-page-container article .content-title .select-items div:hover {
+  opacity: 0.5;
+}
+
+main .news-page-container article .content-title .select-items .active {
+  opacity: 0.8;
 }
 
 main .news-page-container article .content-infs .content-inf {

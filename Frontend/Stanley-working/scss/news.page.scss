@@ -18,7 +18,7 @@ a {
     text-decoration: none;
     color: $main-color;
 
-    &:hover{
+    &:hover {
         text-decoration: none;
         color: $main-color;
     }
@@ -229,7 +229,7 @@ main {
                 }
             }
 
-            .aside-tab-focus{
+            .aside-tab-focus {
                 background-color: $news-tag-f-bg;
                 color: $footer-text;
 
@@ -314,26 +314,46 @@ main {
                         transform: translateY(1px);
                     }
                 }
-
-                select {
-                    height: 40px;
+                
+                .custom-select-list {
+                    @include size(215px, 40px);
                     position: absolute;
-                    right: 20px;
-                    padding-left: 5px;
-                    border: 0;
-                    outline: none;
-                    border-radius: 4px;
-                    background-color: $title-bg;
-                    font-size: $h6;
-                    font-weight: bold;
-                    color: $body-bg;
-                    cursor: pointer;
+                    right: 0;
+                    top: 0;
+                }
 
-                    option.decorated {
-                        &:hover{
-                            background-color: #fff;
-                        }
-                    }
+                .custom-select-list select {
+                    display: none;
+                }
+
+                .select-items div,
+                .select-selected {
+                    @include size(215px, 40px);
+                    padding: 7px 12px;
+                    background-color: $title-bg;
+                    color: #ffffff;
+                    text-align: start;
+                    cursor: pointer;
+                    letter-spacing: 0.1em;
+                }
+
+                .select-items {
+                    position: absolute;
+                    top: 40px;
+                    left: -20px;
+                    z-index: 99;
+                }
+
+                .select-hide {
+                    display: none;
+                }
+
+                .select-items div:hover {
+                    opacity: 0.5;
+                }
+
+                .select-items .active {
+                    opacity: 0.8;
                 }
             }
 
@@ -472,10 +492,10 @@ main {
                                 padding: 0;
                             }
 
-                            a{
+                            a {
                                 display: flex;
 
-                                &:hover{
+                                &:hover {
                                     border-bottom: 3px solid $main-color;
                                 }
                             }
@@ -496,7 +516,7 @@ main {
                 font-family: 'Noto Sans TC', sans-serif;
             }
 
-            .inf-focus{
+            .inf-focus {
                 box-shadow: 0 0 0 white !important;
                 background-color: $tag-bg !important;
                 color: $footer-text;
