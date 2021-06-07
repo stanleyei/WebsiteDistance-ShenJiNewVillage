@@ -26,6 +26,7 @@
         "swiper": "^6.7.0"
     },
     "dependencies": {
-        "nanoid": "^3.1.23"
+        "nanoid": "^3.1.23",
+        "react-router-dom": "^5.2.0"
     }
 }
