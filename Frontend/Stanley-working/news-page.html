@@ -77,9 +77,9 @@
                 <span>Shen Ji New Village</span>
             </div>
             <div class="aside">
-                <button class="aside-tab aside-tab-focus">審計公告</button>
-                <button class="aside-tab">活動訊息</button>
-                <button class="aside-tab">活動花絮</button>
+                <button class="aside-tab aside-tab-focus" id="announcement-news">審計公告</button>
+                <button class="aside-tab" id="feast-news">活動訊息</button>
+                <button class="aside-tab" id="feast-photo">活動花絮</button>
             </div>
             <article>
                 <div class="news-date">
@@ -89,21 +89,6 @@
                 </div>
                 <div class="news-content">
                     <div class="infs-change-area">
-                        <!-- <div class="content-title">
-                            <h4>六月</h4>
-                            <div>Jun,2021</div>
-                            <button class="fas fa-chevron-left"></button>
-                            <button class="fas fa-chevron-right"></button>
-                        </div>
-                        <div class="content-infs" id="content-infs-now"></div>
-                        <h3>下月活動預告</h3>
-                        <div class="content-title">
-                            <h4>七月</h4>
-                            <div>July,2021</div>
-                            <button class="fas fa-chevron-left"></button>
-                            <button class="fas fa-chevron-right"></button>
-                        </div>
-                        <div class="content-infs" id="content-infs-next"></div> -->
                         <div class="content-title">
                             <h4>六月</h4>
                             <div>Jun,2021</div>
@@ -118,6 +103,17 @@
                                     <option value="">0527 寧夏微涼市集</option>
                                 </select>
                             </div>
+                        </div>
+                        <div id="content-infs-none">
+                            <div class="content-infs" id="content-infs-now"></div>
+                            <h3 >下月活動預告</h3>
+                            <div class="content-title">
+                                <h4>七月</h4>
+                                <div>July,2021</div>
+                                <button class="fas fa-chevron-left"></button>
+                                <button class="fas fa-chevron-right"></button>
+                            </div>
+                            <div class="content-infs" id="content-infs-next"></div>
                         </div>
                     </div>
                 </div>

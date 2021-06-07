@@ -47,15 +47,15 @@ function focusChange(date) {
   });
 }
 
-//生出活動內容結構
-// const contentInfsNow = document.querySelector('#content-infs-now');
-// const contentInfsNext = document.querySelector('#content-infs-next');
-// for (let i = 0; i < 3; i++) {
-//   contentInfsNow.innerHTML += infCard('now', i);
-// };
-// for (let i = 3; i < 6; i++) {
-//   contentInfsNext.innerHTML += infCard('next', i);
-// };
+// 生出活動內容結構
+const contentInfsNow = document.querySelector('#content-infs-now');
+const contentInfsNext = document.querySelector('#content-infs-next');
+for (let i = 0; i < 3; i++) {
+  contentInfsNow.innerHTML += infCard('now', i);
+};
+for (let i = 3; i < 6; i++) {
+  contentInfsNext.innerHTML += infCard('next', i);
+};
 
 function infCard(id, i) {
   ic = `<div class="content-inf" data-toggle="collapse" data-target="#collapse${i}"
@@ -134,8 +134,18 @@ function infCard(id, i) {
 
 //news-aside-tap被點擊後的效果
 const asideTabs = document.querySelectorAll('.aside-tab');
+const customSelect = document.querySelector('.custom-select-list');
+const feastPhoto = document.querySelector('#feast-photo');
+const infsNone = document.querySelector('#content-infs-none');
 asideTabs.forEach(tabs => {
-  tabs.addEventListener('click', function () {
+  tabs.addEventListener('click', function (tab) {
+    if (tab.target === feastPhoto) {
+      customSelect.style = 'display:block';
+      infsNone.style = 'display:none';
+    } else {
+      customSelect.style = "display:none";
+      infsNone.style = 'display:block';
+    }
     asideTabs.forEach(tab => {
       tab === this
         ?
@@ -145,6 +155,68 @@ asideTabs.forEach(tabs => {
     });
   });
 });
+
+//客製化下拉式選單
+let x, selElmnt, a, b, c;
+x = document.querySelectorAll('.custom-select-list');
+document.addEventListener("click", closeAllSelect);
+for (let i = 0; i < x.length; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (let j = 0; j < selElmnt.length; j++) {
+    c = document.createElement("DIV");
+    if (j === 0) {
+      c.setAttribute("class", "active");
+    }
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    b.appendChild(c);
+    c.addEventListener("click", function (e) {
+      var y, s, h;
+      s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+      h = this.parentNode.previousSibling;
+      a.classList.toggle('select-selected-focus');
+      for (let i = 0; i < s.length; i++) {
+        if (s.options[i].innerHTML === this.innerHTML) {
+          s.selectedIndex = i;
+          h.innerHTML = this.innerHTML;
+          y = this.parentNode.querySelectorAll('.active');
+          for (let k = 0; k < y.length; k++) {
+            y[k].removeAttribute("class");
+          }
+          this.setAttribute("class", "active");
+          break;
+        }
+      }
+    });
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function (e) {
+    e.stopPropagation();
+    closeAllSelect(this);
+    this.nextSibling.classList.toggle("select-hide");
+    this.classList.toggle('select-selected-focus');
+  });
+}
+function closeAllSelect(elmnt) {
+  let x, y, arrNo = [];
+  x = document.querySelectorAll('.select-items');
+  y = document.querySelectorAll('.select-selected');
+  for (let i = 0; i < y.length; i++) {
+    if (elmnt === y[i]) {
+      arrNo.push(i);
+    }
+  }
+  for (let i = 0; i < x.length; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
 
 //活動資訊點擊後click變色效果
 const NowInfs = document.querySelectorAll('#content-infs-now .content-inf');
@@ -206,65 +278,4 @@ function infsFocusStyle(infsName, iconsName) {
     resize: () => { goTopMove(); }
   });
 })();
-
-//客製化下拉試選單
-var x, i, j, selElmnt, a, b, c;
-x = document.getElementsByClassName("custom-select-list");
-for (i = 0; i < x.length; i++) {
-  selElmnt = x[i].getElementsByTagName("select")[0];
-  a = document.createElement("DIV");
-  a.setAttribute("class", "select-selected");
-  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-  x[i].appendChild(a);
-  b = document.createElement("DIV");
-  b.setAttribute("class", "select-items select-hide");
-  for (j = 0; j < selElmnt.length; j++) {
-    c = document.createElement("DIV");
-    if (j == 0){
-      c.setAttribute("class", "active");
-    }
-    c.innerHTML = selElmnt.options[j].innerHTML;
-    b.appendChild(c);
-    c.addEventListener("click", function(e) {
-      var y, i, k, s, h;
-      s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-      h = this.parentNode.previousSibling;
-      for (i = 0; i < s.length; i++) {
-        if (s.options[i].innerHTML == this.innerHTML) {
-          s.selectedIndex = i;
-          h.innerHTML = this.innerHTML;
-          y = this.parentNode.getElementsByClassName("active");
-          for (k = 0; k < y.length; k++) {
-            y[k].removeAttribute("class");
-          }
-          this.setAttribute("class", "active");
-          break;
-        }
-      }
-    });
-  }
-  x[i].appendChild(b);
-  a.addEventListener("click", function(e) {
-    e.stopPropagation();
-    closeAllSelect(this);
-    this.nextSibling.classList.toggle("select-hide");
-  });
-}
-
-function closeAllSelect(elmnt) {
-  var x, y, i, arrNo = [];
-  x = document.getElementsByClassName("select-items");
-  y = document.getElementsByClassName("select-selected");
-  for (i = 0; i < y.length; i++) {
-    if (elmnt == y[i]) {
-      arrNo.push(i);
-    }
-  }
-  for (i = 0; i < x.length; i++) {
-    if (arrNo.indexOf(i)) {
-      x[i].classList.add("select-hide");
-    }
-  }
-}
-document.addEventListener("click", closeAllSelect);
 
