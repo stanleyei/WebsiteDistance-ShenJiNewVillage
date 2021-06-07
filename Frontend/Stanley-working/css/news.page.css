@@ -137,6 +137,10 @@ h2 {
   margin: 0;
 }
 
+figure {
+  margin: 0;
+}
+
 .h1,
 .h2,
 .h3,
@@ -447,8 +451,25 @@ main .news-page-container article .content-title .custom-select-list {
   height: 40px;
   display: none;
   position: absolute;
+  right: 20px;
+  top: -10px;
+}
+
+main .news-page-container article .content-title .custom-select-list:hover::after {
+  transform: translate(10px, 8px);
+}
+
+main .news-page-container article .content-title .custom-select-list::after {
+  width: 18px;
+  height: 12px;
+  content: '';
+  position: absolute;
+  bottom: 0;
   right: 0;
-  top: 0;
+  transform: translate(10px, 5px);
+  background-image: url(../img/select-down.png);
+  background-repeat: no-repeat;
+  transition: 0.5s ease-in-out;
 }
 
 main .news-page-container article .content-title .custom-select-list select {
@@ -686,6 +707,43 @@ main .news-page-container article .inf-focus {
   box-shadow: 0 0 0 white !important;
   background-color: #C4C4C4 !important;
   color: #ffffff;
+}
+
+main .news-page-container article .feast-photo-wall {
+  padding: 20px 30px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2vw;
+  display: none;
+}
+
+main .news-page-container article .feast-photo-wall figure {
+  width: 18vw;
+  height: 10.14vw;
+  position: relative;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 2px;
+  box-shadow: 0 0 3px #596E79;
+  cursor: pointer;
+}
+
+main .news-page-container article .feast-photo-wall figure:hover .figure-hover-appear {
+  display: block;
+}
+
+main .news-page-container article .feast-photo-wall figure .figure-hover-appear {
+  width: 100%;
+  height: 100%;
+  font-size: 1.375rem;
+  text-align: center;
+  line-height: 10.65vw;
+  letter-spacing: 0.1em;
+  position: absolute;
+  background-color: #AB3030;
+  color: #FFFCF4;
+  opacity: 0.9;
+  display: none;
 }
 
 footer {

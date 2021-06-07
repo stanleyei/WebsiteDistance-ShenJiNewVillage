@@ -137,13 +137,16 @@ const asideTabs = document.querySelectorAll('.aside-tab');
 const customSelect = document.querySelector('.custom-select-list');
 const feastPhoto = document.querySelector('#feast-photo');
 const infsNone = document.querySelector('#content-infs-none');
+const photoWall = document.querySelector('.feast-photo-wall');
 asideTabs.forEach(tabs => {
   tabs.addEventListener('click', function (tab) {
     if (tab.target === feastPhoto) {
       customSelect.style = 'display:block';
+      photoWall.style = 'display:grid';
       infsNone.style = 'display:none';
     } else {
       customSelect.style = "display:none";
+      photoWall.style = 'display:none';
       infsNone.style = 'display:block';
     }
     asideTabs.forEach(tab => {
@@ -246,6 +249,20 @@ function infsFocusStyle(infsName, iconsName) {
     });
   });
 }
+
+//生成活動花絮結構
+for (let i = 1; i < 13; i++) {
+  photoWall.innerHTML +=
+    `<a href="./img/nekoteacher01.jpg" data-lightbox="image-1"><figure style="background-image: url(./img/nekoteacher01.jpg);"><div class="figure-hover-appear">0501 小蝸牛市集</div></figure></a>`;
+};
+
+//燈箱套件
+lightbox.option({
+  'resizeDuration': 200,
+  'wrapAround': true,
+  'disableScrolling' : true,
+  'positionFromTop' : 180,
+});
 
 //回到頂端按鈕
 (function () {

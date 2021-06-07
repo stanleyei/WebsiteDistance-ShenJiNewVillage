@@ -28,6 +28,10 @@ h2 {
     margin: 0;
 }
 
+figure{
+    margin: 0;
+}
+
 .h1,
 .h2,
 .h3,
@@ -314,13 +318,31 @@ main {
                         transform: translateY(1px);
                     }
                 }
-                
+
                 .custom-select-list {
                     @include size(215px, 40px);
                     display: none;
                     position: absolute;
-                    right: 0;
-                    top: 0;
+                    right: 20px;
+                    top: -10px;
+
+                    &:hover{
+                        &::after{
+                            transform: translate(10px, 8px);
+                        }
+                    }
+
+                    &::after {
+                        @include size(18px, 12px);
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        transform: translate(10px, 5px);
+                        background-image: url(../img/select-down.png);
+                        background-repeat: no-repeat;
+                        transition: 0.5s ease-in-out;
+                    }   
                 }
 
                 .custom-select-list select {
@@ -332,23 +354,23 @@ main {
                     @include size(215px, 40px);
                     padding: 0 0 0 12px;
                     background-color: $title-bg;
-                    color: #ffffff;
+                    color: $footer-text;
                     text-align: start;
                     cursor: pointer;
                     letter-spacing: 0.1em;
                     line-height: 40px;
                 }
 
-                .select-items div:last-child(){
+                .select-items div:last-child() {
                     border-bottom-left-radius: 4px;
                     border-bottom-right-radius: 4px;
                 }
 
-                .select-selected{
+                .select-selected {
                     border-radius: 4px;
                 }
 
-                .select-selected-focus{
+                .select-selected-focus {
                     border-bottom-left-radius: 0;
                     border-bottom-right-radius: 0;
                 }
@@ -536,6 +558,41 @@ main {
                 box-shadow: 0 0 0 white !important;
                 background-color: $tag-bg !important;
                 color: $footer-text;
+            }
+
+            .feast-photo-wall{
+                padding: 20px 30px 0;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 2vw;
+                display: none;
+
+                figure{
+                    @include size(18vw, 10.14vw);
+                    position: relative;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    border-radius: 2px;
+                    box-shadow: 0 0 3px $footer-bg;
+                    cursor: pointer;
+
+                    &:hover{
+
+                        .figure-hover-appear{
+                            display: block;
+                        }    
+                    }
+
+                    .figure-hover-appear{
+                        @include size(100%, 100%);
+                        @include font($h6, center, 10.65vw);
+                        position: absolute;
+                        background-color: $news-tag-f-bg;
+                        color: $body-bg;
+                        opacity: 0.9;
+                        display: none;
+                    }
+                }
             }
         }
     }
