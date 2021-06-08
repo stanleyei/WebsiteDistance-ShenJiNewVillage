@@ -158,7 +158,7 @@ function infCard(id, i) {
           <img src="./img/news-event-logo.png" alt="">
       </div>
       <div>
-          <a href="">
+          <a href="http://www.google.com/calendar/event?action=TEMPLATE&text=pokemon go 俱樂部聚餐&dates=20210710T183000/20210711T235900&details=第一屆 pokemon go 會員大會，聚餐時間與注意事項%0A1.來吃飯%0A2.帶妹來%0A3.自備飲料&location=道館&trp=false">
               <i class="far fa-calendar-minus"></i>
               <div>加入google日曆</div>
           </a>
