@@ -418,18 +418,9 @@ header {
                     margin-left: 20px;
                     padding-top: 15px;
                     font-weight: bold;
-                }
 
-                button {
-                    @extend %news-content-title-btn;
-
-                    &:hover {
-                        color: $store-tag-f-bg;
-                    }
-
-                    &:active {
-                        box-shadow: 0 0 $tag-bg;
-                        transform: translateY(1px);
+                    &:last-child(){
+                        margin: 0;
                     }
                 }
             }

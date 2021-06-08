@@ -50,7 +50,7 @@ const swiper = new Swiper(".aboutUsSwiper", {
   },
 });
 
-//審計新訊-切換選擇日期的效果
+//審計新訊-生成按鈕
 const monthList = document.querySelector('#month-list');
 const yearsList = document.querySelector('#years-list');
 const monthData = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
@@ -63,21 +63,37 @@ for (let i = 0; i < 5; i++) {
   yearsList.innerHTML += `<button class="years-btn">${2019 + i}</button>`;
 };
 
+//審計新訊-切換選擇日期的效果
+const monthEn = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const monthBtns = document.querySelectorAll('.month-btn');
 const yearsBtns = document.querySelectorAll('.years-btn');
+const dateTitle = document.querySelector('.content-title > div:nth-child(2)');
 const date = new Date();
 const thisYear = String(date.getFullYear());
 const thisMonth = String(date.getMonth() + 1);
 focusChange(monthBtns);
 focusChange(yearsBtns);
 
-function focusChange(date) {
-  date.forEach(btns => {
-    if (btns.textContent === thisYear || btns.dataset.month === thisMonth) {
+function focusChange(dateBtns) {
+  dateTitle.previousElementSibling.textContent = monthData[date.getMonth()];
+  dateTitle.textContent = monthEn[date.getMonth()];
+  dateTitle.nextElementSibling.textContent = `,${thisYear}`;
+  dateBtns.forEach(btns => {
+    if (btns.textContent === thisYear) {
+      btns.classList.add('focus-change');
+    }
+    else if (btns.dataset.month === thisMonth) {
       btns.classList.add('focus-change');
     }
     btns.addEventListener('click', function () {
-      date.forEach(btn => {
+      if (this.getAttribute('class') === 'month-btn') {
+        dateTitle.textContent = monthEn[this.dataset.month - 1];
+        dateTitle.previousElementSibling.textContent = this.textContent;
+      }
+      else if (this.getAttribute('class') === 'years-btn') {
+        dateTitle.nextElementSibling.textContent = `,${this.textContent}`;
+      }
+      dateBtns.forEach(btn => {
         btn === this
           ?
           btn.classList.add('focus-change')

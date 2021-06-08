@@ -70,17 +70,6 @@ header nav ul li a .title {
   cursor: pointer;
 }
 
-#news .news-container article .content-title button {
-  height: 20px;
-  margin: 15px 0 0 18px;
-  border: 0;
-  background-color: #FFFCF4;
-  font-size: 15px;
-  color: #54291c;
-  text-shadow: 0 2px #C4C4C4;
-  cursor: pointer;
-}
-
 #news .news-container article .content-infs .content-inf {
   width: 100%;
   height: 100px;
@@ -589,13 +578,8 @@ header .nav-img.active {
   font-weight: bold;
 }
 
-#news .news-container article .content-title button:hover {
-  color: #96422D;
-}
-
-#news .news-container article .content-title button:active {
-  box-shadow: 0 0 #C4C4C4;
-  transform: translateY(1px);
+#news .news-container article .content-title div:last-child {
+  margin: 0;
 }
 
 #news .news-container article .content-infs .content-inf {
