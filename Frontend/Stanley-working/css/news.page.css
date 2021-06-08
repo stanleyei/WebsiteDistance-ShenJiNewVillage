@@ -60,17 +60,6 @@ main .news-page-container article .news-date .date-btns button {
   cursor: pointer;
 }
 
-main .news-page-container article .content-title button {
-  height: 20px;
-  margin: 15px 0 0 18px;
-  border: 0;
-  background-color: #FFFCF4;
-  font-size: 15px;
-  color: #54291c;
-  text-shadow: 0 2px #C4C4C4;
-  cursor: pointer;
-}
-
 main .news-page-container article .content-infs .content-inf {
   width: 100%;
   height: 100px;
@@ -435,15 +424,6 @@ main .news-page-container article .content-title div {
   margin-left: 20px;
   padding-top: 15px;
   font-weight: bold;
-}
-
-main .news-page-container article .content-title button:hover {
-  color: #96422D;
-}
-
-main .news-page-container article .content-title button:active {
-  box-shadow: 0 0 #C4C4C4;
-  transform: translateY(1px);
 }
 
 main .news-page-container article .content-title .custom-select-list {

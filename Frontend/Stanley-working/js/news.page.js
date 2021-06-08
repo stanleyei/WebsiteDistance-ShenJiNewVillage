@@ -23,6 +23,7 @@ for (let i = 0; i < 5; i++) {
 };
 
 //審計新訊-切換選擇日期的效果
+const monthEn = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const monthBtns = document.querySelectorAll('.month-btn');
 const yearsBtns = document.querySelectorAll('.years-btn');
 const thisMonthTitle = document.querySelector('#this-month-title > h4');
@@ -34,11 +35,13 @@ const thisMonth = String(date.getMonth() + 1);
 focusChange(monthBtns);
 focusChange(yearsBtns);
 
-function focusChange(date) {
+function focusChange(dateBtns) {
+  thisMonthTitle.nextElementSibling.textContent = monthEn[date.getMonth()];
+  nextMonthTitle.nextElementSibling.textContent = monthEn[date.getMonth() + 1];
   yearsTitle.forEach(title => {
     title.textContent = `,${thisYear}`;
   });
-  date.forEach(btns => {
+  dateBtns.forEach(btns => {
     if (btns.textContent === thisYear) {
       btns.classList.add('focus-change');
     }
@@ -48,6 +51,12 @@ function focusChange(date) {
     }
     btns.addEventListener('click', function () {
       if (this.getAttribute('class') === 'month-btn') {
+        thisMonthTitle.nextElementSibling.textContent = monthEn[this.dataset.month - 1];
+        this.dataset.month === '12'
+          ?
+          nextMonthTitle.nextElementSibling.textContent = monthEn[0]
+          :
+          nextMonthTitle.nextElementSibling.textContent = monthEn[this.dataset.month];
         monthChoose(this);
       }
       else if (this.getAttribute('class') === 'years-btn') {
@@ -55,7 +64,7 @@ function focusChange(date) {
           title.textContent = `,${this.textContent}`;
         });
       }
-      date.forEach(btn => {
+      dateBtns.forEach(btn => {
         btn === this
           ?
           btn.classList.add('focus-change')
@@ -65,7 +74,7 @@ function focusChange(date) {
     });
   });
 }
-function monthChoose(element){
+function monthChoose(element) {
   thisMonthTitle.textContent = element.textContent;
   element.nextSibling === null
     ?
@@ -325,4 +334,3 @@ lightbox.option({
     resize: () => { goTopMove(); }
   });
 })();
-
