@@ -65,7 +65,6 @@ function focusChange(date) {
     });
   });
 }
-
 function monthChoose(element){
   thisMonthTitle.textContent = element.textContent;
   element.nextSibling === null
