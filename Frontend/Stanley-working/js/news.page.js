@@ -9,7 +9,7 @@ document.querySelector('.toggle').onclick = function () {
   navimg.classList.toggle('active');
 };
 
-//審計新訊-切換選擇日期的效果
+//審計新訊-生成按鈕
 const monthList = document.querySelector('#month-list');
 const yearsList = document.querySelector('#years-list');
 const monthData = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
@@ -22,8 +22,12 @@ for (let i = 0; i < 5; i++) {
   yearsList.innerHTML += `<button class="years-btn">${2019 + i}</button>`;
 };
 
+//審計新訊-切換選擇日期的效果
 const monthBtns = document.querySelectorAll('.month-btn');
 const yearsBtns = document.querySelectorAll('.years-btn');
+const thisMonthTitle = document.querySelector('#this-month-title > h4');
+const nextMonthTitle = document.querySelector('#next-month-title > h4');
+const yearsTitle = document.querySelectorAll('.content-title > div:nth-child(3)');
 const date = new Date();
 const thisYear = String(date.getFullYear());
 const thisMonth = String(date.getMonth() + 1);
@@ -31,11 +35,26 @@ focusChange(monthBtns);
 focusChange(yearsBtns);
 
 function focusChange(date) {
+  yearsTitle.forEach(title => {
+    title.textContent = `,${thisYear}`;
+  });
   date.forEach(btns => {
-    if (btns.textContent === thisYear || btns.dataset.month === thisMonth) {
+    if (btns.textContent === thisYear) {
+      btns.classList.add('focus-change');
+    }
+    else if (btns.dataset.month === thisMonth) {
+      monthChoose(btns);
       btns.classList.add('focus-change');
     }
     btns.addEventListener('click', function () {
+      if (this.getAttribute('class') === 'month-btn') {
+        monthChoose(this);
+      }
+      else if (this.getAttribute('class') === 'years-btn') {
+        yearsTitle.forEach(title => {
+          title.textContent = `,${this.textContent}`;
+        });
+      }
       date.forEach(btn => {
         btn === this
           ?
@@ -45,6 +64,15 @@ function focusChange(date) {
       });
     });
   });
+}
+
+function monthChoose(element){
+  thisMonthTitle.textContent = element.textContent;
+  element.nextSibling === null
+    ?
+    nextMonthTitle.textContent = '一月'
+    :
+    nextMonthTitle.textContent = element.nextSibling.textContent;
 }
 
 // 生出活動內容結構
@@ -159,20 +187,20 @@ asideTabs.forEach(tabs => {
   });
 });
 
-//客製化下拉式選單
-let x, selElmnt, a, b, c;
-x = document.querySelectorAll('.custom-select-list');
+//客製化select下拉式選單
+// let x, selElmnt, a, b, c;
+const x = document.querySelectorAll('.custom-select-list');
 document.addEventListener("click", closeAllSelect);
 for (let i = 0; i < x.length; i++) {
-  selElmnt = x[i].getElementsByTagName("select")[0];
-  a = document.createElement("DIV");
+  let selElmnt = x[i].getElementsByTagName("select")[0];
+  const a = document.createElement("DIV");
   a.setAttribute("class", "select-selected");
   a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
   x[i].appendChild(a);
-  b = document.createElement("DIV");
+  const b = document.createElement("DIV");
   b.setAttribute("class", "select-items select-hide");
   for (let j = 0; j < selElmnt.length; j++) {
-    c = document.createElement("DIV");
+    const c = document.createElement("DIV");
     if (j === 0) {
       c.setAttribute("class", "active");
     }
@@ -203,6 +231,9 @@ for (let i = 0; i < x.length; i++) {
     closeAllSelect(this);
     this.nextSibling.classList.toggle("select-hide");
     this.classList.toggle('select-selected-focus');
+    window.addEventListener('click', function () {
+      a.classList.remove('select-selected-focus');
+    });
   });
 }
 function closeAllSelect(elmnt) {
@@ -260,8 +291,8 @@ for (let i = 1; i < 13; i++) {
 lightbox.option({
   'resizeDuration': 500,
   'wrapAround': true,
-  'disableScrolling' : true,
-  'positionFromTop' : 100,
+  'disableScrolling': true,
+  'positionFromTop': 100,
 });
 
 //回到頂端按鈕

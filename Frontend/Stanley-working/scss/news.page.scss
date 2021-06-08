@@ -380,6 +380,7 @@ main {
                     top: 55px;
                     left: -20px;
                     padding: 0;
+                    z-index: 999;
                 }
 
                 .select-hide {
@@ -387,11 +388,25 @@ main {
                 }
 
                 .select-items div:hover {
-                    opacity: 0.5;
+                    &::before{
+                        @include size(215px, 40px);
+                        content: '';
+                        position: absolute;
+                        transform: translateX(-12px);
+                        background-color: $footer-text;
+                        opacity: 0.5;
+                    }
                 }
 
                 .select-items .active {
-                    opacity: 0.8;
+                    &::before{
+                        @include size(215px, 40px);
+                        content: '';
+                        position: absolute;
+                        transform: translateX(-12px);
+                        background-color: $footer-text;
+                        opacity: 0.2;
+                    }
                 }
             }
 
@@ -568,18 +583,18 @@ main {
                 display: none;
 
                 figure{
-                    @include size(18vw, 10.14vw);
+                    @include size(18.65vw, 10.14vw);
                     position: relative;
-                    background-size: contain;
+                    background-size: cover;
                     background-repeat: no-repeat;
                     border-radius: 2px;
                     box-shadow: 0 0 3px $footer-bg;
-                    cursor: pointer;
 
                     &:hover{
 
                         .figure-hover-appear{
-                            display: block;
+                            opacity: 0.9;
+                            transition: 0.8s ease-in-out;
                         }    
                     }
 
@@ -589,8 +604,7 @@ main {
                         position: absolute;
                         background-color: $news-tag-f-bg;
                         color: $body-bg;
-                        opacity: 0.9;
-                        display: none;
+                        opacity: 0;
                     }
                 }
             }
