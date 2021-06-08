@@ -304,6 +304,10 @@ main {
                     margin-left: 20px;
                     padding-top: 15px;
                     font-weight: bold;
+
+                    &:nth-child(3){
+                        margin: 0;
+                    }
                 }
 
                 .custom-select-list {

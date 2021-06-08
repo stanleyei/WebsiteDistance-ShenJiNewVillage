@@ -426,6 +426,10 @@ main .news-page-container article .content-title div {
   font-weight: bold;
 }
 
+main .news-page-container article .content-title div:nth-child(3) {
+  margin: 0;
+}
+
 main .news-page-container article .content-title .custom-select-list {
   width: 215px;
   height: 40px;
