@@ -629,7 +629,7 @@ footer {
         }
 
         article {
-            @include size(100%, 519px);
+            @include size(100%, 475px);
             display: grid;
             grid-template-columns: repeat(3, 1fr);
 
@@ -677,6 +677,7 @@ footer {
 
         >p {
             @include font($h6, center, 30px, 0.05em);
+            margin: 0;
         }
     }
 }

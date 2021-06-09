@@ -15,11 +15,11 @@ const yearsList = document.querySelector('#years-list');
 const monthData = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
 let dataValue = 1;
 monthData.forEach(data => {
-  monthList.innerHTML += `<button class="month-btn" data-month="${dataValue}">${data}</button>`
+  monthList.innerHTML += `<button class="month-btn" data-month="${dataValue}" title="${data}">${data}</button>`
   dataValue++;
 });
 for (let i = 0; i < 5; i++) {
-  yearsList.innerHTML += `<button class="years-btn">${2019 + i}</button>`;
+  yearsList.innerHTML += `<button class="years-btn" title="${2019 + i}">${2019 + i}</button>`;
 };
 
 //審計新訊-切換選擇日期的效果
@@ -95,7 +95,7 @@ for (let i = 3; i < 6; i++) {
 
 function infCard(id, i) {
   ic = `<div class="content-inf" data-toggle="collapse" data-target="#collapse${i}"
-  aria-expanded="true" aria-controls="collapse${i}">
+  aria-expanded="true" aria-controls="collapse${i}" title="">
   <div class="inf-date">
       <div class="during">
           <div class="start-date">03</div>
@@ -158,7 +158,7 @@ function infCard(id, i) {
           <img src="./img/news-event-logo.png" alt="">
       </div>
       <div>
-          <a href="http://www.google.com/calendar/event?action=TEMPLATE&text=pokemon go 俱樂部聚餐&dates=20210710T183000/20210711T235900&details=第一屆 pokemon go 會員大會，聚餐時間與注意事項%0A1.來吃飯%0A2.帶妹來%0A3.自備飲料&location=道館&trp=false">
+          <a href="http://www.google.com/calendar/event?action=TEMPLATE&text=pokemon go 俱樂部聚餐&dates=20210710T183000/20210711T235900&details=第一屆 pokemon go 會員大會，聚餐時間與注意事項%0A1.來吃飯%0A2.帶妹來%0A3.自備飲料&location=道館&trp=false" title="加入google日曆">
               <i class="far fa-calendar-minus"></i>
               <div>加入google日曆</div>
           </a>
