@@ -2,7 +2,7 @@
 new fullpage('#fullpage', {
   autoScrolling: true,
   afterLoad: function (origin, destination, direction) {
-    if (destination.index == 1 && direction === 'down') {
+    if (destination.index == 3 && direction === 'down') {
       fullpage_api.setAutoScrolling(false); //關閉自動滾動模式
       fullpage_api.setFitToSection(false); //關閉滾輪自動回到最近section的效果
     }
@@ -56,11 +56,11 @@ const yearsList = document.querySelector('#years-list');
 const monthData = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
 let dataValue = 1;
 monthData.forEach(data => {
-  monthList.innerHTML += `<button class="month-btn" data-month="${dataValue}">${data}</button>`
+  monthList.innerHTML += `<button class="month-btn" data-month="${dataValue}" title="${data}">${data}</button>`
   dataValue++;
 });
 for (let i = 0; i < 5; i++) {
-  yearsList.innerHTML += `<button class="years-btn">${2019 + i}</button>`;
+  yearsList.innerHTML += `<button class="years-btn" title="${2019 + i}">${2019 + i}</button>`;
 };
 
 //審計新訊-切換選擇日期的效果
