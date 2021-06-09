@@ -12,22 +12,22 @@ header nav ul li a .icon {
   position: relative;
   display: block;
   min-width: 40px;
-  height: 60px;
-  line-height: 60px;
+  height: 5.56vh;
+  line-height: 5.56vh;
   text-align: center;
 }
 
 header nav ul li a .title {
   position: relative;
   display: block;
-  height: 60px;
-  line-height: 60px;
+  height: 5.56vh;
+  line-height: 5.56vh;
   white-space: nowrap;
 }
 
 #about-us .effect-area .about-us-container .about-us-title::before, #news .news-container .news-title::before, #traffic .traffic-container .traffic-title::before, #contact .contact-container .contact-title::before {
   width: 60px;
-  height: 60px;
+  height: 5.56vh;
   content: '';
   position: absolute;
   background: #D28E76;
@@ -46,7 +46,7 @@ header nav ul li a .title {
 
 #about-us .effect-area .about-us-container article .about-us-swiper .swiper-button-next, #about-us .effect-area .about-us-container article .about-us-swiper .swiper-button-prev {
   width: 50px;
-  height: 50px;
+  height: 4.63vh;
   border-radius: 50%;
   background-color: #C4C4C4;
   box-shadow: 1px 1px 3px black;
@@ -56,7 +56,7 @@ header nav ul li a .title {
 
 #news .news-container article .date-btns button {
   min-width: 50px;
-  height: 30px;
+  height: 2.78vh;
   border-radius: 6px;
   border: 0;
   margin: 16px 8px 0 0;
@@ -65,14 +65,14 @@ header nav ul li a .title {
   font-size: 0.75rem;
   font-weight: bold;
   text-align: center;
-  line-height: 30px;
+  line-height: 2.78vh;
   letter-spacing: 0.2em;
   cursor: pointer;
 }
 
 #news .news-container article .content-infs .content-inf {
   width: 100%;
-  height: 100px;
+  height: 9.26vh;
   position: relative;
   margin-top: 20px;
   display: flex;
@@ -85,7 +85,7 @@ header nav ul li a .title {
   content: '';
   position: absolute;
   width: 20px;
-  height: 100px;
+  height: 9.26vh;
   left: 0;
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
@@ -94,11 +94,11 @@ header nav ul li a .title {
 
 #news .news-container article .content-infs .content-inf .inf-detail .inf-tag {
   width: 82px;
-  height: 21px;
+  height: 1.945vh;
   margin-top: 15px;
   background-color: #AB3030;
   text-align: center;
-  line-height: 21px;
+  line-height: 1.945vh;
   letter-spacing: 0.2em;
   font-size: 0.875rem;
   color: #FFFCF4;
@@ -155,12 +155,32 @@ a {
   color: #54291c;
 }
 
+a:hover {
+  text-decoration: none;
+  color: #54291c;
+}
+
 p {
   margin: 0;
 }
 
 h2 {
   margin: 0;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
 }
 
 .fp-tableCell {
@@ -183,8 +203,8 @@ h2 {
 }
 
 #goTopButton {
-  width: 80px;
-  height: 80px;
+  width: 4.17vw;
+  height: 4.17vw;
   font-size: 1.375rem;
   text-align: center;
   line-height: 40px;
@@ -488,24 +508,11 @@ header .nav-img.active {
   display: flex;
   justify-content: center;
   align-items: start;
-  flex-direction: column;
-}
-
-#about-us .effect-area .about-us-container article .about-us-content h3 {
-  font-size: 2.25rem;
-  text-align: start;
-  line-height: inherit;
-  letter-spacing: 0.3em;
-}
-
-#about-us .effect-area .about-us-container article .about-us-content p {
-  width: 100%;
-  height: 300px;
   font-size: 1.5rem;
   text-align: start;
   line-height: 60px;
   letter-spacing: normal;
-  margin: 0;
+  flex-direction: column;
 }
 
 #news {
@@ -547,7 +554,7 @@ header .nav-img.active {
 }
 
 #news .news-container article {
-  padding: 80px 0 0 32px;
+  padding: 7.4vh 0 0 32px;
 }
 
 #news .news-container article .date-title {
@@ -582,6 +589,7 @@ header .nav-img.active {
   display: flex;
   justify-content: start;
   align-items: center;
+  margin: 6.5vh 0 4.5vh 0;
 }
 
 #news .news-container article .content-title h3 {
@@ -683,7 +691,7 @@ header .nav-img.active {
   height: 100%;
   font-size: 1.375rem;
   text-align: start;
-  line-height: 100px;
+  line-height: 9.26vh;
   letter-spacing: 0.2em;
   display: flex;
   justify-content: center;

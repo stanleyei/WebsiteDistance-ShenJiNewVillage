@@ -2,7 +2,7 @@
 new fullpage('#fullpage', {
   autoScrolling: true,
   afterLoad: function (origin, destination, direction) {
-    if (destination.index == 1 && direction === 'down') {
+    if (destination.index == 3 && direction === 'down') {
       fullpage_api.setAutoScrolling(false); //關閉自動滾動模式
       fullpage_api.setFitToSection(false); //關閉滾輪自動回到最近section的效果
     }
@@ -46,37 +46,54 @@ const swiper = new Swiper(".aboutUsSwiper", {
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
+    hideOnClick: true,
   },
 });
 
-//審計新訊-切換選擇日期的效果
+//審計新訊-生成按鈕
 const monthList = document.querySelector('#month-list');
 const yearsList = document.querySelector('#years-list');
 const monthData = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
 let dataValue = 1;
 monthData.forEach(data => {
-  monthList.innerHTML += `<button class="month-btn" data-month="${dataValue}">${data}</button>`
+  monthList.innerHTML += `<button class="month-btn" data-month="${dataValue}" title="${data}">${data}</button>`
   dataValue++;
 });
 for (let i = 0; i < 5; i++) {
-  yearsList.innerHTML += `<button class="years-btn">${2019 + i}</button>`;
+  yearsList.innerHTML += `<button class="years-btn" title="${2019 + i}">${2019 + i}</button>`;
 };
 
+//審計新訊-切換選擇日期的效果
+const monthEn = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const monthBtns = document.querySelectorAll('.month-btn');
 const yearsBtns = document.querySelectorAll('.years-btn');
+const dateTitle = document.querySelector('.content-title > div:nth-child(2)');
 const date = new Date();
 const thisYear = String(date.getFullYear());
 const thisMonth = String(date.getMonth() + 1);
 focusChange(monthBtns);
 focusChange(yearsBtns);
 
-function focusChange(date) {
-  date.forEach(btns => {
-    if (btns.textContent === thisYear || btns.dataset.month === thisMonth) {
+function focusChange(dateBtns) {
+  dateTitle.previousElementSibling.textContent = monthData[date.getMonth()];
+  dateTitle.textContent = monthEn[date.getMonth()];
+  dateTitle.nextElementSibling.textContent = `,${thisYear}`;
+  dateBtns.forEach(btns => {
+    if (btns.textContent === thisYear) {
+      btns.classList.add('focus-change');
+    }
+    else if (btns.dataset.month === thisMonth) {
       btns.classList.add('focus-change');
     }
     btns.addEventListener('click', function () {
-      date.forEach(btn => {
+      if (this.getAttribute('class') === 'month-btn') {
+        dateTitle.textContent = monthEn[this.dataset.month - 1];
+        dateTitle.previousElementSibling.textContent = this.textContent;
+      }
+      else if (this.getAttribute('class') === 'years-btn') {
+        dateTitle.nextElementSibling.textContent = `,${this.textContent}`;
+      }
+      dateBtns.forEach(btn => {
         btn === this
           ?
           btn.classList.add('focus-change')
@@ -90,7 +107,7 @@ function focusChange(date) {
 //回到頂端按鈕
 (function () {
   $("body").append("<div id='goTopButton' class='fas fa-chevron-up' style='display: none; z-index: 5; cursor: pointer;' title='回到頂端'/></div>");
-  const locatioin = 3 / 5, // 按鈕出現在螢幕的高度
+  const locatioin = 2 / 3, // 按鈕出現在螢幕的高度
     right = 10, // 距離右邊 px 值
     opacity = 0.5, // 透明度
     speed = 500, // 捲動速度
