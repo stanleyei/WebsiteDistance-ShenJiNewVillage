@@ -12,6 +12,7 @@
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/index-kg.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <title>審計新村</title>
 </head>
 
@@ -95,6 +96,23 @@
                     <h2>周邊景點</h2>
                     <span>Shen Ji New Village</span>
                 </div>
+                <div class="view-main">
+                    <!-- Swiper -->
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide article-content">Slide 1</div>
+                            <div class="swiper-slide article-content">Slide 2</div>
+                            <div class="swiper-slide article-content">Slide 3</div>
+                            <div class="swiper-slide article-content">Slide 4</div>
+                            <div class="swiper-slide article-content">Slide 5</div>
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="traffic">
@@ -105,11 +123,11 @@
                     <h2>交通資訊</h2>
                     <span class="tra-title-icon">How To Get There</span>
                     <span class="traffic-type">
-                            <p>如何到達審計?</p>
-                    </span>                  
+                        <p>如何到達審計?</p>
+                    </span>
                 </div>
                 <div class="traffic-main">
-                   
+
                     <div class="traffic-bus">
                         <div class="traffic-logo">
                             <div class="traffic-icon">
@@ -119,12 +137,12 @@
                         </div>
                         <div class="traffic-content">
                             <div class="traffic-content-text">
-                            <span>
-                                <P>步行兩分鐘</P>
-                            </span>
-                            <P>向上國中 11路、23路、71路、89路</P>
-                            <P>英才郵局 5路、51路</P>
-                        </div>
+                                <span>
+                                    <P>步行兩分鐘</P>
+                                </span>
+                                <P>向上國中 11路、23路、71路、89路</P>
+                                <P>英才郵局 5路、51路</P>
+                            </div>
                         </div>
                     </div>
                     <div class="traffic-car">
@@ -138,7 +156,7 @@
                             <div class="traffic-content-text">
                                 <p>台灣大道二段 --> 美村路一段 --> 民生路</p>
                             </div>
-                        </div>    
+                        </div>
                     </div>
                     <div class="traffic-bike">
                         <div class="traffic-logo">
@@ -206,17 +224,47 @@
     </main>
     <footer></footer>
 
-
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
+        var appendNumber = 4;
+        var prependNumber = 1;
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 3,
+            centeredSlides: true,
+            spaceBetween: 150,
+            speed: 1000,
+            // loop: true,
+
+
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            on: {
+                // init: function () {
+                //     document.querySelector('.swiper-slide-active .article-content').addClass('active');
+                // },
+                // transitionStart: function () {
+                //     document.querySelector('.article-content').removeClass('active');
+                // },
+                // transitionEnd: function (swiper) {
+                //     document.querySelector('.swiper-slide-active .article-content').addClass('active');
+                // }
+            }
+        });
+
+
+
         const navbar = document.querySelector('.nav');
         const ulbar = document.querySelector('.ulbar');
         const navimg = document.querySelector('.nav-img');
-        document.querySelector('.toggle').onclick = function () {
-            this.classList.toggle('active');
-            navbar.classList.toggle('active');
-            ulbar.classList.toggle('active');
-            navimg.classList.toggle('active');
-        }
+        document.querySelector('.toggle').onclick =
+            function () {
+                this.classList.toggle('active');
+                navbar.classList.toggle('active');
+                ulbar.classList.toggle('active');
+                navimg.classList.toggle('active');
+            }
         //     droplist.onclick=function(){
         //     console.log(111);
         //     document.querySelector('.introduction').classList.add('.on');

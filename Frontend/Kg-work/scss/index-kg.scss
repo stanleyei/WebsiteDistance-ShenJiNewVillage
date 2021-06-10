@@ -227,6 +227,7 @@ header {
     border: 20px solid $main-color;
     @include flex;
     position: relative;
+    overflow: hidden;
 
     .view-container {
         @include size($w:80vw, $h:80vh);
@@ -259,6 +260,76 @@ header {
                 }
             }
         }
+
+        .view-main {
+            width: 80vw;
+            height: 700px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 200px 0;
+            // position: absolute;
+            // left: 0;
+
+
+            .swiper-container {
+                width: 100%;
+                height: 300px;
+                margin: 20px auto;
+                position: relative;
+
+                .swiper-wrapper {
+                    
+                    padding: 20px 0;
+
+                    .swiper-slide {
+                        text-align: center;
+                        font-size: 18px;
+                        background: #fff;
+                        transition: 250ms all;
+                        &:hover{
+                            transform: scale(1.2);
+                            z-index: 1;
+                        }
+                        &:first-child:hover{
+                            margin: 0 30px;
+                        }
+                        &:last-child:hover{
+                            margin: 0 -30px;
+                        }
+
+
+
+
+                        /* Center slide text vertically */
+                        display: -webkit-box;
+                        display: -ms-flexbox;
+                        display: -webkit-flex;
+                        display: flex;
+                        -webkit-box-pack: center;
+                        -ms-flex-pack: center;
+                        -webkit-justify-content: center;
+                        justify-content: center;
+                        -webkit-box-align: center;
+                        -ms-flex-align: center;
+                        -webkit-align-items: center;
+                        align-items: center;
+                    }
+                }
+
+                .swiper-button-next {
+                    position: absolute;
+                    top: 52%;
+                    right: 32%;
+                }
+
+                .swiper-button-prev {
+                    position: absolute;
+                    top: 52%;
+                    left: 32%;
+
+                }
+            }
+        }
+
 
     }
 }
@@ -298,27 +369,29 @@ header {
 
                 }
             }
-            .traffic-type {          
-                    display: inline-block;
-                    @include size(364px, 48px);
-                    border-bottom: 24px solid $store-list-bg;
-                    text-align: center;
-                    @include position(64%,44%,0,0);
-                    
 
-                    p {
-                        font-size: $h2;
-                        list-style: 60px;
-                        letter-spacing: 0.2em;
-                    }
-               
+            .traffic-type {
+                display: inline-block;
+                @include size(364px, 48px);
+                border-bottom: 24px solid $store-list-bg;
+                text-align: center;
+                @include position(64%, 44%, 0, 0);
+
+
+                p {
+                    font-size: $h2;
+                    list-style: 60px;
+                    letter-spacing: 0.2em;
+                }
+
             }
 
         }
 
         .traffic-main {
             @include size(990px, 800px);
-            margin: 66px auto 0 auto;            
+            margin: 66px auto 0 auto;
+
             .traffic-bus {
                 width: 100%;
                 display: flex;
@@ -339,10 +412,11 @@ header {
                     height: 190px;
                     display: flex;
                     align-items: center;
-                    
+
                     .traffic-content-text {
                         @include size(685px, 160px);
                         @extend %title-tra-contentarea;
+
                         p {
                             @extend %title-tra-contenttext;
                             line-height: 45px;
@@ -387,11 +461,13 @@ header {
                     height: 190px;
                     display: flex;
                     align-items: center;
+
                     .traffic-content-text {
                         @include size(685px, 114px);
                         @extend %title-tra-contentarea;
                         display: flex;
                         align-items: center;
+
                         p {
                             @extend %title-tra-contenttext;
                             line-height: 60px;
@@ -399,6 +475,7 @@ header {
                     }
                 }
             }
+
             .traffic-bike {
                 width: 100%;
                 margin-top: 60px;
@@ -420,11 +497,13 @@ header {
                     height: 190px;
                     display: flex;
                     align-items: center;
+
                     .traffic-content-text {
                         @include size(685px, 114px);
                         @extend %title-tra-contentarea;
                         display: flex;
                         align-items: center;
+
                         p {
                             @extend %title-tra-contenttext;
                             line-height: 60px;
