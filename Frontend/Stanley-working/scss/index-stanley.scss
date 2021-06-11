@@ -579,34 +579,38 @@ header {
                     padding-top: 4.63vh;
                     z-index: 9999;
 
-                    &:hover{
-                        ~ figure::before{
+                    &:hover {
+                        ~figure::before {
                             opacity: 0.3;
-                            animation: mask-3 1s ease-in-out;
+                            animation: mask-3 0.5s ease-in-out;
+
                             @keyframes mask-3 {
-                                0%{
+                                0% {
                                     opacity: 0;
                                 }
-                                100%{
+
+                                100% {
                                     opacity: 0.3;
                                 }
                             }
                         }
 
-                        ~.check-btn-list{
+                        ~.check-btn {
                             opacity: 1;
-                            animation: mask-10 1s ease-in-out;
+                            animation: mask-10 0.5s ease-in-out;
+
                             @keyframes mask-10 {
-                                0%{
+                                0% {
                                     opacity: 0;
                                 }
-                                100%{
+
+                                100% {
                                     opacity: 1;
                                 }
                             }
                         }
                     }
-            
+
                 }
 
                 figure {
@@ -617,9 +621,9 @@ header {
                     background-size: cover;
                     background-position: center;
                     background-repeat: no-repeat;
-                    
 
-                    &::before{
+
+                    &::before {
                         content: '';
                         position: absolute;
                         width: 100%;
@@ -642,31 +646,30 @@ header {
                     z-index: 2;
                 }
 
-                .check-btn-list{
-                    display: flex;
+                .check-btn {
+                    @include size(7vw, 6vh);
+                    @include font($h4, center, 6vh);
                     position: absolute;
-                    transform: translateY(70%);
+                    transform: translate(-55%, 70%);
+                    border: solid 2px $footer-text;
                     opacity: 0;
                     z-index: 99999;
+                    color: $footer-text;
+                    cursor: pointer;
 
-                    &:hover{
-                        opacity: 1; 
-
-                        +figure::before{
-                            opacity: 0.3;
-                        }
+                    &:nth-child(2) {
+                        transform: translate(55%,70%);
                     }
 
-                    .check-btn{
-                        @include size(7vw, 6vh);
-                        @include font($h4, center, 6vh);
-                        margin-right: 5px;
-                        border: solid 2px $footer-text;
-                        color: $footer-text;
-                        cursor: pointer;
+                    &:hover {
+                        opacity: 1;
 
-                        &:nth-child(2){
-                            margin:0 0 0 5px;
+                        +.check-btn{
+                            opacity: 1;
+                        }
+
+                        ~ figure::before {
+                            opacity: 0.3;
                         }
                     }
                 }

@@ -799,7 +799,7 @@ header .nav-img.active {
 
 #store .store-container article .shop-window > img:hover ~ figure::before {
   opacity: 0.3;
-  animation: mask-3 1s ease-in-out;
+  animation: mask-3 0.5s ease-in-out;
 }
 
 @keyframes mask-3 {
@@ -811,9 +811,9 @@ header .nav-img.active {
   }
 }
 
-#store .store-container article .shop-window > img:hover ~ .check-btn-list {
+#store .store-container article .shop-window > img:hover ~ .check-btn {
   opacity: 1;
-  animation: mask-10 1s ease-in-out;
+  animation: mask-10 0.5s ease-in-out;
 }
 
 @keyframes mask-10 {
@@ -862,37 +862,36 @@ header .nav-img.active {
   z-index: 2;
 }
 
-#store .store-container article .shop-window .check-btn-list {
-  display: flex;
-  position: absolute;
-  transform: translateY(70%);
-  opacity: 0;
-  z-index: 99999;
-}
-
-#store .store-container article .shop-window .check-btn-list:hover {
-  opacity: 1;
-}
-
-#store .store-container article .shop-window .check-btn-list:hover + figure::before {
-  opacity: 0.3;
-}
-
-#store .store-container article .shop-window .check-btn-list .check-btn {
+#store .store-container article .shop-window .check-btn {
   width: 7vw;
   height: 6vh;
   font-size: 1.354vw;
   text-align: center;
   line-height: 6vh;
   letter-spacing: 0.1em;
-  margin-right: 5px;
+  position: absolute;
+  transform: translate(-55%, 70%);
   border: solid 2px #ffffff;
+  opacity: 0;
+  z-index: 99999;
   color: #ffffff;
   cursor: pointer;
 }
 
-#store .store-container article .shop-window .check-btn-list .check-btn:nth-child(2) {
-  margin: 0 0 0 5px;
+#store .store-container article .shop-window .check-btn:nth-child(2) {
+  transform: translate(55%, 70%);
+}
+
+#store .store-container article .shop-window .check-btn:hover {
+  opacity: 1;
+}
+
+#store .store-container article .shop-window .check-btn:hover + .check-btn {
+  opacity: 1;
+}
+
+#store .store-container article .shop-window .check-btn:hover ~ figure::before {
+  opacity: 0.3;
 }
 
 #store .store-container article nav {
