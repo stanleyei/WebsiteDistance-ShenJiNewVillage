@@ -196,7 +196,6 @@ asideTabs.forEach(tabs => {
 });
 
 //客製化select下拉式選單
-// let x, selElmnt, a, b, c;
 const x = document.querySelectorAll('.custom-select-list');
 document.addEventListener("click", closeAllSelect);
 for (let i = 0; i < x.length; i++) {
