@@ -23,12 +23,16 @@ a {
     }
 }
 
-p{
+p {
     margin: 0;
 }
 
 h2 {
     margin: 0;
+}
+
+ul {
+    list-style: none;
 }
 
 .h1,
@@ -48,19 +52,21 @@ h6 {
 
 .fp-tableCell {
     @include flex();
-    height: calc(100vh - 40px) !important;
+    height: 96.296vh !important;
 }
 
 .logo-img {
+    @include size(5.729vw, 5.729vw);
     position: absolute;
-    top: 50px;
-    right: 250px;
+    top: 3vh;
+    right: 11.5vw;
 }
 
 .logo-text {
+    @include size(7.552vw, 4.48vw);
     position: absolute;
-    top: 50px;
-    right: 50px;
+    top: 5.5vh;
+    right: 2.6vw;
 }
 
 #goTopButton {
@@ -82,7 +88,7 @@ h6 {
     @include flex();
     position: relative;
     flex-direction: column;
-    border: 20px solid $main-color;
+    border: 1.04vw solid $main-color;
 
     .container {
         transition: 1s ease-in-out;
@@ -127,7 +133,7 @@ header {
     z-index: 50;
 
     nav {
-        @include size(37px, 80vh);
+        @include size(1.93vw, 80vh);
         @include flex;
         position: relative;
         border-radius: 10px;
@@ -234,7 +240,7 @@ header {
     @include size(100%, 100vh);
     @include flex();
     position: relative;
-    border: 20px solid $main-color;
+    border: 1.04vw solid $main-color;
 
     .effect-area {
         @include flex();
@@ -256,7 +262,7 @@ header {
 
             .about-us-title {
                 position: relative;
-                padding-left: 60px;
+                padding-left: 3.125vw;
 
                 &::before {
                     @extend %title-cube;
@@ -285,7 +291,7 @@ header {
                     position: relative;
                     overflow: hidden;
 
-                    &:hover .swiper-button{
+                    &:hover .swiper-button {
                         opacity: 1;
                     }
 
@@ -307,10 +313,11 @@ header {
                         right: 11vw;
 
                         &::after {
-                            @include size(100%, 100%);
+                            @include size(2.6vw, 2.6vw);
                             content: '';
                             transform: translateX(3px);
                             background-image: url(../img/aboutUs-swiper-right.png);
+                            background-size: cover;
                             font-family: none;
                         }
                     }
@@ -319,10 +326,11 @@ header {
                         @extend %about-us-swiper-button;
 
                         &::after {
-                            @include size(100%, 100%);
+                            @include size(2.6vw, 2.6vw);
                             content: '';
                             transform: translateX(-3px);
                             background-image: url(../img/aboutUs-swiper-left.png);
+                            background-size: cover;
                             font-family: none;
                         }
                     }
@@ -332,6 +340,7 @@ header {
                         left: -5.5vw;
 
                         span {
+                            @include size(0.42vw, 0.42vw);
                             background-color: $title-bg;
                         }
                     }
@@ -340,9 +349,8 @@ header {
                 .about-us-content {
                     @include size(32vw, 100%);
                     @include flex(center, start);
-                    @include font($h5, start, 60px, normal);
+                    @include font($h5, start, 5.56vh, normal);
                     flex-direction: column;
-
                 }
             }
         }
@@ -353,14 +361,14 @@ header {
     @include size(100%, 100vh);
     @include flex();
     position: relative;
-    border: 20px solid $main-color;
+    border: 1.04vw solid $main-color;
 
     .news-container {
         @include size(70vw, 76vh);
 
         .news-title {
             position: relative;
-            padding-left: 60px;
+            padding-left: 3.125vw;
 
             &::before {
                 @extend %title-cube;
@@ -381,11 +389,11 @@ header {
         }
 
         article {
-            padding: 7.4vh 0 0 32px;
+            padding: 7.4vh 0 0 1.67vw;
 
             .date-title {
-                @include size(100px, 30px);
-                @include font($h8, center, 30px, 0.2em);
+                @include size(5.21vw, 2.78vh);
+                @include font($h8, center, 2.78vh, 0.2em);
                 border-radius: 6px;
                 background-color: $main-color;
                 color: $store-list-bg;
@@ -414,12 +422,12 @@ header {
                 margin: 6.5vh 0 4.5vh 0;
 
                 h3 {
-                    @include font($h1, center, 60px, 0.2em);
+                    @include font($h1, center, 5.56vh, 0.2em);
                     position: relative;
-                    padding-left: 11px;
+                    padding-left: 0.573vw;
 
                     &::before {
-                        @include size(122px, 24px);
+                        @include size(6.35vw, 2.22vh);
                         content: '';
                         position: absolute;
                         bottom: 0;
@@ -432,11 +440,11 @@ header {
 
                 div {
                     @include font($h7, center, inherit, 0.2em);
-                    margin-left: 20px;
-                    padding-top: 15px;
+                    margin-left: 1.04vw;
+                    padding-top: 1.39vh;
                     font-weight: bold;
 
-                    &:last-child(){
+                    &:last-child() {
                         margin: 0;
                     }
                 }
@@ -466,8 +474,8 @@ header {
                     }
 
                     .inf-date {
-                        @include size(107px, 100%);
-                        padding-left: 38px;
+                        @include size(5.57vw, 100%);
+                        padding-left: 1.98vw;
                         font-weight: bold;
 
                         .during {
@@ -488,29 +496,29 @@ header {
 
                     .inf-detail {
                         flex: 1;
-                        padding-left: 20px;
+                        padding-left: 1.04vw;
 
                         .inf-tag {
                             @extend %news-inf-tag;
                         }
 
                         h4 {
-                            @include font($h3, start, 60px, 0.2em);
+                            @include font($h3, start, 5.56vh, 0.2em);
                             margin: 0
                         }
 
                     }
 
                     >span {
-                        @include size(80px, 100%);
+                        @include size(4.17vw, 100%);
                         @include font($h6, start, 9.26vh, 0.2em);
                         @include flex();
-                        margin-right: 30px;
+                        margin-right: 1.56vw;
 
                         i {
-                            margin-left: 15px;
+                            margin-left: 0.78vw;
                             transform: translateY(20%);
-                            font-size: 16px;
+                            font-size: $h8;
                         }
                     }
 
@@ -523,9 +531,227 @@ header {
     }
 }
 
+#store {
+    @include size(100%, 100vh);
+    @include flex();
+    position: relative;
+    border: 1.04vw solid $main-color;
+
+    .store-container {
+        @include size(86vw, 76vh);
+
+        .store-title {
+            position: relative;
+            padding-left: 3.125vw;
+
+            &::before {
+                @extend %title-cube;
+            }
+
+            h2 {
+                @include font($h1, start, inherit, 0.3em);
+            }
+
+            span {
+                @include font($h5);
+
+                &::before {
+                    @extend %title-vertical-text;
+                    content: 'SHOP';
+                }
+            }
+        }
+
+        article {
+            @include flex();
+            padding-left: 5.73vw;
+
+            .shop-window {
+                @include size(56vw, 36.5625vw);
+                @include flex();
+                max-height: 61vh;
+                margin-right: 5.2vw;
+
+                >img {
+                    @include size(56vw, 36.5625vw);
+                    max-height: 61vh;
+                    position: relative;
+                    padding-top: 4.63vh;
+                    z-index: 9999;
+
+                    &:hover{
+                        ~ figure::before{
+                            opacity: 0.3;
+                            animation: mask-3 1s ease-in-out;
+                            @keyframes mask-3 {
+                                0%{
+                                    opacity: 0;
+                                }
+                                100%{
+                                    opacity: 0.3;
+                                }
+                            }
+                        }
+
+                        ~.check-btn-list{
+                            opacity: 1;
+                            animation: mask-10 1s ease-in-out;
+                            @keyframes mask-10 {
+                                0%{
+                                    opacity: 0;
+                                }
+                                100%{
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+            
+                }
+
+                figure {
+                    @include size(30.47vw, 22.135vw);
+                    max-height: 39vh;
+                    position: absolute;
+                    transform: translateY(-5%);
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    
+
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        opacity: 0;
+                        background-color: black;
+                        transition: 1s ease-in-out;
+                    }
+                }
+
+                .window-title {
+                    @include size(16.56vw, 6vh);
+                    @include font($h4, center, 6vh);
+                    border-radius: 3px;
+                    background-color: $substrate-bg;
+                    color: black;
+                    font-weight: bolder;
+                    position: absolute;
+                    transform: translateY(-50%);
+                    z-index: 2;
+                }
+
+                .check-btn-list{
+                    display: flex;
+                    position: absolute;
+                    transform: translateY(70%);
+                    opacity: 0;
+                    z-index: 99999;
+
+                    &:hover{
+                        opacity: 1; 
+
+                        +figure::before{
+                            opacity: 0.3;
+                        }
+                    }
+
+                    .check-btn{
+                        @include size(7vw, 6vh);
+                        @include font($h4, center, 6vh);
+                        margin-right: 5px;
+                        border: solid 2px $footer-text;
+                        color: $footer-text;
+                        cursor: pointer;
+
+                        &:nth-child(2){
+                            margin:0 0 0 5px;
+                        }
+                    }
+                }
+            }
+
+            nav {
+                width: 17.7vw;
+                font-weight: bold;
+                padding-bottom: 5.56vh;
+
+
+
+                h3 {
+                    @include font($h2, $ls:0.3em);
+                }
+
+                .nav-tap-list {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 0 0.78vw;
+                    margin-bottom: 2.31vh;
+
+                    .nav-tap {
+                        @extend %shop-nav-tap;
+                    }
+
+                    .tap-active {
+                        background-color: $store-tag-f-bg;
+                        color: $store-list-bg;
+                    }
+                }
+
+                .shop-list {
+                    @include size(16.9vw, 49vh);
+                    padding: 3.7vh 0 0 2.08vw;
+                    background-color: $store-list-bg;
+                    box-shadow: 7px 7px 0 7px $title-bg;
+
+                    >div {
+                        margin-bottom: 2.8vh;
+
+                        span {
+                            @include font($h6, start);
+                            position: relative;
+                            cursor: pointer;
+
+                            &:hover {
+
+                                &::before {
+                                    content: '';
+                                    position: absolute;
+                                    bottom: -0.463vh;
+                                    width: 100%;
+                                    height: 0.463vh;
+                                    background-color: $store-tag-f-bg;
+                                    animation: border 1s ease-in-out;
+
+                                    @keyframes border {
+                                        0% {
+                                            width: 0px;
+                                        }
+
+                                        100% {
+                                            width: 100%;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .list-active {
+                    display: none;
+                }
+            }
+
+        }
+
+    }
+}
+
 #traffic {
     @include size(100%, 100vh);
-    border: 20px solid $main-color;
+    border: 1.04vw solid $main-color;
     @include flex;
     position: relative;
 
@@ -557,27 +783,29 @@ header {
                     content: 'About';
                 }
             }
-            .traffic-type {          
-                    display: inline-block;
-                    @include size(364px, 48px);
-                    border-bottom: 24px solid $store-list-bg;
-                    text-align: center;
-                    @include position(64%,44%,0,0);
-                    
-                    p {
-                        font-size: $h2;
-                        list-style: 60px;
-                        letter-spacing: 0.2em;
-                        font-weight: bold;
-                    }
-               
+
+            .traffic-type {
+                display: inline-block;
+                @include size(364px, 48px);
+                border-bottom: 24px solid $store-list-bg;
+                text-align: center;
+                @include position(64%, 44%, 0, 0);
+
+                p {
+                    font-size: $h2;
+                    list-style: 60px;
+                    letter-spacing: 0.2em;
+                    font-weight: bold;
+                }
+
             }
 
         }
 
         .traffic-main {
             @include size(990px, 800px);
-            margin: 66px auto 0 auto;            
+            margin: 66px auto 0 auto;
+
             .traffic-bus {
                 width: 100%;
                 display: flex;
@@ -598,10 +826,11 @@ header {
                     height: 190px;
                     display: flex;
                     align-items: center;
-                    
+
                     .traffic-content-text {
                         @include size(685px, 160px);
                         @extend %title-tra-contentarea;
+
                         p {
                             @extend %title-tra-contenttext;
                             line-height: 45px;
@@ -646,11 +875,13 @@ header {
                     height: 190px;
                     display: flex;
                     align-items: center;
+
                     .traffic-content-text {
                         @include size(685px, 114px);
                         @extend %title-tra-contentarea;
                         display: flex;
                         align-items: center;
+
                         p {
                             @extend %title-tra-contenttext;
                             line-height: 60px;
@@ -658,6 +889,7 @@ header {
                     }
                 }
             }
+
             .traffic-bike {
                 width: 100%;
                 margin-top: 60px;
@@ -679,11 +911,13 @@ header {
                     height: 190px;
                     display: flex;
                     align-items: center;
+
                     .traffic-content-text {
                         @include size(685px, 114px);
                         @extend %title-tra-contentarea;
                         display: flex;
                         align-items: center;
+
                         p {
                             @extend %title-tra-contenttext;
                             line-height: 60px;
@@ -701,7 +935,7 @@ header {
 #contact {
     @include size(100%, 100vh);
     @include flex();
-    border: 20px solid $main-color;
+    border: 1.04vw solid $main-color;
     position: relative;
 
     .contact-container {

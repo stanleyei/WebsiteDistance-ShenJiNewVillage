@@ -22,16 +22,16 @@ $footer-text:#ffffff;
 $nes-aside-tag: #333333;
 
 //文字尺寸變數
-$h1:2.8125rem;  //45px
-$h2:2.25rem;    //36px
-$h3:1.75rem;    //28px
-$h4:1.625rem;   //26px
-$h5:1.5rem;     //24px
-$h6:1.375rem;   //22px
-$h7:1.125rem;   //18px
-$h8:1rem;       //16px
-$h9:0.875rem;   //14px
-$h10:0.75rem;   //12px
+$h1:2.34vw;  //45px
+$h2:1.875vw;    //36px
+$h3:1.458vw;    //28px
+$h4:1.354vw;   //26px
+$h5:1.25vw;     //24px
+$h6:1.146vw;   //22px
+$h7:0.9375vw;   //18px
+$h8:0.833vw;    //16px
+$h9:0.729vw;   //14px
+$h10:0.625vw;   //12px
 
 //css屬性變數
 @mixin size($w, $h) {
@@ -61,6 +61,7 @@ $h10:0.75rem;   //12px
 
 //元件變數-首頁
 %header-section-btn{
+    padding-left: 0.521vw;
     position: relative;
     width: 50%;
     display: flex;
@@ -73,7 +74,7 @@ $h10:0.75rem;   //12px
 %header-section-btn-icon{
     position: relative;
     display: block;
-    min-width: 40px;
+    min-width: 2.08vw;
     height: 5.56vh;
     line-height: 5.56vh;
     text-align: center;
@@ -88,13 +89,13 @@ $h10:0.75rem;   //12px
 }
 
 %title-cube {
-    width: 60px;
-    height: 5.56vh;
+    width: 3.125vw;
+    height: 3.125vw;
     content: '';
     position: absolute;
     background: $title-bg;
     border-radius: 5px;
-    transform: translate(-50px, -20px);
+    transform: translate(-2.6vw, -1.85vh);
     z-index: -1;
 };
 
@@ -107,8 +108,8 @@ $h10:0.75rem;   //12px
 }
 
 %about-us-swiper-button{
-    width: 50px;
-    height: 4.63vh;
+    width: 2.6vw;
+    height: 2.6vw;
     border-radius: 50%;
     background-color: $tag-bg;
     box-shadow: 1px 1px 3px black;
@@ -117,11 +118,11 @@ $h10:0.75rem;   //12px
 }
 
 %date-btn{
-    min-width: 50px;
+    min-width: 2.6vw;
     height: 2.78vh;
     border-radius: 6px;
     border: 0;
-    margin: 16px 8px 0 0;
+    margin: 1.48vh 0.42vw 0 0;
     background-color: $form-bg;
     color: $store-tag-f-bg;
     font-size: $h10;
@@ -134,10 +135,10 @@ $h10:0.75rem;   //12px
 
 %news-content-title-btn{
     height: 1.85vh;
-    margin:15px 0 0 18px;
+    margin: 1.39vh 0 0 0.94vw;
     border: 0;
     background-color: $body-bg;
-    font-size: 15px;
+    font-size: $h8;
     color: $main-color;
     text-shadow: 0 2px $tag-bg;
     cursor: pointer;
@@ -147,7 +148,7 @@ $h10:0.75rem;   //12px
     width: 100%;
     height: 9.26vh;
     position: relative;
-    margin-top: 20px;
+    margin-top: 1.85vh;
     display: flex;
     border-radius: 6px;
     background-color: $form-bg;
@@ -157,7 +158,7 @@ $h10:0.75rem;   //12px
 %news-inf-before{
     content: '';
     position: absolute;
-    width: 20px;
+    width: 1.04vw;
     height: 9.26vh;
     left: 0;
     border-top-left-radius: 6px;
@@ -166,9 +167,9 @@ $h10:0.75rem;   //12px
 }
 
 %news-inf-tag{
-    width: 82px;
+    width: 4.27vw;
     height: 1.945vh;
-    margin-top: 15px;
+    margin-top: 1.39vh;
     background-color: $news-tag-f-bg;
     text-align: center;
     line-height: 1.945vh;
@@ -178,7 +179,7 @@ $h10:0.75rem;   //12px
 }
 
 %title-tra-circle{
-    @include size(130px,130px);
+    @include size(6.77vw,12vh);
     @include flex;
     margin: auto;
     border-radius:50%;
@@ -189,30 +190,37 @@ $h10:0.75rem;   //12px
     font-family: 'Noto Sans TC', sans-serif;
     text-align: center;
     font-size: $h6;
-    line-height: 60px;
+    line-height: 5.56vh;
     letter-spacing: 10%;
 }
 
 %title-tra-contentarea{
-    margin-left: 100px;
+    margin-left: 5.2vw;
     background-color: $form-bg;
     border-radius: 10px 0 0 10px;
-    border-right: 30px solid $title-bg;
+    border-right: 1.56vw solid $title-bg;
 }
 
 %title-tra-contenttext{
-    margin-left: 43px;
+    margin-left: 2.24vw;
     font-size: $h4;
     letter-spacing: 0.2em;
     font-family: 'Noto Sans HK', sans-serif;
 }
 
+%shop-nav-tap{
+    @include size(7.8vw, 3.25vh);
+    @include font($h6, $lh:3.25vh);
+    background-color: $tag-bg;
+    cursor: pointer;
+}
+
 //元件變數-內頁
 %news-page-aside-tag{
-    width: 180px;
+    width: 9.375vw;
     height: 5.56vh;
     border: 0;
-    margin-left: 30px;
+    margin-left: 1.5625vw;
     background-color: $tag-bg;
     font-size: $h6;
     line-height: 2.78vh;

@@ -1,17 +1,18 @@
 header nav ul li a {
+  padding-left: 0.521vw;
   position: relative;
   width: 50%;
   display: flex;
   color: #FBE6C3;
   font-weight: 500;
-  font-size: 1.625rem;
+  font-size: 1.354vw;
   letter-spacing: 0.3em;
 }
 
 header nav ul li a .icon {
   position: relative;
   display: block;
-  min-width: 40px;
+  min-width: 2.08vw;
   height: 5.56vh;
   line-height: 5.56vh;
   text-align: center;
@@ -26,13 +27,13 @@ header nav ul li a .title {
 }
 
 main .news-page-container .news-title::before {
-  width: 60px;
-  height: 5.56vh;
+  width: 3.125vw;
+  height: 3.125vw;
   content: '';
   position: absolute;
   background: #D28E76;
   border-radius: 5px;
-  transform: translate(-50px, -20px);
+  transform: translate(-2.6vw, -1.85vh);
   z-index: -1;
 }
 
@@ -45,14 +46,14 @@ main .news-page-container .news-title span::before {
 }
 
 main .news-page-container article .news-date .date-btns button {
-  min-width: 50px;
+  min-width: 2.6vw;
   height: 2.78vh;
   border-radius: 6px;
   border: 0;
-  margin: 16px 8px 0 0;
+  margin: 1.48vh 0.42vw 0 0;
   background-color: #F2F2F2;
   color: #96422D;
-  font-size: 0.75rem;
+  font-size: 0.625vw;
   font-weight: bold;
   text-align: center;
   line-height: 2.78vh;
@@ -64,7 +65,7 @@ main .news-page-container article .content-infs .content-inf {
   width: 100%;
   height: 9.26vh;
   position: relative;
-  margin-top: 20px;
+  margin-top: 1.85vh;
   display: flex;
   border-radius: 6px;
   background-color: #F2F2F2;
@@ -74,7 +75,7 @@ main .news-page-container article .content-infs .content-inf {
 main .news-page-container article .content-infs .content-inf::before {
   content: '';
   position: absolute;
-  width: 20px;
+  width: 1.04vw;
   height: 9.26vh;
   left: 0;
   border-top-left-radius: 6px;
@@ -83,12 +84,12 @@ main .news-page-container article .content-infs .content-inf::before {
 }
 
 main .news-page-container .aside .aside-tab {
-  width: 180px;
+  width: 9.375vw;
   height: 5.56vh;
   border: 0;
-  margin-left: 30px;
+  margin-left: 1.5625vw;
   background-color: #C4C4C4;
-  font-size: 1.375rem;
+  font-size: 1.146vw;
   line-height: 2.78vh;
   letter-spacing: 0.2em;
   font-weight: bold;
@@ -160,7 +161,7 @@ h6 {
 #goTopButton {
   width: 80px;
   height: 80px;
-  font-size: 1.375rem;
+  font-size: 1.146vw;
   text-align: center;
   line-height: 40px;
   letter-spacing: 0.1em;
@@ -305,14 +306,14 @@ main .news-page-container .news-title {
 }
 
 main .news-page-container .news-title h2 {
-  font-size: 2.8125rem;
+  font-size: 2.34vw;
   text-align: start;
   line-height: inherit;
   letter-spacing: 0.3em;
 }
 
 main .news-page-container .news-title span {
-  font-size: 1.5rem;
+  font-size: 1.25vw;
   text-align: center;
   line-height: inherit;
   letter-spacing: 0.1em;
@@ -361,7 +362,7 @@ main .news-page-container article .news-date {
 main .news-page-container article .news-date .date-title {
   width: 100px;
   height: 30px;
-  font-size: 1rem;
+  font-size: 0.833vw;
   text-align: center;
   line-height: 30px;
   letter-spacing: 0.2em;
@@ -395,7 +396,7 @@ main .news-page-container article .content-title {
 }
 
 main .news-page-container article .content-title h4 {
-  font-size: 2.8125rem;
+  font-size: 2.34vw;
   text-align: center;
   line-height: 60px;
   letter-spacing: 0.2em;
@@ -417,7 +418,7 @@ main .news-page-container article .content-title h4::before {
 }
 
 main .news-page-container article .content-title div {
-  font-size: 1.125rem;
+  font-size: 0.9375vw;
   text-align: center;
   line-height: inherit;
   letter-spacing: 0.2em;
@@ -548,7 +549,7 @@ main .news-page-container article .content-infs .content-inf .inf-date .during {
 }
 
 main .news-page-container article .content-infs .content-inf .inf-date .during .end-date {
-  font-size: 0.75rem;
+  font-size: 0.625vw;
   text-align: start;
   line-height: 20px;
   letter-spacing: 0.2em;
@@ -556,14 +557,14 @@ main .news-page-container article .content-infs .content-inf .inf-date .during .
 }
 
 main .news-page-container article .content-infs .content-inf .inf-date > span {
-  font-size: 1.125rem;
+  font-size: 0.9375vw;
   text-align: start;
   line-height: 20px;
   letter-spacing: 0.2em;
 }
 
 main .news-page-container article .content-infs .content-inf h5 {
-  font-size: 1.75rem;
+  font-size: 1.458vw;
   text-align: start;
   line-height: 100px;
   letter-spacing: 0.2em;
@@ -575,7 +576,7 @@ main .news-page-container article .content-infs .content-inf h5 {
 main .news-page-container article .content-infs .content-inf > i {
   width: 80px;
   height: 100%;
-  font-size: 1.375rem;
+  font-size: 1.146vw;
   text-align: start;
   line-height: 100px;
   letter-spacing: 0.2em;
@@ -618,7 +619,7 @@ main .news-page-container article .content-infs .inf-detail .card-body .card-img
 }
 
 main .news-page-container article .content-infs .inf-detail .card-body .card-content {
-  font-size: 1.125rem;
+  font-size: 0.9375vw;
   text-align: start;
   line-height: 30px 0.2em;
   letter-spacing: 0.1em;
@@ -642,7 +643,7 @@ main .news-page-container article .content-infs .inf-detail .card-other-inf > di
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-size: 0.75rem;
+  font-size: 0.625vw;
   text-align: center;
   line-height: 30px;
   letter-spacing: 0.2em;
@@ -653,7 +654,7 @@ main .news-page-container article .content-infs .inf-detail .card-other-inf > di
 
 main .news-page-container article .content-infs .inf-detail .card-other-inf > div i {
   margin-right: 10px;
-  font-size: 1.625rem;
+  font-size: 1.354vw;
 }
 
 main .news-page-container article .content-infs .inf-detail .card-other-inf > div time {
@@ -688,7 +689,7 @@ main .news-page-container article .content-infs .inf-detail .card-other-inf > di
 }
 
 main .news-page-container article h3 {
-  font-size: 2.8125rem;
+  font-size: 2.34vw;
   text-align: start;
   line-height: 60px;
   letter-spacing: 0.2em;
@@ -728,7 +729,7 @@ main .news-page-container article .feast-photo-wall figure:hover .figure-hover-a
 main .news-page-container article .feast-photo-wall figure .figure-hover-appear {
   width: 100%;
   height: 100%;
-  font-size: 1.375rem;
+  font-size: 1.146vw;
   text-align: center;
   line-height: 10.65vw;
   letter-spacing: 0.1em;
@@ -771,7 +772,7 @@ footer .footer-container {
 }
 
 footer .footer-container h2 {
-  font-size: 2.25rem;
+  font-size: 1.875vw;
   text-align: start;
   line-height: 49px;
   letter-spacing: 0.15em;
@@ -786,14 +787,14 @@ footer .footer-container article {
 }
 
 footer .footer-container article h3 {
-  font-size: 1.625rem;
+  font-size: 1.354vw;
   text-align: start;
   line-height: inherit;
   letter-spacing: 0.15em;
 }
 
 footer .footer-container article .inf-detil {
-  font-size: 1.375rem;
+  font-size: 1.146vw;
   text-align: start;
   line-height: 30px;
   letter-spacing: 0.15em;
@@ -814,7 +815,7 @@ footer .footer-container article .open-detil .date-box {
   display: flex;
   justify-content: start;
   align-items: start;
-  font-size: 1.375rem;
+  font-size: 1.146vw;
   text-align: center;
   line-height: 30px;
   letter-spacing: 0.15em;
@@ -840,7 +841,7 @@ footer .footer-container article .open-detil time {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.375rem;
+  font-size: 1.146vw;
   text-align: center;
   line-height: 30px;
   letter-spacing: 0.15em;
@@ -848,7 +849,7 @@ footer .footer-container article .open-detil time {
 }
 
 footer .footer-container > p {
-  font-size: 1.375rem;
+  font-size: 1.146vw;
   text-align: center;
   line-height: 30px;
   letter-spacing: 0.05em;

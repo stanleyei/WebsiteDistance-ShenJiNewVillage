@@ -104,6 +104,21 @@ function focusChange(dateBtns) {
   });
 }
 
+//店家介紹-切換店家分類按鈕
+const navTaps = document.querySelectorAll('.nav-tap');
+const shopList = document.querySelectorAll('.shop-list');
+navTaps.forEach(tab => {
+  tab.addEventListener('click', function () {
+    navTaps.forEach(tab => {
+      tab.classList.remove('tap-active');
+    })
+    this.classList.add('tap-active');
+    shopList.forEach(list => {
+      list.classList.toggle('list-active');
+    })
+  });
+});
+
 //回到頂端按鈕
 (function () {
   $("body").append("<div id='goTopButton' class='fas fa-chevron-up' style='display: none; z-index: 5; cursor: pointer;' title='回到頂端'/></div>");
