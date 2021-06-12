@@ -1,0 +1,394 @@
+@import 'group_web_variable';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    border: 20px solid $main-color;
+    background-color: $body-bg;
+    font-family: 'Noto Sans', sans-serif;
+    color: $main-color;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: $main-color;
+
+    &:hover {
+        text-decoration: none;
+        color: $main-color;
+    }
+}
+
+h2 {
+    margin: 0;
+}
+
+figure {
+    margin: 0;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+}
+
+.logo-img {
+    position: absolute;
+    top: 50px;
+    right: 250px;
+}
+
+.logo-text {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+#goTopButton {
+    @include size(80px, 80px);
+    @include font($h6, center, 40px);
+    border-radius: 50%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: $footer-text;
+    color: $footer-bg;
+
+    &::after {
+        @include position(55%, 50%);
+        content: 'Top';
+    }
+}
+
+header {
+    @include flex();
+    min-height: 100vh;
+    position: fixed;
+    transform: translate(-20px, -20px);
+    z-index: 50;
+
+    nav {
+        @include size(37px, 80vh);
+        @include flex;
+        position: relative;
+        border-radius: 10px;
+        background-color: $main-color;
+        box-shadow: 0 5px 15px;
+        overflow: hidden;
+        transition: 1s;
+
+        ul {
+            display: none;
+            width: 20%;
+            padding: 0;
+            z-index: 20;
+            list-style: none;
+
+            li {
+                position: relative;
+                width: 100%;
+                border-radius: 10px;
+
+                &:hover {
+                    background-color: #efefef;
+
+                    a {
+                        color: $nav-bg;
+                        font-weight: bold;
+                    }
+                }
+
+                a {
+                    @extend %header-section-btn;
+
+                    .icon {
+                        @extend %header-section-btn-icon;
+                    }
+
+                    .title {
+                        @extend %header-section-btn-title;
+                    }
+                }
+            }
+        }
+
+        .nav-img {
+            @include size(110px, 109px);
+            display: none;
+            right: 7%;
+            bottom: 8%;
+            background-image: url(../img/logo-bg-img.png);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: absolute;
+        }
+    }
+
+    nav.active {
+        @include size(50vw, 100vh);
+        background-color: $nav-bg;
+    }
+
+    .toggle {
+        @include size(30px, 80vh);
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: none;
+        cursor: pointer;
+
+        &::before {
+            @include size(12.5px, 25px);
+            content: "";
+            position: absolute;
+            left: 15%;
+            top: 50%;
+            background-image: url(../img/nav-right.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            line-height: 20px;
+            text-align: center;
+        }
+    }
+
+    .toggle.active {
+        height: 100vh;
+
+        &::before {
+            top: 50%;
+            background-image: url(../img/nav-left.png);
+        }
+    }
+
+    .ulbar.active {
+        display: block;
+    }
+
+    .nav-img.active {
+        display: block;
+    }
+}
+
+main {
+    @include size(100%, 219vh);
+    @include flex();
+    overflow: hidden;
+
+    .store-page-container {
+        @include size(87.6vw, 100%);
+        position: relative;
+        padding: 8.7vh 0 0 0px;
+
+        .store-title {
+            position: relative;
+            padding-left: 3.125vw;
+
+            &::before {
+                @extend %title-cube;
+            }
+
+            h2 {
+                @include font($h1, start, inherit, 0.3em);
+            }
+
+            span {
+                @include font($h5);
+
+                &::before {
+                    @extend %title-vertical-text;
+                    content: 'SHOP';
+                }
+            }
+        }
+
+        article {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-row-gap: 27.8vh;
+            grid-column-gap: 7.03vw;
+            padding-top: 6vh;
+
+            h3 {
+                @include font($h1, center, 5.56vh);
+            }
+
+            >div>p {
+                @include font($h3, start, 3.7vh);
+                padding: 0 3.125vw;
+                font-family: 'Noto Sans HK', sans-serif;
+                color: #000000;
+                font-weight: bold;
+            }
+
+            .photo-wall{
+                width: 38.95vw;
+
+                .main-photo {
+                    @include size(38.95vw, 31.25vw);
+                    display: flex;
+                    margin-bottom: 3.24vh;
+                    transition: 1s ease-in-out;
+                    overflow: hidden;
+    
+                    figure {
+                        @include size(38.95vw, 31.25vw);
+                        min-width: 38.95vw;
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        max-height: 600px;
+                        transition: 1.5s ease-in-out;
+                        transform: translateX(-200%);
+                    }
+                }
+    
+                .nav-photo {
+                    @include flex(space-between);
+                    width: 38.95vw;
+    
+                    figure {
+                        @include size(6.5vw, 4.17vw);
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        cursor: pointer;
+    
+                        &:hover {
+                            border: $main-color solid 2px;
+                        }
+                    }
+    
+                    .white-mask::before {
+                        @include size(6.5vw, 4.17vw);
+                        content: '';
+                        position: absolute;
+                        background-color: $footer-text;
+                        opacity: 0.4;
+                    }
+                }
+            }
+
+            .down-content-photo {
+                @include size(41.67vw, 27.08vw);
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+            >p {
+                @include font($h3, start, 3.7vh);
+                padding: 0 3.125vw;
+                font-family: 'Noto Sans HK', sans-serif;
+                color: #000000;
+                font-weight: bold;
+            }
+        }
+
+        .back-btn {
+            @include size(10.42vw, 3.65vw);
+            @include font($h3, center, 3.65vw, 0.25em);
+            margin-top: 16.67vh;
+            position: absolute;
+            right: 0;
+            border-radius: 10px;
+            background-color: $news-tag-f-bg;
+            color: $store-list-bg
+        }
+    }
+}
+
+footer {
+    @include size(100%, 64.81vh);
+    @include flex();
+    background-color: $footer-bg;
+    position: relative;
+    color: $footer-text;
+
+    .footer-logo-img {
+        @include size(4.84vw, 4.84vw);
+        @include position(50.92vh, 8.3vw, 0, 0);
+    }
+
+    .footer-logo-text {
+        @include size(7.55vw, 4.48vw);
+        @include position(50.92vh, 8.3vw, 90%, 0);
+    }
+
+    .footer-container {
+        @include size(83%, 57.6vh);
+        overflow: hidden;
+        margin-top: 3.7vh;
+
+        h2 {
+            @include font($h2, start, 4.53vh, 0.15em);
+            margin-bottom: 6.48vh;
+        }
+
+        article {
+            @include size(100%, 43.99vh);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            h3 {
+                @include font($h4, start, inherit, 0.15em);
+            }
+
+            .inf-detil {
+                @include font($h6, start, 2.78vh, 0.15em);
+                padding-left: 28px;
+
+                &>div:nth-child(2) {
+                    padding-left: 3.151vw;
+                }
+            }
+
+            .open-detil {
+                @include size(12.4vw, 100%);
+                padding-left: 18px;
+
+                .date-box {
+                    @include flex(start, start);
+                    @include font($h6, center, 2.78vh, 0.15em);
+
+                    .date-box {
+                        @include size(4.17vw, 3.7vh);
+                        @include flex();
+                        border: $footer-text 1px solid;
+                        border-radius: 60px;
+                    }
+
+                    span {
+                        @include size(3.125vw, 3.7vh);
+                        line-height: 3.7vh;
+                    }
+                }
+
+                time {
+                    @include flex();
+                    @include font($h6, center, 2.78vh, 0.15em);
+                    padding-top: 13px;
+                }
+            }
+        }
+
+        >p {
+            @include font($h6, center, 2.78vh, 0.05em);
+            margin: 0;
+        }
+    }
+}

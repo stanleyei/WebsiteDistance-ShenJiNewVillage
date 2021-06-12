@@ -160,7 +160,7 @@
                                 data-lightbox="food-shop-2" data-title="三時杏仁">看大圖</a>
                         </li>
                         <li>
-                            <a href="" title="點我看介紹" class="check-btn shop-view">看介紹</a>
+                            <a href="/store" title="點我看介紹" class="check-btn shop-view">看介紹</a>
                         </li>
                     </ul>
                     <div class="window-title title-hide" data-title="2">三時杏仁</div>
@@ -172,7 +172,7 @@
                                 data-title="甜月亮義大利手作冰淇淋">看大圖</a>
                         </li>
                         <li>
-                            <a href="" title="點我看介紹" class="check-btn shop-view">看介紹</a>
+                            <a href="/store" title="點我看介紹" class="check-btn shop-view">看介紹</a>
                         </li>
                     </ul>
                     <div class="window-title title-hide" data-title="3">甜月亮義大利手作冰淇淋</div>
@@ -184,7 +184,7 @@
                                 data-title="旅禾泡芙之家">看大圖</a>
                         </li>
                         <li>
-                            <a href="" title="點我看介紹" class="check-btn shop-view">看介紹</a>
+                            <a href="/store" title="點我看介紹" class="check-btn shop-view">看介紹</a>
                         </li>
                     </ul>
                     <div class="window-title title-hide" data-title="4">旅禾泡芙之家</div>
@@ -196,7 +196,7 @@
                                 data-title="森小姐的茶店">看大圖</a>
                         </li>
                         <li>
-                            <a href="" title="點我看介紹" class="check-btn shop-view">看介紹</a>
+                            <a href="/store" title="點我看介紹" class="check-btn shop-view">看介紹</a>
                         </li>
                     </ul>
                     <div class="window-title title-hide" data-title="5">森小姐的茶店</div>
@@ -208,7 +208,7 @@
                                 data-title="艸水木堂">看大圖</a>
                         </li>
                         <li>
-                            <a href="" title="點我看介紹" class="check-btn shop-view">看介紹</a>
+                            <a href="/store" title="點我看介紹" class="check-btn shop-view">看介紹</a>
                         </li>
                     </ul>
                     <div class="window-title title-hide" data-title="6">艸水木堂</div>
@@ -220,7 +220,7 @@
                                 data-title="成真咖啡">看大圖</a>
                         </li>
                         <li>
-                            <a href="" title="點我看介紹" class="check-btn shop-view">看介紹</a>
+                            <a href="/store" title="點我看介紹" class="check-btn shop-view">看介紹</a>
                         </li>
                     </ul>
                     <div class="window-title title-hide" data-title="7">成真咖啡</div>
@@ -232,7 +232,7 @@
                                 data-title="森多水耕植研所">看大圖</a>
                         </li>
                         <li>
-                            <a href="" class="check-btn shop-view">看介紹</a>
+                            <a href="/store" class="check-btn shop-view">看介紹</a>
                         </li>
                     </ul>
                     <div class="window-title title-hide" data-title="8">森多水耕植研所</div>

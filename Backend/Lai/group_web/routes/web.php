@@ -14,12 +14,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
-Route::get('/news', function () {
-    return view('frontend.news-page');
-});
+Route::get('/', 'FrontendController@index');
+Route::get('/news', 'FrontendController@news');
+Route::get('/store', 'FrontendController@store');
 
 Auth::routes();
 

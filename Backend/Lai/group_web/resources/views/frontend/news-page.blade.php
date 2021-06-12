@@ -27,8 +27,8 @@
             <div class="news-content">
                 <div class="content-title" id="this-month-title">
                     <h4></h4>
-                    <div></div>
-                    <div class="m-0"></div>
+                    <div class="month"></div>
+                    <div class="years"></div>
                     <div class="custom-select-list">
                         <select name="" class="nwes-select">
                             <option value="">全部照片</option>
