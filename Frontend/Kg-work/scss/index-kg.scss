@@ -228,6 +228,49 @@ header {
     @include flex;
     position: relative;
     overflow: hidden;
+    .view-backimg{
+        @include size($w:100%, $h:100%);
+        
+        background-color:#fff;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-auto-rows: 350px;
+        position: absolute;
+        top:0;
+        left:0;
+        z-index: 10;
+        // display: none;
+
+        a{
+            text-decoration: none;
+            color: $store-tag-f-bg;
+        }
+           .view-pics{
+               @include size(320px,300px);
+               margin: 20px auto;
+               border: 1px solid black;
+               border-radius: 20px;
+               
+               
+               .view-pic{
+                @include size(280px,200px);
+                margin: 20px auto;
+                border: 1px solid black;
+                border-radius: 20px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+               }
+
+               .view-pic-des{
+                   margin-left: 30px;
+                  
+               }
+
+           }
+
+        
+    }
 
     .view-container {
         @include size($w:80vw, $h:80vh);
