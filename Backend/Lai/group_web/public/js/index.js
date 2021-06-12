@@ -104,6 +104,64 @@ function focusChange(dateBtns) {
   });
 }
 
+//店家介紹-切換店家分類按鈕
+const navTaps = document.querySelectorAll('.nav-tap');
+const shopList = document.querySelectorAll('.shop-list');
+navTaps.forEach(tab => {
+  tab.addEventListener('click', function () {
+    navTaps.forEach(tab => {
+      tab.classList.remove('tap-active');
+    })
+    this.classList.add('tap-active');
+    shopList.forEach(list => {
+      list.classList.toggle('list-active');
+    })
+  });
+});
+
+//店家介紹-點擊店家名稱增加底線效果
+
+
+//店家介紹-點擊店家名稱切換圖片效果
+const shopBtns = document.querySelectorAll('.shop-list > div > span');
+const shopPhotos = document.querySelectorAll('.shop-window > figure');
+const windowTitles = document.querySelectorAll('.window-title');
+const checkBtnLists = document.querySelectorAll('.shop-window > ul');
+shopBtns.forEach(btns => {
+  btns.addEventListener('click', function () {
+    shopBtns.forEach(btn => {
+      btn.classList.remove('bottom-line');
+    });
+    this.classList.add('bottom-line');
+    shopPhotos.forEach(photo => {
+      photo.classList.add('figure-hide');
+      if(this.dataset.img === photo.dataset.photo){
+        photo.classList.remove('figure-hide');
+      };
+    });
+    windowTitles.forEach(title => {
+      title.classList.add('title-hide');
+      if(this.dataset.img === title.dataset.title){
+        title.classList.remove('title-hide');
+      };
+    });
+    checkBtnLists.forEach(list => {
+      list.classList.add('check-list-hide');
+      if(this.dataset.img === list.dataset.list){
+        list.classList.remove('check-list-hide');
+      };
+    });
+  });
+});
+
+//店家介紹-燈箱套件
+lightbox.option({
+  'resizeDuration': 500,
+  'wrapAround': true,
+  'disableScrolling': true,
+  'positionFromTop': 100,
+});
+
 //回到頂端按鈕
 (function () {
   $("body").append("<div id='goTopButton' class='fas fa-chevron-up' style='display: none; z-index: 5; cursor: pointer;' title='回到頂端'/></div>");
