@@ -9,6 +9,32 @@ document.querySelector('.toggle').onclick = function () {
   navimg.classList.toggle('active');
 };
 
+//點擊照片切換
+const mainPhotos = document.querySelectorAll('.main-photo > figure');
+const whiteMasks = document.querySelectorAll('.nav-photo > figure');
+const navPhotos = document.querySelector('.nav-photo');
+navPhotos.addEventListener('click', function (e) {
+  if(e.target !== navPhotos){
+    for (let i = 0; i < mainPhotos.length; i++) {
+      photoCarousel(e, i+1, i * -100);
+    }
+    whiteMasks.forEach(photo => {
+      photo.classList.add('white-mask');
+        if(photo.dataset.photo === e.target.dataset.photo){
+          photo.classList.remove('white-mask');
+        };
+    });
+  }
+});
+
+function photoCarousel(e, dataValue, distance) {
+  if(e.target.dataset.photo === `${dataValue}`){
+    mainPhotos.forEach(photo => {
+      photo.style.transform = `translateX(${distance}%)`;
+    });
+  };
+}
+
 //回到頂端按鈕
 (function () {
     $("body").append("<div id='goTopButton' class='fas fa-chevron-up' style='display: none; z-index: 5; cursor: pointer;' title='回到頂端'/></div>");

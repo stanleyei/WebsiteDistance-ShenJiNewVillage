@@ -190,11 +190,11 @@ main {
 
     .news-page-container {
         @include size(65vw, 100%);
-        padding: 250px 0;
+        padding: 13.02vw 0;
 
         .news-title {
             position: relative;
-            padding-left: 60px;
+            padding-left: 3.125vw;
 
             &::before {
                 @extend %title-cube;
@@ -215,10 +215,10 @@ main {
         }
 
         .aside {
-            @include size(100%, 60px);
+            @include size(100%, 5.56vh);
             @include flex(flex-end);
-            margin-top: 40px;
-            padding-right: 30px;
+            margin-top: 3.7vh;
+            padding-right: 1.5625vw;
 
             .aside-tab {
                 @extend %news-page-aside-tag;
@@ -244,14 +244,14 @@ main {
         }
 
         article {
-            padding: 80px 0 0 32px;
+            padding: 7.4vh 0 0 1.67vw;
 
             .news-date {
-                margin-bottom: 70px;
+                margin-bottom: 6.48vh;
 
                 .date-title {
-                    @include size(100px, 30px);
-                    @include font($h8, center, 30px, 0.2em);
+                    @include size(5.21vw, 2.78vh);
+                    @include font($h8, center, 2.78vh, 0.2em);
                     border-radius: 6px;
                     background-color: $main-color;
                     color: $store-list-bg;
@@ -279,16 +279,16 @@ main {
             .content-title {
                 @include flex(start);
                 position: relative;
-                margin-bottom: 60px;
+                margin-bottom: 5.56vh;
 
                 h4 {
-                    @include font($h1, center, 60px, 0.2em);
+                    @include font($h1, center, 5.56vh, 0.2em);
                     position: relative;
                     padding-left: 11px;
                     margin: 0;
 
                     &::before {
-                        @include size(122px, 24px);
+                        @include size(6.35vw, 2.22vh);
                         content: '';
                         position: absolute;
                         bottom: 0;
@@ -299,37 +299,41 @@ main {
                     }
                 }
 
-                div {
+                .month {
                     @include font($h7, center, inherit, 0.2em);
-                    margin-left: 20px;
-                    padding-top: 15px;
+                    margin-left: 1.04vw;
+                    padding-top: 1.39vh;
                     font-weight: bold;
+                }
 
-                    // &:nth-child(3){
-                    //     margin: 0;
-                    // }
+                .years{
+                    @include font($h7, center, inherit, 0.2em);
+                    margin-left: 1.04vw;
+                    padding-top: 1.39vh;
+                    font-weight: bold;
+                    margin: 0;
                 }
 
                 .custom-select-list {
-                    @include size(215px, 40px);
+                    @include size(11.2vw, 3.7vh);
                     display: none;
                     position: absolute;
-                    right: 20px;
-                    top: -10px;
+                    right: 1.041vw;
+                    top: 0.926vh;
 
                     &:hover{
                         &::after{
-                            transform: translate(10px, 8px);
+                            transform: translate(-1.041vw, -0.625vh);
                         }
                     }
 
                     &::after {
-                        @include size(18px, 12px);
+                        @include size(1.5vw, 1.11vh);
                         content: '';
                         position: absolute;
                         bottom: 0;
                         right: 0;
-                        transform: translate(10px, 5px);
+                        transform: translate(-1.041vw, -1.25vh);
                         background-image: url(../img/select-down.png);
                         background-repeat: no-repeat;
                         transition: 0.5s ease-in-out;
@@ -342,14 +346,14 @@ main {
 
                 .select-items div,
                 .select-selected {
-                    @include size(215px, 40px);
-                    padding: 0 0 0 12px;
+                    @include size(11.2vw, 3.7vh);
+                    padding: 0 0 0 0.625vw;
                     background-color: $title-bg;
                     color: $footer-text;
                     text-align: start;
                     cursor: pointer;
                     letter-spacing: 0.1em;
-                    line-height: 40px;
+                    line-height: 3.7vh;
                 }
 
                 .select-items div:last-child() {
@@ -368,8 +372,6 @@ main {
 
                 .select-items {
                     position: absolute;
-                    top: 55px;
-                    left: -20px;
                     padding: 0;
                     z-index: 999;
                 }
@@ -380,10 +382,10 @@ main {
 
                 .select-items div:hover {
                     &::before{
-                        @include size(215px, 40px);
+                        @include size(11.2vw, 3.7vh);
                         content: '';
                         position: absolute;
-                        transform: translateX(-12px);
+                        transform: translateX(-0.625vw);
                         background-color: $footer-text;
                         opacity: 0.5;
                     }
@@ -391,10 +393,10 @@ main {
 
                 .select-items .active {
                     &::before{
-                        @include size(215px, 40px);
+                        @include size(11.2vw, 3.7vh);
                         content: '';
                         position: absolute;
-                        transform: translateX(-12px);
+                        transform: translateX(-0.625vw);
                         background-color: $footer-text;
                         opacity: 0.2;
                     }
@@ -426,8 +428,8 @@ main {
                     }
 
                     .inf-date {
-                        @include size(107px, 100%);
-                        padding-left: 38px;
+                        @include size(5.57vw, 100%);
+                        padding-left: 1.98vw;
                         font-weight: bold;
 
                         .during {
@@ -435,31 +437,31 @@ main {
                             padding-top: 5px;
 
                             .end-date {
-                                @include font($h10, start, 20px, 0.2em);
-                                padding: 0 0 5px 10px;
+                                @include font($h10, start, 1.85vh, 0.2em);
+                                padding: 0 0 5px 0.521vw;
                             }
                         }
 
                         >span {
-                            @include font($h7, start, 20px, 0.2em);
+                            @include font($h7, start, 1.85vh, 0.2em);
                         }
 
                     }
 
                     h5 {
-                        @include font($h3, start, 100px, 0.2em);
+                        @include font($h3, start, 9.26vh, 0.2em);
                         flex: 1;
-                        padding-left: 20px;
+                        padding-left: 1.041vw;
                         margin: 0
                     }
 
                     >i {
-                        @include size(80px, 100%);
-                        @include font($h6, start, 100px, 0.2em);
+                        @include size(4.17vw, 100%);
+                        @include font($h6, start, 9.26vh, 0.2em);
                         @include flex();
-                        margin-right: 30px;
-                        margin-left: 15px;
-                        font-size: 16px;
+                        margin-right: 1.56vw;
+                        margin-left: 0.78vw;
+                        font-size: $h8;
                     }
                 }
 
@@ -472,12 +474,12 @@ main {
 
                     >span {
                         display: block;
-                        padding: 25px 0 0 3.5vh;
+                        padding: 2.31vh 0 0 3.5vh;
                         font-weight: bold;
                     }
 
                     .card-body {
-                        padding: 40px 4.7vw 0;
+                        padding: 3.7vh 4.7vw 0;
 
                         .card-imgs {
                             @include flex(space-between);
@@ -489,10 +491,10 @@ main {
                         }
 
                         .card-content {
-                            @include font($h7, start, 30px 0.2em);
+                            @include font($h7, start, 2.78vh 0.2em);
                             display: grid;
                             grid-template-columns: repeat(3, 1fr);
-                            padding: 55px 50px 0 50px;
+                            padding: 5.09vh 2.6vw 0 2.6vw;
 
                             span {
                                 display: block;
@@ -508,10 +510,10 @@ main {
 
                         >div {
                             @include flex(flex-start);
-                            @include font($h10, center, 30px, 0.2em);
+                            @include font($h10, center, 2.78vh, 0.2em);
                             padding-left: 7.5vw;
                             font-weight: bold;
-                            height: 140px;
+                            height: 12.96vh;
 
 
                             i {
@@ -520,16 +522,16 @@ main {
                             }
 
                             time {
-                                padding-top: 20px;
-                                margin-left: 30px;
+                                padding-top: 1.85vh;
+                                margin-left: 1.56vw;
                                 display: flex;
                                 flex-direction: column;
                                 justify-self: flex-end;
-                                line-height: 20px;
+                                line-height: 1.85vh;
                             }
 
                             >img {
-                                margin-left: 30px;
+                                margin-left: 1.56vw;
                             }
 
                             span {
@@ -556,7 +558,7 @@ main {
 
             h3 {
                 @include font($h1, start, 60px, 0.2em);
-                margin: 275px 0 15px 0;
+                margin: 25.46vh 0 1.39vh 0;
                 font-family: 'Noto Sans TC', sans-serif;
             }
 
@@ -567,7 +569,7 @@ main {
             }
 
             .feast-photo-wall{
-                padding: 20px 30px 0;
+                padding: 1.85vh 1.56vw 0;
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 grid-gap: 2vw;

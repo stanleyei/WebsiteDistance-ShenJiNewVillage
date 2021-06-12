@@ -328,12 +328,12 @@ main {
 main .news-page-container {
   width: 65vw;
   height: 100%;
-  padding: 250px 0;
+  padding: 13.02vw 0;
 }
 
 main .news-page-container .news-title {
   position: relative;
-  padding-left: 60px;
+  padding-left: 3.125vw;
 }
 
 main .news-page-container .news-title h2 {
@@ -356,7 +356,7 @@ main .news-page-container .news-title span::before {
 
 main .news-page-container .aside {
   width: 100%;
-  height: 60px;
+  height: 5.56vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -366,8 +366,8 @@ main .news-page-container .aside {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 40px;
-  padding-right: 30px;
+  margin-top: 3.7vh;
+  padding-right: 1.5625vw;
 }
 
 main .news-page-container .aside .aside-tab:hover {
@@ -389,19 +389,19 @@ main .news-page-container .aside .aside-tab-focus:hover {
 }
 
 main .news-page-container article {
-  padding: 80px 0 0 32px;
+  padding: 7.4vh 0 0 1.67vw;
 }
 
 main .news-page-container article .news-date {
-  margin-bottom: 70px;
+  margin-bottom: 6.48vh;
 }
 
 main .news-page-container article .news-date .date-title {
-  width: 100px;
-  height: 30px;
+  width: 5.21vw;
+  height: 2.78vh;
   font-size: 0.833vw;
   text-align: center;
-  line-height: 30px;
+  line-height: 2.78vh;
   letter-spacing: 0.2em;
   border-radius: 6px;
   background-color: #54291c;
@@ -441,13 +441,13 @@ main .news-page-container article .content-title {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  margin-bottom: 60px;
+  margin-bottom: 5.56vh;
 }
 
 main .news-page-container article .content-title h4 {
   font-size: 2.34vw;
   text-align: center;
-  line-height: 60px;
+  line-height: 5.56vh;
   letter-spacing: 0.2em;
   position: relative;
   padding-left: 11px;
@@ -455,8 +455,8 @@ main .news-page-container article .content-title h4 {
 }
 
 main .news-page-container article .content-title h4::before {
-  width: 122px;
-  height: 24px;
+  width: 6.35vw;
+  height: 2.22vh;
   content: '';
   position: absolute;
   bottom: 0;
@@ -467,39 +467,50 @@ main .news-page-container article .content-title h4::before {
   z-index: -1;
 }
 
-main .news-page-container article .content-title div {
+main .news-page-container article .content-title .month {
   font-size: 0.9375vw;
   text-align: center;
   line-height: inherit;
   letter-spacing: 0.2em;
-  margin-left: 20px;
-  padding-top: 15px;
+  margin-left: 1.04vw;
+  padding-top: 1.39vh;
   font-weight: bold;
 }
 
+main .news-page-container article .content-title .years {
+  font-size: 0.9375vw;
+  text-align: center;
+  line-height: inherit;
+  letter-spacing: 0.2em;
+  margin-left: 1.04vw;
+  padding-top: 1.39vh;
+  font-weight: bold;
+  margin: 0;
+}
+
 main .news-page-container article .content-title .custom-select-list {
-  width: 215px;
-  height: 40px;
+  width: 11.2vw;
+  height: 3.7vh;
   display: none;
   position: absolute;
-  right: 20px;
-  top: -10px;
+  right: 1.041vw;
+  top: 0.926vh;
 }
 
 main .news-page-container article .content-title .custom-select-list:hover::after {
-  -webkit-transform: translate(10px, 8px);
-          transform: translate(10px, 8px);
+  -webkit-transform: translate(-1.041vw, -0.625vh);
+          transform: translate(-1.041vw, -0.625vh);
 }
 
 main .news-page-container article .content-title .custom-select-list::after {
-  width: 18px;
-  height: 12px;
+  width: 1.5vw;
+  height: 1.11vh;
   content: '';
   position: absolute;
   bottom: 0;
   right: 0;
-  -webkit-transform: translate(10px, 5px);
-          transform: translate(10px, 5px);
+  -webkit-transform: translate(-1.041vw, -1.25vh);
+          transform: translate(-1.041vw, -1.25vh);
   background-image: url(../img/select-down.png);
   background-repeat: no-repeat;
   -webkit-transition: 0.5s ease-in-out;
@@ -512,15 +523,15 @@ main .news-page-container article .content-title .custom-select-list select {
 
 main .news-page-container article .content-title .select-items div,
 main .news-page-container article .content-title .select-selected {
-  width: 215px;
-  height: 40px;
-  padding: 0 0 0 12px;
+  width: 11.2vw;
+  height: 3.7vh;
+  padding: 0 0 0 0.625vw;
   background-color: #D28E76;
   color: #ffffff;
   text-align: start;
   cursor: pointer;
   letter-spacing: 0.1em;
-  line-height: 40px;
+  line-height: 3.7vh;
 }
 
 main .news-page-container article .content-title .select-items div:last-child {
@@ -539,8 +550,6 @@ main .news-page-container article .content-title .select-selected-focus {
 
 main .news-page-container article .content-title .select-items {
   position: absolute;
-  top: 55px;
-  left: -20px;
   padding: 0;
   z-index: 999;
 }
@@ -550,23 +559,23 @@ main .news-page-container article .content-title .select-hide {
 }
 
 main .news-page-container article .content-title .select-items div:hover::before {
-  width: 215px;
-  height: 40px;
+  width: 11.2vw;
+  height: 3.7vh;
   content: '';
   position: absolute;
-  -webkit-transform: translateX(-12px);
-          transform: translateX(-12px);
+  -webkit-transform: translateX(-0.625vw);
+          transform: translateX(-0.625vw);
   background-color: #ffffff;
   opacity: 0.5;
 }
 
 main .news-page-container article .content-title .select-items .active::before {
-  width: 215px;
-  height: 40px;
+  width: 11.2vw;
+  height: 3.7vh;
   content: '';
   position: absolute;
-  -webkit-transform: translateX(-12px);
-          transform: translateX(-12px);
+  -webkit-transform: translateX(-0.625vw);
+          transform: translateX(-0.625vw);
   background-color: #ffffff;
   opacity: 0.2;
 }
@@ -593,9 +602,9 @@ main .news-page-container article .content-infs .content-inf:active {
 }
 
 main .news-page-container article .content-infs .content-inf .inf-date {
-  width: 107px;
+  width: 5.57vw;
   height: 100%;
-  padding-left: 38px;
+  padding-left: 1.98vw;
   font-weight: bold;
 }
 
@@ -615,36 +624,36 @@ main .news-page-container article .content-infs .content-inf .inf-date .during {
 main .news-page-container article .content-infs .content-inf .inf-date .during .end-date {
   font-size: 0.625vw;
   text-align: start;
-  line-height: 20px;
+  line-height: 1.85vh;
   letter-spacing: 0.2em;
-  padding: 0 0 5px 10px;
+  padding: 0 0 5px 0.521vw;
 }
 
 main .news-page-container article .content-infs .content-inf .inf-date > span {
   font-size: 0.9375vw;
   text-align: start;
-  line-height: 20px;
+  line-height: 1.85vh;
   letter-spacing: 0.2em;
 }
 
 main .news-page-container article .content-infs .content-inf h5 {
   font-size: 1.458vw;
   text-align: start;
-  line-height: 100px;
+  line-height: 9.26vh;
   letter-spacing: 0.2em;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  padding-left: 20px;
+  padding-left: 1.041vw;
   margin: 0;
 }
 
 main .news-page-container article .content-infs .content-inf > i {
-  width: 80px;
+  width: 4.17vw;
   height: 100%;
   font-size: 1.146vw;
   text-align: start;
-  line-height: 100px;
+  line-height: 9.26vh;
   letter-spacing: 0.2em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -655,9 +664,9 @@ main .news-page-container article .content-infs .content-inf > i {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-right: 30px;
-  margin-left: 15px;
-  font-size: 16px;
+  margin-right: 1.56vw;
+  margin-left: 0.78vw;
+  font-size: 0.833vw;
 }
 
 main .news-page-container article .content-infs .inf-detail {
@@ -671,12 +680,12 @@ main .news-page-container article .content-infs .inf-detail {
 
 main .news-page-container article .content-infs .inf-detail > span {
   display: block;
-  padding: 25px 0 0 3.5vh;
+  padding: 2.31vh 0 0 3.5vh;
   font-weight: bold;
 }
 
 main .news-page-container article .content-infs .inf-detail .card-body {
-  padding: 40px 4.7vw 0;
+  padding: 3.7vh 4.7vw 0;
 }
 
 main .news-page-container article .content-infs .inf-detail .card-body .card-imgs {
@@ -700,13 +709,13 @@ main .news-page-container article .content-infs .inf-detail .card-body .card-img
 main .news-page-container article .content-infs .inf-detail .card-body .card-content {
   font-size: 0.9375vw;
   text-align: start;
-  line-height: 30px 0.2em;
+  line-height: 2.78vh 0.2em;
   letter-spacing: 0.1em;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
-  padding: 55px 50px 0 50px;
+  padding: 5.09vh 2.6vw 0 2.6vw;
 }
 
 main .news-page-container article .content-infs .inf-detail .card-body .card-content span {
@@ -735,11 +744,11 @@ main .news-page-container article .content-infs .inf-detail .card-other-inf > di
           align-items: center;
   font-size: 0.625vw;
   text-align: center;
-  line-height: 30px;
+  line-height: 2.78vh;
   letter-spacing: 0.2em;
   padding-left: 7.5vw;
   font-weight: bold;
-  height: 140px;
+  height: 12.96vh;
 }
 
 main .news-page-container article .content-infs .inf-detail .card-other-inf > div i {
@@ -748,8 +757,8 @@ main .news-page-container article .content-infs .inf-detail .card-other-inf > di
 }
 
 main .news-page-container article .content-infs .inf-detail .card-other-inf > div time {
-  padding-top: 20px;
-  margin-left: 30px;
+  padding-top: 1.85vh;
+  margin-left: 1.56vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -758,11 +767,11 @@ main .news-page-container article .content-infs .inf-detail .card-other-inf > di
       -ms-flex-direction: column;
           flex-direction: column;
   justify-self: flex-end;
-  line-height: 20px;
+  line-height: 1.85vh;
 }
 
 main .news-page-container article .content-infs .inf-detail .card-other-inf > div > img {
-  margin-left: 30px;
+  margin-left: 1.56vw;
 }
 
 main .news-page-container article .content-infs .inf-detail .card-other-inf > div span {
@@ -790,7 +799,7 @@ main .news-page-container article h3 {
   text-align: start;
   line-height: 60px;
   letter-spacing: 0.2em;
-  margin: 275px 0 15px 0;
+  margin: 25.46vh 0 1.39vh 0;
   font-family: 'Noto Sans TC', sans-serif;
 }
 
@@ -802,7 +811,7 @@ main .news-page-container article .inf-focus {
 }
 
 main .news-page-container article .feast-photo-wall {
-  padding: 20px 30px 0;
+  padding: 1.85vh 1.56vw 0;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];

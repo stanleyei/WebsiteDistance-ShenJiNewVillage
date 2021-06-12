@@ -187,11 +187,12 @@ header {
 main {
     @include size(100%, 219vh);
     @include flex();
+    overflow: hidden;
 
     .store-page-container {
-        @include size(86vw, 100%);
+        @include size(87.6vw, 100%);
         position: relative;
-        padding-top: 8.7vh;
+        padding: 8.7vh 0 0 0px;
 
         .store-title {
             position: relative;
@@ -219,6 +220,7 @@ main {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-row-gap: 27.8vh;
+            grid-column-gap: 7.03vw;
             padding-top: 6vh;
 
             h3 {
@@ -233,23 +235,51 @@ main {
                 font-weight: bold;
             }
 
-            .main-photo {
-                @include size(43vw, 31.25vw);
-                margin-bottom: 3.24vh;
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-                max-height: 600px;
-            }
+            .photo-wall{
+                width: 38.95vw;
 
-            .nav-photo {
-                @include flex(space-between);
-
-                figure {
-                    @include size(7vw, 4.17vw);
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
+                .main-photo {
+                    @include size(38.95vw, 31.25vw);
+                    display: flex;
+                    margin-bottom: 3.24vh;
+                    transition: 1s ease-in-out;
+                    overflow: hidden;
+    
+                    figure {
+                        @include size(38.95vw, 31.25vw);
+                        min-width: 38.95vw;
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        max-height: 600px;
+                        transition: 1.5s ease-in-out;
+                        transform: translateX(-200%);
+                    }
+                }
+    
+                .nav-photo {
+                    @include flex(space-between);
+                    width: 38.95vw;
+    
+                    figure {
+                        @include size(6.5vw, 4.17vw);
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        cursor: pointer;
+    
+                        &:hover {
+                            border: $main-color solid 2px;
+                        }
+                    }
+    
+                    .white-mask::before {
+                        @include size(6.5vw, 4.17vw);
+                        content: '';
+                        position: absolute;
+                        background-color: $footer-text;
+                        opacity: 0.4;
+                    }
                 }
             }
 

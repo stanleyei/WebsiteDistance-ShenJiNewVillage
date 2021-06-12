@@ -267,13 +267,14 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  overflow: hidden;
 }
 
 main .store-page-container {
-  width: 86vw;
+  width: 87.6vw;
   height: 100%;
   position: relative;
-  padding-top: 8.7vh;
+  padding: 8.7vh 0 0 0px;
 }
 
 main .store-page-container .store-title {
@@ -305,6 +306,7 @@ main .store-page-container article {
   -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr);
   grid-row-gap: 27.8vh;
+  grid-column-gap: 7.03vw;
   padding-top: 6vh;
 }
 
@@ -326,17 +328,37 @@ main .store-page-container article > div > p {
   font-weight: bold;
 }
 
-main .store-page-container article .main-photo {
-  width: 43vw;
+main .store-page-container article .photo-wall {
+  width: 38.95vw;
+}
+
+main .store-page-container article .photo-wall .main-photo {
+  width: 38.95vw;
   height: 31.25vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin-bottom: 3.24vh;
+  -webkit-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+  overflow: hidden;
+}
+
+main .store-page-container article .photo-wall .main-photo figure {
+  width: 38.95vw;
+  height: 31.25vw;
+  min-width: 38.95vw;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   max-height: 600px;
+  -webkit-transition: 1.5s ease-in-out;
+  transition: 1.5s ease-in-out;
+  -webkit-transform: translateX(-200%);
+          transform: translateX(-200%);
 }
 
-main .store-page-container article .nav-photo {
+main .store-page-container article .photo-wall .nav-photo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -346,14 +368,29 @@ main .store-page-container article .nav-photo {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 38.95vw;
 }
 
-main .store-page-container article .nav-photo figure {
-  width: 7vw;
+main .store-page-container article .photo-wall .nav-photo figure {
+  width: 6.5vw;
   height: 4.17vw;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+main .store-page-container article .photo-wall .nav-photo figure:hover {
+  border: #54291c solid 2px;
+}
+
+main .store-page-container article .photo-wall .nav-photo .white-mask::before {
+  width: 6.5vw;
+  height: 4.17vw;
+  content: '';
+  position: absolute;
+  background-color: #ffffff;
+  opacity: 0.4;
 }
 
 main .store-page-container article .down-content-photo {
