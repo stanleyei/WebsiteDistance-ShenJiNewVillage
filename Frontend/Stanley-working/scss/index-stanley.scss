@@ -622,10 +622,11 @@ header {
                 }
 
                 .window-title {
-                    @include size(16.56vw, 3.375vw);
+                    // @include size(16.56vw, 3.375vw);
                     @include font($h4, center, 3.375vw);
                     position: absolute;
                     border-radius: 3px;
+                    padding: 0 1.04vw;
                     background-color: $substrate-bg;
                     color: black;
                     font-weight: bolder;

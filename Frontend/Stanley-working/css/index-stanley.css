@@ -837,14 +837,13 @@ header .nav-img.active {
 }
 
 #store .store-container article .shop-window .window-title {
-  width: 16.56vw;
-  height: 3.375vw;
   font-size: 1.354vw;
   text-align: center;
   line-height: 3.375vw;
   letter-spacing: 0.1em;
   position: absolute;
   border-radius: 3px;
+  padding: 0 1.04vw;
   background-color: rgba(255, 255, 255, 0.8);
   color: black;
   font-weight: bolder;
