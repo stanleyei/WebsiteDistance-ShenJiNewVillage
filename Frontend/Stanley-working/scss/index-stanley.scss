@@ -585,7 +585,11 @@ header {
                             opacity: 0.3;
                         }
 
-                        ~ ul {
+                        ~ul {
+                            opacity: 1;
+                        }
+
+                        ~.window-title {
                             opacity: 1;
                         }
                     }
@@ -600,7 +604,7 @@ header {
                     background-size: cover;
                     background-position: center;
                     background-repeat: no-repeat;
-                    transition: 0.5s ease-in-out;
+                    transition: 1s ease-in-out;
 
                     &::before {
                         @include size(100%, 100%);
@@ -612,8 +616,8 @@ header {
                     }
 
                 }
-                
-                .figure-hide{  
+
+                .figure-hide {
                     opacity: 0;
                 }
 
@@ -625,16 +629,17 @@ header {
                     background-color: $substrate-bg;
                     color: black;
                     font-weight: bolder;
-                    transform: translateY(-50%);
-                    transition: 0.5s ease-in-out;
+                    transform: translateY(-100%);
+                    transition: 1s ease-in-out;
                     z-index: 3;
-                }
-
-                .title-hide{
                     opacity: 0;
                 }
 
-                >ul{
+                .title-hide {
+                    display: none;
+                }
+
+                >ul {
                     position: absolute;
                     left: 24.5vw;
                     padding: 0;
@@ -642,11 +647,15 @@ header {
                     opacity: 0;
                     transition: 1s ease-in-out;
 
-                    &:hover{
+                    &:hover {
                         opacity: 1;
 
-                        ~figure::before{
+                        ~figure::before {
                             opacity: 0.3;
+                        }
+
+                        ~.window-title {
+                            opacity: 1;
                         }
                     }
 
@@ -654,19 +663,19 @@ header {
                         @include size(7vw, 3.375vw);
                         @include font($h4, center, 3.375vw);
                         position: absolute;
-                        transform: translate(-55%, 40%);
+                        transform: translate(-56%, -10%);
                         border: solid 2px $footer-text;
                         color: $footer-text;
                         cursor: pointer;
-    
+
                     }
 
-                    li:nth-child(2)> .check-btn {
-                        transform: translate(55%,40%);
+                    li:nth-child(2)>.check-btn {
+                        transform: translate(56%, -10%);
                     }
                 }
 
-                .check-list-hide{
+                .check-list-hide {
                     display: none;
                 }
             }
@@ -675,8 +684,6 @@ header {
                 width: 17.7vw;
                 font-weight: bold;
                 padding-bottom: 5.56vh;
-
-
 
                 h3 {
                     @include font($h2, $ls:0.3em);
@@ -715,11 +722,10 @@ header {
                             &:hover {
 
                                 &::before {
+                                    @include size(100%, 3px);
                                     content: '';
                                     position: absolute;
-                                    bottom: -0.463vh;
-                                    width: 100%;
-                                    height: 0.463vh;
+                                    bottom: -3px;
                                     background-color: $store-tag-f-bg;
                                     animation: border 1s ease-in-out;
 
@@ -734,6 +740,10 @@ header {
                                     }
                                 }
                             }
+                        }
+
+                        .bottom-line{
+                            border-bottom: solid 3px $store-tag-f-bg;
                         }
                     }
                 }

@@ -806,6 +806,10 @@ header .nav-img.active {
   opacity: 1;
 }
 
+#store .store-container article .shop-window > img:hover ~ .window-title {
+  opacity: 1;
+}
+
 #store .store-container article .shop-window figure {
   width: 30.47vw;
   height: 22.135vw;
@@ -815,7 +819,7 @@ header .nav-img.active {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transition: 0.5s ease-in-out;
+  transition: 1s ease-in-out;
 }
 
 #store .store-container article .shop-window figure::before {
@@ -844,13 +848,14 @@ header .nav-img.active {
   background-color: rgba(255, 255, 255, 0.8);
   color: black;
   font-weight: bolder;
-  transform: translateY(-50%);
-  transition: 0.5s ease-in-out;
+  transform: translateY(-100%);
+  transition: 1s ease-in-out;
   z-index: 3;
+  opacity: 0;
 }
 
 #store .store-container article .shop-window .title-hide {
-  opacity: 0;
+  display: none;
 }
 
 #store .store-container article .shop-window > ul {
@@ -870,6 +875,10 @@ header .nav-img.active {
   opacity: 0.3;
 }
 
+#store .store-container article .shop-window > ul:hover ~ .window-title {
+  opacity: 1;
+}
+
 #store .store-container article .shop-window > ul .check-btn {
   width: 7vw;
   height: 3.375vw;
@@ -878,14 +887,14 @@ header .nav-img.active {
   line-height: 3.375vw;
   letter-spacing: 0.1em;
   position: absolute;
-  transform: translate(-55%, 40%);
+  transform: translate(-56%, -10%);
   border: solid 2px #ffffff;
   color: #ffffff;
   cursor: pointer;
 }
 
 #store .store-container article .shop-window > ul li:nth-child(2) > .check-btn {
-  transform: translate(55%, 40%);
+  transform: translate(56%, -10%);
 }
 
 #store .store-container article .shop-window .check-list-hide {
@@ -939,11 +948,11 @@ header .nav-img.active {
 }
 
 #store .store-container article nav .shop-list > div span:hover::before {
+  width: 100%;
+  height: 3px;
   content: '';
   position: absolute;
-  bottom: -0.463vh;
-  width: 100%;
-  height: 0.463vh;
+  bottom: -3px;
   background-color: #96422D;
   animation: border 1s ease-in-out;
 }
@@ -955,6 +964,10 @@ header .nav-img.active {
   100% {
     width: 100%;
   }
+}
+
+#store .store-container article nav .shop-list > div .bottom-line {
+  border-bottom: solid 3px #96422D;
 }
 
 #store .store-container article nav .list-active {

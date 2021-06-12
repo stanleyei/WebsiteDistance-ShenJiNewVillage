@@ -119,6 +119,9 @@ navTaps.forEach(tab => {
   });
 });
 
+//店家介紹-點擊店家名稱增加底線效果
+
+
 //店家介紹-點擊店家名稱切換圖片效果
 const shopBtns = document.querySelectorAll('.shop-list > div > span');
 const shopPhotos = document.querySelectorAll('.shop-window > figure');
@@ -126,6 +129,10 @@ const windowTitles = document.querySelectorAll('.window-title');
 const checkBtnLists = document.querySelectorAll('.shop-window > ul');
 shopBtns.forEach(btns => {
   btns.addEventListener('click', function () {
+    shopBtns.forEach(btn => {
+      btn.classList.remove('bottom-line');
+    });
+    this.classList.add('bottom-line');
     shopPhotos.forEach(photo => {
       photo.classList.add('figure-hide');
       if(this.dataset.img === photo.dataset.photo){
