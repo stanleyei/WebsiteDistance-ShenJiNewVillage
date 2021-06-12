@@ -766,17 +766,14 @@ header {
     position: relative;
 
     .traffic-container {
-        @include size($w:80vw, $h:80vh);
+        @include size(80vw, 80vh);
 
         .traffic-title {
             position: relative;
-            padding-left: 60px;
+            padding-left: 3.125vw;
 
             &::before {
                 @extend %title-cube;
-                @include size(60px, 60px);
-                transform: translate(-50px, -20px);
-                z-index: -1;
             }
 
             h2 {
@@ -786,7 +783,6 @@ header {
 
             .tra-title-icon {
                 @include font($h5);
-                letter-spacing: 0.1em;
 
                 &::before {
                     @extend %title-vertical-text;
@@ -796,10 +792,10 @@ header {
 
             .traffic-type {
                 display: inline-block;
-                @include size(364px, 48px);
-                border-bottom: 24px solid $store-list-bg;
-                text-align: center;
+                @include size(18.96vw, 4.44vh);
                 @include position(64%, 44%, 0, 0);
+                border-bottom: 1.25vw solid $store-list-bg;
+                text-align: center;
 
                 p {
                     font-size: $h2;
@@ -813,15 +809,15 @@ header {
         }
 
         .traffic-main {
-            @include size(990px, 800px);
-            margin: 66px auto 0 auto;
+            @include size(51.56vw, 74vh);
+            margin: 6.11vh auto 0 auto;
 
             .traffic-bus {
                 width: 100%;
                 display: flex;
 
                 .traffic-logo {
-                    @include size(190px, 190px);
+                    @include size(9.896vw, 9.896vw);
 
                     .traffic-icon {
                         @extend %title-tra-circle;
@@ -833,30 +829,29 @@ header {
                 }
 
                 .traffic-content {
-                    height: 190px;
+                    height: 17.59vh;
                     display: flex;
                     align-items: center;
 
                     .traffic-content-text {
-                        @include size(685px, 160px);
+                        @include size(35.67vw, 14.81vh);
                         @extend %title-tra-contentarea;
 
                         p {
                             @extend %title-tra-contenttext;
-                            line-height: 45px;
+                            line-height: 4.17vh;
                         }
 
                         span {
                             display: inline-block;
-                            @include size(194px, 48px);
+                            @include size(10.1vw, 4.44vh);
                             border-bottom: 24px solid $store-list-bg;
                             text-align: center;
-                            margin: 0 0 9px 54px;
+                            margin: 0 0 9px 2.81vw;
 
                             p {
                                 margin: 0px;
-                                line-height: 60px;
-
+                                line-height: 5.56vh;
                             }
                         }
 
@@ -866,7 +861,7 @@ header {
 
             .traffic-car {
                 width: 100%;
-                margin-top: 60px;
+                margin-top: 5.56vh;
                 display: flex;
 
                 .traffic-logo {
@@ -902,7 +897,7 @@ header {
 
             .traffic-bike {
                 width: 100%;
-                margin-top: 60px;
+                margin-top: 5.56vh;
                 display: flex;
 
                 .traffic-logo {

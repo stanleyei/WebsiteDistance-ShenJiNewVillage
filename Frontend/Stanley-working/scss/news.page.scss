@@ -604,32 +604,34 @@ main {
 }
 
 footer {
-    @include size(100%, 700px);
+    @include size(100%, 64.81vh);
     @include flex();
     background-color: $footer-bg;
     position: relative;
     color: $footer-text;
 
     .footer-logo-img {
-        @include position(550px, 160px, 0, 0);
+        @include size(4.84vw, 4.84vw);
+        @include position(50.92vh, 8.3vw, 0, 0);
     }
 
     .footer-logo-text {
-        @include position(550px, 160px, 90%, 0);
+        @include size(7.55vw, 4.48vw);
+        @include position(50.92vh, 8.3vw, 90%, 0);
     }
 
     .footer-container {
-        @include size(83%, 622px);
+        @include size(83%, 57.6vh);
         overflow: hidden;
-        margin-top: 40px;
+        margin-top: 3.7vh;
 
         h2 {
-            @include font($h2, start, 49px, 0.15em);
-            margin-bottom: 70px;
+            @include font($h2, start, 4.53vh, 0.15em);
+            margin-bottom: 6.48vh;
         }
 
         article {
-            @include size(100%, 475px);
+            @include size(100%, 43.99vh);
             display: grid;
             grid-template-columns: repeat(3, 1fr);
 
@@ -638,45 +640,45 @@ footer {
             }
 
             .inf-detil {
-                @include font($h6, start, 30px, 0.15em);
+                @include font($h6, start, 2.78vh, 0.15em);
                 padding-left: 28px;
 
                 &>div:nth-child(2) {
-                    padding-left: 60.5px;
+                    padding-left: 3.151vw;
                 }
             }
 
             .open-detil {
-                @include size(238px, 100%);
+                @include size(12.4vw, 100%);
                 padding-left: 18px;
 
                 .date-box {
                     @include flex(start, start);
-                    @include font($h6, center, 30px, 0.15em);
+                    @include font($h6, center, 2.78vh, 0.15em);
 
                     .date-box {
-                        @include size(80px, 40px);
+                        @include size(4.17vw, 3.7vh);
                         @include flex();
                         border: $footer-text 1px solid;
                         border-radius: 60px;
                     }
 
                     span {
-                        @include size(60px, 40px);
-                        line-height: 40px;
+                        @include size(3.125vw, 3.7vh);
+                        line-height: 3.7vh;
                     }
                 }
 
                 time {
                     @include flex();
-                    @include font($h6, center, 30px, 0.15em);
+                    @include font($h6, center, 2.78vh, 0.15em);
                     padding-top: 13px;
                 }
             }
         }
 
         >p {
-            @include font($h6, center, 30px, 0.05em);
+            @include font($h6, center, 2.78vh, 0.05em);
             margin: 0;
         }
     }

@@ -2,6 +2,8 @@ header nav ul li a {
   padding-left: 0.521vw;
   position: relative;
   width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   color: #FBE6C3;
   font-weight: 500;
@@ -33,7 +35,8 @@ main .news-page-container .news-title::before {
   position: absolute;
   background: #D28E76;
   border-radius: 5px;
-  transform: translate(-2.6vw, -1.85vh);
+  -webkit-transform: translate(-2.6vw, -1.85vh);
+          transform: translate(-2.6vw, -1.85vh);
   z-index: -1;
 }
 
@@ -41,7 +44,8 @@ main .news-page-container .news-title span::before {
   content: '';
   position: absolute;
   left: 0;
-  transform: translate(-15%, -80%) rotate(90deg);
+  -webkit-transform: translate(-15%, -80%) rotate(90deg);
+          transform: translate(-15%, -80%) rotate(90deg);
   letter-spacing: 0.1em;
 }
 
@@ -66,6 +70,8 @@ main .news-page-container article .content-infs .content-inf {
   height: 9.26vh;
   position: relative;
   margin-top: 1.85vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   border-radius: 6px;
   background-color: #F2F2F2;
@@ -94,13 +100,15 @@ main .news-page-container .aside .aside-tab {
   letter-spacing: 0.2em;
   font-weight: bold;
   color: #333333;
-  box-shadow: 1px 1px 3px #596E79;
+  -webkit-box-shadow: 1px 1px 3px #596E79;
+          box-shadow: 1px 1px 3px #596E79;
   text-align: center;
   cursor: pointer;
 }
 
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
@@ -166,7 +174,8 @@ h6 {
   line-height: 40px;
   letter-spacing: 0.1em;
   border-radius: 50%;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background-color: #ffffff;
   color: #596E79;
 }
@@ -175,31 +184,47 @@ h6 {
   position: absolute;
   top: 55%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   content: 'Top';
 }
 
 header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   min-height: 100vh;
   position: fixed;
-  transform: translate(-20px, -20px);
+  -webkit-transform: translate(-20px, -20px);
+          transform: translate(-20px, -20px);
   z-index: 50;
 }
 
 header nav {
   width: 37px;
   height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: relative;
   border-radius: 10px;
   background-color: #54291c;
-  box-shadow: 0 5px 15px;
+  -webkit-box-shadow: 0 5px 15px;
+          box-shadow: 0 5px 15px;
   overflow: hidden;
+  -webkit-transition: 1s;
   transition: 1s;
 }
 
@@ -289,9 +314,15 @@ header .nav-img.active {
 
 main {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 main .news-page-container {
@@ -326,9 +357,15 @@ main .news-page-container .news-title span::before {
 main .news-page-container .aside {
   width: 100%;
   height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 40px;
   padding-right: 30px;
 }
@@ -372,9 +409,15 @@ main .news-page-container article .news-date .date-title {
 }
 
 main .news-page-container article .news-date .date-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: start;
-  align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 main .news-page-container article .news-date .date-btns .focus-change {
@@ -388,9 +431,15 @@ main .news-page-container article .news-date .date-btns button:hover {
 }
 
 main .news-page-container article .content-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: start;
-  align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: relative;
   margin-bottom: 60px;
 }
@@ -411,7 +460,8 @@ main .news-page-container article .content-title h4::before {
   content: '';
   position: absolute;
   bottom: 0;
-  transform: translate(-10%, -50%);
+  -webkit-transform: translate(-10%, -50%);
+          transform: translate(-10%, -50%);
   border-radius: 6px;
   background-color: #FBE6C3;
   z-index: -1;
@@ -437,7 +487,8 @@ main .news-page-container article .content-title .custom-select-list {
 }
 
 main .news-page-container article .content-title .custom-select-list:hover::after {
-  transform: translate(10px, 8px);
+  -webkit-transform: translate(10px, 8px);
+          transform: translate(10px, 8px);
 }
 
 main .news-page-container article .content-title .custom-select-list::after {
@@ -447,9 +498,11 @@ main .news-page-container article .content-title .custom-select-list::after {
   position: absolute;
   bottom: 0;
   right: 0;
-  transform: translate(10px, 5px);
+  -webkit-transform: translate(10px, 5px);
+          transform: translate(10px, 5px);
   background-image: url(../img/select-down.png);
   background-repeat: no-repeat;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
 }
 
@@ -501,7 +554,8 @@ main .news-page-container article .content-title .select-items div:hover::before
   height: 40px;
   content: '';
   position: absolute;
-  transform: translateX(-12px);
+  -webkit-transform: translateX(-12px);
+          transform: translateX(-12px);
   background-color: #ffffff;
   opacity: 0.5;
 }
@@ -511,13 +565,15 @@ main .news-page-container article .content-title .select-items .active::before {
   height: 40px;
   content: '';
   position: absolute;
-  transform: translateX(-12px);
+  -webkit-transform: translateX(-12px);
+          transform: translateX(-12px);
   background-color: #ffffff;
   opacity: 0.2;
 }
 
 main .news-page-container article .content-infs .content-inf {
-  box-shadow: 0 3px #C4C4C4;
+  -webkit-box-shadow: 0 3px #C4C4C4;
+          box-shadow: 0 3px #C4C4C4;
 }
 
 main .news-page-container article .content-infs .content-inf:hover {
@@ -529,8 +585,10 @@ main .news-page-container article .content-infs .content-inf:hover::before {
 }
 
 main .news-page-container article .content-infs .content-inf:active {
-  box-shadow: none;
-  transform: translateY(3px);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transform: translateY(3px);
+          transform: translateY(3px);
   color: #ffffff;
 }
 
@@ -542,9 +600,15 @@ main .news-page-container article .content-infs .content-inf .inf-date {
 }
 
 main .news-page-container article .content-infs .content-inf .inf-date .during {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: start;
-  align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-top: 5px;
 }
 
@@ -568,7 +632,9 @@ main .news-page-container article .content-infs .content-inf h5 {
   text-align: start;
   line-height: 100px;
   letter-spacing: 0.2em;
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   padding-left: 20px;
   margin: 0;
 }
@@ -580,9 +646,15 @@ main .news-page-container article .content-infs .content-inf > i {
   text-align: start;
   line-height: 100px;
   letter-spacing: 0.2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-right: 30px;
   margin-left: 15px;
   font-size: 16px;
@@ -593,6 +665,7 @@ main .news-page-container article .content-infs .inf-detail {
   border-bottom-right-radius: 6px;
   background-color: #F2F2F2;
   font-weight: bold;
+  -webkit-transition: 0.6s ease-in-out;
   transition: 0.6s ease-in-out;
 }
 
@@ -607,9 +680,15 @@ main .news-page-container article .content-infs .inf-detail .card-body {
 }
 
 main .news-page-container article .content-infs .inf-detail .card-body .card-imgs {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 main .news-page-container article .content-infs .inf-detail .card-body .card-imgs figure {
@@ -623,8 +702,10 @@ main .news-page-container article .content-infs .inf-detail .card-body .card-con
   text-align: start;
   line-height: 30px 0.2em;
   letter-spacing: 0.1em;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
   padding: 55px 50px 0 50px;
 }
 
@@ -634,15 +715,24 @@ main .news-page-container article .content-infs .inf-detail .card-body .card-con
 }
 
 main .news-page-container article .content-infs .inf-detail .card-other-inf {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-row: 2;
   grid-row: 2;
-  grid-template-columns: repeat(2, 1fr);
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
 }
 
 main .news-page-container article .content-infs .inf-detail .card-other-inf > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 0.625vw;
   text-align: center;
   line-height: 30px;
@@ -660,8 +750,13 @@ main .news-page-container article .content-infs .inf-detail .card-other-inf > di
 main .news-page-container article .content-infs .inf-detail .card-other-inf > div time {
   padding-top: 20px;
   margin-left: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   justify-self: flex-end;
   line-height: 20px;
 }
@@ -675,6 +770,8 @@ main .news-page-container article .content-infs .inf-detail .card-other-inf > di
 }
 
 main .news-page-container article .content-infs .inf-detail .card-other-inf > div a {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -698,15 +795,18 @@ main .news-page-container article h3 {
 }
 
 main .news-page-container article .inf-focus {
-  box-shadow: 0 0 0 white !important;
+  -webkit-box-shadow: 0 0 0 white !important;
+          box-shadow: 0 0 0 white !important;
   background-color: #C4C4C4 !important;
   color: #ffffff;
 }
 
 main .news-page-container article .feast-photo-wall {
   padding: 20px 30px 0;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
   grid-gap: 2vw;
   display: none;
 }
@@ -718,11 +818,13 @@ main .news-page-container article .feast-photo-wall figure {
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 2px;
-  box-shadow: 0 0 3px #596E79;
+  -webkit-box-shadow: 0 0 3px #596E79;
+          box-shadow: 0 0 3px #596E79;
 }
 
 main .news-page-container article .feast-photo-wall figure:hover .figure-hover-appear {
   opacity: 0.9;
+  -webkit-transition: 0.8s ease-in-out;
   transition: 0.8s ease-in-out;
 }
 
@@ -741,49 +843,63 @@ main .news-page-container article .feast-photo-wall figure .figure-hover-appear 
 
 footer {
   width: 100%;
-  height: 700px;
+  height: 64.81vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #596E79;
   position: relative;
   color: #ffffff;
 }
 
 footer .footer-logo-img {
+  width: 4.84vw;
+  height: 4.84vw;
   position: absolute;
-  top: 550px;
-  left: 160px;
-  transform: translate(0, 0);
+  top: 50.92vh;
+  left: 8.3vw;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
 }
 
 footer .footer-logo-text {
+  width: 7.55vw;
+  height: 4.48vw;
   position: absolute;
-  top: 550px;
-  left: 160px;
-  transform: translate(90%, 0);
+  top: 50.92vh;
+  left: 8.3vw;
+  -webkit-transform: translate(90%, 0);
+          transform: translate(90%, 0);
 }
 
 footer .footer-container {
   width: 83%;
-  height: 622px;
+  height: 57.6vh;
   overflow: hidden;
-  margin-top: 40px;
+  margin-top: 3.7vh;
 }
 
 footer .footer-container h2 {
   font-size: 1.875vw;
   text-align: start;
-  line-height: 49px;
+  line-height: 4.53vh;
   letter-spacing: 0.15em;
-  margin-bottom: 70px;
+  margin-bottom: 6.48vh;
 }
 
 footer .footer-container article {
   width: 100%;
-  height: 475px;
+  height: 43.99vh;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
 }
 
 footer .footer-container article h3 {
@@ -796,54 +912,72 @@ footer .footer-container article h3 {
 footer .footer-container article .inf-detil {
   font-size: 1.146vw;
   text-align: start;
-  line-height: 30px;
+  line-height: 2.78vh;
   letter-spacing: 0.15em;
   padding-left: 28px;
 }
 
 footer .footer-container article .inf-detil > div:nth-child(2) {
-  padding-left: 60.5px;
+  padding-left: 3.151vw;
 }
 
 footer .footer-container article .open-detil {
-  width: 238px;
+  width: 12.4vw;
   height: 100%;
   padding-left: 18px;
 }
 
 footer .footer-container article .open-detil .date-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: start;
-  align-items: start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
   font-size: 1.146vw;
   text-align: center;
-  line-height: 30px;
+  line-height: 2.78vh;
   letter-spacing: 0.15em;
 }
 
 footer .footer-container article .open-detil .date-box .date-box {
-  width: 80px;
-  height: 40px;
+  width: 4.17vw;
+  height: 3.7vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: #ffffff 1px solid;
   border-radius: 60px;
 }
 
 footer .footer-container article .open-detil .date-box span {
-  width: 60px;
-  height: 40px;
-  line-height: 40px;
+  width: 3.125vw;
+  height: 3.7vh;
+  line-height: 3.7vh;
 }
 
 footer .footer-container article .open-detil time {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 1.146vw;
   text-align: center;
-  line-height: 30px;
+  line-height: 2.78vh;
   letter-spacing: 0.15em;
   padding-top: 13px;
 }
@@ -851,7 +985,8 @@ footer .footer-container article .open-detil time {
 footer .footer-container > p {
   font-size: 1.146vw;
   text-align: center;
-  line-height: 30px;
+  line-height: 2.78vh;
   letter-spacing: 0.05em;
   margin: 0;
 }
+/*# sourceMappingURL=news.page.css.map */
