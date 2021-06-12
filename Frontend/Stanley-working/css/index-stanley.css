@@ -884,7 +884,7 @@ header .nav-img.active {
   cursor: pointer;
 }
 
-#store .store-container article .shop-window > ul .check-btn:nth-child(2) {
+#store .store-container article .shop-window > ul li:nth-child(2) > .check-btn {
   transform: translate(55%, 40%);
 }
 

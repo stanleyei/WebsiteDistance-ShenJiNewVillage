@@ -659,9 +659,10 @@ header {
                         color: $footer-text;
                         cursor: pointer;
     
-                        &:nth-child(2) {
-                            transform: translate(55%,40%);
-                        }
+                    }
+
+                    li:nth-child(2)> .check-btn {
+                        transform: translate(55%,40%);
                     }
                 }
 

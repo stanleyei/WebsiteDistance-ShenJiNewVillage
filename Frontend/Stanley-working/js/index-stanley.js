@@ -119,7 +119,7 @@ navTaps.forEach(tab => {
   });
 });
 
-//點擊店家名稱切換圖片效果
+//店家介紹-點擊店家名稱切換圖片效果
 const shopBtns = document.querySelectorAll('.shop-list > div > span');
 const shopPhotos = document.querySelectorAll('.shop-window > figure');
 const windowTitles = document.querySelectorAll('.window-title');
@@ -145,6 +145,14 @@ shopBtns.forEach(btns => {
       };
     });
   });
+});
+
+//店家介紹-燈箱套件
+lightbox.option({
+  'resizeDuration': 500,
+  'wrapAround': true,
+  'disableScrolling': true,
+  'positionFromTop': 100,
 });
 
 //回到頂端按鈕
