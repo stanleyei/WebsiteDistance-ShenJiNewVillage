@@ -119,6 +119,34 @@ navTaps.forEach(tab => {
   });
 });
 
+//點擊店家名稱切換圖片效果
+const shopBtns = document.querySelectorAll('.shop-list > div > span');
+const shopPhotos = document.querySelectorAll('.shop-window > figure');
+const windowTitles = document.querySelectorAll('.window-title');
+const checkBtnLists = document.querySelectorAll('.shop-window > ul');
+shopBtns.forEach(btns => {
+  btns.addEventListener('click', function () {
+    shopPhotos.forEach(photo => {
+      photo.classList.add('figure-hide');
+      if(this.dataset.img === photo.dataset.photo){
+        photo.classList.remove('figure-hide');
+      };
+    });
+    windowTitles.forEach(title => {
+      title.classList.add('title-hide');
+      if(this.dataset.img === title.dataset.title){
+        title.classList.remove('title-hide');
+      };
+    });
+    checkBtnLists.forEach(list => {
+      list.classList.add('check-list-hide');
+      if(this.dataset.img === list.dataset.list){
+        list.classList.remove('check-list-hide');
+      };
+    });
+  });
+});
+
 //回到頂端按鈕
 (function () {
   $("body").append("<div id='goTopButton' class='fas fa-chevron-up' style='display: none; z-index: 5; cursor: pointer;' title='回到頂端'/></div>");
