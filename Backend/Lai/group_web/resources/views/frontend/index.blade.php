@@ -132,7 +132,169 @@
         </div>
     </section>
     <section id="map" class="map"></section>
-    <section id="store" class="store"></section>
+    <section id="store" class="section">
+        <img class="logo-img" src="{{asset('/img/Logo-img.png')}}" alt="審計新村LOGO插圖">
+        <img class="logo-text" src="{{asset('/img/Logo-text.png')}}" alt="審計新村LOGO文字">
+        <div class="store-container">
+            <div class="store-title">
+                <h2>店家介紹</h2>
+                <span>Shen Ji New Village</span>
+            </div>
+            <article>
+                <div class="shop-window">
+                    <img src="{{asset('/img/shop-window.png')}}" alt="窗戶的裝飾圖">
+                    <ul data-list="1">
+                        <li>
+                            <a href="{{asset('img/swiper-text.png')}}" title="點我看大圖" class="check-btn photo-view"
+                                data-lightbox="food-shop-1" data-title="Two Day日日鬆餅">看大圖</a>
+                        </li>
+                        <li>
+                            <a href="" title="點我看介紹" class="check-btn shop-view">看介紹</a>
+                        </li>
+                    </ul>
+                    <div class="window-title" data-title="1">Two Day日日鬆餅</div>
+                    <figure style="background-image: url({{asset('img/swiper-text.png')}});" data-photo="1"></figure>
+                    <ul class="check-list-hide" data-list="2">
+                        <li>
+                            <a href="{{asset('/img/text-2.png')}}" title="點我看大圖" class="check-btn photo-view"
+                                data-lightbox="food-shop-2" data-title="三時杏仁">看大圖</a>
+                        </li>
+                        <li>
+                            <a href="" title="點我看介紹" class="check-btn shop-view">看介紹</a>
+                        </li>
+                    </ul>
+                    <div class="window-title title-hide" data-title="2">三時杏仁</div>
+                    <figure class="figure-hide" style="background-image: url({{asset('/img/text-2.png')}});" data-photo="2">
+                    </figure>
+                    <ul class="check-list-hide" data-list="3">
+                        <li>
+                            <a href="{{asset('/img/text-3.png')}}" title="點我看大圖" class="check-btn photo-view" data-lightbox="food-shop-3"
+                                data-title="甜月亮義大利手作冰淇淋">看大圖</a>
+                        </li>
+                        <li>
+                            <a href="" title="點我看介紹" class="check-btn shop-view">看介紹</a>
+                        </li>
+                    </ul>
+                    <div class="window-title title-hide" data-title="3">甜月亮義大利手作冰淇淋</div>
+                    <figure class="figure-hide" style="background-image: url({{asset('/img/text-3.png')}});" data-photo="3">
+                    </figure>
+                    <ul class="check-list-hide" data-list="4">
+                        <li>
+                            <a href="{{asset('img/swiper-text.png')}}" title="點我看大圖" class="check-btn photo-view" data-lightbox="food-shop-4"
+                                data-title="旅禾泡芙之家">看大圖</a>
+                        </li>
+                        <li>
+                            <a href="" title="點我看介紹" class="check-btn shop-view">看介紹</a>
+                        </li>
+                    </ul>
+                    <div class="window-title title-hide" data-title="4">旅禾泡芙之家</div>
+                    <figure class="figure-hide" style="background-image: url({{asset('img/swiper-text.png')}});" data-photo="4">
+                    </figure>
+                    <ul class="check-list-hide" data-list="5">
+                        <li>
+                            <a href="{{asset('/img/text-2.png')}}" title="點我看大圖" class="check-btn photo-view" data-lightbox="food-shop-5"
+                                data-title="森小姐的茶店">看大圖</a>
+                        </li>
+                        <li>
+                            <a href="" title="點我看介紹" class="check-btn shop-view">看介紹</a>
+                        </li>
+                    </ul>
+                    <div class="window-title title-hide" data-title="5">森小姐的茶店</div>
+                    <figure class="figure-hide" style="background-image: url({{asset('/img/text-2.png')}});" data-photo="5">
+                    </figure>
+                    <ul class="check-list-hide" data-list="6">
+                        <li>
+                            <a href="{{asset('/img/text-3.png')}}" title="點我看大圖" class="check-btn photo-view" data-lightbox="food-shop-6"
+                                data-title="艸水木堂">看大圖</a>
+                        </li>
+                        <li>
+                            <a href="" title="點我看介紹" class="check-btn shop-view">看介紹</a>
+                        </li>
+                    </ul>
+                    <div class="window-title title-hide" data-title="6">艸水木堂</div>
+                    <figure class="figure-hide" style="background-image: url({{asset('/img/text-3.png')}});" data-photo="6">
+                    </figure>
+                    <ul class="check-list-hide" data-list="7">
+                        <li>
+                            <a href="{{asset('img/swiper-text.png')}}" title="點我看大圖" class="check-btn photo-view" data-lightbox="food-shop-7"
+                                data-title="成真咖啡">看大圖</a>
+                        </li>
+                        <li>
+                            <a href="" title="點我看介紹" class="check-btn shop-view">看介紹</a>
+                        </li>
+                    </ul>
+                    <div class="window-title title-hide" data-title="7">成真咖啡</div>
+                    <figure class="figure-hide" style="background-image: url({{asset('img/swiper-text.png')}});"
+                        data-photo="7"></figure>
+                    <ul class="check-list-hide" data-list="8">
+                        <li>
+                            <a href="{{asset('img/swiper-text.png')}}" title="點我看大圖" class="check-btn photo-view" data-lightbox="trinket-shop-1"
+                                data-title="森多水耕植研所">看大圖</a>
+                        </li>
+                        <li>
+                            <a href="" class="check-btn shop-view">看介紹</a>
+                        </li>
+                    </ul>
+                    <div class="window-title title-hide" data-title="8">森多水耕植研所</div>
+                    <figure class="figure-hide" style="background-image: url({{asset('img/swiper-text.png')}});"
+                        data-photo="8"></figure>
+                </div>
+                <nav>
+                    <h3>商家介紹</h3>
+                    <div class="nav-tap-list">
+                        <div class="nav-tap tap-active" title="美食點心類">美食點心類</div>
+                        <div class="nav-tap" title="小物禮品類">小物禮品類</div>
+                    </div>
+                    <div class="food-shop shop-list">
+                        <div>
+                            <span class="bottom-line" data-img="1" title="Two Day 日日鬆餅">Two Day 日日鬆餅 </span>
+                        </div>
+                        <div>
+                            <span data-img="2" title="三時杏仁">三時杏仁</span>
+                        </div>
+                        <div>
+                            <span data-img="3" title="甜月亮義大利手作冰淇淋">甜月亮義大利手作冰淇淋</span>
+                        </div>
+                        <div>
+                            <span data-img="4" title="旅禾泡芙之家">旅禾泡芙之家</span>
+                        </div>
+                        <div>
+                            <span data-img="5" title="森小姐的茶店">森小姐的茶店</span>
+                        </div>
+                        <div>
+                            <span data-img="6" title="艸水木堂">艸水木堂</span>
+                        </div>
+                        <div>
+                            <span data-img="7" title="成真咖啡">成真咖啡</span>
+                        </div>
+                    </div>
+                    <div class="trinket-shop shop-list list-active">
+                        <div>
+                            <span data-img="8" title="森多水耕植研所">森多水耕植研所</span>
+                        </div>
+                        <div>
+                            <span data-img="9" title="森林島嶼">森林島嶼</span>
+                        </div>
+                        <div>
+                            <span data-img="10" title="愚室實驗所">愚室實驗所</span>
+                        </div>
+                        <div>
+                            <span data-img="11" title="日子商号">日子商号</span>
+                        </div>
+                        <div>
+                            <span data-img="12" title="Kou Jewellery">Kou Jewellery</span>
+                        </div>
+                        <div>
+                            <span data-img="13" title="品墨良行">品墨良行</span>
+                        </div>
+                        <div>
+                            <span data-img="14" title="KerKerland">KerKerland</span>
+                        </div>
+                    </div>
+                </nav>
+            </article>
+        </div>
+    </section>
     <section id="view" class="view"></section>
     <section id="traffic" class="section">
         <img class="logo-img" src="{{asset('/img/Logo-img.png')}}" alt="審計新村LOGO插圖">
