@@ -24,6 +24,10 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 Route::post('/react_user_name', 'AdminController@reactUserName');
 
 Route::prefix('admin')->middleware('auth')->group(function () {
+
+    // 取得上層資料
+    Route::post('/upper_data', 'AdminController@upperData');
+
     Route::resources([
         'info_types' => 'InfoTypesController',
         'info' => 'InfoController',
