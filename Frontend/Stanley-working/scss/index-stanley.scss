@@ -292,7 +292,7 @@ header {
                     overflow: hidden;
 
                     &:hover .swiper-button {
-                        opacity: 1;
+                        opacity: 0.8;
                     }
 
                     .about-us-slide {
@@ -660,18 +660,19 @@ header {
                     }
 
                     .check-btn {
-                        @include size(7vw, 3.375vw);
-                        @include font($h4, center, 3.375vw);
+                        @include size(6vw, 2.5vw);
+                        @include font($h4, center, 2.5vw);
                         position: absolute;
-                        transform: translate(-56%, -10%);
-                        border: solid 2px $footer-text;
+                        transform: translate(-50%, -10%);
+                        box-shadow: $nav-bg 0px 0px 30px;
+                        border-radius: 5px;
                         color: $footer-text;
                         cursor: pointer;
-
+                        background-color: #ffffff3b;
                     }
 
                     li:nth-child(2)>.check-btn {
-                        transform: translate(56%, -10%);
+                        transform: translate(60%, -10%);
                     }
                 }
 

@@ -190,4 +190,3 @@ lightbox.option({
     resize: () => { goTopMove(); }
   });
 })();
-

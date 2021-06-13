@@ -18,41 +18,20 @@
                 <article>
                     <div class="about-us-swiper aboutUsSwiper">
                         <div class="swiper-wrapper">
+                            :@foreach ($sliders as $slider)
                             <div class="about-us-slide swiper-slide">
-                                <div class="img" style="background-image: url({{asset('/img/swiper-text.png')}});"
-                                    alt=""></div>
+                                <div class="img" style="background-image: url({{$slider->img}});"
+                                    alt="{{$slider->name}}"></div>
                             </div>
-                            <div class="about-us-slide swiper-slide">
-                                <div class="img" style="background-image: url({{asset('/img/nekoteacher01.jpg')}});"
-                                    alt="">
-                                </div>
-                            </div>
-                            <div class="about-us-slide swiper-slide">
-                                <div class="img" style="background-image: url({{asset('/img/nekoteacher02.jpg')}});"
-                                    alt="">
-                                </div>
-                            </div>
-                            <div class="about-us-slide swiper-slide">
-                                <div class="img" style="background-image: url({{asset('/img/nekoteacher03.jpg')}});"
-                                    alt="">
-                                </div>
-                            </div>
-                            <div class="about-us-slide swiper-slide">
-                                <div class="img" style="background-image: url({{asset('/img/swiper-text.png')}});"
-                                    alt=""></div>
-                            </div>
-                            <div class="about-us-slide swiper-slide">
-                                <div class="img" style="background-image: url({{asset('/img/nekoteacher01.jpg')}});"
-                                    alt="">
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                         <div class="swiper-button swiper-button-next" title="點擊切換上一張"></div>
                         <div class="swiper-button swiper-button-prev" title="點擊切換下一張"></div>
                         <div class="swiper-pagination"></div>
                     </div>
-                    <p class="about-us-content">審計新村原為臺灣省政府審計處（今審計部教育農林審計處）與臺灣省政府新聞處（今行政院新聞傳播處地方新聞科）的宿舍，1969年興建完成，是中部繼光復新村、長安新村之後的第三批台灣省政府宿舍群。
-                    </p>   
+                    <p class="about-us-content">
+                        審計新村原為臺灣省政府審計處（今審計部教育農林審計處）與臺灣省政府新聞處（今行政院新聞傳播處地方新聞科）的宿舍，1969年興建完成，是中部繼光復新村、長安新村之後的第三批台灣省政府宿舍群。
+                    </p>
                 </article>
             </div>
         </div>
@@ -78,54 +57,24 @@
                         <div></div>
                     </div>
                     <div class="content-infs">
-                        <a class="content-inf" href="/news" title="前往審計公告">
+                        @foreach ($infs as $inf)
+                        <a class="content-inf" href="/news" title="前往{{$inf->name}}">
                             <div class="inf-date">
                                 <div class="during">
                                     <div class="start-date">03</div>
                                     <div class="end-date">-14</div>
                                 </div>
-                                <span>五月</span>
+                                <span></span>
                             </div>
                             <div class="inf-detail">
-                                <div class="inf-tag">審計公告</div>
-                                <h4>防疫重要通知 審計新村假日市集皆停辦</h4>
+                                <div class="inf-tag">{{$inf->name}}</div>
+                                <h4>{{$inf->infos[0]->name}}</h4>
                             </div>
                             <span>more
                                 <i class="fas fa-chevron-right"></i>
                             </span>
                         </a>
-                        <a class="content-inf" href="/news" title="前往活動訊息">
-                            <div class="inf-date">
-                                <div class="during">
-                                    <div class="start-date">03</div>
-                                    <div class="end-date">-14</div>
-                                </div>
-                                <span>五月</span>
-                            </div>
-                            <div class="inf-detail">
-                                <div class="inf-tag">活動訊息</div>
-                                <h4>【審計368新創聚落】即日起開始徵件！</h4>
-                            </div>
-                            <span>more
-                                <i class="fas fa-chevron-right"></i>
-                            </span>
-                        </a>
-                        <a class="content-inf" href="/news" title="前往活動花絮">
-                            <div class="inf-date">
-                                <div class="during">
-                                    <div class="start-date">03</div>
-                                    <div class="end-date">-14</div>
-                                </div>
-                                <span>五月</span>
-                            </div>
-                            <div class="inf-detail">
-                                <div class="inf-tag">活動花絮</div>
-                                <h4>三月份暮暮市集活動剪影出爐！！</h4>
-                            </div>
-                            <span>more
-                                <i class="fas fa-chevron-right"></i>
-                            </span>
-                        </a>
+                        @endforeach
                     </div>
                 </div>
             </article>
@@ -164,60 +113,65 @@
                         </li>
                     </ul>
                     <div class="window-title title-hide" data-title="2">三時杏仁</div>
-                    <figure class="figure-hide" style="background-image: url({{asset('/img/text-2.png')}});" data-photo="2">
+                    <figure class="figure-hide" style="background-image: url({{asset('/img/text-2.png')}});"
+                        data-photo="2">
                     </figure>
                     <ul class="check-list-hide" data-list="3">
                         <li>
-                            <a href="{{asset('/img/text-3.png')}}" title="點我看大圖" class="check-btn photo-view" data-lightbox="food-shop-3"
-                                data-title="甜月亮義大利手作冰淇淋">看大圖</a>
+                            <a href="{{asset('/img/text-3.png')}}" title="點我看大圖" class="check-btn photo-view"
+                                data-lightbox="food-shop-3" data-title="甜月亮義大利手作冰淇淋">看大圖</a>
                         </li>
                         <li>
                             <a href="/store" title="點我看介紹" class="check-btn shop-view">看介紹</a>
                         </li>
                     </ul>
                     <div class="window-title title-hide" data-title="3">甜月亮義大利手作冰淇淋</div>
-                    <figure class="figure-hide" style="background-image: url({{asset('/img/text-3.png')}});" data-photo="3">
+                    <figure class="figure-hide" style="background-image: url({{asset('/img/text-3.png')}});"
+                        data-photo="3">
                     </figure>
                     <ul class="check-list-hide" data-list="4">
                         <li>
-                            <a href="{{asset('img/swiper-text.png')}}" title="點我看大圖" class="check-btn photo-view" data-lightbox="food-shop-4"
-                                data-title="旅禾泡芙之家">看大圖</a>
+                            <a href="{{asset('img/swiper-text.png')}}" title="點我看大圖" class="check-btn photo-view"
+                                data-lightbox="food-shop-4" data-title="旅禾泡芙之家">看大圖</a>
                         </li>
                         <li>
                             <a href="/store" title="點我看介紹" class="check-btn shop-view">看介紹</a>
                         </li>
                     </ul>
                     <div class="window-title title-hide" data-title="4">旅禾泡芙之家</div>
-                    <figure class="figure-hide" style="background-image: url({{asset('img/swiper-text.png')}});" data-photo="4">
+                    <figure class="figure-hide" style="background-image: url({{asset('img/swiper-text.png')}});"
+                        data-photo="4">
                     </figure>
                     <ul class="check-list-hide" data-list="5">
                         <li>
-                            <a href="{{asset('/img/text-2.png')}}" title="點我看大圖" class="check-btn photo-view" data-lightbox="food-shop-5"
-                                data-title="森小姐的茶店">看大圖</a>
+                            <a href="{{asset('/img/text-2.png')}}" title="點我看大圖" class="check-btn photo-view"
+                                data-lightbox="food-shop-5" data-title="森小姐的茶店">看大圖</a>
                         </li>
                         <li>
                             <a href="/store" title="點我看介紹" class="check-btn shop-view">看介紹</a>
                         </li>
                     </ul>
                     <div class="window-title title-hide" data-title="5">森小姐的茶店</div>
-                    <figure class="figure-hide" style="background-image: url({{asset('/img/text-2.png')}});" data-photo="5">
+                    <figure class="figure-hide" style="background-image: url({{asset('/img/text-2.png')}});"
+                        data-photo="5">
                     </figure>
                     <ul class="check-list-hide" data-list="6">
                         <li>
-                            <a href="{{asset('/img/text-3.png')}}" title="點我看大圖" class="check-btn photo-view" data-lightbox="food-shop-6"
-                                data-title="艸水木堂">看大圖</a>
+                            <a href="{{asset('/img/text-3.png')}}" title="點我看大圖" class="check-btn photo-view"
+                                data-lightbox="food-shop-6" data-title="艸水木堂">看大圖</a>
                         </li>
                         <li>
                             <a href="/store" title="點我看介紹" class="check-btn shop-view">看介紹</a>
                         </li>
                     </ul>
                     <div class="window-title title-hide" data-title="6">艸水木堂</div>
-                    <figure class="figure-hide" style="background-image: url({{asset('/img/text-3.png')}});" data-photo="6">
+                    <figure class="figure-hide" style="background-image: url({{asset('/img/text-3.png')}});"
+                        data-photo="6">
                     </figure>
                     <ul class="check-list-hide" data-list="7">
                         <li>
-                            <a href="{{asset('img/swiper-text.png')}}" title="點我看大圖" class="check-btn photo-view" data-lightbox="food-shop-7"
-                                data-title="成真咖啡">看大圖</a>
+                            <a href="{{asset('img/swiper-text.png')}}" title="點我看大圖" class="check-btn photo-view"
+                                data-lightbox="food-shop-7" data-title="成真咖啡">看大圖</a>
                         </li>
                         <li>
                             <a href="/store" title="點我看介紹" class="check-btn shop-view">看介紹</a>
@@ -228,8 +182,8 @@
                         data-photo="7"></figure>
                     <ul class="check-list-hide" data-list="8">
                         <li>
-                            <a href="{{asset('img/swiper-text.png')}}" title="點我看大圖" class="check-btn photo-view" data-lightbox="trinket-shop-1"
-                                data-title="森多水耕植研所">看大圖</a>
+                            <a href="{{asset('img/swiper-text.png')}}" title="點我看大圖" class="check-btn photo-view"
+                                data-lightbox="trinket-shop-1" data-title="森多水耕植研所">看大圖</a>
                         </li>
                         <li>
                             <a href="/store" class="check-btn shop-view">看介紹</a>
@@ -406,4 +360,25 @@
 
 @section('js')
 <script src="{{ asset('js/index.js')}}"></script>
+<script>
+    //拿出月份數字並放入網頁
+    const infMonth = document.querySelectorAll('.inf-date > span');
+    const newInfs = {!! $infs !!}.map(inf => inf.infos[0].date_start);
+    let monthFirstNumber = [];
+    let monthLastNumber = [];
+    newInfs.forEach(inf => {
+        const infsDate = inf.split('-');
+        monthFirstNumber = infsDate[1].split('0');
+        monthFirstNumber.length === 1
+         ?
+         monthLastNumber.push(monthFirstNumber[0])
+         :
+         monthLastNumber.push(monthFirstNumber[1]);
+    });
+    infMonth.forEach( (month, i=0) => {
+        month.textContent = monthData[monthLastNumber[i] - 1];
+        i++;
+    });
+
+</script>
 @endsection

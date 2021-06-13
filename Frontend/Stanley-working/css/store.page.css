@@ -319,10 +319,11 @@ main .store-page-container article h3 {
   text-align: center;
   line-height: 5.56vh;
   letter-spacing: 0.1em;
+  padding-top: 30%;
 }
 
 main .store-page-container article > div > p {
-  font-size: 1.458vw;
+  font-size: 1.25vw;
   text-align: start;
   line-height: 3.7vh;
   letter-spacing: 0.1em;
@@ -406,7 +407,7 @@ main .store-page-container article .down-content-photo {
 }
 
 main .store-page-container article > p {
-  font-size: 1.458vw;
+  font-size: 1.25vw;
   text-align: start;
   line-height: 3.7vh;
   letter-spacing: 0.1em;
@@ -414,6 +415,7 @@ main .store-page-container article > p {
   font-family: 'Noto Sans HK', sans-serif;
   color: #000000;
   font-weight: bold;
+  padding-top: 17%;
 }
 
 main .store-page-container .back-btn {
