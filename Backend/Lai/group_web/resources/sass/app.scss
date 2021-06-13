@@ -6,3 +6,8 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.pre-img-div {
+    @include size(150px, 150px);
+    background-size: cover;
+}

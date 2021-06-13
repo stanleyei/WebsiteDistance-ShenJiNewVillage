@@ -52,7 +52,7 @@ class ContactController extends Controller
         // }
         $mainData = Contact::create($data);
 
-        return redirect()->route('contact.index');
+        return Contact::with('contactContentType')->get();
     }
 
     /**
@@ -103,7 +103,7 @@ class ContactController extends Controller
         // }
         $dbData->update($data);
 
-        return redirect()->route('contact.index');
+        return Contact::with('contactContentType')->get();
     }
 
     /**
@@ -118,7 +118,7 @@ class ContactController extends Controller
         // 資料庫刪除該筆資料
         $result = Contact::destroy($id);
 
-        return $result;
+        return Contact::with('contactContentType')->get();
     }
 
     public function indexDataTable()
@@ -129,6 +129,7 @@ class ContactController extends Controller
 
         foreach ($response as $i) {
             $data[] = [
+                'id' => $i->id,
                 'type_id' => $i->contactContentType->name,
                 'sender' => $i->sender,
                 'mail' => $i->mail,
@@ -140,6 +141,6 @@ class ContactController extends Controller
 
         $data = ['data' => $data];
 
-        return $data;
+        return Contact::with('contactContentType')->get();
     }
 }

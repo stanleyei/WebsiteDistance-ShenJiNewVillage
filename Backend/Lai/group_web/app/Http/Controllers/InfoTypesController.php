@@ -37,8 +37,11 @@ class InfoTypesController extends Controller
      */
     public function store(Request $request)
     {
+        // 新增react傳過來的資料
         InfoTypes::create($request->all());
-        return redirect()->route('info_types.index');
+        // 將現在的資料傳回去
+        $data = InfoTypes::with('infos')->get();
+        return $data;
     }
 
     /**
@@ -74,7 +77,9 @@ class InfoTypesController extends Controller
     public function update(Request $request, $id)
     {
         InfoTypes::find($id)->update($request->all());
-        return redirect()->route('info_types.index');
+        // 將現在的資料傳回去
+        $data = InfoTypes::with('infos')->get();
+        return $data;
     }
 
     /**
@@ -85,28 +90,13 @@ class InfoTypesController extends Controller
      */
     public function destroy($id)
     {
-        $result = InfoTypes::destroy($id);
+        InfoTypes::destroy($id);
+        $result = InfoTypes::with('infos')->get();
         return $result;
     }
-
+    
     public function indexDataTable()
     {
-        $response = InfoTypes::all();
-
-        $data = [];
-
-        foreach ($response as $i) {
-            $data[] = [
-                'name' => $i->name,
-                'info_count' => count($i->infos),
-                'created_at' => Carbon::parse($i->created_at)->toDateTimeString(),
-                'editBtn' => "<a href='/admin/info_types/{$i->id}/edit'><button class='btn btn-primary btn-edit'>編輯</button></a>",
-                'destroyBtn' => "<button class='btn btn-danger btn-destroy' onclick='destroyBtnFunction({$i->id})''>刪除</button>",
-            ];
-        }
-
-        $data = ['data' => $data];
-
-        return $data;
+        return InfoTypes::with('infos')->get();
     }
 }

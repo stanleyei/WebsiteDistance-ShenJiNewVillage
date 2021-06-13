@@ -45,7 +45,7 @@ class ContactContentTypeController extends Controller
         $data = $request->all();
         $mainData = ContactContentType::create($data);
 
-        return redirect()->route('contact_content_type.index');
+        return ContactContentType::with('contacts', 'contactType')->get();
     }
 
     /**
@@ -96,7 +96,7 @@ class ContactContentTypeController extends Controller
         // }
         $dbData->update($data);
 
-        return redirect()->route('contact_content_type.index');
+        return ContactContentType::with('contacts', 'contactType')->get();
     }
 
     /**
@@ -118,7 +118,7 @@ class ContactContentTypeController extends Controller
         // 刪除子項目資料
         $this->deleteSub($id);
 
-        return $result;
+        return ContactContentType::with('contacts', 'contactType')->get();
     }
 
     public function indexDataTable()
@@ -139,7 +139,7 @@ class ContactContentTypeController extends Controller
 
         $data = ['data' => $data];
 
-        return $data;
+        return ContactContentType::with('contacts', 'contactType')->get();
     }
 
     public function deleteSub($content_id)

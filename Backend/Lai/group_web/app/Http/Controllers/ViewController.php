@@ -51,7 +51,7 @@ class ViewController extends Controller
         // }
         $mainData = View::create($data);
 
-        return redirect()->route('view.index');
+        return View::with('viewImgs')->get();
     }
 
     /**
@@ -101,7 +101,7 @@ class ViewController extends Controller
         // }
         $dbData->update($data);
 
-        return redirect()->route('view.index');
+        return View::with('viewImgs')->get();
     }
 
     /**
@@ -123,7 +123,7 @@ class ViewController extends Controller
         // 刪除副圖片檔案、資料庫資料
         $this->deleteSubImg($id);
 
-        return $result;
+        return View::with('viewImgs')->get();
     }
 
     public function indexDataTable()
@@ -147,7 +147,7 @@ class ViewController extends Controller
 
         $data = ['data' => $data];
 
-        return $data;
+        return View::with('viewImgs')->get();
     }
 
     public function deleteSubImg($view_id)

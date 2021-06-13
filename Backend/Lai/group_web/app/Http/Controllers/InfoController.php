@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Info;
-use App\InfoTypes;
 use App\InfoImg;
+use App\InfoTypes;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -43,6 +44,7 @@ class InfoController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $data = $request->all();
 
         if ($request->hasFile('img')) {
@@ -54,7 +56,7 @@ class InfoController extends Controller
         }
         $mainData = Info::create($data);
 
-        return redirect()->route('info.index');
+        return Info::with('infoType', 'infoImgs')->get();
     }
 
     /**
@@ -88,10 +90,13 @@ class InfoController extends Controller
      * @param  \App\Info  $info
      * @return \Illuminate\Http\Response
      */
-    public function update($id, Request $request)
+    public function update($id,Request $request)
     {
+        // dd($request->all());
         $data = $request->all();
         $dbData = Info::find($id);
+        // return $dbData->update($data);;
+        // return $request;
         if ($request->hasFile('img')) {
             $myfile = Storage::disk('local');
             $file = $request->file('img');
@@ -99,13 +104,16 @@ class InfoController extends Controller
             $data['img'] = $myfile->url($path);
             // 刪掉之前的圖片檔案
             File::delete(public_path($dbData->img));
-        }else{
+        } else {
             // 沒改放舊圖
             $data['img'] = $dbData->img;
         }
+        // 使用updata 不用全部都填也能更新
+        // $dbData->update(['name'=>'controllertest']);
         $dbData->update($data);
+        // DB::commit();
 
-        return redirect()->route('info.index');
+        return Info::with('infoType', 'infoImgs')->get();
     }
 
     /**
@@ -133,31 +141,12 @@ class InfoController extends Controller
         //     $img->delete();
         // }
 
-        return $result;
+        return Info::with('infoType', 'infoImgs')->get();
     }
 
     public function indexDataTable()
     {
-        $response = Info::all();
-
-        $data = [];
-
-        foreach ($response as $i) {
-            $data[] = [
-                'type_id' => $i->infoType->name,
-                'name' => $i->name,
-                'content' => $i->content,
-                'infoImgs' => count($i->infoImgs),
-                'date_start' => Carbon::parse($i->date_start)->toDateTimeString(),
-                'date_end' => Carbon::parse($i->date_end)->toDateTimeString(),
-                'editBtn' => "<a href='/admin/info/{$i->id}/edit'><button class='btn btn-primary btn-edit'>編輯</button></a>",
-                'destroyBtn' => "<button class='btn btn-danger btn-destroy' onclick='destroyBtnFunction({$i->id})''>刪除</button>",
-            ];
-        }
-
-        $data = ['data' => $data];
-
-        return $data;
+        return Info::with('infoType', 'infoImgs')->get();
     }
 
     public function deleteSubImg($info_id)
