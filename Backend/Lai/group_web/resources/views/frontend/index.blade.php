@@ -149,7 +149,7 @@
                                 data-lightbox="food-shop-1" data-title="Two Day日日鬆餅">看大圖</a>
                         </li>
                         <li>
-                            <a href="" title="點我看介紹" class="check-btn shop-view">看介紹</a>
+                            <a href="/store" title="點我看介紹" class="check-btn shop-view">看介紹</a>
                         </li>
                     </ul>
                     <div class="window-title" data-title="1">Two Day日日鬆餅</div>
