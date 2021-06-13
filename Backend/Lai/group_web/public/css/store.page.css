@@ -98,15 +98,19 @@ h6 {
 }
 
 .logo-img {
+  width: 5.729vw;
+  height: 5.729vw;
   position: absolute;
-  top: 50px;
-  right: 250px;
+  top: 2.8vw;
+  right: 11.5vw;
 }
 
 .logo-text {
+  width: 7.552vw;
+  height: 4.48vw;
   position: absolute;
-  top: 50px;
-  right: 50px;
+  top: 3.8vw;
+  right: 2.6vw;
 }
 
 #goTopButton {

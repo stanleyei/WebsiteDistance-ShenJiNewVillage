@@ -48,15 +48,17 @@ h6 {
 }
 
 .logo-img {
+    @include size(5.729vw, 5.729vw);
     position: absolute;
-    top: 50px;
-    right: 250px;
+    top: 2.8vw;
+    right: 11.5vw;
 }
 
 .logo-text {
+    @include size(7.552vw, 4.48vw);
     position: absolute;
-    top: 50px;
-    right: 50px;
+    top: 3.8vw;
+    right: 2.6vw;
 }
 
 #goTopButton {
@@ -190,7 +192,7 @@ main {
 
     .news-page-container {
         @include size(65vw, 100%);
-        padding: 13.02vw 0;
+        padding: 10.02vw 0;
 
         .news-title {
             position: relative;

@@ -231,7 +231,7 @@ h6 {
   width: 5.729vw;
   height: 5.729vw;
   position: absolute;
-  top: 3vh;
+  top: 2.8vw;
   right: 11.5vw;
 }
 
@@ -239,7 +239,7 @@ h6 {
   width: 7.552vw;
   height: 4.48vw;
   position: absolute;
-  top: 5.5vh;
+  top: 3.8vw;
   right: 2.6vw;
 }
 
@@ -883,7 +883,7 @@ header .nav-img.active {
 
 #store .store-container {
   width: 86vw;
-  height: 76vh;
+  height: 80vh;
 }
 
 #store .store-container .store-title {
@@ -919,6 +919,7 @@ header .nav-img.active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-top: 4.63vh;
   padding-left: 5.73vw;
 }
 
@@ -944,8 +945,7 @@ header .nav-img.active {
   height: 36.5625vw;
   max-height: 61vh;
   position: relative;
-  padding-top: 4.63vh;
-  z-index: 99;
+  z-index: 48;
 }
 
 #store .store-container article .shop-window > img:hover ~ figure::before {
@@ -965,8 +965,8 @@ header .nav-img.active {
   height: 22.135vw;
   max-height: 39vh;
   position: absolute;
-  -webkit-transform: translateY(-5%);
-          transform: translateY(-5%);
+  -webkit-transform: translateY(-17%);
+          transform: translateY(-17%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1016,7 +1016,7 @@ header .nav-img.active {
   position: absolute;
   left: 24.5vw;
   padding: 0;
-  z-index: 9999;
+  z-index: 49;
   opacity: 0;
   -webkit-transition: 1s ease-in-out;
   transition: 1s ease-in-out;

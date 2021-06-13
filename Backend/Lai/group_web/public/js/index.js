@@ -2,7 +2,7 @@
 new fullpage('#fullpage', {
   autoScrolling: true,
   afterLoad: function (origin, destination, direction) {
-    if (destination.index == 3 && direction === 'down') {
+    if (destination.index == 4 && direction === 'down') {
       fullpage_api.setAutoScrolling(false); //關閉自動滾動模式
       fullpage_api.setFitToSection(false); //關閉滾輪自動回到最近section的效果
     }
@@ -161,7 +161,7 @@ lightbox.option({
 
 //回到頂端按鈕
 (function () {
-  $("body").append("<div id='goTopButton' class='fas fa-chevron-up' style='display: none; z-index: 5; cursor: pointer;' title='回到頂端'/></div>");
+  $("body").append("<a href='#about-us' id='goTopButton' class='fas fa-chevron-up' style='display: none; z-index: 5; cursor: pointer;' title='回到頂端'/></a>");
   const locatioin = 2 / 3, // 按鈕出現在螢幕的高度
     right = 10, // 距離右邊 px 值
     opacity = 0.5, // 透明度

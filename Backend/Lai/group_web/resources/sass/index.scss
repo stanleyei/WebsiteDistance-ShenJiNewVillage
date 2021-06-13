@@ -58,14 +58,14 @@ h6 {
 .logo-img {
     @include size(5.729vw, 5.729vw);
     position: absolute;
-    top: 3vh;
+    top: 2.8vw;
     right: 11.5vw;
 }
 
 .logo-text {
     @include size(7.552vw, 4.48vw);
     position: absolute;
-    top: 5.5vh;
+    top: 3.8vw;
     right: 2.6vw;
 }
 
@@ -538,7 +538,7 @@ header {
     border: 1.04vw solid $main-color;
 
     .store-container {
-        @include size(86vw, 76vh);
+        @include size(86vw, 80vh);
 
         .store-title {
             position: relative;
@@ -564,6 +564,7 @@ header {
 
         article {
             @include flex();
+            padding-top: 4.63vh;
             padding-left: 5.73vw;
 
             .shop-window {
@@ -577,8 +578,7 @@ header {
                     @include size(56vw, 36.5625vw);
                     max-height: 61vh;
                     position: relative;
-                    padding-top: 4.63vh;
-                    z-index: 99;
+                    z-index: 48;
 
                     &:hover {
                         ~figure::before {
@@ -593,14 +593,13 @@ header {
                             opacity: 1;
                         }
                     }
-
                 }
 
                 figure {
                     @include size(30.47vw, 22.135vw);
                     max-height: 39vh;
                     position: absolute;
-                    transform: translateY(-5%);
+                    transform: translateY(-17%);
                     background-size: cover;
                     background-position: center;
                     background-repeat: no-repeat;
@@ -644,7 +643,7 @@ header {
                     position: absolute;
                     left: 24.5vw;
                     padding: 0;
-                    z-index: 9999;
+                    z-index: 49;
                     opacity: 0;
                     transition: 1s ease-in-out;
 

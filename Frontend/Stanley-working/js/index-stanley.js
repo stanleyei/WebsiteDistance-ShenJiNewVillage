@@ -2,7 +2,7 @@
 new fullpage('#fullpage', {
   autoScrolling: true,
   afterLoad: function (origin, destination, direction) {
-    if (destination.index == 3 && direction === 'down') {
+    if (destination.index == 4 && direction === 'down') {
       fullpage_api.setAutoScrolling(false); //關閉自動滾動模式
       fullpage_api.setFitToSection(false); //關閉滾輪自動回到最近section的效果
     }
@@ -10,6 +10,10 @@ new fullpage('#fullpage', {
       fullpage_api.setAutoScrolling(true); //開啟自動滾動模式
     }
   },
+  menu: '#fullpageMenu',
+  //配置導航,位置，提示,顯示當前位置
+  navigation: true,
+  navigation: 'left',
 });
 
 //header的點擊拉出效果
@@ -132,19 +136,19 @@ shopBtns.forEach(btns => {
     this.classList.add('bottom-line');
     shopPhotos.forEach(photo => {
       photo.classList.add('figure-hide');
-      if(this.dataset.img === photo.dataset.photo){
+      if (this.dataset.img === photo.dataset.photo) {
         photo.classList.remove('figure-hide');
       };
     });
     windowTitles.forEach(title => {
       title.classList.add('title-hide');
-      if(this.dataset.img === title.dataset.title){
+      if (this.dataset.img === title.dataset.title) {
         title.classList.remove('title-hide');
       };
     });
     checkBtnLists.forEach(list => {
       list.classList.add('check-list-hide');
-      if(this.dataset.img === list.dataset.list){
+      if (this.dataset.img === list.dataset.list) {
         list.classList.remove('check-list-hide');
       };
     });

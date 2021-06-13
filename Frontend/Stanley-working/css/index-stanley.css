@@ -945,7 +945,7 @@ header .nav-img.active {
   height: 36.5625vw;
   max-height: 61vh;
   position: relative;
-  z-index: 99;
+  z-index: 48;
 }
 
 #store .store-container article .shop-window > img:hover ~ figure::before {
@@ -1016,7 +1016,7 @@ header .nav-img.active {
   position: absolute;
   left: 24.5vw;
   padding: 0;
-  z-index: 9999;
+  z-index: 49;
   opacity: 0;
   -webkit-transition: 1s ease-in-out;
   transition: 1s ease-in-out;

@@ -578,7 +578,7 @@ header {
                     @include size(56vw, 36.5625vw);
                     max-height: 61vh;
                     position: relative;
-                    z-index: 99;
+                    z-index: 48;
 
                     &:hover {
                         ~figure::before {
@@ -643,7 +643,7 @@ header {
                     position: absolute;
                     left: 24.5vw;
                     padding: 0;
-                    z-index: 9999;
+                    z-index: 49;
                     opacity: 0;
                     transition: 1s ease-in-out;
 
