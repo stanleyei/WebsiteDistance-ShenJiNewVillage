@@ -52,7 +52,7 @@ class InfoImgController extends Controller
         }
         $mainData = InfoImg::create($data);
 
-        return redirect()->route('info_img.index');
+        return InfoImg::with('info')->get();
     }
 
     /**
@@ -103,7 +103,7 @@ class InfoImgController extends Controller
         }
         $dbData->update($data);
 
-        return redirect()->route('info_img.index');
+        return InfoImg::with('info')->get();
     }
 
     /**
@@ -123,28 +123,11 @@ class InfoImgController extends Controller
         // 資料庫刪除該筆資料
         $result = InfoImg::destroy($id);
 
-        return $result;
+        return InfoImg::with('info')->get();
     }
 
     public function indexDataTable()
     {
-        $response = InfoImg::all();
-
-        $data = [];
-
-        foreach ($response as $i) {
-            $data[] = [
-                'info_id' => $i->info->name,
-                'name' => $i->name,
-                'content' => $i->content,
-                'img' => "<div class='show-img' style='background-image: url({$i->img})'></div>",
-                'editBtn' => "<a href='/admin/info_img/{$i->id}/edit'><button class='btn btn-primary btn-edit'>編輯</button></a>",
-                'destroyBtn' => "<button class='btn btn-danger btn-destroy' onclick='destroyBtnFunction({$i->id})''>刪除</button>",
-            ];
-        }
-
-        $data = ['data' => $data];
-
-        return $data;
+        return InfoImg::with('info')->get();
     }
 }

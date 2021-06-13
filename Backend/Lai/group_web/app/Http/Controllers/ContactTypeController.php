@@ -14,7 +14,7 @@ class ContactTypeController extends Controller
      */
     public function index()
     {
-        $data = ContactType::get();
+        $data = ContactType::with('contactContentTypes')->get();
         return view('admin/contact_type/index', compact('data'));
     }
 
@@ -37,7 +37,7 @@ class ContactTypeController extends Controller
     public function store(Request $request)
     {
         ContactType::create($request->all());
-        return redirect()->route('contact_type.index');
+        return ContactType::with('contactContentTypes')->get();
     }
 
     /**
@@ -73,7 +73,7 @@ class ContactTypeController extends Controller
     public function update(Request $request, $id)
     {
         ContactType::find($id)->update($request->all());
-        return redirect()->route('contact_type.index');
+        return ContactType::with('contactContentTypes')->get();
     }
 
     /**
@@ -85,7 +85,7 @@ class ContactTypeController extends Controller
     public function destroy($id)
     {
         $result = ContactType::destroy($id);
-        return $result;
+        return ContactType::with('contactContentTypes')->get();
     }
 
     public function indexDataTable()
@@ -105,6 +105,6 @@ class ContactTypeController extends Controller
 
         $data = ['data' => $data];
 
-        return $data;
+        return ContactType::with('contactContentTypes')->get();
     }
 }

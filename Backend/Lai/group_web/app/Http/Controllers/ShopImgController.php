@@ -52,7 +52,7 @@ class ShopImgController extends Controller
         }
         $mainData = ShopImg::create($data);
 
-        return redirect()->route('shop_img.index');
+        return ShopImg::with('shop')->get();
     }
 
     /**
@@ -103,7 +103,7 @@ class ShopImgController extends Controller
         }
         $dbData->update($data);
 
-        return redirect()->route('shop_img.index');
+        return ShopImg::with('shop')->get();
     }
 
     /**
@@ -123,7 +123,7 @@ class ShopImgController extends Controller
         // 資料庫刪除該筆資料
         $result = ShopImg::destroy($id);
 
-        return $result;
+        return ShopImg::with('shop')->get();
     }
 
     public function indexDataTable()
@@ -144,6 +144,6 @@ class ShopImgController extends Controller
 
         $data = ['data' => $data];
 
-        return $data;
+        return ShopImg::with('shop')->get();
     }
 }

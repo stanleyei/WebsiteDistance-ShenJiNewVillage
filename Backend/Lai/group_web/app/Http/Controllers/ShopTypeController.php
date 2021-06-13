@@ -37,7 +37,7 @@ class ShopTypeController extends Controller
     public function store(Request $request)
     {
         ShopType::create($request->all());
-        return redirect()->route('shop_type.index');
+        return ShopType::with('shops')->get();
     }
 
     /**
@@ -73,7 +73,7 @@ class ShopTypeController extends Controller
     public function update(Request $request, $id)
     {
         ShopType::find($id)->update($request->all());
-        return redirect()->route('shop_type.index');
+        return ShopType::with('shops')->get();
     }
 
     /**
@@ -85,7 +85,7 @@ class ShopTypeController extends Controller
     public function destroy($id)
     {
         $result = ShopType::destroy($id);
-        return $result;
+        return ShopType::with('shops')->get();
     }
 
     public function indexDataTable()
@@ -105,6 +105,6 @@ class ShopTypeController extends Controller
 
         $data = ['data' => $data];
 
-        return $data;
+        return ShopType::with('shops')->get();
     }
 }

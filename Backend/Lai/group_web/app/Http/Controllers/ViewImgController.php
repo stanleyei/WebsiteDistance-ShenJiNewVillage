@@ -52,7 +52,7 @@ class ViewImgController extends Controller
         }
         $mainData = ViewImg::create($data);
 
-        return redirect()->route('view_img.index');
+        return ViewImg::with('view')->get();
     }
 
     /**
@@ -103,7 +103,7 @@ class ViewImgController extends Controller
         }
         $dbData->update($data);
 
-        return redirect()->route('view_img.index');
+        return ViewImg::with('view')->get();
     }
 
     /**
@@ -123,7 +123,7 @@ class ViewImgController extends Controller
         // 資料庫刪除該筆資料
         $result = ViewImg::destroy($id);
 
-        return $result;
+        return ViewImg::with('view')->get();
     }
 
     public function indexDataTable()
@@ -143,6 +143,6 @@ class ViewImgController extends Controller
 
         $data = ['data' => $data];
 
-        return $data;
+        return ViewImg::with('view')->get();
     }
 }

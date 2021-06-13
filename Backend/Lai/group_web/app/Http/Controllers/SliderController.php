@@ -50,7 +50,7 @@ class SliderController extends Controller
         }
         $mainData = Slider::create($data);
 
-        return redirect()->route('slider.index');
+        return Slider::get();
     }
 
     /**
@@ -100,7 +100,7 @@ class SliderController extends Controller
         }
         $dbData->update($data);
 
-        return redirect()->route('slider.index');
+        return Slider::get();
     }
 
     /**
@@ -120,7 +120,7 @@ class SliderController extends Controller
         // 資料庫刪除該筆資料
         $result = Slider::destroy($id);
 
-        return $result;
+        return Slider::get();
     }
 
     public function indexDataTable()
@@ -141,6 +141,6 @@ class SliderController extends Controller
 
         $data = ['data' => $data];
 
-        return $data;
+        return Slider::get();
     }
 }
