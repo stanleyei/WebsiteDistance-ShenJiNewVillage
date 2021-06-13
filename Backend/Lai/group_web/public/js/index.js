@@ -119,9 +119,6 @@ navTaps.forEach(tab => {
   });
 });
 
-//店家介紹-點擊店家名稱增加底線效果
-
-
 //店家介紹-點擊店家名稱切換圖片效果
 const shopBtns = document.querySelectorAll('.shop-list > div > span');
 const shopPhotos = document.querySelectorAll('.shop-window > figure');

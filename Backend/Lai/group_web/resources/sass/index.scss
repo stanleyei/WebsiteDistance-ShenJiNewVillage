@@ -721,7 +721,8 @@ header {
                             cursor: pointer;
 
                             &:hover {
-
+                                border-bottom: none;
+                                
                                 &::before {
                                     @include size(100%, 3px);
                                     content: '';
@@ -865,7 +866,7 @@ header {
                 display: flex;
 
                 .traffic-logo {
-                    @include size(190px, 190px);
+                    @include size(9.896vw, 9.896vw);
 
                     .traffic-icon {
                         @extend %title-tra-circle;
@@ -877,19 +878,19 @@ header {
                 }
 
                 .traffic-content {
-                    height: 190px;
+                    height: 17.59vh;
                     display: flex;
                     align-items: center;
 
                     .traffic-content-text {
-                        @include size(685px, 114px);
+                        @include size(35.67vw, 14.81vh);
                         @extend %title-tra-contentarea;
                         display: flex;
                         align-items: center;
 
                         p {
                             @extend %title-tra-contenttext;
-                            line-height: 60px;
+                            line-height: 4.17vh;
                         }
                     }
                 }
@@ -901,7 +902,7 @@ header {
                 display: flex;
 
                 .traffic-logo {
-                    @include size(190px, 190px);
+                    @include size(9.896vw, 9.896vw);
 
                     .traffic-icon {
                         @extend %title-tra-circle;
@@ -913,19 +914,19 @@ header {
                 }
 
                 .traffic-content {
-                    height: 190px;
+                    height: 17.59vh;
                     display: flex;
                     align-items: center;
 
                     .traffic-content-text {
-                        @include size(685px, 114px);
+                        @include size(35.67vw, 14.81vh);
                         @extend %title-tra-contentarea;
                         display: flex;
                         align-items: center;
 
                         p {
                             @extend %title-tra-contenttext;
-                            line-height: 60px;
+                            line-height: 4.17vh;
                         }
                     }
                 }
@@ -944,18 +945,15 @@ header {
     position: relative;
 
     .contact-container {
-        @include size($w:80vw, $h:80vh);
+        @include size(80vw, 80vh);
 
 
         .contact-title {
             position: relative;
-            padding-left: 60px;
+            padding-left: 3.125vw;
 
             &::before {
                 @extend %title-cube;
-                @include size(60px, 60px);
-                transform: translate(-50px, -20px);
-                z-index: -1;
             }
 
             h2 {
@@ -965,25 +963,23 @@ header {
 
             span {
                 @include font($h5);
-                letter-spacing: 0.1em;
 
                 &::before {
                     @extend %title-vertical-text;
                     content: 'About';
-
                 }
             }
         }
 
         .contact-main {
-            @include size($w:1000px, $h:800px);
+            @include size(52.08vw, 74.07vh);
             background-color: $form-bg;
             margin: auto;
             border-radius: 10px;
             position: relative;
 
             .contact-form-title {
-                @include size($w:100%, $h:100px);
+                @include size(100%, 9.26vh);
                 background-color: $form-title-bg;
                 border-radius: 10px 10px 0 0;
                 @include flex;
@@ -991,15 +987,15 @@ header {
                 .form-text {
 
                     h2 {
-                        font-size: 30px;
-                        line-height: 30px;
+                        font-size: $h3;
+                        line-height: $h3;
                         letter-spacing: 0.3em;
 
                     }
 
                     p {
-                        font-size: 18px;
-                        line-height: 30px;
+                        font-size: $h7;
+                        line-height: $h3;
                         letter-spacing: 0.05em;
                     }
                 }
@@ -1008,77 +1004,77 @@ header {
 
             .contact-form-main {
                 @include flex();
-                padding-top: 71px;
+                padding-top: 6.57vh;
 
                 .contact-form {
-                    width: 550px;
+                    width: 28.65vw;
                     padding: 2px;
 
                     .form-type {
-                        @include size($w:150px, $h:41px);
+                        @include size(7.81vw, 3.8vh);
                         background-color: $title-bg;
                         border-radius: 5px;
-                        color: #fff;
+                        color: $footer-text;
                         position: absolute;
-                        top: 140px;
-                        right: 43px;
+                        top: 12.96vh;
+                        right: 2.24vw;
                     }
 
 
                     p {
                         font-size: $h7;
-                        line-height: 40px;
+                        line-height: 3.7vh;
                         letter-spacing: 0.2em;
                         color: $main-color;
                         margin-left: 8px;
                     }
 
                     input {
-                        @include size($w:546px, $h:40px);
-                        border: 2px solid #e0e0e0;
+                        @include size(28.44vw, 3.7vh);
+                        border: 2px solid $form-title-bg;
 
                     }
 
                     select {
-                        @include size($w:193px, $h:40px);
+                        @include size(10.05vw, 3.7vh);
+                        @include font($h6);
                         border-radius: 4px;
-                        border: 2px solid #e0e0e0;
-                        background-color: #fff;
+                        border: 2px solid $form-title-bg;
+                        background-color: $footer-text;
                         color: $main-color;
 
-                    }
-
-                    textarea {
-                        @include size($w:546px, $h:135px);
-                        border-radius: 6px;
-                        border: 2px solid #e0e0e0;
-                    }
-
-                    .form-sendout {
-                        @include position($tp:727px, $lf:499px);
-                        @include size($w:237px, $h:50px);
-                        // transform:translate(10%,10%);
-                        background-color: $title-bg;
-                        border-radius: 6px;
-                        color: #fff;
-                        font-size: 22px;
-                        line-height: 50px;
-                        letter-spacing: 0.2em;
-                    }
-
-                    .form-storename {
-                        margin-bottom: 15px;
-                    }
-
-                    .form-producttype {
-                        margin-bottom: 35px;
-
-                        p {
-                            line-height: 60px;
+                        option{
+                            @include size(10.05vw, 3.7vh);
                         }
                     }
 
+                    textarea {
+                        @include size(28.44vw, 12.5vh);
+                        border-radius: 6px;
+                        border: 2px solid $form-title-bg;  
+                    }
 
+                    .form-sendout {
+                        @include position(67.3vh, 26vw);
+                        @include size(12.34vw, 4.63vh);
+                        @include font($h6, center, inherit, 0.2em);
+                        // transform:translate(10%,10%);
+                        background-color: $title-bg;
+                        border-radius: 6px;
+                        color: $footer-text;
+                    }
+
+                    .form-storename {
+                        margin-bottom: 1.39vh;
+                    }
+
+                    .form-producttype {
+                        margin-bottom: 3.24vh;
+
+                        p {
+                            line-height: 5.56vh;
+                        }
+                    }
                 }
             }
 
@@ -1088,31 +1084,34 @@ header {
 }
 
 footer {
-    @include size(100%, 700px);
+    @include size(100%, 64.81vh);
     @include flex();
     background-color: $footer-bg;
     position: relative;
     color: $footer-text;
 
     .footer-logo-img {
-        @include position(550px, 160px, 0, 0);
+        @include size(4.84vw, 4.84vw);
+        @include position(50.92vh, 8.3vw, 0, 0);
     }
 
     .footer-logo-text {
-        @include position(550px, 160px, 90%, 0);
+        @include size(7.55vw, 4.48vw);
+        @include position(50.92vh, 8.3vw, 90%, 0);
     }
 
     .footer-container {
-        @include size(83%, 622px);
+        @include size(83%, 57.6vh);
         overflow: hidden;
-        margin-top: 40px;
+        margin-top: 3.7vh;
 
         h2 {
-            @include font($h2, start, 49px, 0.15em);
+            @include font($h2, start, 4.53vh, 0.15em);
+            margin-bottom: 6.48vh;
         }
 
         article {
-            @include size(100%, 519px);
+            @include size(100%, 43.99vh);
             display: grid;
             grid-template-columns: repeat(3, 1fr);
 
@@ -1121,49 +1120,46 @@ footer {
             }
 
             .inf-detil {
-                @include font($h6, start, 30px, 0.15em);
+                @include font($h6, start, 2.78vh, 0.15em);
                 padding-left: 28px;
 
                 &>div:nth-child(2) {
-                    padding-left: 60.5px;
+                    padding-left: 3.151vw;
                 }
             }
 
             .open-detil {
-                @include size(238px, 100%);
+                @include size(12.4vw, 100%);
                 padding-left: 18px;
 
                 .date-box {
                     @include flex(start, start);
-                    @include font($h6, center, 30px, 0.15em);
+                    @include font($h6, center, 2.78vh, 0.15em);
 
                     .date-box {
-                        @include size(80px, 40px);
+                        @include size(4.17vw, 3.7vh);
                         @include flex();
                         border: $footer-text 1px solid;
                         border-radius: 60px;
                     }
 
                     span {
-                        @include size(60px, 40px);
-                        line-height: 40px;
+                        @include size(3.125vw, 3.7vh);
+                        line-height: 3.7vh;
                     }
                 }
 
                 time {
                     @include flex();
-                    @include font($h6, center, 30px, 0.15em);
+                    @include font($h6, center, 2.78vh, 0.15em);
                     padding-top: 13px;
                 }
-            }
-
-            .fb-page {
-                margin-top: 27px;
             }
         }
 
         >p {
-            @include font($h6, center, 30px, 0.05em);
+            @include font($h6, center, 2.78vh, 0.05em);
+            margin: 0;
         }
     }
 }

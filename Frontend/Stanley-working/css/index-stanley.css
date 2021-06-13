@@ -1109,6 +1109,10 @@ header .nav-img.active {
   cursor: pointer;
 }
 
+#store .store-container article nav .shop-list > div span:hover {
+  border-bottom: none;
+}
+
 #store .store-container article nav .shop-list > div span:hover::before {
   width: 100%;
   height: 3px;
@@ -1271,12 +1275,12 @@ header .nav-img.active {
 }
 
 #traffic .traffic-container .traffic-main .traffic-car .traffic-logo {
-  width: 190px;
-  height: 190px;
+  width: 9.896vw;
+  height: 9.896vw;
 }
 
 #traffic .traffic-container .traffic-main .traffic-car .traffic-content {
-  height: 190px;
+  height: 17.59vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1286,8 +1290,8 @@ header .nav-img.active {
 }
 
 #traffic .traffic-container .traffic-main .traffic-car .traffic-content .traffic-content-text {
-  width: 685px;
-  height: 114px;
+  width: 35.67vw;
+  height: 14.81vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1297,7 +1301,7 @@ header .nav-img.active {
 }
 
 #traffic .traffic-container .traffic-main .traffic-car .traffic-content .traffic-content-text p {
-  line-height: 60px;
+  line-height: 4.17vh;
 }
 
 #traffic .traffic-container .traffic-main .traffic-bike {
@@ -1309,12 +1313,12 @@ header .nav-img.active {
 }
 
 #traffic .traffic-container .traffic-main .traffic-bike .traffic-logo {
-  width: 190px;
-  height: 190px;
+  width: 9.896vw;
+  height: 9.896vw;
 }
 
 #traffic .traffic-container .traffic-main .traffic-bike .traffic-content {
-  height: 190px;
+  height: 17.59vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1324,8 +1328,8 @@ header .nav-img.active {
 }
 
 #traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text {
-  width: 685px;
-  height: 114px;
+  width: 35.67vw;
+  height: 14.81vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1335,7 +1339,7 @@ header .nav-img.active {
 }
 
 #traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text p {
-  line-height: 60px;
+  line-height: 4.17vh;
 }
 
 #contact {
@@ -1361,15 +1365,7 @@ header .nav-img.active {
 
 #contact .contact-container .contact-title {
   position: relative;
-  padding-left: 60px;
-}
-
-#contact .contact-container .contact-title::before {
-  width: 60px;
-  height: 60px;
-  -webkit-transform: translate(-50px, -20px);
-          transform: translate(-50px, -20px);
-  z-index: -1;
+  padding-left: 3.125vw;
 }
 
 #contact .contact-container .contact-title h2 {
@@ -1385,7 +1381,6 @@ header .nav-img.active {
   text-align: center;
   line-height: inherit;
   letter-spacing: 0.1em;
-  letter-spacing: 0.1em;
 }
 
 #contact .contact-container .contact-title span::before {
@@ -1393,8 +1388,8 @@ header .nav-img.active {
 }
 
 #contact .contact-container .contact-main {
-  width: 1000px;
-  height: 800px;
+  width: 52.08vw;
+  height: 74.07vh;
   background-color: #F2F2F2;
   margin: auto;
   border-radius: 10px;
@@ -1403,7 +1398,7 @@ header .nav-img.active {
 
 #contact .contact-container .contact-main .contact-form-title {
   width: 100%;
-  height: 100px;
+  height: 9.26vh;
   background-color: #E0E0E0;
   border-radius: 10px 10px 0 0;
   display: -webkit-box;
@@ -1418,14 +1413,14 @@ header .nav-img.active {
 }
 
 #contact .contact-container .contact-main .contact-form-title .form-text h2 {
-  font-size: 30px;
-  line-height: 30px;
+  font-size: 1.458vw;
+  line-height: 1.458vw;
   letter-spacing: 0.3em;
 }
 
 #contact .contact-container .contact-main .contact-form-title .form-text p {
-  font-size: 18px;
-  line-height: 30px;
+  font-size: 0.9375vw;
+  line-height: 1.458vw;
   letter-spacing: 0.05em;
 }
 
@@ -1439,86 +1434,96 @@ header .nav-img.active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 71px;
+  padding-top: 6.57vh;
 }
 
 #contact .contact-container .contact-main .contact-form-main .contact-form {
-  width: 550px;
+  width: 28.65vw;
   padding: 2px;
 }
 
 #contact .contact-container .contact-main .contact-form-main .contact-form .form-type {
-  width: 150px;
-  height: 41px;
+  width: 7.81vw;
+  height: 3.8vh;
   background-color: #D28E76;
   border-radius: 5px;
-  color: #fff;
+  color: #ffffff;
   position: absolute;
-  top: 140px;
-  right: 43px;
+  top: 12.96vh;
+  right: 2.24vw;
 }
 
 #contact .contact-container .contact-main .contact-form-main .contact-form p {
   font-size: 0.9375vw;
-  line-height: 40px;
+  line-height: 3.7vh;
   letter-spacing: 0.2em;
   color: #54291c;
   margin-left: 8px;
 }
 
 #contact .contact-container .contact-main .contact-form-main .contact-form input {
-  width: 546px;
-  height: 40px;
-  border: 2px solid #e0e0e0;
+  width: 28.44vw;
+  height: 3.7vh;
+  border: 2px solid #E0E0E0;
 }
 
 #contact .contact-container .contact-main .contact-form-main .contact-form select {
-  width: 193px;
-  height: 40px;
+  width: 10.05vw;
+  height: 3.7vh;
+  font-size: 1.146vw;
+  text-align: center;
+  line-height: inherit;
+  letter-spacing: 0.1em;
   border-radius: 4px;
-  border: 2px solid #e0e0e0;
-  background-color: #fff;
+  border: 2px solid #E0E0E0;
+  background-color: #ffffff;
   color: #54291c;
 }
 
+#contact .contact-container .contact-main .contact-form-main .contact-form select option {
+  width: 10.05vw;
+  height: 3.7vh;
+}
+
 #contact .contact-container .contact-main .contact-form-main .contact-form textarea {
-  width: 546px;
-  height: 135px;
+  width: 28.44vw;
+  height: 12.5vh;
   border-radius: 6px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid #E0E0E0;
 }
 
 #contact .contact-container .contact-main .contact-form-main .contact-form .form-sendout {
   position: absolute;
-  top: 727px;
-  left: 499px;
+  top: 67.3vh;
+  left: 26vw;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 237px;
-  height: 50px;
+  width: 12.34vw;
+  height: 4.63vh;
+  font-size: 1.146vw;
+  text-align: center;
+  line-height: inherit;
+  letter-spacing: 0.2em;
   background-color: #D28E76;
   border-radius: 6px;
-  color: #fff;
-  font-size: 22px;
-  line-height: 50px;
-  letter-spacing: 0.2em;
+  color: #ffffff;
 }
 
 #contact .contact-container .contact-main .contact-form-main .contact-form .form-storename {
-  margin-bottom: 15px;
+  margin-bottom: 1.39vh;
 }
 
 #contact .contact-container .contact-main .contact-form-main .contact-form .form-producttype {
-  margin-bottom: 35px;
+  margin-bottom: 3.24vh;
 }
 
 #contact .contact-container .contact-main .contact-form-main .contact-form .form-producttype p {
-  line-height: 60px;
+  line-height: 5.56vh;
 }
 
 footer {
   width: 100%;
-  height: 700px;
+  height: 64.81vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1534,38 +1539,43 @@ footer {
 }
 
 footer .footer-logo-img {
+  width: 4.84vw;
+  height: 4.84vw;
   position: absolute;
-  top: 550px;
-  left: 160px;
+  top: 50.92vh;
+  left: 8.3vw;
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
 }
 
 footer .footer-logo-text {
+  width: 7.55vw;
+  height: 4.48vw;
   position: absolute;
-  top: 550px;
-  left: 160px;
+  top: 50.92vh;
+  left: 8.3vw;
   -webkit-transform: translate(90%, 0);
           transform: translate(90%, 0);
 }
 
 footer .footer-container {
   width: 83%;
-  height: 622px;
+  height: 57.6vh;
   overflow: hidden;
-  margin-top: 40px;
+  margin-top: 3.7vh;
 }
 
 footer .footer-container h2 {
   font-size: 1.875vw;
   text-align: start;
-  line-height: 49px;
+  line-height: 4.53vh;
   letter-spacing: 0.15em;
+  margin-bottom: 6.48vh;
 }
 
 footer .footer-container article {
   width: 100%;
-  height: 519px;
+  height: 43.99vh;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
@@ -1582,17 +1592,17 @@ footer .footer-container article h3 {
 footer .footer-container article .inf-detil {
   font-size: 1.146vw;
   text-align: start;
-  line-height: 30px;
+  line-height: 2.78vh;
   letter-spacing: 0.15em;
   padding-left: 28px;
 }
 
 footer .footer-container article .inf-detil > div:nth-child(2) {
-  padding-left: 60.5px;
+  padding-left: 3.151vw;
 }
 
 footer .footer-container article .open-detil {
-  width: 238px;
+  width: 12.4vw;
   height: 100%;
   padding-left: 18px;
 }
@@ -1609,13 +1619,13 @@ footer .footer-container article .open-detil .date-box {
           align-items: start;
   font-size: 1.146vw;
   text-align: center;
-  line-height: 30px;
+  line-height: 2.78vh;
   letter-spacing: 0.15em;
 }
 
 footer .footer-container article .open-detil .date-box .date-box {
-  width: 80px;
-  height: 40px;
+  width: 4.17vw;
+  height: 3.7vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1630,9 +1640,9 @@ footer .footer-container article .open-detil .date-box .date-box {
 }
 
 footer .footer-container article .open-detil .date-box span {
-  width: 60px;
-  height: 40px;
-  line-height: 40px;
+  width: 3.125vw;
+  height: 3.7vh;
+  line-height: 3.7vh;
 }
 
 footer .footer-container article .open-detil time {
@@ -1647,19 +1657,16 @@ footer .footer-container article .open-detil time {
           align-items: center;
   font-size: 1.146vw;
   text-align: center;
-  line-height: 30px;
+  line-height: 2.78vh;
   letter-spacing: 0.15em;
   padding-top: 13px;
-}
-
-footer .footer-container article .fb-page {
-  margin-top: 27px;
 }
 
 footer .footer-container > p {
   font-size: 1.146vw;
   text-align: center;
-  line-height: 30px;
+  line-height: 2.78vh;
   letter-spacing: 0.05em;
+  margin: 0;
 }
 /*# sourceMappingURL=index-stanley.css.map */
