@@ -111,6 +111,7 @@ function focusChange(dateBtns) {
 //店家介紹-切換店家分類按鈕
 const navTaps = document.querySelectorAll('.nav-tap');
 const shopList = document.querySelectorAll('.shop-list');
+const tapChange = document.querySelectorAll('.tap-change');
 navTaps.forEach(tab => {
   tab.addEventListener('click', function () {
     navTaps.forEach(tab => {
@@ -118,14 +119,23 @@ navTaps.forEach(tab => {
     })
     this.classList.add('tap-active');
     shopList.forEach(list => {
-      list.classList.toggle('list-active');
+      list.classList.add('list-active');
+      if(list.dataset.title === this.dataset.title){
+        list.classList.remove('list-active');
+      }
     })
+    tapChange.forEach(box => {
+      box.classList.add('photo-none');
+      if(box.dataset.title === this.dataset.title){
+        box.classList.remove('photo-none');
+      };
+    });
   });
 });
 
 //店家介紹-點擊店家名稱切換圖片效果
 const shopBtns = document.querySelectorAll('.shop-list > div > span');
-const shopPhotos = document.querySelectorAll('.shop-window > figure');
+const shopPhotos = document.querySelectorAll('.figure-box figure');
 const windowTitles = document.querySelectorAll('.window-title');
 const checkBtnLists = document.querySelectorAll('.shop-window > ul');
 shopBtns.forEach(btns => {
@@ -135,10 +145,11 @@ shopBtns.forEach(btns => {
     });
     this.classList.add('bottom-line');
     shopPhotos.forEach(photo => {
-      photo.classList.add('figure-hide');
-      if (this.dataset.img === photo.dataset.photo) {
-        photo.classList.remove('figure-hide');
-      };
+      this.parentNode.parentNode.className === 'food-shop shop-list'
+        ?
+        photo.style.transform = `translateX(-${this.dataset.img * 100}%)`
+        :
+        photo.style.transform = `translateX(-${(Number(this.dataset.img) - 7) * 100}%)`
     });
     windowTitles.forEach(title => {
       title.classList.add('title-hide');
