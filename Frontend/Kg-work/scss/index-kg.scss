@@ -228,48 +228,56 @@ header {
     @include flex;
     position: relative;
     overflow: hidden;
-    .view-backimg{
-        @include size($w:100%, $h:100%);
-        
-        background-color:#fff;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        grid-auto-rows: 350px;
-        position: absolute;
-        top:0;
-        left:0;
-        z-index: 10;
-        // display: none;
 
-        a{
-            text-decoration: none;
-            color: $store-tag-f-bg;
-        }
-           .view-pics{
-               @include size(320px,300px);
-               margin: 20px auto;
-               border: 1px solid black;
-               border-radius: 20px;
-               
-               
-               .view-pic{
-                @include size(280px,200px);
-                margin: 20px auto;
-                border: 1px solid black;
+    .view-album {
+           @include size($w:100vw,$h:100vh);
+           position: absolute;
+           top: 0;
+           left: 0;
+           z-index: 10;
+           background-color: #f2f2f2;
+           display: none;
+        .view-backimg {
+            @include size($w:80%, $h:100%);
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-auto-rows: 350px;
+           
+            // display: none;
+
+            a {
+                text-decoration: none;
+                color: $store-tag-f-bg;
+            }
+
+            .view-pics {
+                @include size(95%, 330px);
+                background-color: #fff;
+                margin: 10px auto;
+                border: 1px solid #ccc;
                 border-radius: 20px;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-               }
 
-               .view-pic-des{
-                   margin-left: 30px;
-                  
-               }
 
-           }
+                .view-pic {
+                    @include size(90%, 230px);
+                    margin: 20px auto 10px;
+                    border: 1px solid black;
+                    border-radius: 20px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
 
-        
+                .view-pic-des {
+                    margin-left: 30px;
+
+                }
+
+            }
+
+
+        }
     }
 
     .view-container {
@@ -308,7 +316,7 @@ header {
             width: 100vw;
             height: 90vh;
             // background-color: rgba(0, 0, 0, 0.7);
-            padding: 10px 0 ;
+            padding: 10px 0;
             position: absolute;
             left: 0;
 
@@ -323,32 +331,28 @@ header {
                 .swiper-wrapper {
                     padding: 20px 0;
 
-                    .swiper-slide-active {
-                       
-                        transform: scale(1.2);
-                        transition: .4s;                           
-                    }
+                   
 
                     .swiper-slide {
                         @include size(280px, 460px);
-                        margin-top:170px ;
+                        margin-top: 170px;
                         border-radius: 20px;
                         text-align: center;
-                        font-size: 18px;                       
+                        font-size: $h7;
                         // transition: 250ms all;
 
-                        &:hover {
-                            transform: scale(1.2);
-                            z-index: 1;
-                        }
+                        // &:hover {
+                        //     transform: scale(1.2);
+                        //     z-index: 1;
+                        // }
 
-                        &:first-child:hover {
-                            margin: 0 30px;
-                        }
+                        // &:first-child:hover {
+                        //     margin: 0 30px;
+                        // }
 
-                        &:last-child:hover {
-                            margin: 0 -30px;
-                        }
+                        // &:last-child:hover {
+                        //     margin: 0 -30px;
+                        // }
 
                         .view-card {
                             @include size(280px, 460px);
@@ -360,12 +364,12 @@ header {
                             line-height: 30px;
                             padding-top: 25px;
 
+                            
 
                             span {
                                 display: block;
                                 margin: 10px auto 25px;
                                 @include size(230px, 180px);
-                                background-image: url('/img/lu-river.jpg');
                                 background-position: center;
                                 background-size: cover;
                             }
@@ -397,26 +401,34 @@ header {
                         -webkit-align-items: center;
                         align-items: center;
                     }
+                    .swiper-slide-active {
+                        transform: scale(1.2);
+                        transition: .4s;
+                        .view-card {
+                            background-color: #000!important;
+                        
+                    }
                 }
 
                 .swiper-button-next {
                     position: absolute;
-                    top: 42%;
-                    right: 38%;
+                    top: 38%;
+                    right: 37%;
                 }
-
                 .swiper-button-prev {
                     position: absolute;
-                    top: 42%;
-                    left: 38%;
-
+                    top: 38%;
+                    left: 37%;
                 }
             }
         }
-
-
     }
 }
+.view-card .viewcard-active{
+    background-color: black;
+   
+}
+
 
 .traffic {
     @include size($w:100%, $h:100vh);
