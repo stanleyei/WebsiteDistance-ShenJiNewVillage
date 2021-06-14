@@ -365,18 +365,18 @@
     const infMonth = document.querySelectorAll('.inf-date > span');
     const newInfs = {!! $infs !!}.map(inf => inf.infos[0].date_start);
     let monthFirstNumber = [];
-    let monthLastNumber = [];
+    let monthFinalNumber = [];
     newInfs.forEach(inf => {
         const infsDate = inf.split('-');
-        monthFirstNumber = infsDate[1].split('0');
-        monthFirstNumber.length === 1
-         ?
-         monthLastNumber.push(monthFirstNumber[0])
-         :
-         monthLastNumber.push(monthFirstNumber[1]);
+        if(infsDate[1] === '10' || infsDate[1] === '11' || infsDate[1] === '12'){
+            monthFinalNumber.push(infsDate[1]);
+        }else{
+            monthFirstNumber = infsDate[1].split('0');
+            monthFinalNumber.push(monthFirstNumber[1]);
+        }
     });
-    infMonth.forEach( (month, i=0) => {
-        month.textContent = monthData[monthLastNumber[i] - 1];
+    infMonth.forEach( (month, i = 0) => {
+        month.textContent = monthData[monthFinalNumber[i] - 1];
         i++;
     });
 
