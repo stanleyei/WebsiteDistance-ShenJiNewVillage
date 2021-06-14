@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\InfoTypes;
-use App\ShopType;
+use App\Shop;
 use App\Slider;
+use App\ShopType;
+use App\InfoTypes;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -25,7 +26,8 @@ class FrontendController extends Controller
 
     public function store()
     {
-        return view('frontend.store-page');
+        $shops = Shop::get();
+        return view('frontend.store-page', compact('shops'));
     }
 
     public function newsSwitch(Request $request)

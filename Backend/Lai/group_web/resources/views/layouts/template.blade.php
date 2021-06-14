@@ -33,43 +33,43 @@
         <nav>
             <ul class="ulbar" id="myMenu">
                 <li data-menuanchor="firstPage">
-                    <a href="#firstPage" title="關於審計">
+                    <a href="/#firstPage" title="關於審計">
                         <span class="icon far fa-address-book"></span>
                         <span class="title">關於審計</span>
                     </a>
                 </li>
                 <li data-menuanchor="secondPage">
-                    <a href="#secondPage" title="審計新訊">
+                    <a href="/#secondPage" title="審計新訊">
                         <span class="icon fab fa-angellist"></span>
                         <span class="title">審計新訊</span>
                     </a>
                 </li>
                 <li data-menuanchor="thirdPage">
-                    <a href="#thirdPage" title="園區地圖">
+                    <a href="/#thirdPage" title="園區地圖">
                         <span class="icon fas fa-map-marked-alt"></span>
                         <span class="title">園區地圖</span>
                     </a>
                 </li>
                 <li data-menuanchor="fourthPage">
-                    <a href="#fourthPage" title="商家介紹">
+                    <a href="/#fourthPage" title="商家介紹">
                         <span class="icon fas fa-store"></span>
                         <span class="title">商家介紹</span>
                     </a>
                 </li>
                 <li data-menuanchor="fifthPage">
-                    <a href="#fifthPage" title="周邊景點">
+                    <a href="/#fifthPage" title="周邊景點">
                         <span class="icon fas fa-map-marker-alt"></span>
                         <span class="title">周邊景點</span>
                     </a>
                 </li>
                 <li data-menuanchor="sixthPage">
-                    <a href="#sixthPage" title="交通資訊">
+                    <a href="/#sixthPage" title="交通資訊">
                         <span class="icon fas fa-bus-alt"></span>
                         <span class="title">交通資訊</span>
                     </a>
                 </li>
                 <li data-menuanchor="seventhPage">
-                    <a href="#seventhPage" title="聯絡審計">
+                    <a href="/#seventhPage" title="聯絡審計">
                         <span class="icon far fa-envelope"></span>
                         <span class="title">聯絡審計</span>
                     </a>
