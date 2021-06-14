@@ -16,8 +16,11 @@ class FrontendController extends Controller
         $sliders = Slider::get();
         $infs = InfoTypes::with('infos')->get();
         $shopType = ShopType::with('shops')->get();
+        $shops = Shop::with('shopImgs')->get();
+        $foodShops = Shop::with('shopImgs')->where('type_id', '1')->get();
+        $trinketShops = Shop::with('shopImgs')->where('type_id', '2')->get();
         $newShopTypes = $shopType->except([3]);
-        return view('frontend.index',compact('sliders', 'infs', 'newShopTypes'));
+        return view('frontend.index',compact('sliders', 'infs', 'newShopTypes', 'shops', 'foodShops', 'trinketShops'));
     }
 
     public function news()
@@ -27,7 +30,7 @@ class FrontendController extends Controller
 
     public function store()
     {
-        $shops = Shop::get();
+        $shops = Shop::with('shopImgs')->get();
         return view('frontend.store-page', compact('shops'));
     }
 

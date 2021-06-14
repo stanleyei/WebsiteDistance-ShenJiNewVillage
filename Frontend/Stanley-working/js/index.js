@@ -15,7 +15,7 @@ new fullpage('#fullpage', {
   navigation: true,
   navigation: 'left',
   //導航欄
-  anchors:['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage', 'sixthPage', 'seventhPage'],
+  anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage', 'sixthPage', 'seventhPage'],
   menu: '#myMenu',
 });
 
@@ -115,6 +115,9 @@ function focusChange(dateBtns) {
 const navTaps = document.querySelectorAll('.nav-tap');
 const shopList = document.querySelectorAll('.shop-list');
 const tapChange = document.querySelectorAll('.tap-change');
+const shopPhotos = document.querySelectorAll('.figure-box figure');
+const shopBtns = document.querySelectorAll('.shop-list > div > span');
+const windowTitles = document.querySelectorAll('.window-title');
 navTaps.forEach(tab => {
   tab.addEventListener('click', function () {
     navTaps.forEach(tab => {
@@ -123,23 +126,37 @@ navTaps.forEach(tab => {
     this.classList.add('tap-active');
     shopList.forEach(list => {
       list.classList.add('list-active');
-      if(list.dataset.title === this.dataset.title){
+      if (list.dataset.title === this.dataset.title) {
         list.classList.remove('list-active');
       }
     })
     tapChange.forEach(box => {
       box.classList.add('photo-none');
-      if(box.dataset.title === this.dataset.title){
+      if (box.dataset.title === this.dataset.title) {
         box.classList.remove('photo-none');
+      };
+    });
+    shopPhotos.forEach(photo => {
+      photo.style.transform = `translateX(0%)`;
+    });
+    shopBtns.forEach(btn => {
+      btn.classList.remove('bottom-line');
+      if(btn.dataset.img === '0' || btn.dataset.img === '7'){
+        btn.classList.add('bottom-line');
+      }
+    });
+    windowTitles.forEach(title => {
+      title.classList.add('title-hide');
+      if (title.dataset.title === '7' && this.dataset.title === '2') {
+        title.classList.remove('title-hide');
+      }else if(title.dataset.title === '0' && this.dataset.title === '1'){
+        title.classList.remove('title-hide');
       };
     });
   });
 });
 
 //店家介紹-點擊店家名稱切換圖片效果
-const shopBtns = document.querySelectorAll('.shop-list > div > span');
-const shopPhotos = document.querySelectorAll('.figure-box figure');
-const windowTitles = document.querySelectorAll('.window-title');
 const checkBtnLists = document.querySelectorAll('.shop-window > ul');
 shopBtns.forEach(btns => {
   btns.addEventListener('click', function () {

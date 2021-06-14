@@ -97,45 +97,29 @@
             <article>
                 <div class="shop-window">
                     <img src="/img/shop-window.png" alt="窗戶的裝飾圖">
-                    <ul data-list="0">
+                    @foreach ($shops as $shop)
+                    <ul data-list="{{$shop->id - 1}}" class="{{$shop->id == 1 ? '' : 'check-list-hide'}}">
                         <li>
-                            <a href="/img/text-2.png" title="點我看大圖" class="check-btn photo-view"
-                                data-lightbox="food-shop-1" data-title="Two Day日日鬆餅">看大圖</a>
+                            <a href="{{$shop->shopImgs[0]->img}}" title="點我看大圖" class="check-btn photo-view"
+                                data-lightbox="food-shop-{{$shop->id}}" data-title="{{$shop->name}}">看大圖</a>
                         </li>
                         <li>
                             <a href="/store" title="點我看介紹" class="check-btn shop-view">看介紹</a>
                         </li>
                     </ul>
-                    <ul class="check-list-hide" data-list="1">
-                        <li>
-                            <a href="/img/text-3.png" title="點我看大圖" class="check-btn photo-view"
-                                data-lightbox="food-shop-2" data-title="三時杏仁">看大圖</a>
-                        </li>
-                        <li>
-                            <a href="/store" title="點我看介紹" class="check-btn shop-view">看介紹</a>
-                        </li>
-                    </ul>
-                    <div class="window-title" data-title="0">Two Day日日鬆餅</div>
-                    <div class="window-title title-hide" data-title="1">三時杏仁</div>
+                    <div class="window-title {{$shop->id == 1 ? '' : 'title-hide'}}" data-title="{{$shop->id - 1}}">{{$shop->name}}</div>
+                    @endforeach
                     <div class="hide-area">
                         <div class="figure-box">
                             <div class="tap-change" data-title="1">
-                                <figure style="background-image: url(/img/text-2.png);"></figure>
-                                <figure style="background-image: url(/img/text-3.png);"></figure>
-                                <figure style="background-image: url(/img/text-2.png);"></figure>
-                                <figure style="background-image: url(/img/text-3.png);"></figure>
-                                <figure style="background-image: url(/img/text-2.png);"></figure>
-                                <figure style="background-image: url(/img/text-3.png);"></figure>
-                                <figure style="background-image: url(/img/text-2.png);"></figure>
+                                @foreach ($foodShops as $shop)
+                                <figure style="background-image: url({{$shop->shopImgs[0]->img}});"></figure>
+                                @endforeach
                             </div>
                             <div class="tap-change" data-title="2">
-                                <figure style="background-image: url(/img/swiper-text.png);"></figure>
-                                <figure style="background-image: url(/img/text-3.png);"></figure>
-                                <figure style="background-image: url(/img/text-2.png);"></figure>
-                                <figure style="background-image: url(/img/swiper-text.png);"></figure>
-                                <figure style="background-image: url(/img/text-2.png);"></figure>
-                                <figure style="background-image: url(/img/text-3.png);"></figure>
-                                <figure style="background-image: url(/img/swiper-text.png);"></figure>
+                                @foreach ($trinketShops as $shop)
+                                <figure style="background-image: url({{$shop->shopImgs[0]->img}});"></figure>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -143,20 +127,24 @@
                 <nav>
                     <h3>商家介紹</h3>
                     <div class="nav-tap-list">
-                        <div class="nav-tap tap-active" data-title="1" title="{{$newShopTypes[0]->name}}">{{$newShopTypes[0]->name}}</div>
-                        <div class="nav-tap" data-title="2" title="{{$newShopTypes[1]->name}}">{{$newShopTypes[1]->name}}</div>
+                        <div class="nav-tap tap-active" data-title="1" title="{{$newShopTypes[0]->name}}">
+                            {{$newShopTypes[0]->name}}</div>
+                        <div class="nav-tap" data-title="2" title="{{$newShopTypes[1]->name}}">
+                            {{$newShopTypes[1]->name}}</div>
                     </div>
                     <div class="food-shop shop-list" data-title="1">
                         @foreach ($newShopTypes[0]->shops as $shop)
                         <div>
-                            <span class="{{$shop->id == 1 ? 'bottom-line' : ''}}" data-img="{{$shop->id - 1}}" title="{{$shop->name}}">{{$shop->name}}</span>
+                            <span class="{{$shop->id == 1 ? 'bottom-line' : ''}}" data-img="{{$shop->id - 1}}"
+                                title="{{$shop->name}}">{{$shop->name}}</span>
                         </div>
                         @endforeach
                     </div>
                     <div class="trinket-shop shop-list list-active" data-title="2">
                         @foreach ($newShopTypes[1]->shops as $shop)
                         <div>
-                            <span class="{{$shop->id == 8 ? 'bottom-line' : ''}}" data-img="{{$shop->id - 1}}" title="{{$shop->name}}">{{$shop->name}}</span>
+                            <span class="{{$shop->id == 8 ? 'bottom-line' : ''}}" data-img="{{$shop->id - 1}}"
+                                title="{{$shop->name}}">{{$shop->name}}</span>
                         </div>
                         @endforeach
                     </div>
