@@ -154,20 +154,24 @@ h6 {
   font-weight: bold;
 }
 
-.logo-img {
-  width: 5.729vw;
+.logo-link {
+  width: 15vw;
   height: 5.729vw;
   position: absolute;
-  top: 2.8vw;
-  right: 11.5vw;
+  right: 5vmin;
+  top: 5vmin;
+  z-index: 1;
 }
 
-.logo-text {
+.logo-link .logo-img {
+  width: 5.729vw;
+  height: 5.729vw;
+  margin-right: 0.521vw;
+}
+
+.logo-link .logo-text {
   width: 7.552vw;
   height: 4.48vw;
-  position: absolute;
-  top: 3.8vw;
-  right: 2.6vw;
 }
 
 #goTopButton {

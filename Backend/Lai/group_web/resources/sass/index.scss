@@ -55,18 +55,21 @@ h6 {
     height: 96.296vh !important;
 }
 
-.logo-img {
-    @include size(5.729vw, 5.729vw);
+.logo-link{
+    @include size(15vw, 5.729vw);
     position: absolute;
-    top: 2.8vw;
-    right: 11.5vw;
-}
+    right: 5vmin;
+    top: 5vmin;
+    z-index: 1;
 
-.logo-text {
-    @include size(7.552vw, 4.48vw);
-    position: absolute;
-    top: 3.8vw;
-    right: 2.6vw;
+    .logo-img {
+        @include size(5.729vw, 5.729vw);
+        margin-right: 0.521vw;
+    }
+    
+    .logo-text {
+        @include size(7.552vw, 4.48vw);
+    }
 }
 
 #goTopButton {
@@ -292,7 +295,7 @@ header {
                     overflow: hidden;
 
                     &:hover .swiper-button {
-                        opacity: 1;
+                        opacity: 0.8;
                     }
 
                     .about-us-slide {
@@ -581,9 +584,6 @@ header {
                     z-index: 48;
 
                     &:hover {
-                        ~figure::before {
-                            opacity: 0.3;
-                        }
 
                         ~ul {
                             opacity: 1;
@@ -592,36 +592,17 @@ header {
                         ~.window-title {
                             opacity: 1;
                         }
+
+                        ~.hide-area>.figure-box figure {
+
+                            &::before {
+                                opacity: 0.3;
+                            }
+                        }
                     }
-                }
-
-                figure {
-                    @include size(30.47vw, 22.135vw);
-                    max-height: 39vh;
-                    position: absolute;
-                    transform: translateY(-17%);
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    transition: 1s ease-in-out;
-
-                    &::before {
-                        @include size(100%, 100%);
-                        content: '';
-                        position: absolute;
-                        opacity: 0;
-                        background-color: black;
-                        transition: 1s ease-in-out;
-                    }
-
-                }
-
-                .figure-hide {
-                    opacity: 0;
                 }
 
                 .window-title {
-                    // @include size(16.56vw, 3.375vw);
                     @include font($h4, center, 3.375vw);
                     position: absolute;
                     border-radius: 3px;
@@ -650,7 +631,7 @@ header {
                     &:hover {
                         opacity: 1;
 
-                        ~figure::before {
+                        ~.hide-area>.figure-box figure::before {
                             opacity: 0.3;
                         }
 
@@ -660,23 +641,63 @@ header {
                     }
 
                     .check-btn {
-                        @include size(7vw, 3.375vw);
-                        @include font($h4, center, 3.375vw);
+                        @include size(6vw, 2.5vw);
+                        @include font($h4, center, 2.5vw);
                         position: absolute;
-                        transform: translate(-56%, -10%);
-                        border: solid 2px $footer-text;
+                        transform: translate(-50%, -10%);
+                        box-shadow: $nav-bg 0px 0px 30px;
+                        border-radius: 5px;
                         color: $footer-text;
                         cursor: pointer;
-
+                        background-color: #ffffff3b;
                     }
 
                     li:nth-child(2)>.check-btn {
-                        transform: translate(56%, -10%);
+                        transform: translate(60%, -10%);
                     }
                 }
 
                 .check-list-hide {
                     display: none;
+                }
+
+                .hide-area {
+                    @include size(30.47vw, 22.135vw);
+                    position: absolute;
+                    overflow: hidden;
+                    transform: translateY(-19%);
+
+                    .figure-box {
+                        display: flex;
+                        position: absolute;
+                        transition: 1s ease-in-out;
+
+                        .tap-change {
+                            display: flex;
+
+                            figure {
+                                @include size(30.47vw, 22.135vw);
+                                max-height: 43vh;
+                                background-size: cover;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                transition: 1s ease-in-out;
+
+                                &::before {
+                                    @include size(100%, 100%);
+                                    content: '';
+                                    position: absolute;
+                                    opacity: 0;
+                                    background-color: black;
+                                    transition: 1s ease-in-out;
+                                }
+                            }
+                        }
+
+                        .photo-none {
+                            display: none;
+                        }
+                    }
                 }
             }
 
@@ -721,7 +742,7 @@ header {
 
                             &:hover {
                                 border-bottom: none;
-                                
+
                                 &::before {
                                     @include size(100%, 3px);
                                     content: '';
@@ -743,7 +764,7 @@ header {
                             }
                         }
 
-                        .bottom-line{
+                        .bottom-line {
                             border-bottom: solid 3px $store-tag-f-bg;
                         }
                     }
@@ -1042,7 +1063,7 @@ header {
                         background-color: $footer-text;
                         color: $main-color;
 
-                        option{
+                        option {
                             @include size(10.05vw, 3.7vh);
                         }
                     }
@@ -1050,7 +1071,7 @@ header {
                     textarea {
                         @include size(28.44vw, 12.5vh);
                         border-radius: 6px;
-                        border: 2px solid $form-title-bg;  
+                        border: 2px solid $form-title-bg;
                     }
 
                     .form-sendout {

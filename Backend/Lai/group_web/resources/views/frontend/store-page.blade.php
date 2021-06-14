@@ -6,8 +6,10 @@
 
 @section('main')
 <main>
-    <img class="logo-img" src="{{asset('/img/Logo-img.png')}}" alt="審計新村LOGO插圖">
-    <img class="logo-text" src="{{asset('/img/Logo-text.png')}}" alt="審計新村LOGO文字">
+    <a href="/" class="logo-link">
+        <img class="logo-img" src="{{asset('/img/Logo-img.png')}}" alt="審計新村LOGO插圖">
+        <img class="logo-text" src="{{asset('/img/Logo-text.png')}}" alt="審計新村LOGO文字">
+    </a>
     <div class="store-page-container">
         <div class="store-title">
             <h2>店家資訊</h2>
@@ -20,18 +22,26 @@
             </div>
             <div class="photo-wall">
                 <div class="main-photo">
-                    <figure class="" style="background-image: url({{asset('/img/text-3.png')}});" data-photo="1"></figure>
-                    <figure class="" style="background-image: url({{asset('/img/text-2.png')}});" data-photo="2"></figure>
+                    <figure class="" style="background-image: url({{asset('/img/text-3.png')}});" data-photo="1">
+                    </figure>
+                    <figure class="" style="background-image: url({{asset('/img/text-2.png')}});" data-photo="2">
+                    </figure>
                     <figure style="background-image: url({{asset('/img/swiper-text.png')}});" data-photo="3"></figure>
-                    <figure class="" style="background-image: url({{asset('/img/text-3.png')}});" data-photo="4"></figure>
-                    <figure class="" style="background-image: url({{asset('/img/text-2.png')}});" data-photo="5"></figure>
+                    <figure class="" style="background-image: url({{asset('/img/text-3.png')}});" data-photo="4">
+                    </figure>
+                    <figure class="" style="background-image: url({{asset('/img/text-2.png')}});" data-photo="5">
+                    </figure>
                 </div>
                 <div class="nav-photo">
-                    <figure class="white-mask" style="background-image: url({{asset('/img/text-3.png')}});" data-photo="1"></figure>
-                    <figure class="white-mask" style="background-image: url({{asset('/img/text-2.png')}});" data-photo="2"></figure>
+                    <figure class="white-mask" style="background-image: url({{asset('/img/text-3.png')}});"
+                        data-photo="1"></figure>
+                    <figure class="white-mask" style="background-image: url({{asset('/img/text-2.png')}});"
+                        data-photo="2"></figure>
                     <figure style="background-image: url({{asset('/img/swiper-text.png')}});" data-photo="3"></figure>
-                    <figure class="white-mask" style="background-image: url({{asset('/img/text-3.png')}});" data-photo="4"></figure>
-                    <figure class="white-mask" style="background-image: url({{asset('/img/text-2.png')}});" data-photo="5"></figure>
+                    <figure class="white-mask" style="background-image: url({{asset('/img/text-3.png')}});"
+                        data-photo="4"></figure>
+                    <figure class="white-mask" style="background-image: url({{asset('/img/text-2.png')}});"
+                        data-photo="5"></figure>
                 </div>
             </div>
             <div class="down-content-photo" style="background-image: url({{asset('/img/text-3.png')}});"></div>

@@ -29,45 +29,45 @@
 <body>
     <header>
         <nav>
-            <ul class="ulbar">
-                <li>
-                    <a href="/#about-us" title="關於審計">
+            <ul class="ulbar" id="myMenu">
+                <li data-menuanchor="firstPage">
+                    <a href="#firstPage" title="關於審計">
                         <span class="icon far fa-address-book"></span>
                         <span class="title">關於審計</span>
                     </a>
                 </li>
-                <li>
-                    <a href="/#news" title="審計新訊">
+                <li data-menuanchor="secondPage">
+                    <a href="#secondPage" title="審計新訊">
                         <span class="icon fab fa-angellist"></span>
                         <span class="title">審計新訊</span>
                     </a>
                 </li>
-                <li>
-                    <a href="/#map" title="園區地圖">
+                <li data-menuanchor="thirdPage">
+                    <a href="#thirdPage" title="園區地圖">
                         <span class="icon fas fa-map-marked-alt"></span>
                         <span class="title">園區地圖</span>
                     </a>
                 </li>
-                <li>
-                    <a href="/#store" title="商家介紹">
+                <li data-menuanchor="fourthPage">
+                    <a href="#fourthPage" title="商家介紹">
                         <span class="icon fas fa-store"></span>
                         <span class="title">商家介紹</span>
                     </a>
                 </li>
-                <li>
-                    <a href="/#view" title="周邊景點">
+                <li data-menuanchor="fifthPage">
+                    <a href="#fifthPage" title="周邊景點">
                         <span class="icon fas fa-map-marker-alt"></span>
                         <span class="title">周邊景點</span>
                     </a>
                 </li>
-                <li>
-                    <a href="/#traffic" title="交通資訊">
+                <li data-menuanchor="sixthPage">
+                    <a href="#sixthPage" title="交通資訊">
                         <span class="icon fas fa-bus-alt"></span>
                         <span class="title">交通資訊</span>
                     </a>
                 </li>
-                <li>
-                    <a href="/#contact" title="聯絡審計">
+                <li data-menuanchor="seventhPage">
+                    <a href="#seventhPage" title="聯絡審計">
                         <span class="icon far fa-envelope"></span>
                         <span class="title">聯絡審計</span>
                     </a>

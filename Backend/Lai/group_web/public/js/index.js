@@ -10,6 +10,13 @@ new fullpage('#fullpage', {
       fullpage_api.setAutoScrolling(true); //開啟自動滾動模式
     }
   },
+  menu: '#fullpageMenu',
+  //配置導航,位置，提示,顯示當前位置
+  navigation: true,
+  navigation: 'left',
+  //導航欄
+  anchors:['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage', 'sixthPage', 'seventhPage'],
+  menu: '#myMenu',
 });
 
 //header的點擊拉出效果
@@ -107,6 +114,7 @@ function focusChange(dateBtns) {
 //店家介紹-切換店家分類按鈕
 const navTaps = document.querySelectorAll('.nav-tap');
 const shopList = document.querySelectorAll('.shop-list');
+const tapChange = document.querySelectorAll('.tap-change');
 navTaps.forEach(tab => {
   tab.addEventListener('click', function () {
     navTaps.forEach(tab => {
@@ -114,14 +122,23 @@ navTaps.forEach(tab => {
     })
     this.classList.add('tap-active');
     shopList.forEach(list => {
-      list.classList.toggle('list-active');
+      list.classList.add('list-active');
+      if(list.dataset.title === this.dataset.title){
+        list.classList.remove('list-active');
+      }
     })
+    tapChange.forEach(box => {
+      box.classList.add('photo-none');
+      if(box.dataset.title === this.dataset.title){
+        box.classList.remove('photo-none');
+      };
+    });
   });
 });
 
 //店家介紹-點擊店家名稱切換圖片效果
 const shopBtns = document.querySelectorAll('.shop-list > div > span');
-const shopPhotos = document.querySelectorAll('.shop-window > figure');
+const shopPhotos = document.querySelectorAll('.figure-box figure');
 const windowTitles = document.querySelectorAll('.window-title');
 const checkBtnLists = document.querySelectorAll('.shop-window > ul');
 shopBtns.forEach(btns => {
@@ -131,20 +148,21 @@ shopBtns.forEach(btns => {
     });
     this.classList.add('bottom-line');
     shopPhotos.forEach(photo => {
-      photo.classList.add('figure-hide');
-      if(this.dataset.img === photo.dataset.photo){
-        photo.classList.remove('figure-hide');
-      };
+      this.parentNode.parentNode.className === 'food-shop shop-list'
+        ?
+        photo.style.transform = `translateX(-${this.dataset.img * 100}%)`
+        :
+        photo.style.transform = `translateX(-${(Number(this.dataset.img) - 7) * 100}%)`
     });
     windowTitles.forEach(title => {
       title.classList.add('title-hide');
-      if(this.dataset.img === title.dataset.title){
+      if (this.dataset.img === title.dataset.title) {
         title.classList.remove('title-hide');
       };
     });
     checkBtnLists.forEach(list => {
       list.classList.add('check-list-hide');
-      if(this.dataset.img === list.dataset.list){
+      if (this.dataset.img === list.dataset.list) {
         list.classList.remove('check-list-hide');
       };
     });
@@ -161,7 +179,7 @@ lightbox.option({
 
 //回到頂端按鈕
 (function () {
-  $("body").append("<a href='#about-us' id='goTopButton' class='fas fa-chevron-up' style='display: none; z-index: 5; cursor: pointer;' title='回到頂端'/></a>");
+  $("body").append("<div id='goTopButton' class='fas fa-chevron-up' style='display: none; z-index: 5; cursor: pointer;' title='回到頂端'/></div>");
   const locatioin = 2 / 3, // 按鈕出現在螢幕的高度
     right = 10, // 距離右邊 px 值
     opacity = 0.5, // 透明度
@@ -190,3 +208,4 @@ lightbox.option({
     resize: () => { goTopMove(); }
   });
 })();
+

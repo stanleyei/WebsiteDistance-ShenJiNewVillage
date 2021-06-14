@@ -111,8 +111,8 @@ function infCard(id, i) {
   <span class="far fa-edit"> 活動詳情</span>
   <div class="card-body">
       <div class="card-imgs">
-          <figure style="background-image: url(/img/news-event-image-1.png);"></figure>
-          <figure style="background-image: url(/img/news-event-image-2.png);"></figure>
+          <figure style="background-image: url(./img/news-event-image-1.png);"></figure>
+          <figure style="background-image: url(./img/news-event-image-2.png);"></figure>
       </div>
       <div class="card-content">
           <p>
@@ -155,7 +155,7 @@ function infCard(id, i) {
       <div>
           <i class="fas fa-suitcase"></i>
           <span>主辦單位</span>
-          <img src="/img/news-event-logo.png" alt="">
+          <img src="./img/news-event-logo.png" alt="">
       </div>
       <div>
           <a href="http://www.google.com/calendar/event?action=TEMPLATE&text=pokemon go 俱樂部聚餐&dates=20210710T183000/20210711T235900&details=第一屆 pokemon go 會員大會，聚餐時間與注意事項%0A1.來吃飯%0A2.帶妹來%0A3.自備飲料&location=道館&trp=false" title="加入google日曆">
@@ -196,7 +196,6 @@ asideTabs.forEach(tabs => {
 });
 
 //客製化select下拉式選單
-// let x, selElmnt, a, b, c;
 const x = document.querySelectorAll('.custom-select-list');
 document.addEventListener("click", closeAllSelect);
 for (let i = 0; i < x.length; i++) {
@@ -292,7 +291,7 @@ function infsFocusStyle(infsName, iconsName) {
 //生成活動花絮結構
 for (let i = 1; i < 13; i++) {
   photoWall.innerHTML +=
-    `<a href="https://i2.wp.com/n2.hk/d/attachments/day_120216/20120216_707116b0bbf472685b87wMG3uh8tWnQ4.jpg" data-lightbox="image-1"><figure style="background-image: url(/img/nekoteacher01.jpg);"><div class="figure-hover-appear">0501 小蝸牛市集</div></figure></a>`;
+    `<a href="https://i2.wp.com/n2.hk/d/attachments/day_120216/20120216_707116b0bbf472685b87wMG3uh8tWnQ4.jpg" data-lightbox="image-1"><figure style="background-image: url(./img/nekoteacher01.jpg);"><div class="figure-hover-appear">0501 小蝸牛市集</div></figure></a>`;
 };
 
 //燈箱套件

@@ -6,8 +6,10 @@
 
 @section('main')
 <main>
-    <img class="logo-img" src="{{asset('/img/Logo-img.png')}}" alt="審計新村LOGO插圖">
-    <img class="logo-text" src="{{asset('/img/Logo-text.png')}}" alt="審計新村LOGO文字">
+    <a href="/" class="logo-link">
+        <img class="logo-img" src="{{asset('/img/Logo-img.png')}}" alt="審計新村LOGO插圖">
+        <img class="logo-text" src="{{asset('/img/Logo-text.png')}}" alt="審計新村LOGO文字">
+    </a>
     <div class="news-page-container">
         <div class="news-title">
             <h2>審計新訊</h2>
