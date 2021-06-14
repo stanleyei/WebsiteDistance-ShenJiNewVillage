@@ -46,7 +46,6 @@ class AdminController extends Controller
         if ($times) {
             foreach ($oldMatches as $v) {
                 $oldArray[] = $v[0];
-                // dd($value);
             }
         }
         dd($oldArray);

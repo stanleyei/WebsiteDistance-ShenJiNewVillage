@@ -118,7 +118,7 @@ export default class Info extends Component {
                             </thead>
                             <tbody>
                                 {tableData !== ''
-                                    ?
+                                    &&
                                     tableData.map(data => {
                                         return (
                                             <tr key={data.id}>
@@ -133,17 +133,6 @@ export default class Info extends Component {
                                             </tr>
                                         )
                                     })
-                                    :
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
                                 }
                             </tbody>
                         </table>
