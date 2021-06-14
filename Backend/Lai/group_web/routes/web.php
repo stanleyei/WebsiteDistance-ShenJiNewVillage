@@ -18,6 +18,9 @@ Route::get('/', 'FrontendController@index');
 Route::get('/news', 'FrontendController@news');
 Route::get('/store', 'FrontendController@store');
 
+
+Route::get('/test', 'AdminController@test')->name('test');
+
 Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('admin');
@@ -64,4 +67,3 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::post('/contact_data', 'ContactController@indexDataTable')->name('contact.data');
 });
 
-Route::get('/test', 'AdminController@test')->name('test');

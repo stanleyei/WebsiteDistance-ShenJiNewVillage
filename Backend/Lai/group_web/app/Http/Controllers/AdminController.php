@@ -31,25 +31,50 @@ class AdminController extends Controller
      */
     public function index()
     {
+
         return view('admin');
     }
 
     public function test()
     {
-        $response = InfoTypes::all();
+        $data = Info::find(2);
+        // 現在$data->content裡面有兩張base64圖
+        // dd($data->content);
+        // 用正規表示式抓出來
+        $subject = $data->content;
+        // // $pattern = '/^(data:image/)([A-Za-z]+)(;base64,)()"$/';
+        // $pattern = '/(data:image\/)([^;]+)(;base64,)([^\"]+)/';
 
-        $data = [];
+        // preg_match_all($pattern, $subject, $matches);
 
-        foreach ($response as $i) {
-            $data[] = [
-                'name' => $i->name,
-                'created_at' => $i->created_at
-            ];
-        }
+        $pattern = '/(data:image\/)([^;]+)(;base64,)([^\"]+)/';
+        $res = preg_replace_callback($pattern, function ($matches) {
+            // 生成路径
+            $public_path = public_path();
+            $folder_path = '/summernote/' . date('Ym') . '/' . date('d') . '/';
+            if (!is_dir($dir = $public_path . $folder_path)) {
+                mkdir($dir, 0777, true);
+            }
 
-        $data = ['data' => $data];
+            // 生成文件名
+            $matches[2] = $matches[2] === 'jpeg' ? 'jpg' : $matches[2];
+            $filename = md5(time() . \Illuminate\Support\Str::random()) . '.' . $matches[2];
+            $file = $dir . $filename;
 
-        return $data;
+            // // 保存文件
+            // file_put_contents($file, base64_decode($matches[4])); // base64 转图片
+
+            // 返回相对路径
+            // return $folder_path . $filename;
+            return asset($filename);
+        }, $subject);
+
+
+
+        dd($res);
+
+
+        return view('test', compact('data'));
     }
 
     public function reactUserName()

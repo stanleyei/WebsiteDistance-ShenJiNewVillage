@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sb-admin-2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/summernote.min.css') }}">
     @yield('css')
 </head>
 
@@ -49,6 +50,7 @@
     <script src="{{ asset('js/datatables.min.js') }} "></script>
     <script src="{{ asset('js/BackendSPA.js') }}"></script>
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+    <script src="{{ asset('js/summernote.min.js') }}"></script>
     @yield('js')
 </body>
 
