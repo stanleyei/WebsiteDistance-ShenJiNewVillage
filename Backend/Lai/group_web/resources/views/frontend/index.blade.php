@@ -65,8 +65,7 @@
                         <a class="content-inf" href="/news" title="前往{{$inf->name}}">
                             <div class="inf-date">
                                 <div class="during">
-                                    <div class="start-date">03</div>
-                                    <div class="end-date">-14</div>
+                                    <div class="start-date"></div>
                                 </div>
                                 <span></span>
                             </div>
@@ -144,54 +143,22 @@
                 <nav>
                     <h3>商家介紹</h3>
                     <div class="nav-tap-list">
-                        <div class="nav-tap tap-active" data-title="1" title="美食點心類">美食點心類</div>
-                        <div class="nav-tap" data-title="2" title="小物禮品類">小物禮品類</div>
+                        <div class="nav-tap tap-active" data-title="1" title="{{$newShopTypes[0]->name}}">{{$newShopTypes[0]->name}}</div>
+                        <div class="nav-tap" data-title="2" title="{{$newShopTypes[1]->name}}">{{$newShopTypes[1]->name}}</div>
                     </div>
                     <div class="food-shop shop-list" data-title="1">
+                        @foreach ($newShopTypes[0]->shops as $shop)
                         <div>
-                            <span class="bottom-line" data-img="0" title="Two Day 日日鬆餅">Two Day 日日鬆餅 </span>
+                            <span class="{{$shop->id == 1 ? 'bottom-line' : ''}}" data-img="{{$shop->id - 1}}" title="{{$shop->name}}">{{$shop->name}}</span>
                         </div>
-                        <div>
-                            <span data-img="1" title="三時杏仁">三時杏仁</span>
-                        </div>
-                        <div>
-                            <span data-img="2" title="甜月亮義大利手作冰淇淋">甜月亮義大利手作冰淇淋</span>
-                        </div>
-                        <div>
-                            <span data-img="3" title="旅禾泡芙之家">旅禾泡芙之家</span>
-                        </div>
-                        <div>
-                            <span data-img="4" title="森小姐的茶店">森小姐的茶店</span>
-                        </div>
-                        <div>
-                            <span data-img="5" title="艸水木堂">艸水木堂</span>
-                        </div>
-                        <div>
-                            <span data-img="6" title="成真咖啡">成真咖啡</span>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="trinket-shop shop-list list-active" data-title="2">
+                        @foreach ($newShopTypes[1]->shops as $shop)
                         <div>
-                            <span class="bottom-line" data-img="7" title="森多水耕植研所">森多水耕植研所</span>
+                            <span class="{{$shop->id == 8 ? 'bottom-line' : ''}}" data-img="{{$shop->id - 1}}" title="{{$shop->name}}">{{$shop->name}}</span>
                         </div>
-                        <div>
-                            <span data-img="8" title="森林島嶼">森林島嶼</span>
-                        </div>
-                        <div>
-                            <span data-img="9" title="愚室實驗所">愚室實驗所</span>
-                        </div>
-                        <div>
-                            <span data-img="10" title="日子商号">日子商号</span>
-                        </div>
-                        <div>
-                            <span data-img="11" title="Kou Jewellery">Kou Jewellery</span>
-                        </div>
-                        <div>
-                            <span data-img="12" title="品墨良行">品墨良行</span>
-                        </div>
-                        <div>
-                            <span data-img="13" title="KerKerland">KerKerland</span>
-                        </div>
+                        @endforeach
                     </div>
                 </nav>
             </article>
@@ -311,26 +278,8 @@
 @endsection
 
 @section('js')
-<script src="{{ asset('js/index.js')}}"></script>
 <script>
-    //拿出月份數字並放入網頁
-    const infMonth = document.querySelectorAll('.inf-date > span');
-    const newInfs = {!! $infs !!}.map(inf => inf.infos[0].date_start);
-    let monthFirstNumber = [];
-    let monthFinalNumber = [];
-    newInfs.forEach(inf => {
-        const infsDate = inf.split('-');
-        if(infsDate[1] === '10' || infsDate[1] === '11' || infsDate[1] === '12'){
-            monthFinalNumber.push(infsDate[1]);
-        }else{
-            monthFirstNumber = infsDate[1].split('0');
-            monthFinalNumber.push(monthFirstNumber[1]);
-        }
-    });
-    infMonth.forEach( (month, i = 0) => {
-        month.textContent = monthData[monthFinalNumber[i] - 1];
-        i++;
-    });
-
+    const infsData = {!! $infs !!};
 </script>
+<script src="{{ asset('js/index.js')}}"></script>
 @endsection

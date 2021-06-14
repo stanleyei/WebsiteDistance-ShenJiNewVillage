@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', 'FrontendController@index');
 Route::get('/news', 'FrontendController@news');
 Route::get('/store', 'FrontendController@store');
+Route::post('/news_switch', 'FrontendController@newsSwitch');
 
 
 Route::get('/test', 'AdminController@test')->name('test');

@@ -1,3 +1,5 @@
+const token = document.querySelector('[name="csrf-token"]').getAttribute('content');
+
 // 整頁-fullpage輪播套件
 new fullpage('#fullpage', {
   autoScrolling: true,
@@ -15,7 +17,7 @@ new fullpage('#fullpage', {
   navigation: true,
   navigation: 'left',
   //導航欄
-  anchors:['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage', 'sixthPage', 'seventhPage'],
+  anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage', 'sixthPage', 'seventhPage'],
   menu: '#myMenu',
 });
 
@@ -107,9 +109,51 @@ function focusChange(dateBtns) {
           :
           btn.classList.remove('focus-change');
       });
+
+      const month = this.dataset.month;
+      const formData = new FormData;
+      formData.append('month', month);
+      formData.append('_token', token);
+      fetch('/news_switch', {
+        method: 'POST',
+        body: formData,
+      })
+        .then(response => {
+          return response.text();
+        })
+        .then(result => {
+          
+        });
     });
   });
 }
+
+//審計新訊-拿出月份及日期數字並放入網頁
+const infMonth = document.querySelectorAll('.inf-date > span');
+const startDate = document.querySelectorAll('.start-date');
+const createdData = infsData.map(inf => inf.infos[0].created_at);
+let monthFirstNumber = [];
+let monthFinalNumber = [];
+let dayNumber = [];
+createdData.forEach(data => {
+  const infsDate = data.split('-');
+  const dayFinalNumber = infsDate[2].split('T');
+  dayNumber.push(dayFinalNumber[0]);
+  if (infsDate[1] === '10' || infsDate[1] === '11' || infsDate[1] === '12') {
+    monthFinalNumber.push(infsDate[1]);
+  } else {
+    monthFirstNumber = infsDate[1].split('0');
+    monthFinalNumber.push(monthFirstNumber[1]);
+  }
+});
+infMonth.forEach((month, i = 0) => {
+  month.textContent = monthData[monthFinalNumber[i] - 1];
+  i++;
+});
+startDate.forEach((date, i = 0) => {
+  date.textContent = dayNumber[i];
+  i++;
+});
 
 //店家介紹-切換店家分類按鈕
 const navTaps = document.querySelectorAll('.nav-tap');
@@ -123,13 +167,13 @@ navTaps.forEach(tab => {
     this.classList.add('tap-active');
     shopList.forEach(list => {
       list.classList.add('list-active');
-      if(list.dataset.title === this.dataset.title){
+      if (list.dataset.title === this.dataset.title) {
         list.classList.remove('list-active');
       }
     })
     tapChange.forEach(box => {
       box.classList.add('photo-none');
-      if(box.dataset.title === this.dataset.title){
+      if (box.dataset.title === this.dataset.title) {
         box.classList.remove('photo-none');
       };
     });
@@ -208,4 +252,3 @@ lightbox.option({
     resize: () => { goTopMove(); }
   });
 })();
-
