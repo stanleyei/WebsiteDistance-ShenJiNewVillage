@@ -440,11 +440,6 @@ main {
                         .during {
                             @include flex(start);
                             padding-top: 5px;
-
-                            .end-date {
-                                @include font($h10, start, 1.85vh, 0.2em);
-                                padding: 0 0 5px 0.521vw;
-                            }
                         }
 
                         >span {

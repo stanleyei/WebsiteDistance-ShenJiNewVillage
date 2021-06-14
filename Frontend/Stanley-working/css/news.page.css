@@ -629,14 +629,6 @@ main .news-page-container article .content-infs .content-inf .inf-date .during {
   padding-top: 5px;
 }
 
-main .news-page-container article .content-infs .content-inf .inf-date .during .end-date {
-  font-size: 0.625vw;
-  text-align: start;
-  line-height: 1.85vh;
-  letter-spacing: 0.2em;
-  padding: 0 0 5px 0.521vw;
-}
-
 main .news-page-container article .content-infs .content-inf .inf-date > span {
   font-size: 0.9375vw;
   text-align: start;

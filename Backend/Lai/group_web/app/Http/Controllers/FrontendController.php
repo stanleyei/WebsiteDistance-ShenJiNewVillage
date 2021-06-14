@@ -6,6 +6,7 @@ use App\Shop;
 use App\Slider;
 use App\ShopType;
 use App\InfoTypes;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -34,7 +35,9 @@ class FrontendController extends Controller
     {
         $infs = InfoTypes::with('infos')->get();
         $dateData = $infs[0]->infos[0]->created_at->toArray();
-        dd($infs[0]->infos->where('created_at', '2021-06-12 05:56:15'));
+
+        dd(Carbon::parse());
+        // dd($infs[0]->infos->where('created_at', '2021-06-12 05:56:15'));
         if($request->month == $dateData['month']){
             return 'success';
         }else{

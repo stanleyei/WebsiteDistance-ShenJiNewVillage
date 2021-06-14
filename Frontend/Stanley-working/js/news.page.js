@@ -99,7 +99,6 @@ function infCard(id, i) {
   <div class="inf-date">
       <div class="during">
           <div class="start-date">03</div>
-          <div class="end-date">-14</div>
       </div>
       <span>五月</span>
   </div>
