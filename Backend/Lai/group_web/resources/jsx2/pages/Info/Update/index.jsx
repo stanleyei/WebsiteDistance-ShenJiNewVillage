@@ -38,13 +38,13 @@ export default class Update extends Component {
 
     updateData = (event) => {
         event.preventDefault()
+        // console.log(event);
         // 取得關閉update page的方法
         const { updatePageDown, updateTable } = this.props
         // 取得存在state的input value
         const {
             type_id,
             name,
-            content,
             img,
             date_start,
             date_end,
@@ -52,6 +52,8 @@ export default class Update extends Component {
             organizer,
             calendar,
         } = this.state
+
+        const content = $('.textarea').summernote('code');
 
         let newData = new FormData()
         // PUT方法搞了我一整天，最後選擇用POST假裝PUT...
@@ -93,6 +95,13 @@ export default class Update extends Component {
         }
     }
 
+    componentDidUpdate() {
+        $('.textarea').summernote({
+            width: '100%',
+            height: 200,
+        });
+    }
+
     render() {
         const { updatePageDown, needUpdateData } = this.props
         const { upperRelation, type_id, name, content, img, date_start, date_end, location, organizer, calendar } = this.state
@@ -119,7 +128,7 @@ export default class Update extends Component {
                     </div>
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label" htmlFor="content">內容</label>
-                        <textarea value={content} onChange={(c) => this.handleValue(c, 'content')} className="form-control" id="content" name="content" cols="30" rows="10"></textarea>
+                        <textarea value={content} onChange={(c) => this.handleValue(c, 'content')} className="form-control textarea" id="content" name="content" cols="30" rows="10"></textarea>
                     </div>
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label" htmlFor="img">圖片</label>

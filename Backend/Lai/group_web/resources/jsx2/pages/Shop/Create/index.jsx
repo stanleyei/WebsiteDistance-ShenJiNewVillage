@@ -41,9 +41,12 @@ export default class Create extends Component {
             name,
             url,
             phone,
-            content,
+            // content,
             location,
         } = this.state
+
+        const content = $('.textarea').summernote('code');
+
         let formData = new FormData()
         formData.append('type_id', type_id)
         formData.append('name', name)
@@ -69,6 +72,13 @@ export default class Create extends Component {
     handleValue = (e, stateName) => {
         // 在這裡處理input value的變動
         this.setState({ [stateName]: e.target.value })
+    }
+
+    componentDidUpdate() {
+        $('.textarea').summernote({
+            width: '100%',
+            height: 200,
+        });
     }
 
     render() {
@@ -112,7 +122,7 @@ export default class Create extends Component {
                     </div>
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label" htmlFor="content">內容</label>
-                        <textarea value={content} onChange={(c) => this.handleValue(c, 'content')} className="form-control" id="content" name="content" cols="30" rows="10"></textarea>
+                        <textarea value={content} onChange={(c) => this.handleValue(c, 'content')} className="form-control textarea" id="content" name="content" cols="30" rows="10"></textarea>
                     </div>
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label" htmlFor="location">地點</label>

@@ -16,13 +16,16 @@
     } = this.state
     const content = $('.textarea').summernote('code');
 
-    componentDidUpdate(){
-        $('.textarea').summernote();
+    componentDidUpdate() {
+        $('.textarea').summernote({
+            width: '100%',
+            height: 200,
+        });
     }
     ```
 2. 綁在ID=content的textarea有問題，後改成綁在.textarea
 3. index的content欄位要改成下列的形式才能顯示raw html
-    * <td><div dangerouslySetInnerHTML={{__html: data.content}}></div></td>
+    * <td dangerouslySetInnerHTML={{__html: data.content}}></td>
 4. 遇到update時該怎麼刪除圖片檔案的問題
     * store
         - 資料進來時content做regex，檢查是否有base64
@@ -48,6 +51,29 @@
         - 檢查中沒有對應的圖片時刪除舊資料圖片
     * destroy
         - 刪除時content做regex，取得image path，全刪掉
+
+
+
+5. 目前先在**資訊列表**、**店家列表**的內容部分新增summernote
+    * index加上第3項
+    * create加上第1、2項
+    * controller加上store跟destroy用的method
+        - 最前面引入
+            ```php
+            use Illuminate\Support\Str;
+            ```
+        - store中加入
+            ```php
+            if ($data['content']) {
+                $data['content'] = $this->content_base64_check($data['content']);
+                }
+            ```
+        - destroy中加入
+            ```php
+            $dbData->content = $this->summernote_destroy_image($dbData->content);
+            ```
+
+
 
 
 
