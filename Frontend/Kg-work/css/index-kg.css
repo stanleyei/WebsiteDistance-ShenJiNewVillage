@@ -45,7 +45,7 @@
   border-right: 30px solid #D28E76;
 }
 
-.traffic .traffic-container .traffic-main .traffic-bus .traffic-content .traffic-content-text p, .traffic .traffic-container .traffic-main .traffic-car .traffic-content .traffic-content-text p, .traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text p {
+.traffic .traffic-container .traffic-main .traffic-bus .traffic-content .traffic-content-text p, .traffic .traffic-container .traffic-main .traffic-car .traffic-content .traffic-content-text p, .traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text p, .traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text a {
   margin-left: 43px;
   font-size: 1.625rem;
   letter-spacing: 0.2em;
@@ -470,13 +470,13 @@ header {
   transition: .4s;
 }
 
-.view .view-container .view-main .swiper-container .swiper-button-next {
+.view .view-container .view-main .swiper-container .swiper-wrapper .swiper-button-next {
   position: absolute;
   top: 38%;
   right: 37%;
 }
 
-.view .view-container .view-main .swiper-container .swiper-button-prev {
+.view .view-container .view-main .swiper-container .swiper-wrapper .swiper-button-prev {
   position: absolute;
   top: 38%;
   left: 37%;
@@ -678,6 +678,13 @@ header {
 
 .traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text p {
   line-height: 60px;
+}
+
+.traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text a {
+  margin-left: 22px;
+  color: #96422D;
+  line-height: 60px;
+  text-decoration: none;
 }
 
 .contact {

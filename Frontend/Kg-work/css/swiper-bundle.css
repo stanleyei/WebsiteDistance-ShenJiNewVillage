@@ -176,8 +176,10 @@
   }
   .swiper-button-prev,
   .swiper-container-rtl .swiper-button-next {
-    left: 0;
-    right: auto;
+   
+    position: absolute;
+    top: 38%;
+    left: 37%;
   }
   .swiper-button-prev:after,
   .swiper-container-rtl .swiper-button-next:after {
@@ -192,8 +194,9 @@
   }
   .swiper-button-next,
   .swiper-container-rtl .swiper-button-prev {
-    right: 0;
-    left: auto;
+    position: absolute;
+    top: 38%;
+    right: 37%;
   }
   .swiper-button-next:after,
   .swiper-container-rtl .swiper-button-prev:after {

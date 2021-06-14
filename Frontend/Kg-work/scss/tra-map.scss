@@ -1,0 +1,50 @@
+@import 'variable';
+
+.tra-youbike {
+    display: inline-block;
+    @include size(364px, 48px);
+    border-bottom: 24px solid $store-list-bg;
+    text-align: center;
+    @include position(33%, 36%, 0, 0);
+
+
+    p {
+        font-size: $h2;
+        line-height: 60px;
+        letter-spacing: 0.2em;
+    }
+
+}
+.youbike-point {
+    display: inline-block;
+    @include size(333px, 36px);
+    border-bottom: 22px solid $store-list-bg;
+    text-align: center;
+    @include position(102%, 52%, 0, 0);
+
+
+    p {
+        font-size: $h4;
+        // line-height: 18px;
+        letter-spacing: 0.2em;
+    }
+
+}
+
+.bike-map{
+    @include size(65vw,60vh);
+    margin: 100px auto;
+    // padding-bottom:45%;
+    background-color: #fff;
+    position:relative;
+
+    iframe{
+        left:0;
+        top:0;
+        height:100%;
+        width:100%;
+        position:absolute;
+        }
+   
+    }
+

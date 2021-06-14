@@ -5,9 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
-    <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
-    <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/index-kg.css">
@@ -274,7 +271,8 @@
                         </div>
                         <div class="traffic-content">
                             <div class="traffic-content-text">
-                                <p>點擊查看附近YouBike 據點分布資訊</p>
+                                <p>附近YouBike 據點分布資訊</p>
+                                <a href="#">點擊查看></a>
                             </div>
                         </div>
                     </div>
@@ -298,7 +296,7 @@
                     <div class="contact-form-main">
                         <form class="contact-form" id="contact-form" action="#" method="POST">
                             <select name="kg" class="form-type">
-                                <option>加入審計</option>
+                                <option style="width: 50px;height:30px;background-color: aquamarine;">加入審計</option>
                                 <option>顧客意見</option>
                             </select>
                             <div class="form-storename">
@@ -341,27 +339,24 @@
             centeredSlides: true,
             grabCursor: true,
             spaceBetween: 150,
-            speed: 1000,
+            speed: 500,
             loop: true,
-            slidesPerView: 'auto',
-
-
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
             on: {
                
-                    init: function () {
-                        $('.swiper-slide-active .view-card').addClass('viewcard-active');
+                    init: function () {                       
                     },
                     transitionStart: function () {
-                        $('.view-card').removeClass('viewcard-active');
+                        $('.view-card').css("background-color"," #D28E76");
+                        $('.swiper-slide-active .view-card').css("background-color","#96422D");
                     },
                     transitionEnd: function (swiper) {
-                        $('.swiper-slide-active .view-card').addClass('viewcard-active');
-                    }
-                
+                        // $('.swiper-slide-active .view-card').addClass('viewcard-active');
+                        // $('.swiper-slide-active .view-card').css("background-color","#96422D");
+                    }               
             }
         });
         const navbar = document.querySelector('.nav');
@@ -374,19 +369,13 @@
                 ulbar.classList.toggle('active');
                 navimg.classList.toggle('active');
             }
-        //     droplist.onclick=function(){
-        //     console.log(111);
-        //     document.querySelector('.introduction').classList.add('.on');
-        // }        
+             
         lightbox.option({
             'resizeDuration': 200,
             'wrapAround': true
 
         })
-        // var sliders = document.querySelectorAll('.swiper-slide');
-        // sliders.addEventListener('click',function(){
-        //        console.log(111);
-        // })
+       
     </script>
 </body>
 

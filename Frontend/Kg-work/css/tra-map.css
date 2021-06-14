@@ -1,0 +1,53 @@
+.tra-youbike {
+  display: inline-block;
+  width: 364px;
+  height: 48px;
+  border-bottom: 24px solid #FBE6C3;
+  text-align: center;
+  position: absolute;
+  top: 33%;
+  left: 36%;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+.tra-youbike p {
+  font-size: 2.25rem;
+  line-height: 60px;
+  letter-spacing: 0.2em;
+}
+
+.youbike-point {
+  display: inline-block;
+  width: 333px;
+  height: 36px;
+  border-bottom: 22px solid #FBE6C3;
+  text-align: center;
+  position: absolute;
+  top: 102%;
+  left: 52%;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+.youbike-point p {
+  font-size: 1.625rem;
+  letter-spacing: 0.2em;
+}
+
+.bike-map {
+  width: 65vw;
+  height: 60vh;
+  margin: 100px auto;
+  background-color: #fff;
+  position: relative;
+}
+
+.bike-map iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+/*# sourceMappingURL=tra-map.css.map */
