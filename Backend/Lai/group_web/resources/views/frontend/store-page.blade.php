@@ -6,7 +6,7 @@
 
 @section('main')
 <main>
-    <a href="/" class="logo-link">
+    <a href="/#thirdPage" class="logo-link">
         <img class="logo-img" src="{{asset('/img/Logo-img.png')}}" alt="審計新村LOGO插圖">
         <img class="logo-text" src="{{asset('/img/Logo-text.png')}}" alt="審計新村LOGO文字">
     </a>

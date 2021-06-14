@@ -97,23 +97,23 @@
             </div>
             <article>
                 <div class="shop-window">
-                    <img src="./img/shop-window.png" alt="窗戶的裝飾圖">
+                    <img src="/img/shop-window.png" alt="窗戶的裝飾圖">
                     <ul data-list="0">
                         <li>
-                            <a href="./img/text-2.png" title="點我看大圖" class="check-btn photo-view"
+                            <a href="/img/text-2.png" title="點我看大圖" class="check-btn photo-view"
                                 data-lightbox="food-shop-1" data-title="Two Day日日鬆餅">看大圖</a>
                         </li>
                         <li>
-                            <a href="" title="點我看介紹" class="check-btn shop-view">看介紹</a>
+                            <a href="/store" title="點我看介紹" class="check-btn shop-view">看介紹</a>
                         </li>
                     </ul>
                     <ul class="check-list-hide" data-list="1">
                         <li>
-                            <a href="./img/text-3.png" title="點我看大圖" class="check-btn photo-view"
+                            <a href="/img/text-3.png" title="點我看大圖" class="check-btn photo-view"
                                 data-lightbox="food-shop-2" data-title="三時杏仁">看大圖</a>
                         </li>
                         <li>
-                            <a href="" title="點我看介紹" class="check-btn shop-view">看介紹</a>
+                            <a href="/store" title="點我看介紹" class="check-btn shop-view">看介紹</a>
                         </li>
                     </ul>
                     <div class="window-title" data-title="0">Two Day日日鬆餅</div>
@@ -121,22 +121,22 @@
                     <div class="hide-area">
                         <div class="figure-box">
                             <div class="tap-change" data-title="1">
-                                <figure style="background-image: url(./img/text-2.png);"></figure>
-                                <figure style="background-image: url(./img/text-3.png);"></figure>
-                                <figure style="background-image: url(./img/text-2.png);"></figure>
-                                <figure style="background-image: url(./img/text-3.png);"></figure>
-                                <figure style="background-image: url(./img/text-2.png);"></figure>
-                                <figure style="background-image: url(./img/text-3.png);"></figure>
-                                <figure style="background-image: url(./img/text-2.png);"></figure>
+                                <figure style="background-image: url(/img/text-2.png);"></figure>
+                                <figure style="background-image: url(/img/text-3.png);"></figure>
+                                <figure style="background-image: url(/img/text-2.png);"></figure>
+                                <figure style="background-image: url(/img/text-3.png);"></figure>
+                                <figure style="background-image: url(/img/text-2.png);"></figure>
+                                <figure style="background-image: url(/img/text-3.png);"></figure>
+                                <figure style="background-image: url(/img/text-2.png);"></figure>
                             </div>
                             <div class="tap-change" data-title="2">
-                                <figure style="background-image: url(./img/swiper-text.png);"></figure>
-                                <figure style="background-image: url(./img/text-3.png);"></figure>
-                                <figure style="background-image: url(./img/text-2.png);"></figure>
-                                <figure style="background-image: url(./img/swiper-text.png);"></figure>
-                                <figure style="background-image: url(./img/text-2.png);"></figure>
-                                <figure style="background-image: url(./img/text-3.png);"></figure>
-                                <figure style="background-image: url(./img/swiper-text.png);"></figure>
+                                <figure style="background-image: url(/img/swiper-text.png);"></figure>
+                                <figure style="background-image: url(/img/text-3.png);"></figure>
+                                <figure style="background-image: url(/img/text-2.png);"></figure>
+                                <figure style="background-image: url(/img/swiper-text.png);"></figure>
+                                <figure style="background-image: url(/img/text-2.png);"></figure>
+                                <figure style="background-image: url(/img/text-3.png);"></figure>
+                                <figure style="background-image: url(/img/swiper-text.png);"></figure>
                             </div>
                         </div>
                     </div>
