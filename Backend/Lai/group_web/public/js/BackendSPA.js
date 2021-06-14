@@ -37896,13 +37896,13 @@ var Create = /*#__PURE__*/function (_Component) {
       var _assertThisInitialize = _assertThisInitialized(_this),
           inputTypeinfoTypeId = _assertThisInitialize.infoTypeId.value,
           inputName = _assertThisInitialize.infoName.value,
-          inputContent = _assertThisInitialize.infoContent.value,
           inputDateStart = _assertThisInitialize.infoDateStart.value,
           inputDateEnd = _assertThisInitialize.infoDateEnd.value,
           inputLocation = _assertThisInitialize.infoLocation.value,
           inputOrganizer = _assertThisInitialize.infoOrganizer.value,
-          inputCalendar = _assertThisInitialize.infoCalendar.value; // 取得圖片檔案
+          inputCalendar = _assertThisInitialize.infoCalendar.value;
 
+      var inputContent = $('.textarea').summernote('code'); // 取得圖片檔案
 
       var inputImg = _this.infoImg.files[0];
       var formData = new FormData();
@@ -37949,6 +37949,14 @@ var Create = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(Create, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      $('.textarea').summernote({
+        width: '100%',
+        height: 200
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -38002,7 +38010,7 @@ var Create = /*#__PURE__*/function (_Component) {
         ref: function ref(c) {
           return _this2.infoContent = c;
         },
-        className: "form-control",
+        className: "form-control textarea",
         id: "content",
         name: "content",
         cols: "30",
@@ -38157,7 +38165,8 @@ var Update = /*#__PURE__*/function (_Component) {
     _this = _super.call(this, props);
 
     _defineProperty(_assertThisInitialized(_this), "updateData", function (event) {
-      event.preventDefault(); // 取得關閉update page的方法
+      event.preventDefault(); // console.log(event);
+      // 取得關閉update page的方法
 
       var _this$props = _this.props,
           updatePageDown = _this$props.updatePageDown,
@@ -38166,13 +38175,13 @@ var Update = /*#__PURE__*/function (_Component) {
       var _this$state = _this.state,
           type_id = _this$state.type_id,
           name = _this$state.name,
-          content = _this$state.content,
           img = _this$state.img,
           date_start = _this$state.date_start,
           date_end = _this$state.date_end,
           location = _this$state.location,
           organizer = _this$state.organizer,
           calendar = _this$state.calendar;
+      var content = $('.textarea').summernote('code');
       var newData = new FormData(); // PUT方法搞了我一整天，最後選擇用POST假裝PUT...
 
       newData.append('_method', 'put');
@@ -38250,6 +38259,14 @@ var Update = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(Update, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      $('.textarea').summernote({
+        width: '100%',
+        height: 200
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -38319,7 +38336,7 @@ var Update = /*#__PURE__*/function (_Component) {
         onChange: function onChange(c) {
           return _this2.handleValue(c, 'content');
         },
-        className: "form-control",
+        className: "form-control textarea",
         id: "content",
         name: "content",
         cols: "30",
@@ -38620,7 +38637,11 @@ var Info = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u985E\u578B"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u540D\u7A31"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u5167\u5BB9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u526F\u5716\u7247\u6578\u91CF"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u958B\u59CB\u6642\u9593"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u7D50\u675F\u6642\u9593"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u7DE8\u8F2F"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u522A\u9664"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, tableData !== '' ? tableData.map(function (data) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
           key: data.id
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.info_type.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.content), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.info_imgs.length), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.date_start), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.date_end), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.info_type.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+          dangerouslySetInnerHTML: {
+            __html: data.content
+          }
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.info_imgs.length), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.date_start), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.date_end), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "btn btn-primary",
           onClick: function onClick(e) {
             return _this2.updatePageUp(data.id);
@@ -39844,8 +39865,8 @@ var Create = /*#__PURE__*/function (_Component) {
           name = _this$state.name,
           url = _this$state.url,
           phone = _this$state.phone,
-          content = _this$state.content,
           location = _this$state.location;
+      var content = $('.textarea').summernote('code');
       var formData = new FormData();
       formData.append('type_id', type_id);
       formData.append('name', name);
@@ -39898,6 +39919,14 @@ var Create = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(Create, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      $('.textarea').summernote({
+        width: '100%',
+        height: 200
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -39989,7 +40018,7 @@ var Create = /*#__PURE__*/function (_Component) {
         onChange: function onChange(c) {
           return _this2.handleValue(c, 'content');
         },
-        className: "form-control",
+        className: "form-control textarea",
         id: "content",
         name: "content",
         cols: "30",
@@ -40473,7 +40502,11 @@ var Shop = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u985E\u578B"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u540D\u7A31"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u9023\u7D61\u96FB\u8A71"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u5167\u5BB9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u5730\u9EDE"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u7DE8\u8F2F"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u522A\u9664"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, tableData !== [] && tableData.map(function (data) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
           key: data.id
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.shop_type.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.phone), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.content), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.shop_type.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.phone), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+          dangerouslySetInnerHTML: {
+            __html: data.content
+          }
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "btn btn-primary",
           onClick: function onClick(e) {
             return _this2.updatePageUp(data.id);

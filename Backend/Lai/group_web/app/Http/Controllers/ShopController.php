@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ShopController extends Controller
 {
@@ -44,6 +45,10 @@ class ShopController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+
+        if ($data['content']) {
+            $data['content'] = $this->content_base64_check($data['content']);
+        }
 
         // if ($request->hasFile('img')) {
         //     $local = Storage::disk('local');
@@ -118,6 +123,9 @@ class ShopController extends Controller
     {
         $dbData = Shop::with('shopType', 'shopImgs')->find($id);
 
+        // 刪掉content中的圖片
+        $dbData->content = $this->summernote_destroy_image($dbData->content);
+
         // if (isset($dbData->img)) {
         //     // 刪除Shop圖片檔案
         //     File::delete(public_path($dbData->img));
@@ -165,6 +173,56 @@ class ShopController extends Controller
             return true;
         } else {
             return false;
+        }
+    }
+
+    public function content_base64_check($content)
+    {
+        // https://learnku.com/articles/33047
+        // 先檢查有沒有base64的格式
+        // 會把base64存成檔案，並且把content中的base64編碼替換成image path
+        if (!($content && Str::contains($content, ['src="data:image', 'src=\'data:image']))) {
+            return $content;
+        }
+
+        // ([^;]+) : 找的是冒號(;)前的所有(+的關係)字元
+        // ([^\"]+) : 找的是不等於"的所有(+的關係)字元，找到"為止
+        $pattern = '/(data:image\/)([^;]+)(;base64,)([^\"]+)/';
+        $res = preg_replace_callback($pattern, function ($matches) {
+            // 生成路径
+            $public_path = public_path();
+            $folder_path = '/storage/summernote/';
+            if (!is_dir($dir = $public_path . $folder_path)) {
+                mkdir($dir, 0777, true);
+            }
+
+            // 生成文件名
+            $matches[2] = $matches[2] === 'jpeg' ? 'jpg' : $matches[2];
+            $filename = md5(time() . \Illuminate\Support\Str::random()) . '.' . $matches[2];
+            $file = $dir . $filename;
+
+            // 保存文件
+            file_put_contents($file, base64_decode($matches[4])); // base64 转图片
+
+            // 返回相对路径
+            return $folder_path . $filename;
+        }, $content);
+
+        return $res;
+    }
+
+    public function summernote_destroy_image($content)
+    {
+        if (!($content && Str::contains($content, ['summernote']))) {
+            return null;
+        }
+
+        $pattern = '/(\/storage\/summernote[^\'\"]+)/';
+        $times = preg_match_all($pattern, $content, $matches);
+        if ($times) {
+            foreach ($matches[0] as $value) {
+                unlink(public_path() . $value);
+            }
         }
     }
 }

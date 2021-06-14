@@ -33,13 +33,16 @@ export default class Create extends Component {
         const {
             infoTypeId: { value: inputTypeinfoTypeId },
             infoName: { value: inputName },
-            infoContent: { value: inputContent },
+            // infoContent: { value: inputContent },
             infoDateStart: { value: inputDateStart },
             infoDateEnd: { value: inputDateEnd },
             infoLocation: { value: inputLocation },
             infoOrganizer: { value: inputOrganizer },
             infoCalendar: { value: inputCalendar },
         } = this
+
+        const inputContent = $('.textarea').summernote('code');
+
         // 取得圖片檔案
         const inputImg = this.infoImg.files[0]
         let formData = new FormData()
@@ -67,6 +70,13 @@ export default class Create extends Component {
         }
     }
 
+    componentDidUpdate() {
+        $('.textarea').summernote({
+            width: '100%',
+            height: 200,
+        });
+    }
+
     render() {
         const { createPageDown } = this.props
         const { upperRelation } = this.state
@@ -92,7 +102,7 @@ export default class Create extends Component {
                     </div>
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label" htmlFor="content">內容</label>
-                        <textarea ref={c => this.infoContent = c} className="form-control" id="content" name="content" cols="30" rows="10"></textarea>
+                        <textarea ref={c => this.infoContent = c} className="form-control textarea" id="content" name="content" cols="30" rows="10"></textarea>
                     </div>
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label" htmlFor="img">圖片</label>
