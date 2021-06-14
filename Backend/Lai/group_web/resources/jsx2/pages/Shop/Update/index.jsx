@@ -50,9 +50,11 @@ export default class Update extends Component {
             name,
             url,
             phone,
-            content,
+            // content,
             location,
         } = this.state
+
+        const content = $('.textarea').summernote('code');
 
         let formData = new FormData()
         formData.append('_method', 'PUT')
@@ -83,6 +85,13 @@ export default class Update extends Component {
 
     handleValue = (e, stateName) => {
         this.setState({ [stateName]: e.target.value })
+    }
+
+    componentDidUpdate() {
+        $('.textarea').summernote({
+            width: '100%',
+            height: 200,
+        });
     }
 
     render() {
@@ -127,7 +136,7 @@ export default class Update extends Component {
                     </div>
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label" htmlFor="content">內容</label>
-                        <textarea value={content} onChange={(c) => this.handleValue(c, 'content')} className="form-control" id="content" name="content" cols="30" rows="10"></textarea>
+                        <textarea value={content} onChange={(c) => this.handleValue(c, 'content')} className="form-control textarea" id="content" name="content" cols="30" rows="10"></textarea>
                     </div>
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label" htmlFor="location">地點</label>

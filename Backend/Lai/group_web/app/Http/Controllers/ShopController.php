@@ -97,17 +97,9 @@ class ShopController extends Controller
     {
         $data = $request->all();
         $dbData = Shop::find($id);
-        // if ($request->hasFile('img')) {
-        //     $myfile = Storage::disk('local');
-        //     $file = $request->file('img');
-        //     $path = $myfile->putFile('public', $file);
-        //     $data['img'] = $myfile->url($path);
-        //     // 刪掉之前的圖片檔案
-        //     File::delete(public_path($dbData->img));
-        // }else{
-        //     // 沒改放舊圖
-        //     $data['img'] = $dbData->img;
-        // }
+        // content內容有圖片的處理
+        $data['content'] = $this->summernote_update($dbData->content, $data['content']);
+
         $dbData->update($data);
 
         return Shop::with('shopType', 'shopImgs')->get();
@@ -214,15 +206,54 @@ class ShopController extends Controller
     public function summernote_destroy_image($content)
     {
         if (!($content && Str::contains($content, ['summernote']))) {
-            return null;
+            return $content;
         }
 
         $pattern = '/(\/storage\/summernote[^\'\"]+)/';
         $times = preg_match_all($pattern, $content, $matches);
         if ($times) {
             foreach ($matches[0] as $value) {
-                unlink(public_path() . $value);
+                if (file_exists(public_path() . $value)) {
+                    unlink(public_path() . $value);
+                }
             }
         }
+    }
+
+    public function summernote_update($oldContent, $content)
+    {
+        // 取得舊字串的path
+        $pattern = '/(\/storage\/summernote[^\'\"]+)/';
+        $oldCheck = preg_match_all($pattern, $oldContent, $oldMatches);
+        $oldArray = [];
+        // 有找到的話產生一個收集舊資料image path的array
+        // $oldArray
+        if ($oldCheck) {
+            foreach ($oldMatches[0] as $value) {
+                $oldArray[] = $value;
+            }
+        }
+        // 新資料處理，取得新資料的image path
+        $content = $this->content_base64_check($content);
+        $pattern = '/(\/storage\/summernote[^\'\"]+)/';
+        $newCheck = preg_match_all($pattern, $content, $newMatches);
+        $newArray = [];
+        // 有找到的話產生一個收集舊資料image path的array
+        // $newArray
+        if ($newCheck) {
+            foreach ($newMatches[0] as $value) {
+                $newArray[] = $value;
+            }
+        }
+        // $a1沒有的會被丟到$oldNeedDel
+        $oldNeedDel = array_diff($oldArray, $newArray);
+        if ($oldNeedDel !== []) {
+            foreach ($oldNeedDel as $value) {
+                if (file_exists(public_path() . $value)) {
+                    unlink(public_path() . $value);
+                }
+            }
+        }
+        return $content;
     }
 }

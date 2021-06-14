@@ -37,8 +37,19 @@ class AdminController extends Controller
 
     public function test()
     {
-        $data = Info::find(12);
-        dd($data->content);
+        $data = Info::find(14);
+        // dd($data->content);
+        // 取得舊字串的path
+        $pattern = '/(\/storage\/summernote[^\'\"]+)/';
+        $times = preg_match_all($pattern, $data->content, $oldMatches);
+        $oldArray = [];
+        if ($times) {
+            foreach ($oldMatches as $v) {
+                $oldArray[] = $v[0];
+                // dd($value);
+            }
+        }
+        dd($oldArray);
 
         $data = Info::find(2);
         // 現在$data->content裡面有兩張base64圖
@@ -56,7 +67,7 @@ class AdminController extends Controller
         dd($matches[2]);
         // 要轉換成file的內容
         dd($matches[4]);
-        ***/
+         ***/
 
         // $pattern = '/(data:image\/)([^;]+)(;base64,)([^\"]+)/';
         // $res = preg_replace_callback($pattern, function ($matches) {

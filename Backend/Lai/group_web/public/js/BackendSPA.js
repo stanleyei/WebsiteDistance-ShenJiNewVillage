@@ -40119,8 +40119,8 @@ var Update = /*#__PURE__*/function (_Component) {
           name = _this$state.name,
           url = _this$state.url,
           phone = _this$state.phone,
-          content = _this$state.content,
           location = _this$state.location;
+      var content = $('.textarea').summernote('code');
       var formData = new FormData();
       formData.append('_method', 'PUT');
       formData.append('type_id', type_id);
@@ -40183,6 +40183,14 @@ var Update = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(Update, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      $('.textarea').summernote({
+        width: '100%',
+        height: 200
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -40276,7 +40284,7 @@ var Update = /*#__PURE__*/function (_Component) {
         onChange: function onChange(c) {
           return _this2.handleValue(c, 'content');
         },
-        className: "form-control",
+        className: "form-control textarea",
         id: "content",
         name: "content",
         cols: "30",

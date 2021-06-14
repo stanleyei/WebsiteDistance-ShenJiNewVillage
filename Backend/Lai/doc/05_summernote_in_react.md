@@ -57,7 +57,8 @@
 5. 目前先在**資訊列表**、**店家列表**的內容部分新增summernote
     * index加上第3項
     * create加上第1、2項
-    * controller加上store跟destroy用的method
+    * update加上第1、2項
+    * controller加上store、update跟destroy用的method
         - 最前面引入
             ```php
             use Illuminate\Support\Str;
@@ -67,6 +68,10 @@
             if ($data['content']) {
                 $data['content'] = $this->content_base64_check($data['content']);
                 }
+            ```
+        - update中加入
+            ```php
+            $dbData->content = $this->summernote_destroy_image($dbData->content);
             ```
         - destroy中加入
             ```php
