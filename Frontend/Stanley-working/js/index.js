@@ -2,7 +2,7 @@
 new fullpage('#fullpage', {
   autoScrolling: true,
   afterLoad: function (origin, destination, direction) {
-    if (destination.index == 4 && direction === 'down') {
+    if (destination.index === 4 && direction === 'down') {
       fullpage_api.setAutoScrolling(false); //關閉自動滾動模式
       fullpage_api.setFitToSection(false); //關閉滾輪自動回到最近section的效果
     }
@@ -31,7 +31,7 @@ document.querySelector('.toggle').onclick = function () {
 };
 
 //關於審計-Swiper輪播套件
-const swiper = new Swiper(".aboutUsSwiper", {
+const aboutUsSwiper = new Swiper(".aboutUsSwiper", {
   slidesPerView: 1, //同時顯示幾張
   spaceBetween: 30,
   loop: true,
