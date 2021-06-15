@@ -195,7 +195,7 @@ lightbox.option({
 });
 
 //周邊景點-swiper效果
-var swiper = new Swiper('.swiper-container', {
+const swiper = new Swiper('.swiper-container', {
   slidesPerView: 5,
   centeredSlides: true,
   grabCursor: true,

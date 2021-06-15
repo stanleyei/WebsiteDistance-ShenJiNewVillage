@@ -9,6 +9,25 @@ document.querySelector('.toggle').onclick = function () {
   navimg.classList.toggle('active');
 };
 
+//判斷傳進來的url值後切換到對應的分類
+const getUrlString = location.href;
+const newsUrl = new URL(getUrlString);
+const asideTabs = document.querySelectorAll('.aside-tab');
+const customSelect = document.querySelector('.custom-select-list');
+const infsNone = document.querySelector('#content-infs-none');
+const photoWall = document.querySelector('.feast-photo-wall');
+asideTabs.forEach(tab => {
+  tab.classList.remove('aside-tab-focus');
+  if(newsUrl.searchParams.get('tap') === tab.dataset.tap){
+    tab.classList.add('aside-tab-focus');
+  };
+});
+if(newsUrl.searchParams.get('tap') === '3'){
+  customSelect.style = 'display:block';
+  photoWall.style = 'display:grid';
+  infsNone.style = 'display:none';
+};
+
 //審計新訊-生成按鈕
 const monthList = document.querySelector('#month-list');
 const yearsList = document.querySelector('#years-list');
@@ -168,11 +187,7 @@ function infCard(id, i) {
 };
 
 //news-aside-tap被點擊後的效果
-const asideTabs = document.querySelectorAll('.aside-tab');
-const customSelect = document.querySelector('.custom-select-list');
 const feastPhoto = document.querySelector('#feast-photo');
-const infsNone = document.querySelector('#content-infs-none');
-const photoWall = document.querySelector('.feast-photo-wall');
 asideTabs.forEach(tabs => {
   tabs.addEventListener('click', function (tab) {
     if (tab.target === feastPhoto) {
@@ -290,7 +305,7 @@ function infsFocusStyle(infsName, iconsName) {
 //生成活動花絮結構
 for (let i = 1; i < 13; i++) {
   photoWall.innerHTML +=
-    `<a href="https://i2.wp.com/n2.hk/d/attachments/day_120216/20120216_707116b0bbf472685b87wMG3uh8tWnQ4.jpg" data-lightbox="image-1"><figure style="background-image: url(./img/nekoteacher01.jpg);"><div class="figure-hover-appear">0501 小蝸牛市集</div></figure></a>`;
+    `<a href="/img/text-2.png" data-lightbox="image-1"><figure style="background-image: url(/img/text-2.png);"><div class="figure-hover-appear">0501 小蝸牛市集</div></figure></a>`;
 };
 
 //燈箱套件

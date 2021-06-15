@@ -60,25 +60,7 @@
                         <div></div>
                         <div></div>
                     </div>
-                    <div class="content-infs">
-                        @foreach ($infs as $inf)
-                        <a class="content-inf" href="/news?target=123" title="前往{{$inf->name}}">
-                            <div class="inf-date">
-                                <div class="during">
-                                    <div class="start-date"></div>
-                                </div>
-                                <span></span>
-                            </div>
-                            <div class="inf-detail">
-                                <div class="inf-tag">{{$inf->name}}</div>
-                                <h4>{{$inf->infos[0]->name}}</h4>
-                            </div>
-                            <span>more
-                                <i class="fas fa-chevron-right"></i>
-                            </span>
-                        </a>
-                        @endforeach
-                    </div>
+                    <div class="content-infs"></div>
                 </div>
             </article>
         </div>
@@ -239,7 +221,7 @@
                     <div class="traffic-content">
                         <div class="traffic-content-text">
                             <p>附近YouBike 據點分布資訊</p>
-                            <a href="/tra-map" title="點擊查看附近YouBike">點擊查看></a>
+                            <a href="/tra_map" title="點擊查看附近YouBike">點擊查看></a>
                         </div>
                     </div>
                 </div>
@@ -299,8 +281,5 @@
 @endsection
 
 @section('js')
-<script>
-    const infsData = {!! $infs !!};
-</script>
 <script src="{{ asset('js/index.js')}}"></script>
 @endsection

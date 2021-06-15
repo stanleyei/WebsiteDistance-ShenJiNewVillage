@@ -1,4 +1,18 @@
+//一進頁面便發送POST撈出審計新訓資料
 const token = document.querySelector('[name="csrf-token"]').getAttribute('content');
+const contentInfs = document.querySelector('.content-infs');
+const infsData = new FormData;
+infsData.append('_token', token);
+fetch('/newsInitialization', {
+  method: 'POST',
+  body: infsData,
+})
+.then(response => {
+  return response.text();
+})
+.then(result => {
+  contentInfs.innerHTML = result;
+});
 
 // 整頁-fullpage輪播套件
 new fullpage('#fullpage', {
@@ -122,39 +136,11 @@ function focusChange(dateBtns) {
           return response.text();
         })
         .then(result => {
-
+          contentInfs.innerHTML = result;
         });
     });
   });
 }
-
-//審計新訊-拿出月份及日期數字並放入網頁
-const infMonth = document.querySelectorAll('.inf-date > span');
-const startDate = document.querySelectorAll('.start-date');
-const createdData = infsData.map(inf => inf.infos[0].created_at);
-let monthFirstNumber = [];
-let monthFinalNumber = [];
-let dayNumber = [];
-createdData.forEach(data => {
-  const infsDate = data.split('-');
-  const dayFinalNumber = infsDate[2].split('T');
-  dayNumber.push(dayFinalNumber[0]);
-  if (infsDate[1] === '10' || infsDate[1] === '11' || infsDate[1] === '12') {
-    monthFinalNumber.push(infsDate[1]);
-  } else {
-    monthFirstNumber = infsDate[1].split('0');
-    monthFinalNumber.push(monthFirstNumber[1]);
-  }
-});
-infMonth.forEach((month, i = 0) => {
-  month.textContent = monthData[monthFinalNumber[i] - 1];
-  i++;
-});
-startDate.forEach((date, i = 0) => {
-  date.textContent = dayNumber[i];
-  i++;
-});
-
 
 //店家介紹-切換店家分類按鈕
 const navTaps = document.querySelectorAll('.nav-tap');
@@ -240,7 +226,7 @@ lightbox.option({
 });
 
 //周邊景點-swiper效果
-var swiper = new Swiper('.swiper-container', {
+const swiper = new Swiper('.swiper-container', {
   slidesPerView: 5,
   centeredSlides: true,
   grabCursor: true,
