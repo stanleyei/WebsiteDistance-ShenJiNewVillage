@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Shop;
+use App\View;
 use App\Slider;
 use App\ShopType;
 use App\InfoTypes;
@@ -20,7 +21,8 @@ class FrontendController extends Controller
         $foodShops = Shop::with('shopImgs')->where('type_id', '1')->get();
         $trinketShops = Shop::with('shopImgs')->where('type_id', '2')->get();
         $newShopTypes = $shopType->except([3]);
-        return view('frontend.index',compact('sliders', 'infs', 'newShopTypes', 'shops', 'foodShops', 'trinketShops'));
+        $views = View::with('viewImgs')->get();
+        return view('frontend.index',compact('sliders', 'infs', 'newShopTypes', 'shops', 'foodShops', 'trinketShops', 'views'));
     }
 
     public function news()

@@ -28,7 +28,7 @@ header nav ul li a .title {
   white-space: nowrap;
 }
 
-#about-us .effect-area .about-us-container .about-us-title::before, #news .news-container .news-title::before, #store .store-container .store-title::before, #traffic .traffic-container .traffic-title::before, #contact .contact-container .contact-title::before {
+#about-us .effect-area .about-us-container .about-us-title::before, #news .news-container .news-title::before, #store .store-container .store-title::before, #view .view-container .view-title::before, #traffic .traffic-container .traffic-title::before, #contact .contact-container .contact-title::before {
   width: 3.125vw;
   height: 3.125vw;
   content: '';
@@ -40,7 +40,7 @@ header nav ul li a .title {
   z-index: -1;
 }
 
-#about-us .effect-area .about-us-container .about-us-title span::before, #news .news-container .news-title span::before, #store .store-container .store-title span::before, #traffic .traffic-container .traffic-title .tra-title-icon::before, #contact .contact-container .contact-title span::before {
+#about-us .effect-area .about-us-container .about-us-title span::before, #news .news-container .news-title span::before, #store .store-container .store-title span::before, #view .view-container .view-title span::before, #traffic .traffic-container .traffic-title .tra-title-icon::before, #contact .contact-container .contact-title span::before {
   content: '';
   position: absolute;
   left: 0;
@@ -1170,6 +1170,163 @@ header .nav-img.active {
 
 #store .store-container article nav .list-active {
   display: none;
+}
+
+#view {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1.04vw solid #54291c;
+  position: relative;
+  overflow: hidden;
+}
+
+#view .view-container {
+  width: 80vw;
+  height: 80vh;
+}
+
+#view .view-container .view-title {
+  position: relative;
+  padding-left: 3.125vw;
+}
+
+#view .view-container .view-title h2 {
+  font-size: 2.34vw;
+  text-align: start;
+  line-height: inherit;
+  letter-spacing: 0.1em;
+  letter-spacing: 0.3em;
+}
+
+#view .view-container .view-title span {
+  font-size: 1.25vw;
+  text-align: center;
+  line-height: inherit;
+  letter-spacing: 0.1em;
+}
+
+#view .view-container .view-title span::before {
+  content: 'SPOTS';
+}
+
+#view .view-container .view-main {
+  width: 100vw;
+  height: 90vh;
+  padding: 10px 0;
+  position: absolute;
+  left: 0;
+}
+
+#view .view-container .view-main .swiper-container {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+#view .view-container .view-main .swiper-container .swiper-wrapper {
+  padding: 1.85vh 0;
+}
+
+#view .view-container .view-main .swiper-container .swiper-wrapper .swiper-slide {
+  width: 14.58vw;
+  height: 43vh;
+  margin-top: 15.74vh;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 0.9375vw;
+}
+
+#view .view-container .view-main .swiper-container .swiper-wrapper .swiper-slide .view-card {
+  width: 14.58vw;
+  height: 43vh;
+  background-color: #D28E76;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 0.625vw;
+  color: #FFFCF4;
+  line-height: 2.78vh;
+  padding-top: 2.31vh;
+}
+
+#view .view-container .view-main .swiper-container .swiper-wrapper .swiper-slide .view-card span {
+  display: block;
+  margin: 10px auto 2.31vh;
+  width: 11.98vw;
+  height: 16.67vh;
+  background-position: center;
+  background-size: cover;
+}
+
+#view .view-container .view-main .swiper-container .swiper-wrapper .swiper-slide .view-card p {
+  padding: 0 1.6vw;
+}
+
+#view .view-container .view-main .swiper-container .swiper-wrapper .swiper-slide .view-card p:first-child {
+  font-size: 0.729vw;
+}
+
+#view .view-container .view-main .swiper-container .swiper-wrapper .swiper-slide .view-card p:last-child {
+  letter-spacing: 0.2em;
+  line-height: 2.31vh;
+}
+
+#view .view-container .view-main .swiper-container .swiper-wrapper .swiper-slide-active {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+#view .view-container .view-main .swiper-container .swiper-button-next {
+  width: 3.125vw;
+  height: 3.125vw;
+  position: absolute;
+  top: 38%;
+  right: 36.5%;
+}
+
+#view .view-container .view-main .swiper-container .swiper-button-next::after {
+  width: 3.125vw;
+  height: 3.125vw;
+  content: '';
+  background-image: url(../img/view-prev.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  font-family: none;
+}
+
+#view .view-container .view-main .swiper-container .swiper-button-prev {
+  width: 3.125vw;
+  height: 3.125vw;
+  position: absolute;
+  top: 38%;
+  left: 38%;
+}
+
+#view .view-container .view-main .swiper-container .swiper-button-prev::after {
+  width: 3.125vw;
+  height: 3.125vw;
+  content: '';
+  background-image: url(../img/view-next.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  font-family: none;
 }
 
 #traffic {

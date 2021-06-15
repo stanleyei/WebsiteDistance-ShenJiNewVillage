@@ -152,7 +152,39 @@
             </article>
         </div>
     </section>
-    <section id="view" class="view"></section>
+    <section id="view" class="section">
+        <a href="/" class="logo-link">
+            <img class="logo-img" src="./img/Logo-img.png" alt="">
+            <img class="logo-text" src="./img/Logo-text.png" alt="">
+        </a>
+        <div class="view-container">
+            <div class="view-title">
+                <h2>周邊景點</h2>
+                <span>Shen Ji New Village</span>
+            </div>
+            <div class="view-main">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        @foreach ($views as $view)
+                        <div class="swiper-slide" data-id="{{$view->id}}">
+                            <div class="view-card">
+                                <p>{{$view->name}}</p>
+                                <p class="fas fa-map"> {{$view->phone}}</p>
+                                <a href="{{$view->viewImgs[0]->img}}" data-lightbox="roadtrip-{{$view->id}}">
+                                    <span class="view-card-img"
+                                        style="background-image: url('{{$view->viewImgs[0]->img}}');"></span>
+                                </a>
+                                <p>{{$view->content}}</p>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="traffic" class="section">
         <a href="/" class="logo-link">
             <img class="logo-img" src="{{asset('/img/Logo-img.png')}}" alt="審計新村LOGO插圖">

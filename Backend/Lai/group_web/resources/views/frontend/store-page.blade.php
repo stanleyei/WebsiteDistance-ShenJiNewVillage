@@ -49,7 +49,7 @@
                 日日鬆餅的可可使用的是法國weiss70%巧克力，整體口感偏苦，是我喜歡的那種，如果覺得舒芙蕾鬆餅比較甜，真心推薦點這法國可可鮮奶做搭配。雖然想到“審計新村”，我就因為人潮跟難停車忍不住皺眉不過想到TWODAY日日鬆餅的舒芙蕾鬆餅，我心中又燃起了再訪的想法
             </p>
         </article>
-        <a href="/" title="回到首頁" class="back-btn">回上一頁</a>
+        <a href="/#thirdPage" title="回到首頁" class="back-btn">回上一頁</a>
     </div>
 </main>
 @endsection
