@@ -2,7 +2,7 @@
 new fullpage('#fullpage', {
   autoScrolling: true,
   afterLoad: function (origin, destination, direction) {
-    if (destination.index === 4 && direction === 'down') {
+    if (destination.index === 5 && direction === 'down') {
       fullpage_api.setAutoScrolling(false); //關閉自動滾動模式
       fullpage_api.setFitToSection(false); //關閉滾輪自動回到最近section的效果
     }
@@ -141,7 +141,7 @@ navTaps.forEach(tab => {
     });
     shopBtns.forEach(btn => {
       btn.classList.remove('bottom-line');
-      if(btn.dataset.img === '0' || btn.dataset.img === '7'){
+      if (btn.dataset.img === '0' || btn.dataset.img === '7') {
         btn.classList.add('bottom-line');
       }
     });
@@ -149,7 +149,7 @@ navTaps.forEach(tab => {
       title.classList.add('title-hide');
       if (title.dataset.title === '7' && this.dataset.title === '2') {
         title.classList.remove('title-hide');
-      }else if(title.dataset.title === '0' && this.dataset.title === '1'){
+      } else if (title.dataset.title === '0' && this.dataset.title === '1') {
         title.classList.remove('title-hide');
       };
     });
@@ -192,6 +192,32 @@ lightbox.option({
   'wrapAround': true,
   'disableScrolling': true,
   'positionFromTop': 100,
+});
+
+//周邊景點-swiper效果
+var swiper = new Swiper('.swiper-container', {
+  slidesPerView: 5,
+  centeredSlides: true,
+  grabCursor: true,
+  spaceBetween: 150,
+  speed: 500,
+  loop: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  on: {
+    init: function () {
+    },
+    transitionStart: function () {
+      $('.view-card').css("background-color", " #D28E76");
+      $('.swiper-slide-active .view-card').css("background-color", "#96422D");
+    },
+    transitionEnd: function (swiper) {
+      // $('.swiper-slide-active .view-card').addClass('viewcard-active');
+      // $('.swiper-slide-active .view-card').css("background-color","#96422D");
+    }
+  }
 });
 
 //回到頂端按鈕
