@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sb-admin-2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/summernote.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/cropper.min.css') }}">
     @yield('css')
 </head>
 
@@ -44,8 +45,6 @@
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         @csrf
     </form>
-
-
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/datatables.min.js') }} "></script>
     <script src="{{ asset('js/BackendSPA.js') }}"></script>

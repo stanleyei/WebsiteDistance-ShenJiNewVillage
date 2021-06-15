@@ -1,5 +1,6 @@
 import Axios from 'axios'
 import React, { Component } from 'react'
+import Cropper from '../../../js/cropper.js'
 
 export default class Create extends Component {
     constructor(props) {
@@ -44,7 +45,9 @@ export default class Create extends Component {
         const inputContent = $('.textarea').summernote('code');
 
         // 取得圖片檔案
-        const inputImg = this.infoImg.files[0]
+        // const inputImg = this.infoImg.files[0]
+        const inputImg = this.cropImg
+        // console.log(this.cropImg);
         let formData = new FormData()
         formData.append('type_id', inputTypeinfoTypeId)
         formData.append('name', inputName)
@@ -57,24 +60,100 @@ export default class Create extends Component {
         formData.append('calendar', inputCalendar)
 
         // 判斷是否都存在，目前是全部都必填，新增按鈕才有效
-        const checkExist = inputTypeinfoTypeId && inputName && inputContent && inputImg && inputDateStart && inputDateEnd && inputLocation && inputOrganizer && inputCalendar
+        // const checkExist = inputTypeinfoTypeId && inputName && inputContent && inputImg && inputDateStart && inputDateEnd && inputLocation && inputOrganizer && inputCalendar
         // request 後端新增資料
-        if (checkExist) {
-            // 不同頁面要不同路徑
-            Axios.post('admin/info', formData).then(response => {
-                // 回傳的資料是新資料，直接丟回上層state
-                updateTable(response.data)
-                // 關閉新增頁
-                createPageDown()
-            })
-        }
+        // if (checkExist) {
+        // 不同頁面要不同路徑
+        Axios.post('admin/info', formData).then(response => {
+            // 回傳的資料是新資料，直接丟回上層state
+            updateTable(response.data)
+            // 關閉新增頁
+            createPageDown()
+        })
+        // }
     }
 
     componentDidUpdate() {
+        // summernote
         $('.textarea').summernote({
             width: '100%',
             height: 200,
         });
+
+        var theReal = this;
+        // cropper
+        var bs_modal = $('#modal');
+        var image = document.getElementById('image');
+        var cropper, reader, file;
+
+        $("body").on("change", ".image", function (e) {
+            var files = e.target.files;
+            var done = function (url) {
+                image.src = url;
+                bs_modal.modal('show');
+            };
+
+
+            if (files && files.length > 0) {
+                file = files[0];
+
+                if (URL) {
+                    done(URL.createObjectURL(file));
+                } else if (FileReader) {
+                    reader = new FileReader();
+                    reader.onload = function (e) {
+                        done(reader.result);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        });
+
+        bs_modal.on('shown.bs.modal', function () {
+            cropper = new Cropper(image, {
+                aspectRatio: 16 / 9,
+                viewMode: 1,
+                preview: '.preview'
+            });
+        }).on('hidden.bs.modal', function () {
+            cropper.destroy();
+            cropper = null;
+        });
+
+        $("#crop").click(function () {
+            var canvas = cropper.getCroppedCanvas({
+                width: 160,
+                height: 160,
+            });
+
+            canvas.toBlob(function (blob) {
+                var url = URL.createObjectURL(blob);
+                var reader = new FileReader();
+                reader.readAsDataURL(blob);
+                reader.onloadend = function () {
+                    // var base64data = reader.result;
+
+                    // 把blob轉換成給後端讀的file
+                    const cropImg = new File([blob], "img");
+                    // 存進實體下的cropImg，在取值時較方便
+                    theReal.cropImg = cropImg;
+
+                    bs_modal.modal('hide');
+
+                    // $.ajax({
+                    //     type: "POST",
+                    //     dataType: "json",
+                    //     url: "upload.php",
+                    //     data: { image: base64data },
+                    //     success: function (data) {
+                    //         bs_modal.modal('hide');
+                    //         alert("success upload image");
+                    //     }
+                    // });
+                };
+            });
+        });
+        
     }
 
     render() {
@@ -106,7 +185,7 @@ export default class Create extends Component {
                     </div>
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label" htmlFor="img">圖片</label>
-                        <input ref={c => this.infoImg = c} className="form-control" id="img" name="img" type="file" accept="image/*" />
+                        <input ref={c => this.infoImg = c} className="form-control image" id="img" name="img" type="file" accept="image/*" />
                     </div>
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label" htmlFor="date_start">開始日期</label>
@@ -131,6 +210,38 @@ export default class Create extends Component {
                     <button className="btn btn-secondary" onClick={createPageDown}>取消</button>
                     <button onClick={this.createNewData} className="btn btn-primary">新增</button>
                 </form>
+
+                <div className="modal fade" id="modal" tabIndex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                    <div className="modal-dialog modal-lg" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="modalLabel">Crop image</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div className="modal-body">
+                                <div className="img-container">
+                                    <div className="row">
+                                        <div className="col-md-8">
+                                            <img id="image" />
+                                        </div>
+                                        <div className="col-md-4">
+                                            <div className="preview" style={{ overflow: 'hidden', height: 100 }}>
+                                                <img id="image" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" className="btn btn-primary" id="crop">Crop</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         )
     }
