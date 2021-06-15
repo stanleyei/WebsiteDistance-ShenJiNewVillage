@@ -47,6 +47,10 @@ class InfoController extends Controller
     {
         $data = $request->all();
 
+        if ($request->img) {
+            $request->img = $this->crop($request->img);
+        }
+
         if ($data['content']) {
             $data['content'] = $this->content_base64_check($data['content']);
         }
@@ -98,7 +102,7 @@ class InfoController extends Controller
     {
         $data = $request->all();
         $dbData = Info::find($id);
-        
+
         // content內容有圖片的處理
         $data['content'] = $this->summernote_update($dbData->content, $data['content']);
 
@@ -260,5 +264,22 @@ class InfoController extends Controller
             }
         }
         return $content;
+    }
+
+    public function crop($img)
+    {
+        // 先檢查有沒有base64的格式
+        if (!($img && Str::contains($img, ['src="data:image', 'src=\'data:image']))) {
+            return $img;
+        }
+
+        // ([^;]+) : 找的是冒號(;)前的所有(+的關係)字元
+        // ([^\"]+) : 找的是不等於"的所有(+的關係)字元，找到"為止
+        $pattern = '/(data:image\/)([^;]+)(;base64,)([^\"]+)/';
+
+        $check = preg_match($pattern, $img, $matches);
+        if ($check) {
+            return base64_decode($matches[4]);
+        }
     }
 }
