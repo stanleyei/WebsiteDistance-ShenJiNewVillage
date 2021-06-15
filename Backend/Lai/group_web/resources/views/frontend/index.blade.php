@@ -62,7 +62,7 @@
                     </div>
                     <div class="content-infs">
                         @foreach ($infs as $inf)
-                        <a class="content-inf" href="/news" title="前往{{$inf->name}}">
+                        <a class="content-inf" href="/news?target=123" title="前往{{$inf->name}}">
                             <div class="inf-date">
                                 <div class="during">
                                     <div class="start-date"></div>
