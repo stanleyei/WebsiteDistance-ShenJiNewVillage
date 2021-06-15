@@ -1,8 +1,10 @@
+const token = document.querySelector('[name="csrf-token"]').getAttribute('content');
+
 // 整頁-fullpage輪播套件
 new fullpage('#fullpage', {
   autoScrolling: true,
   afterLoad: function (origin, destination, direction) {
-    if (destination.index === 4 && direction === 'down') {
+    if (destination.index === 5 && direction === 'down') {
       fullpage_api.setAutoScrolling(false); //關閉自動滾動模式
       fullpage_api.setFitToSection(false); //關閉滾輪自動回到最近section的效果
     }
@@ -107,9 +109,52 @@ function focusChange(dateBtns) {
           :
           btn.classList.remove('focus-change');
       });
+
+      const month = this.dataset.month;
+      const formData = new FormData;
+      formData.append('month', month);
+      formData.append('_token', token);
+      fetch('/news_switch', {
+        method: 'POST',
+        body: formData,
+      })
+        .then(response => {
+          return response.text();
+        })
+        .then(result => {
+
+        });
     });
   });
 }
+
+//審計新訊-拿出月份及日期數字並放入網頁
+const infMonth = document.querySelectorAll('.inf-date > span');
+const startDate = document.querySelectorAll('.start-date');
+const createdData = infsData.map(inf => inf.infos[0].created_at);
+let monthFirstNumber = [];
+let monthFinalNumber = [];
+let dayNumber = [];
+createdData.forEach(data => {
+  const infsDate = data.split('-');
+  const dayFinalNumber = infsDate[2].split('T');
+  dayNumber.push(dayFinalNumber[0]);
+  if (infsDate[1] === '10' || infsDate[1] === '11' || infsDate[1] === '12') {
+    monthFinalNumber.push(infsDate[1]);
+  } else {
+    monthFirstNumber = infsDate[1].split('0');
+    monthFinalNumber.push(monthFirstNumber[1]);
+  }
+});
+infMonth.forEach((month, i = 0) => {
+  month.textContent = monthData[monthFinalNumber[i] - 1];
+  i++;
+});
+startDate.forEach((date, i = 0) => {
+  date.textContent = dayNumber[i];
+  i++;
+});
+
 
 //店家介紹-切換店家分類按鈕
 const navTaps = document.querySelectorAll('.nav-tap');
@@ -141,7 +186,7 @@ navTaps.forEach(tab => {
     });
     shopBtns.forEach(btn => {
       btn.classList.remove('bottom-line');
-      if(btn.dataset.img === '0' || btn.dataset.img === '7'){
+      if (btn.dataset.img === '0' || btn.dataset.img === '7') {
         btn.classList.add('bottom-line');
       }
     });
@@ -149,7 +194,7 @@ navTaps.forEach(tab => {
       title.classList.add('title-hide');
       if (title.dataset.title === '7' && this.dataset.title === '2') {
         title.classList.remove('title-hide');
-      }else if(title.dataset.title === '0' && this.dataset.title === '1'){
+      } else if (title.dataset.title === '0' && this.dataset.title === '1') {
         title.classList.remove('title-hide');
       };
     });
@@ -192,6 +237,32 @@ lightbox.option({
   'wrapAround': true,
   'disableScrolling': true,
   'positionFromTop': 100,
+});
+
+//周邊景點-swiper效果
+var swiper = new Swiper('.swiper-container', {
+  slidesPerView: 5,
+  centeredSlides: true,
+  grabCursor: true,
+  spaceBetween: 150,
+  speed: 500,
+  loop: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  on: {
+    init: function () {
+    },
+    transitionStart: function () {
+      $('.view-card').css("background-color", " #D28E76");
+      $('.swiper-slide-active .view-card').css("background-color", "#96422D");
+    },
+    transitionEnd: function (swiper) {
+      // $('.swiper-slide-active .view-card').addClass('viewcard-active');
+      // $('.swiper-slide-active .view-card').css("background-color","#96422D");
+    }
+  }
 });
 
 //回到頂端按鈕
