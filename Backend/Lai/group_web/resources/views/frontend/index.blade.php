@@ -8,7 +8,7 @@
 <main id="fullpage">
     <section id="about-us" class="section">
         <div class="effect-area">
-            <a href="/" class="logo-link">
+            <a href="/" class="logo-link" title="回到首頁">
                 <img class="logo-img" src="{{asset('/img/Logo-img.png')}}" alt="審計新村LOGO插圖">
                 <img class="logo-text" src="{{asset('/img/Logo-text.png')}}" alt="審計新村LOGO文字">
             </a>
@@ -39,7 +39,7 @@
         </div>
     </section>
     <section id="news" class="section">
-        <a href="/" class="logo-link">
+        <a href="/" class="logo-link" title="回到首頁">
             <img class="logo-img" src="{{asset('/img/Logo-img.png')}}" alt="審計新村LOGO插圖">
             <img class="logo-text" src="{{asset('/img/Logo-text.png')}}" alt="審計新村LOGO文字">
         </a>
@@ -85,7 +85,7 @@
     </section>
     <section id="map" class="map"></section>
     <section id="store" class="section">
-        <a href="/" class="logo-link">
+        <a href="/" class="logo-link" title="回到首頁">
             <img class="logo-img" src="{{asset('/img/Logo-img.png')}}" alt="審計新村LOGO插圖">
             <img class="logo-text" src="{{asset('/img/Logo-text.png')}}" alt="審計新村LOGO文字">
         </a>
@@ -153,7 +153,7 @@
         </div>
     </section>
     <section id="view" class="section">
-        <a href="/" class="logo-link">
+        <a href="/" class="logo-link" title="回到首頁">
             <img class="logo-img" src="./img/Logo-img.png" alt="">
             <img class="logo-text" src="./img/Logo-text.png" alt="">
         </a>
@@ -186,7 +186,7 @@
         </div>
     </section>
     <section id="traffic" class="section">
-        <a href="/" class="logo-link">
+        <a href="/" class="logo-link" title="回到首頁">
             <img class="logo-img" src="{{asset('/img/Logo-img.png')}}" alt="審計新村LOGO插圖">
             <img class="logo-text" src="{{asset('/img/Logo-text.png')}}" alt="審計新村LOGO文字">
         </a>
@@ -238,14 +238,15 @@
                     </div>
                     <div class="traffic-content">
                         <div class="traffic-content-text">
-                            <p>點擊查看附近YouBike 據點分布資訊</p>
+                            <p>附近YouBike 據點分布資訊</p>
+                            <a href="/tra-map" title="點擊查看附近YouBike">點擊查看></a>
                         </div>
                     </div>
                 </div>
             </div>
     </section>
     <section id="contact" class="section">
-        <a href="/" class="logo-link">
+        <a href="/" class="logo-link" title="回到首頁">
             <img class="logo-img" src="{{asset('/img/Logo-img.png')}}" alt="審計新村LOGO插圖">
             <img class="logo-text" src="{{asset('/img/Logo-text.png')}}" alt="審計新村LOGO文字">
         </a>

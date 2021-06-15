@@ -1,0 +1,253 @@
+@import 'group_web_variable';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $body-bg;
+    font-family: 'Noto Sans', sans-serif;
+    color: $main-color;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: $main-color;
+
+    &:hover {
+        text-decoration: none;
+        color: $main-color;
+    }
+}
+
+h2 {
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+figure {
+    margin: 0;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+}
+
+.logo-link {
+    @include size(15vw, 5.729vw);
+    position: absolute;
+    right: 5vmin;
+    top: 5vmin;
+    z-index: 1;
+
+    .logo-img {
+        @include size(5.729vw, 5.729vw);
+        margin-right: 0.521vw;
+    }
+
+    .logo-text {
+        @include size(7.552vw, 4.48vw);
+    }
+}
+
+header {
+    @include flex();
+    min-height: 100vh;
+    position: fixed;
+    z-index: 50;
+
+    nav {
+        @include size(1.93vw, 80vh);
+        @include flex;
+        position: relative;
+        border-radius: 10px;
+        background-color: $main-color;
+        box-shadow: 0 5px 15px;
+        overflow: hidden;
+        transition: 1s;
+
+        ul {
+            display: none;
+            width: 20%;
+            padding: 0;
+            z-index: 20;
+            list-style: none;
+
+            li {
+                position: relative;
+                width: 100%;
+                border-radius: 10px;
+
+                &:hover {
+                    background-color: #efefef;
+
+                    a {
+                        color: $nav-bg;
+                        font-weight: bold;
+                    }
+                }
+
+                a {
+                    @extend %header-section-btn;
+
+                    .icon {
+                        @extend %header-section-btn-icon;
+                    }
+
+                    .title {
+                        @extend %header-section-btn-title;
+                    }
+                }
+            }
+        }
+
+        .nav-img {
+            @include size(110px, 109px);
+            display: none;
+            right: 7%;
+            bottom: 8%;
+            background-image: url(../img/logo-bg-img.png);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: absolute;
+        }
+    }
+
+    nav.active {
+        @include size(50vw, 100vh);
+        background-color: $nav-bg;
+    }
+
+    .toggle {
+        @include size(30px, 80vh);
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: none;
+        cursor: pointer;
+
+        &::before {
+            @include size(12.5px, 25px);
+            content: "";
+            position: absolute;
+            left: 15%;
+            top: 50%;
+            background-image: url(../img/nav-right.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            line-height: 20px;
+            text-align: center;
+        }
+    }
+
+    .toggle.active {
+        height: 100vh;
+
+        &::before {
+            top: 50%;
+            background-image: url(../img/nav-left.png);
+        }
+    }
+
+    .ulbar.active {
+        display: block;
+    }
+
+    .nav-img.active {
+        display: block;
+    }
+}
+
+.traffic {
+    @include size(100%, 100vh);
+    @include flex;
+    border: 1.04vw solid $main-color;
+    position: relative;
+
+    .traffic-container {
+        @include size(80vw, 80vh);
+
+        .traffic-title {
+            position: relative;
+            padding-left: 3.125vw;
+
+            &::before {
+                @extend %title-cube;
+            }
+
+            h2 {
+                @include font($h1, start);
+                letter-spacing: 0.3em;
+            }
+
+            .tra-title-icon {
+                @include font($h5);
+
+                &::before {
+                    @extend %title-vertical-text;
+                    content: 'About';
+                }
+            }
+
+            .tra-youbike {
+                @include size(17.5vw, 4.44vh);
+                @include position(33%, 33%, 0, 0);
+                border-bottom: 2.22vh solid $store-list-bg;
+                text-align: center;
+                font-size: $h2;
+                line-height: 5.56vh;
+                letter-spacing: 0.2em;
+                font-weight: bold;
+            }
+
+            .youbike-point {
+                @include size(16.5vw, 3.33vh);
+                @include position(102%, 52%, 0, 0);
+                border-bottom: 2.04vh solid $store-list-bg;
+                text-align: center;
+                font-size: $h4;
+                letter-spacing: 0.2em;
+                font-weight: bold;
+            }
+        }
+
+        .traffic-bike {
+            width: 100%;
+            display: flex;
+
+            .bike-map {
+                @include size(65vw, 55vh);
+                margin: 100px auto;
+                background-color: $footer-text;
+                position: relative;
+
+                iframe {
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                }
+            }
+        }
+    }
+}

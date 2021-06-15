@@ -145,7 +145,7 @@ header nav ul li a .title {
   border-right: 1.56vw solid #D28E76;
 }
 
-#traffic .traffic-container .traffic-main .traffic-bus .traffic-content .traffic-content-text p, #traffic .traffic-container .traffic-main .traffic-car .traffic-content .traffic-content-text p, #traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text p {
+#traffic .traffic-container .traffic-main .traffic-bus .traffic-content .traffic-content-text p, #traffic .traffic-container .traffic-main .traffic-car .traffic-content .traffic-content-text p, #traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text p, #traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text a {
   margin-left: 2.24vw;
   font-size: 1.354vw;
   letter-spacing: 0.2em;
@@ -1519,6 +1519,12 @@ header .nav-img.active {
 
 #traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text p {
   line-height: 4.17vh;
+}
+
+#traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text a {
+  margin-left: 1.15vw;
+  color: #96422D;
+  line-height: 5.56vh;
 }
 
 #contact {

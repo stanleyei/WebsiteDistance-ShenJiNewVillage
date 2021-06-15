@@ -1,0 +1,342 @@
+header nav ul li a {
+  padding-left: 0.521vw;
+  position: relative;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #FBE6C3;
+  font-weight: 500;
+  font-size: 1.354vw;
+  letter-spacing: 0.3em;
+}
+
+header nav ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 2.08vw;
+  height: 5.56vh;
+  line-height: 5.56vh;
+  text-align: center;
+}
+
+header nav ul li a .title {
+  position: relative;
+  display: block;
+  height: 5.56vh;
+  line-height: 5.56vh;
+  white-space: nowrap;
+}
+
+.traffic .traffic-container .traffic-title::before {
+  width: 3.125vw;
+  height: 3.125vw;
+  content: '';
+  position: absolute;
+  background: #D28E76;
+  border-radius: 5px;
+  -webkit-transform: translate(-2.6vw, -1.85vh);
+          transform: translate(-2.6vw, -1.85vh);
+  z-index: -1;
+}
+
+.traffic .traffic-container .traffic-title .tra-title-icon::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  -webkit-transform: translate(-15%, -80%) rotate(90deg);
+          transform: translate(-15%, -80%) rotate(90deg);
+  letter-spacing: 0.1em;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFFCF4;
+  font-family: 'Noto Sans', sans-serif;
+  color: #54291c;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: #54291c;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #54291c;
+}
+
+h2 {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+figure {
+  margin: 0;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+.logo-link {
+  width: 15vw;
+  height: 5.729vw;
+  position: absolute;
+  right: 5vmin;
+  top: 5vmin;
+  z-index: 1;
+}
+
+.logo-link .logo-img {
+  width: 5.729vw;
+  height: 5.729vw;
+  margin-right: 0.521vw;
+}
+
+.logo-link .logo-text {
+  width: 7.552vw;
+  height: 4.48vw;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100vh;
+  position: fixed;
+  z-index: 50;
+}
+
+header nav {
+  width: 1.93vw;
+  height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  border-radius: 10px;
+  background-color: #54291c;
+  -webkit-box-shadow: 0 5px 15px;
+          box-shadow: 0 5px 15px;
+  overflow: hidden;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+header nav ul {
+  display: none;
+  width: 20%;
+  padding: 0;
+  z-index: 20;
+  list-style: none;
+}
+
+header nav ul li {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+}
+
+header nav ul li:hover {
+  background-color: #efefef;
+}
+
+header nav ul li:hover a {
+  color: rgba(84, 41, 28, 0.9);
+  font-weight: bold;
+}
+
+header nav .nav-img {
+  width: 110px;
+  height: 109px;
+  display: none;
+  right: 7%;
+  bottom: 8%;
+  background-image: url(../img/logo-bg-img.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
+header nav.active {
+  width: 50vw;
+  height: 100vh;
+  background-color: rgba(84, 41, 28, 0.9);
+}
+
+header .toggle {
+  width: 30px;
+  height: 80vh;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: none;
+  cursor: pointer;
+}
+
+header .toggle::before {
+  width: 12.5px;
+  height: 25px;
+  content: "";
+  position: absolute;
+  left: 15%;
+  top: 50%;
+  background-image: url(../img/nav-right.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  line-height: 20px;
+  text-align: center;
+}
+
+header .toggle.active {
+  height: 100vh;
+}
+
+header .toggle.active::before {
+  top: 50%;
+  background-image: url(../img/nav-left.png);
+}
+
+header .ulbar.active {
+  display: block;
+}
+
+header .nav-img.active {
+  display: block;
+}
+
+.traffic {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1.04vw solid #54291c;
+  position: relative;
+}
+
+.traffic .traffic-container {
+  width: 80vw;
+  height: 80vh;
+}
+
+.traffic .traffic-container .traffic-title {
+  position: relative;
+  padding-left: 3.125vw;
+}
+
+.traffic .traffic-container .traffic-title h2 {
+  font-size: 2.34vw;
+  text-align: start;
+  line-height: inherit;
+  letter-spacing: 0.1em;
+  letter-spacing: 0.3em;
+}
+
+.traffic .traffic-container .traffic-title .tra-title-icon {
+  font-size: 1.25vw;
+  text-align: center;
+  line-height: inherit;
+  letter-spacing: 0.1em;
+}
+
+.traffic .traffic-container .traffic-title .tra-title-icon::before {
+  content: 'About';
+}
+
+.traffic .traffic-container .traffic-title .tra-youbike {
+  width: 17.5vw;
+  height: 4.44vh;
+  position: absolute;
+  top: 33%;
+  left: 33%;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+  border-bottom: 2.22vh solid #FBE6C3;
+  text-align: center;
+  font-size: 1.875vw;
+  line-height: 5.56vh;
+  letter-spacing: 0.2em;
+  font-weight: bold;
+}
+
+.traffic .traffic-container .traffic-title .youbike-point {
+  width: 16.5vw;
+  height: 3.33vh;
+  position: absolute;
+  top: 102%;
+  left: 52%;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+  border-bottom: 2.04vh solid #FBE6C3;
+  text-align: center;
+  font-size: 1.354vw;
+  letter-spacing: 0.2em;
+  font-weight: bold;
+}
+
+.traffic .traffic-container .traffic-bike {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.traffic .traffic-container .traffic-bike .bike-map {
+  width: 65vw;
+  height: 55vh;
+  margin: 100px auto;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.traffic .traffic-container .traffic-bike .bike-map iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+/*# sourceMappingURL=tra-map.css.map */

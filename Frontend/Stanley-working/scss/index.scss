@@ -1075,14 +1075,18 @@ header {
                             @extend %title-tra-contenttext;
                             line-height: 4.17vh;
                         }
+
+                        a {
+                            @extend %title-tra-contenttext;
+                            margin-left: 1.15vw;
+                            color: $store-tag-f-bg;
+                            line-height: 5.56vh;
+                        }
                     }
                 }
             }
-
         }
-
     }
-
 }
 
 #contact {
