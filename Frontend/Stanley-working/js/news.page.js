@@ -290,7 +290,7 @@ function infsFocusStyle(infsName, iconsName) {
 //生成活動花絮結構
 for (let i = 1; i < 13; i++) {
   photoWall.innerHTML +=
-    `<a href="https://i2.wp.com/n2.hk/d/attachments/day_120216/20120216_707116b0bbf472685b87wMG3uh8tWnQ4.jpg" data-lightbox="image-1"><figure style="background-image: url(./img/nekoteacher01.jpg);"><div class="figure-hover-appear">0501 小蝸牛市集</div></figure></a>`;
+    `<a href="./img/ShenJiNewVillage-27.png" data-lightbox="image-1"><figure style="background-image: url(./img/ShenJiNewVillage-27.png);"><div class="figure-hover-appear">0501 小蝸牛市集</div></figure></a>`;
 };
 
 //燈箱套件
