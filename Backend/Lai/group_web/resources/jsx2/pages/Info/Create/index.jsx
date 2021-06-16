@@ -9,6 +9,7 @@ export default class Create extends Component {
         this.state = {
             // 避免一開始render 使用map時錯誤，先設定[]
             upperRelation: [],
+            imgBase64: ''
         };
 
         // 新增頁面有上層關連的需要取得上層所有選項
@@ -74,21 +75,21 @@ export default class Create extends Component {
     }
 
     componentDidUpdate() {
+
         // summernote
         $('.textarea').summernote({
             width: '100%',
             height: 200,
         });
 
-        var theReal = this;
         // cropper
         var bs_modal = $('#modal');
         var image = document.getElementById('image');
         var cropper, reader, file;
 
-        $("body").on("change", ".image", function (e) {
+        $("body").on("change", ".image", (e) => {
             var files = e.target.files;
-            var done = function (url) {
+            var done = (url) => {
                 image.src = url;
                 bs_modal.modal('show');
             };
@@ -101,7 +102,7 @@ export default class Create extends Component {
                     done(URL.createObjectURL(file));
                 } else if (FileReader) {
                     reader = new FileReader();
-                    reader.onload = function (e) {
+                    reader.onload = (e) => {
                         done(reader.result);
                     };
                     reader.readAsDataURL(file);
@@ -109,51 +110,66 @@ export default class Create extends Component {
             }
         });
 
-        bs_modal.on('shown.bs.modal', function () {
+        bs_modal.on('shown.bs.modal', () => {
             cropper = new Cropper(image, {
-                aspectRatio: 16 / 9,
-                viewMode: 1,
+                aspectRatio: 400 / 300,
+                viewMode: 3,
+                // minCropBoxWidth: 1000,
                 preview: '.preview'
             });
-        }).on('hidden.bs.modal', function () {
-            cropper.destroy();
-            cropper = null;
+        }).on('hidden.bs.modal', () => {
+            if (cropper) {
+                cropper.destroy();
+                cropper = null;
+            }
         });
 
-        $("#crop").click(function () {
+        $("#set-aspectRatio-16-9").on('click', () => {
+            cropper.setAspectRatio(16 / 9)
+        })
+
+        $("#set-aspectRatio-4-3").on('click', () => {
+            cropper.setAspectRatio(4 / 3)
+        })
+
+        $("#crop").click(() => {
             var canvas = cropper.getCroppedCanvas({
-                width: 160,
-                height: 160,
+                width: 1600,
+                height: 1200,
             });
 
-            canvas.toBlob(function (blob) {
-                var url = URL.createObjectURL(blob);
-                var reader = new FileReader();
-                reader.readAsDataURL(blob);
-                reader.onloadend = function () {
-                    // var base64data = reader.result;
+            if (canvas !== null) {
+                canvas.toBlob((blob) => {
+                    var url = URL.createObjectURL(blob);
+                    var reader = new FileReader();
+                    reader.readAsDataURL(blob);
+                    reader.onloadend = () => {
+                        // var base64data = reader.result;
 
-                    // 把blob轉換成給後端讀的file
-                    const cropImg = new File([blob], "img");
-                    // 存進實體下的cropImg，在取值時較方便
-                    theReal.cropImg = cropImg;
+                        // 把blob轉換成給後端讀的file
+                        const cropImg = new File([blob], "img");
+                        // 存進實體下的cropImg，在取值時較方便
+                        this.cropImg = cropImg;
+                        this.imgBase64 = reader.result;
+                        this.setState({})
 
-                    bs_modal.modal('hide');
+                        bs_modal.modal('hide');
 
-                    // $.ajax({
-                    //     type: "POST",
-                    //     dataType: "json",
-                    //     url: "upload.php",
-                    //     data: { image: base64data },
-                    //     success: function (data) {
-                    //         bs_modal.modal('hide');
-                    //         alert("success upload image");
-                    //     }
-                    // });
-                };
-            });
+                        // $.ajax({
+                        //     type: "POST",
+                        //     dataType: "json",
+                        //     url: "upload.php",
+                        //     data: { image: base64data },
+                        //     success: function (data) {
+                        //         bs_modal.modal('hide');
+                        //         alert("success upload image");
+                        //     }
+                        // });
+                    };
+                });
+            }
         });
-        
+
     }
 
     render() {
@@ -186,6 +202,13 @@ export default class Create extends Component {
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label" htmlFor="img">圖片</label>
                         <input ref={c => this.infoImg = c} className="form-control image" id="img" name="img" type="file" accept="image/*" />
+
+                        <div>
+                            {
+                                this.imgBase64 &&
+                                <img className="pre-img-div" src={this.imgBase64} alt="" />
+                            }
+                        </div>
                     </div>
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label" htmlFor="date_start">開始日期</label>
@@ -224,19 +247,23 @@ export default class Create extends Component {
                                 <div className="img-container">
                                     <div className="row">
                                         <div className="col-md-8">
-                                            <img id="image" />
+                                            <img style={{width:'100%'}} id="image" />
                                         </div>
                                         <div className="col-md-4">
                                             <div className="preview" style={{ overflow: 'hidden', height: 100 }}>
                                                 <img id="image" />
                                             </div>
                                         </div>
+                                        <div>
+                                            <button id="set-aspectRatio-4-3" className="btn btn-success">4 : 3</button>&nbsp;
+                                            <button id="set-aspectRatio-16-9" className="btn btn-success">16 : 9</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <button type="button" className="btn btn-primary" id="crop">Crop</button>
+                                <button type="button" className="btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" className="btn-primary" id="crop">Crop</button>
                             </div>
                         </div>
                     </div>

@@ -41607,7 +41607,8 @@ var Create = /*#__PURE__*/function (_Component) {
 
     _this.state = {
       // 避免一開始render 使用map時錯誤，先設定[]
-      upperRelation: []
+      upperRelation: [],
+      imgBase64: ''
     }; // 新增頁面有上層關連的需要取得上層所有選項
     // 在controller新增取得此筆資料的method
     // 寫一固定路徑，依照傳過去的upperName回傳對應的上層資料
@@ -41627,12 +41628,13 @@ var Create = /*#__PURE__*/function (_Component) {
   _createClass(Create, [{
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
+      var _this2 = this;
+
       // summernote
       $('.textarea').summernote({
         width: '100%',
         height: 200
-      });
-      var theReal = this; // cropper
+      }); // cropper
 
       var bs_modal = $('#modal');
       var image = document.getElementById('image');
@@ -41663,48 +41665,64 @@ var Create = /*#__PURE__*/function (_Component) {
       });
       bs_modal.on('shown.bs.modal', function () {
         cropper = new _js_cropper_js__WEBPACK_IMPORTED_MODULE_2___default.a(image, {
-          aspectRatio: 16 / 9,
-          viewMode: 1,
+          aspectRatio: 400 / 300,
+          viewMode: 3,
+          // minCropBoxWidth: 1000,
           preview: '.preview'
         });
       }).on('hidden.bs.modal', function () {
-        cropper.destroy();
-        cropper = null;
+        if (cropper) {
+          cropper.destroy();
+          cropper = null;
+        }
+      });
+      $("#set-aspectRatio-16-9").on('click', function () {
+        cropper.setAspectRatio(16 / 9);
+      });
+      $("#set-aspectRatio-4-3").on('click', function () {
+        cropper.setAspectRatio(4 / 3);
       });
       $("#crop").click(function () {
         var canvas = cropper.getCroppedCanvas({
-          width: 160,
-          height: 160
+          width: 1600,
+          height: 1200
         });
-        canvas.toBlob(function (blob) {
-          var url = URL.createObjectURL(blob);
-          var reader = new FileReader();
-          reader.readAsDataURL(blob);
 
-          reader.onloadend = function () {
-            // var base64data = reader.result;
-            // 把blob轉換成給後端讀的file
-            var cropImg = new File([blob], "img"); // 存進實體下的cropImg，在取值時較方便
+        if (canvas !== null) {
+          canvas.toBlob(function (blob) {
+            var url = URL.createObjectURL(blob);
+            var reader = new FileReader();
+            reader.readAsDataURL(blob);
 
-            theReal.cropImg = cropImg;
-            bs_modal.modal('hide'); // $.ajax({
-            //     type: "POST",
-            //     dataType: "json",
-            //     url: "upload.php",
-            //     data: { image: base64data },
-            //     success: function (data) {
-            //         bs_modal.modal('hide');
-            //         alert("success upload image");
-            //     }
-            // });
-          };
-        });
+            reader.onloadend = function () {
+              // var base64data = reader.result;
+              // 把blob轉換成給後端讀的file
+              var cropImg = new File([blob], "img"); // 存進實體下的cropImg，在取值時較方便
+
+              _this2.cropImg = cropImg;
+              _this2.imgBase64 = reader.result;
+
+              _this2.setState({});
+
+              bs_modal.modal('hide'); // $.ajax({
+              //     type: "POST",
+              //     dataType: "json",
+              //     url: "upload.php",
+              //     data: { image: base64data },
+              //     success: function (data) {
+              //         bs_modal.modal('hide');
+              //         alert("success upload image");
+              //     }
+              // });
+            };
+          });
+        }
       });
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var createPageDown = this.props.createPageDown;
       var upperRelation = this.state.upperRelation;
@@ -41723,7 +41741,7 @@ var Create = /*#__PURE__*/function (_Component) {
         htmlFor: "type_id"
       }, "\u985E\u578B"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
         ref: function ref(c) {
-          return _this2.infoTypeId = c;
+          return _this3.infoTypeId = c;
         },
         className: "form-control",
         name: "type_id",
@@ -41740,7 +41758,7 @@ var Create = /*#__PURE__*/function (_Component) {
         htmlFor: "name"
       }, "\u540D\u7A31"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
         ref: function ref(c) {
-          return _this2.infoName = c;
+          return _this3.infoName = c;
         },
         className: "form-control",
         id: "name",
@@ -41753,7 +41771,7 @@ var Create = /*#__PURE__*/function (_Component) {
         htmlFor: "content"
       }, "\u5167\u5BB9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
         ref: function ref(c) {
-          return _this2.infoContent = c;
+          return _this3.infoContent = c;
         },
         className: "form-control textarea",
         id: "content",
@@ -41767,21 +41785,25 @@ var Create = /*#__PURE__*/function (_Component) {
         htmlFor: "img"
       }, "\u5716\u7247"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
         ref: function ref(c) {
-          return _this2.infoImg = c;
+          return _this3.infoImg = c;
         },
         className: "form-control image",
         id: "img",
         name: "img",
         type: "file",
         accept: "image/*"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, this.imgBase64 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+        className: "pre-img-div",
+        src: this.imgBase64,
+        alt: ""
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "form-group row"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
         className: "col-sm-2 col-form-label",
         htmlFor: "date_start"
       }, "\u958B\u59CB\u65E5\u671F"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
         ref: function ref(c) {
-          return _this2.infoDateStart = c;
+          return _this3.infoDateStart = c;
         },
         className: "form-control",
         id: "date_start",
@@ -41794,7 +41816,7 @@ var Create = /*#__PURE__*/function (_Component) {
         htmlFor: "date_end"
       }, "\u7D50\u675F\u65E5\u671F"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
         ref: function ref(c) {
-          return _this2.infoDateEnd = c;
+          return _this3.infoDateEnd = c;
         },
         className: "form-control",
         id: "date_end",
@@ -41807,7 +41829,7 @@ var Create = /*#__PURE__*/function (_Component) {
         htmlFor: "location"
       }, "\u5730\u9EDE"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
         ref: function ref(c) {
-          return _this2.infoLocation = c;
+          return _this3.infoLocation = c;
         },
         className: "form-control",
         id: "location",
@@ -41820,7 +41842,7 @@ var Create = /*#__PURE__*/function (_Component) {
         htmlFor: "organizer"
       }, "\u4E3B\u8FA6\u55AE\u4F4D"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
         ref: function ref(c) {
-          return _this2.infoOrganizer = c;
+          return _this3.infoOrganizer = c;
         },
         className: "form-control",
         id: "organizer",
@@ -41833,7 +41855,7 @@ var Create = /*#__PURE__*/function (_Component) {
         htmlFor: "calendar"
       }, "\u65E5\u66C6"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
         ref: function ref(c) {
-          return _this2.infoCalendar = c;
+          return _this3.infoCalendar = c;
         },
         className: "form-control",
         id: "calendar",
@@ -41878,6 +41900,9 @@ var Create = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "col-md-8"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+        style: {
+          width: '100%'
+        },
         id: "image"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "col-md-4"
@@ -41889,15 +41914,21 @@ var Create = /*#__PURE__*/function (_Component) {
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
         id: "image"
-      })))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        id: "set-aspectRatio-4-3",
+        className: "btn btn-success"
+      }, "4 : 3"), "\xA0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        id: "set-aspectRatio-16-9",
+        className: "btn btn-success"
+      }, "16 : 9"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "modal-footer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         type: "button",
-        className: "btn btn-secondary",
+        className: "btn-secondary",
         "data-dismiss": "modal"
       }, "Cancel"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         type: "button",
-        className: "btn btn-primary",
+        className: "btn-primary",
         id: "crop"
       }, "Crop"))))));
     }
@@ -47353,14 +47384,26 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/app.scss":
+/*!*********************************!*\
+  !*** ./resources/sass/app.scss ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!*********************************************!*\
-  !*** multi ./resources/jsx2/BackendSPA.jsx ***!
-  \*********************************************/
+/*!***********************************************************************!*\
+  !*** multi ./resources/jsx2/BackendSPA.jsx ./resources/sass/app.scss ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\code\WebsiteDistance-ShenJiNewVillage\Backend\Lai\group_web\resources\jsx2\BackendSPA.jsx */"./resources/jsx2/BackendSPA.jsx");
+__webpack_require__(/*! C:\code\WebsiteDistance-ShenJiNewVillage\Backend\Lai\group_web\resources\jsx2\BackendSPA.jsx */"./resources/jsx2/BackendSPA.jsx");
+module.exports = __webpack_require__(/*! C:\code\WebsiteDistance-ShenJiNewVillage\Backend\Lai\group_web\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
