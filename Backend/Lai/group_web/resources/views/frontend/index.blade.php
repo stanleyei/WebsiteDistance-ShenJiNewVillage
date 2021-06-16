@@ -20,7 +20,7 @@
                 <article>
                     <div class="about-us-swiper aboutUsSwiper">
                         <div class="swiper-wrapper">
-                            :@foreach ($sliders as $slider)
+                            @foreach ($sliders as $slider)
                             <div class="about-us-slide swiper-slide">
                                 <div class="img" style="background-image: url({{$slider->img}});"
                                     alt="{{$slider->name}}"></div>

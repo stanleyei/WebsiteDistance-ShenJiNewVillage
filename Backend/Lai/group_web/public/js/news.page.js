@@ -2,11 +2,13 @@
 const navbar = document.querySelector('nav');
 const ulbar = document.querySelector('.ulbar');
 const navimg = document.querySelector('.nav-img');
+const header = document.querySelector('header');
 document.querySelector('.toggle').onclick = function () {
   this.classList.toggle('active');
   navbar.classList.toggle('active');
   ulbar.classList.toggle('active');
   navimg.classList.toggle('active');
+  header.classList.toggle('header-shady');
 };
 
 //判斷傳進來的url值後切換到對應的分類

@@ -24,11 +24,13 @@ new fullpage('#fullpage', {
 const navbar = document.querySelector('nav');
 const ulbar = document.querySelector('.ulbar');
 const navimg = document.querySelector('.nav-img');
+const header = document.querySelector('header');
 document.querySelector('.toggle').onclick = function () {
   this.classList.toggle('active');
   navbar.classList.toggle('active');
   ulbar.classList.toggle('active');
   navimg.classList.toggle('active');
+  header.classList.toggle('header-shady');
 };
 
 //關於審計-Swiper輪播套件

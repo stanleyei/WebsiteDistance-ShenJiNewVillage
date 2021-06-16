@@ -67,6 +67,33 @@ h6 {
     }
 }
 
+.header-shady{
+    
+    &::after{
+
+        @include w768{
+            @include size(100vw, 100vh);
+            content: '';
+            position: absolute;
+            right: -100vw;
+            background-color: $nes-aside-tag;
+            opacity: 0.4;
+            z-index: -99;
+            animation: shady 1s ease-in-out;
+
+            @keyframes shady {
+                0%{
+                    opacity: 0;
+                }
+    
+                100%{
+                    opacity: 0.4;
+                }
+            }
+        }  
+    }
+}
+
 header {
     @include flex();
     min-height: 100vh;
@@ -84,12 +111,37 @@ header {
         overflow: hidden;
         transition: 1s;
 
+        @include w768{
+            @include size(50px, 50px);
+            border-radius: 5px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            box-shadow: none;
+        }
+
         ul {
             display: none;
-            width: 20%;
+            width: 10vw;
             padding: 0;
             z-index: 20;
             list-style: none;
+
+            @include w1024 {
+                width: 15vw;
+            }
+
+            @include w768{
+                width: 18vw;
+            }
+
+            @include w576{
+                width: 110px;
+            }
+
+            @include w375 {
+                width: 45%;
+            }
 
             li {
                 position: relative;
@@ -120,21 +172,39 @@ header {
         }
 
         .nav-img {
-            @include size(110px, 109px);
+            @include size(5.8vw, 109px);
+            min-width: 50px;
             display: none;
-            right: 7%;
-            bottom: 8%;
+            right: 3vw;
+            bottom: 3vw;
             background-image: url(../img/logo-bg-img.png);
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
             position: absolute;
+
+            @include w576{
+                right: 50%;
+                bottom: 15%;
+                transform: translateX(50%);
+            }
+
+            @include w375 {
+                @include size(52px, 60px);
+                right: 50%;
+                bottom: 15%;
+                transform: translateX(50%);
+            }
         }
     }
 
     nav.active {
         @include size(50vw, 100vh);
         background-color: $nav-bg;
+
+        @include w768 {
+            width: 65vw;
+        }
     }
 
     .toggle {
@@ -157,6 +227,13 @@ header {
             background-size: contain;
             line-height: 20px;
             text-align: center;
+
+            @include w768 {
+                @include size(37px, 50px);
+                background-image: url(../img/nav-hamburger.png);
+                top: 0;
+                left: -42%;
+            }
         }
     }
 
@@ -166,6 +243,18 @@ header {
         &::before {
             top: 50%;
             background-image: url(../img/nav-left.png);
+
+            @include w768 {
+                top: 1vh;
+                left: -57vw;
+                background-image: url(../img/nav-x.png);
+            }
+
+            @include w375 {
+                top: 0.4vh;
+                left: -206px;
+                background-image: url(../img/nav-x.png);
+            }
         }
     }
 
@@ -191,13 +280,46 @@ header {
             position: relative;
             padding-left: 3.125vw;
 
+            @include w1366{
+                margin: 0;
+                padding-left: 40px;
+            }
+
+            @include w375 {
+                height: 30px;
+                padding-left: 20px;
+            }
+
             &::before {
                 @extend %title-cube;
             }
 
             h2 {
-                @include font($h1, start);
-                letter-spacing: 0.3em;
+                @include font($h1, start, inherit, 0.3em);
+                @include w1366{
+                    font-size: 1.8rem;
+                }
+                @include w375 {
+                    font-size: 1rem;
+                }
+            }
+
+            span {
+                @include font($h5);
+                @include w1366{
+                    font-size: 1rem;
+                }
+                @include w375 {
+                    letter-spacing: 0;
+                    font-size: 0.7rem;
+                    display: inline-block;
+                    transform: translate(-15%, -50%) scale(0.7);
+                }
+
+                &::before {
+                    @extend %title-vertical-text;
+                    content: 'About';
+                }
             }
 
             .tra-title-icon {

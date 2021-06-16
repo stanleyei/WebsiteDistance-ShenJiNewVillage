@@ -77,14 +77,14 @@ $h10:0.625vw; //12px
     }
 }
 
-@mixin w480 {
-    @media(max-width:480px) {
+@mixin w576 {
+    @media(max-width:576px) {
         @content;
     }
 }
 
 @mixin w375 {
-    @media(max-width:376px) {
+    @media(max-width:375px) {
         @content;
     }
 }
@@ -99,6 +99,23 @@ $h10:0.625vw; //12px
     font-weight: 500;
     font-size: $h4;
     letter-spacing: 0.3em;
+    margin-bottom: 10px;
+
+    @include w1024 {
+        font-size: $h2;
+    }
+
+    @include w768{
+        font-size: $h1;
+    }
+
+    @include w576{
+        font-size: 0.9rem;
+    }
+
+    @include w375 {
+        font-size: 0.9rem;
+    }
 }
 
 %header-section-btn-icon {
@@ -108,6 +125,22 @@ $h10:0.625vw; //12px
     height: 5.56vh;
     line-height: 5.56vh;
     text-align: center;
+    
+    @include w1024 {
+        margin: 0 15px 0 5px;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    @include w768{
+        height: 30px;
+        line-height: 30px;
+    }
+
+    @include w375 {
+        height: 30px;
+        line-height: 30px;
+    }
 }
 
 %header-section-btn-title {
@@ -116,17 +149,38 @@ $h10:0.625vw; //12px
     height: 5.56vh;
     line-height: 5.56vh;
     white-space: nowrap;
+
+    @include w1024 {
+        height: 40px;
+        line-height: 40px;
+    }
+
+    @include w768{
+        height: 30px;
+        line-height: 30px;
+    }
+
+    @include w375 {
+        height: 30px;
+        line-height: 30px;
+    }
 }
 
 %title-cube {
     width: 3.125vw;
     height: 3.125vw;
+    min-height: 20px;
+    min-width: 20px;
     content: '';
     position: absolute;
     background: $title-bg;
     border-radius: 5px;
-    transform: translate(-2.6vw, -1.85vh);
+    transform: translate(-2.6vw, -1vw);
     z-index: -1;
+
+    @include w1024{
+        @include size(35px, 35px);
+    }
 
     @include w375{
         @include size(20px, 20px);
@@ -142,6 +196,15 @@ $h10:0.625vw; //12px
     transform: translate(-15%, -80%) rotate(90deg);
     letter-spacing: 0.1em;
 
+    @include w1366{
+        font-size: 1rem;
+        transform: translate(0, -80%) rotate(90deg);
+    }
+
+    @include w768{
+        transform: translate(0, -70%) rotate(90deg);
+    }
+
     @include w375 {
         font-size: 8px;
         transform: translate(-80%, -70%) rotate(90deg);
@@ -156,6 +219,10 @@ $h10:0.625vw; //12px
     box-shadow: 1px 1px 2px $tag-bg;
     transition: 0.8s ease-in-out;
     opacity: 0;
+
+    @include w1024{
+        transform: translateY(1vw);
+    }
 }
 
 %date-btn {
