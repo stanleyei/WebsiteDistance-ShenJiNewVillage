@@ -82,7 +82,7 @@
                     @foreach ($shops as $shop)
                     <ul data-list="{{$shop->id - 1}}" class="{{$shop->id == 1 ? '' : 'check-list-hide'}}">
                         <li>
-                            <a href="{{$shop->shopImgs[0]->img}}" title="點我看大圖" class="check-btn photo-view"
+                            <a href="{{$shop->shopImgs[0]->img??''}}" title="點我看大圖" class="check-btn photo-view"
                                 data-lightbox="food-shop-{{$shop->id}}" data-title="{{$shop->name}}">看大圖</a>
                         </li>
                         <li>
@@ -95,12 +95,12 @@
                         <div class="figure-box">
                             <div class="tap-change" data-title="1">
                                 @foreach ($foodShops as $shop)
-                                <figure style="background-image: url({{$shop->shopImgs[0]->img}});"></figure>
+                                    <figure style="background-image: url({{$shop->shopImgs[0]->img??''}});"></figure>
                                 @endforeach
                             </div>
                             <div class="tap-change" data-title="2">
                                 @foreach ($trinketShops as $shop)
-                                <figure style="background-image: url({{$shop->shopImgs[0]->img}});"></figure>
+                                <figure style="background-image: url({{$shop->shopImgs[0]->img??''}});"></figure>
                                 @endforeach
                             </div>
                         </div>
@@ -109,13 +109,13 @@
                 <nav>
                     <h3>商家介紹</h3>
                     <div class="nav-tap-list">
-                        <div class="nav-tap tap-active" data-title="1" title="{{$newShopTypes[0]->name}}">
-                            {{$newShopTypes[0]->name}}</div>
-                        <div class="nav-tap" data-title="2" title="{{$newShopTypes[1]->name}}">
-                            {{$newShopTypes[1]->name}}</div>
+                        <div class="nav-tap tap-active" data-title="1" title="{{$newShopTypes[0]->name??''}}">
+                            {{$newShopTypes[0]->name??''}}</div>
+                        <div class="nav-tap" data-title="2" title="{{$newShopTypes[1]->name??''}}">
+                            {{$newShopTypes[1]->name??''}}</div>
                     </div>
                     <div class="food-shop shop-list" data-title="1">
-                        @foreach ($newShopTypes[0]->shops as $shop)
+                        @foreach ($newShopTypes[0]->shops??[] as $shop)
                         <div>
                             <span class="{{$shop->id == 1 ? 'bottom-line' : ''}}" data-img="{{$shop->id - 1}}"
                                 title="{{$shop->name}}">{{$shop->name}}</span>
@@ -123,7 +123,7 @@
                         @endforeach
                     </div>
                     <div class="trinket-shop shop-list list-active" data-title="2">
-                        @foreach ($newShopTypes[1]->shops as $shop)
+                        @foreach ($newShopTypes[1]->shops??[] as $shop)
                         <div>
                             <span class="{{$shop->id == 8 ? 'bottom-line' : ''}}" data-img="{{$shop->id - 1}}"
                                 title="{{$shop->name}}">{{$shop->name}}</span>
@@ -152,9 +152,9 @@
                             <div class="view-card">
                                 <p>{{$view->name}}</p>
                                 <p class="fas fa-map"> {{$view->phone}}</p>
-                                <a href="{{$view->viewImgs[0]->img}}" data-lightbox="roadtrip-{{$view->id}}">
+                                <a href="{{$view->viewImgs[0]->img??''}}" data-lightbox="roadtrip-{{$view->id}}">
                                     <span class="view-card-img"
-                                        style="background-image: url('{{$view->viewImgs[0]->img}}');"></span>
+                                        style="background-image: url('{{$view->viewImgs[0]->img??''}}');"></span>
                                 </a>
                                 <p>{{$view->content}}</p>
                             </div>
