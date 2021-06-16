@@ -62,13 +62,26 @@ h6 {
     top: 5vmin;
     z-index: 1;
 
+    @include w375 {
+        @include size(auto, auto);
+        top: 12px;
+        right: 12px;
+    }
+
     .logo-img {
         @include size(5.729vw, 5.729vw);
         margin-right: 0.521vw;
+
+        @include w375 {
+            @include size(35px, 39px);
+        }
     }
 
     .logo-text {
         @include size(7.552vw, 4.48vw);
+        @include w375 {
+            @include size(56px, 38px);
+        }
     }
 }
 
@@ -136,8 +149,9 @@ header {
     z-index: 50;
 
     nav {
-        @include size(1.93vw, 80vh);
+        @include size(1.93vw, 70vh);
         @include flex;
+        min-width: 30px;
         position: relative;
         border-radius: 10px;
         background-color: $main-color;
@@ -211,7 +225,7 @@ header {
             content: "";
             position: absolute;
             left: 15%;
-            top: 50%;
+            top: 43%;
             background-image: url(../img/nav-right.png);
             background-position: center;
             background-repeat: no-repeat;
@@ -245,6 +259,10 @@ header {
     position: relative;
     border: 1.04vw solid $main-color;
 
+    @include w375 {
+        border: 10px solid $main-color;
+    }
+
     .effect-area {
         @include flex();
         transition: 1s ease-in-out;
@@ -261,11 +279,30 @@ header {
         }
 
         .about-us-container {
-            @include size(80vw, 68vh);
+            @include size(70vw, 70vh);
+            @include flex($ai:start);
+            flex-direction: column;
+
+            @include w1366 {
+                @include size(80vw, 70vh);
+                justify-content: start;
+            }
+
+            @include w375 {
+                @include size(100%, 87vh);
+                padding-top: 30px;
+            }
 
             .about-us-title {
                 position: relative;
                 padding-left: 3.125vw;
+                margin-bottom: 5.5vmin;
+
+                @include w375 {
+                    height: 30px;
+                    margin-bottom: 0;
+                    padding-left: 20px;
+                }
 
                 &::before {
                     @extend %title-cube;
@@ -273,10 +310,18 @@ header {
 
                 h2 {
                     @include font($h1, start, inherit, 0.3em);
+                    @include w375{
+                        font-size: 1rem;
+                    }
                 }
 
                 span {
                     @include font($h5);
+                    @include w375 {
+                        letter-spacing: 0;
+                        display: inline-block;
+                        transform: translate(-15%,-50%) scale(0.7);
+                    }
 
                     &::before {
                         @extend %title-vertical-text;
@@ -286,13 +331,27 @@ header {
             }
 
             article {
-                @include flex();
-                @include size(100%, 87%);
+                @include flex(space-between);
+                @include size(100%, 470px);
+                @include w1366 {
+                    @include size(95%, 300px);
+                }
+                @include w375 {
+                    @include size(100%, 60%);
+                    display: block;
+                }
 
                 .about-us-swiper {
-                    @include size(52vw, 100%);
+                    @include size(35vw, 100%);
                     position: relative;
                     overflow: hidden;
+
+                    @include w1366 {
+                        width: 42vw;
+                    }
+                    @include w375 {
+                        @include size(80vw, 240px);
+                    }
 
                     &:hover .swiper-button {
                         opacity: 0.8;
@@ -302,7 +361,7 @@ header {
                         @include flex(start);
 
                         .img {
-                            @include size(39vw, 78%);
+                            @include size(100%, 85%);
                             display: block;
                             object-fit: cover;
                             background-size: cover;
@@ -313,7 +372,7 @@ header {
 
                     .swiper-button-next {
                         @extend %about-us-swiper-button;
-                        right: 11vw;
+                        right: 0.5vw;
 
                         &::after {
                             @include size(2.6vw, 2.6vw);
@@ -339,21 +398,31 @@ header {
                     }
 
                     .swiper-pagination {
-                        bottom: 2vh;
-                        left: -5.5vw;
+                        bottom: 0;
 
                         span {
-                            @include size(0.42vw, 0.42vw);
+                            @include size(8px, 8px);
                             background-color: $title-bg;
+
+                            @include w375 {
+                                @include size(5px, 5px);
+                            }
                         }
                     }
                 }
 
                 .about-us-content {
-                    @include size(32vw, 100%);
+                    @include size(28vw, 100%);
                     @include flex(center, start);
-                    @include font($h5, start, 5.56vh, normal);
+                    @include font($h6, start, 5.56vh, normal);
+                    font-weight: bolder;
                     flex-direction: column;
+
+                    @include w375 {
+                        @include size(80vw, 40vh);
+                        padding: 0 20px;
+                        text-indent: 1.5rem;
+                    }
                 }
             }
         }
@@ -373,20 +442,33 @@ header {
             position: relative;
             padding-left: 3.125vw;
 
+            @include w375 {
+                height: 30px;
+                padding-left: 20px;
+            }
+
             &::before {
                 @extend %title-cube;
             }
 
             h2 {
                 @include font($h1, start, inherit, 0.3em);
+                @include w375{
+                    font-size: 1rem;
+                }
             }
 
             span {
                 @include font($h5);
+                @include w375 {
+                    letter-spacing: 0;
+                    display: inline-block;
+                    transform: translate(-15%,-50%) scale(0.7);
+                }
 
                 &::before {
                     @extend %title-vertical-text;
-                    content: 'News';
+                    content: 'About';
                 }
             }
         }
@@ -542,20 +624,33 @@ header {
             position: relative;
             padding-left: 3.125vw;
 
+            @include w375 {
+                height: 30px;
+                padding-left: 20px;
+            }
+
             &::before {
                 @extend %title-cube;
             }
 
             h2 {
                 @include font($h1, start, inherit, 0.3em);
+                @include w375{
+                    font-size: 1rem;
+                }
             }
 
             span {
                 @include font($h5);
+                @include w375 {
+                    letter-spacing: 0;
+                    display: inline-block;
+                    transform: translate(-15%,-50%) scale(0.7);
+                }
 
                 &::before {
                     @extend %title-vertical-text;
-                    content: 'SHOP';
+                    content: 'About';
                 }
             }
         }
@@ -771,7 +866,6 @@ header {
             }
 
         }
-
     }
 }
 
@@ -789,21 +883,33 @@ header {
             position: relative;
             padding-left: 3.125vw;
 
+            @include w375 {
+                height: 30px;
+                padding-left: 20px;
+            }
+
             &::before {
                 @extend %title-cube;
             }
 
             h2 {
-                @include font($h1, start);
-                letter-spacing: 0.3em;
+                @include font($h1, start, inherit, 0.3em);
+                @include w375{
+                    font-size: 1rem;
+                }
             }
 
             span {
                 @include font($h5);
+                @include w375 {
+                    letter-spacing: 0;
+                    display: inline-block;
+                    transform: translate(-15%,-50%) scale(0.7);
+                }
 
                 &::before {
                     @extend %title-vertical-text;
-                    content: 'SPOTS';
+                    content: 'About';
                 }
             }
         }
@@ -850,7 +956,7 @@ header {
                                 background-size: cover;
                             }
 
-                            p{
+                            p {
                                 padding: 0 1.6vw;
                             }
 
@@ -871,13 +977,14 @@ header {
                     }
 
                 }
+
                 .swiper-button-next {
                     @include size(3.125vw, 3.125vw);
                     position: absolute;
                     top: 38%;
                     right: 36.5%;
 
-                    &::after{
+                    &::after {
                         @include size(3.125vw, 3.125vw);
                         content: '';
                         background-image: url(../img/view-prev.svg);
@@ -893,7 +1000,7 @@ header {
                     top: 38%;
                     left: 38%;
 
-                    &::after{
+                    &::after {
                         @include size(3.125vw, 3.125vw);
                         content: '';
                         background-image: url(../img/view-next.svg);
@@ -920,40 +1027,35 @@ header {
             position: relative;
             padding-left: 3.125vw;
 
+            @include w375 {
+                height: 30px;
+                padding-left: 20px;
+            }
+
             &::before {
                 @extend %title-cube;
             }
 
             h2 {
-                @include font($h1, start);
-                letter-spacing: 0.3em;
+                @include font($h1, start, inherit, 0.3em);
+                @include w375{
+                    font-size: 1rem;
+                }
             }
 
-            .tra-title-icon {
+            span {
                 @include font($h5);
+                @include w375 {
+                    letter-spacing: 0;
+                    display: inline-block;
+                    transform: translate(-15%,-50%) scale(0.7);
+                }
 
                 &::before {
                     @extend %title-vertical-text;
                     content: 'About';
                 }
             }
-
-            .traffic-type {
-                display: inline-block;
-                @include size(18.96vw, 4.44vh);
-                @include position(64%, 44%, 0, 0);
-                border-bottom: 1.25vw solid $store-list-bg;
-                text-align: center;
-
-                p {
-                    font-size: $h2;
-                    list-style: 60px;
-                    letter-spacing: 0.2em;
-                    font-weight: bold;
-                }
-
-            }
-
         }
 
         .traffic-main {
@@ -1098,22 +1200,33 @@ header {
     .contact-container {
         @include size(80vw, 80vh);
 
-
         .contact-title {
             position: relative;
             padding-left: 3.125vw;
+
+            @include w375 {
+                height: 30px;
+                padding-left: 20px;
+            }
 
             &::before {
                 @extend %title-cube;
             }
 
             h2 {
-                @include font($h1, start);
-                letter-spacing: 0.3em;
+                @include font($h1, start, inherit, 0.3em);
+                @include w375{
+                    font-size: 1rem;
+                }
             }
 
             span {
                 @include font($h5);
+                @include w375 {
+                    letter-spacing: 0;
+                    display: inline-block;
+                    transform: translate(-15%,-50%) scale(0.7);
+                }
 
                 &::before {
                     @extend %title-vertical-text;

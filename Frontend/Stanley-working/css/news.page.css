@@ -40,6 +40,16 @@ main .news-page-container .news-title::before {
   z-index: -1;
 }
 
+@media (max-width: 376px) {
+  main .news-page-container .news-title::before {
+    width: 20px;
+    height: 20px;
+    border-radius: 0;
+    -webkit-transform: translate(-15px, 0);
+            transform: translate(-15px, 0);
+  }
+}
+
 main .news-page-container .news-title span::before {
   content: '';
   position: absolute;
@@ -47,6 +57,14 @@ main .news-page-container .news-title span::before {
   -webkit-transform: translate(-15%, -80%) rotate(90deg);
           transform: translate(-15%, -80%) rotate(90deg);
   letter-spacing: 0.1em;
+}
+
+@media (max-width: 376px) {
+  main .news-page-container .news-title span::before {
+    font-size: 8px;
+    -webkit-transform: translate(-80%, -70%) rotate(90deg);
+            transform: translate(-80%, -70%) rotate(90deg);
+  }
 }
 
 main .news-page-container article .news-date .date-btns button {
@@ -216,7 +234,7 @@ header {
 
 header nav {
   width: 37px;
-  height: 80vh;
+  height: 70vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -226,6 +244,7 @@ header nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  min-width: 30px;
   position: relative;
   border-radius: 10px;
   background-color: #54291c;
@@ -294,7 +313,7 @@ header .toggle::before {
   content: "";
   position: absolute;
   left: 15%;
-  top: 50%;
+  top: 43%;
   background-image: url(../img/nav-right.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -345,7 +364,7 @@ main .news-page-container .news-title {
 }
 
 main .news-page-container .news-title h2 {
-  font-size: 2.34vw;
+  font-size: 2.24vw;
   text-align: start;
   line-height: inherit;
   letter-spacing: 0.3em;
@@ -453,7 +472,7 @@ main .news-page-container article .content-title {
 }
 
 main .news-page-container article .content-title h4 {
-  font-size: 2.34vw;
+  font-size: 2.24vw;
   text-align: center;
   line-height: 5.56vh;
   letter-spacing: 0.2em;
@@ -795,7 +814,7 @@ main .news-page-container article .content-infs .inf-detail .card-other-inf > di
 }
 
 main .news-page-container article h3 {
-  font-size: 2.34vw;
+  font-size: 2.24vw;
   text-align: start;
   line-height: 60px;
   letter-spacing: 0.2em;

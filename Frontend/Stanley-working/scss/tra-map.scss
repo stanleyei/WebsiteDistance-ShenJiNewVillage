@@ -74,8 +74,9 @@ header {
     z-index: 50;
 
     nav {
-        @include size(1.93vw, 80vh);
+        @include size(1.93vw, 70vh);
         @include flex;
+        min-width: 30px;
         position: relative;
         border-radius: 10px;
         background-color: $main-color;
@@ -149,7 +150,7 @@ header {
             content: "";
             position: absolute;
             left: 15%;
-            top: 50%;
+            top: 43%;
             background-image: url(../img/nav-right.png);
             background-position: center;
             background-repeat: no-repeat;
