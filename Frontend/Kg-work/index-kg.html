@@ -16,7 +16,8 @@
 
 <body>
     <header>
-        <div class="container">
+        <div class="nav-container">
+
             <div class="nav">
                 <ul class="ulbar">
                     <li>
@@ -67,6 +68,7 @@
                 <div class="toggle"></div>
                 <div class="nav-img"></div>
             </div>
+            <div class="nav-bgimg"></div>
         </div>
 
 
@@ -77,137 +79,94 @@
         <section class="about-us"></section>
         <section class="map"></section>
         <section class="store">
-            <img class="logo-img" src="./img/Logo-img.png" alt="">
-            <img class="logo-text" src="./img/Logo-text.png" alt="">
-            <div class="store-container">
-                <div class="store-title">
-                    <h2>店家介紹</h2>
-                    <span>Shen Ji New Village</span>
-                </div>
             </div>
         </section>
         <section class="view">
             <img class="logo-img" src="./img/Logo-img.png" alt="">
             <img class="logo-text" src="./img/Logo-text.png" alt="">
             <div class="view-container">
-                <div class="view-album">
-                    <div class="view-backimg">
-
-                        <a href="./img/UKG_0154.JPG" data-lightbox="view-backimg" data-title="My caption">
-                            <div class="view-pics">
-                                <div class="view-pic" style="background-image: url('./img/UKG_0154.JPG');"></div>
-                                <div class="view-pic-des">柳川每每的</div>
-                            </div>
-                        </a>
-                        <a href="./img/UKG_0152.JPG" data-lightbox="view-backimg" data-title="My caption">
-                            <div class="view-pics">
-                                <div class="view-pic" style="background-image: url('./img/UKG_0152.JPG');"></div>
-                                <div class="view-pic-des">柳川每每的</div>
-                            </div>
-                        </a>
-                        <a href="./img/UKG_0218.JPG" data-lightbox="view-backimg" data-title="My caption">
-                            <div class="view-pics">
-                                <div class="view-pic" style="background-image: url('./img/UKG_0218.JPG');"></div>
-                                <div class="view-pic-des">柳川每每的</div>
-                            </div>
-                        </a>
-                        <a href="./img/UKG_0272.JPG" data-lightbox="view-backimg" data-title="My caption">
-                            <div class="view-pics">
-                                <div class="view-pic" style="background-image: url('./img/UKG_0272.JPG');"></div>
-                                <div class="view-pic-des">柳川每每的</div>
-                            </div>
-                        </a>
-                        <a href="./img/UKG_0154.JPG" data-lightbox="view-backimg" data-title="My caption">
-                            <div class="view-pics">
-                                <div class="view-pic" style="background-image: url('./img/UKG_0154.JPG');"></div>
-                                <div class="view-pic-des">柳川每每的</div>
-                            </div>
-                        </a>
-                        <a href="./img/UKG_0152.JPG" data-lightbox="view-backimg" data-title="My caption">
-                            <div class="view-pics">
-                                <div class="view-pic" style="background-image: url('./img/UKG_0152.JPG');"></div>
-                                <div class="view-pic-des">柳川每每的</div>
-                            </div>
-                        </a>
-                        <a href="./img/UKG_0218.JPG" data-lightbox="view-backimg" data-title="My caption">
-                            <div class="view-pics">
-                                <div class="view-pic" style="background-image: url('./img/UKG_0218.JPG');"></div>
-                                <div class="view-pic-des">柳川每每的</div>
-                            </div>
-                        </a>
-                        <a href="./img/UKG_0272.JPG" data-lightbox="view-backimg" data-title="My caption">
-                            <div class="view-pics">
-                                <div class="view-pic" style="background-image: url('./img/UKG_0272.JPG');"></div>
-                                <div class="view-pic-des">柳川每每的</div>
-                            </div>
-                        </a>
-                        <!-- <a href="./img/UKG_0154.JPG" data-lightbox="view-backimg" data-title="My caption">Image #1</a> -->
-                        <!-- <a href="./img/UKG_0154.JPG" data-lightbox="roadtrip">Image #3</a>
-                    <a href="./img/UKG_0154.JPG" data-lightbox="roadtrip">Image #3</a>
-                    <a href="./img/UKG_0155.JPG" data-lightbox="roadtrip">Image #4</a>
-                   
-                    <a href="./img/UKG_0272.JPG" data-lightbox="roadtrip">Image #4</a> -->
-
-                    </div>
-                </div>
                 <div class="view-title">
                     <h2>周邊景點</h2>
                     <span>Shen Ji New Village</span>
                 </div>
                 <div class="view-main">
-
-
                     <!-- Swiper -->
-                    <div class="swiper-container">
+                    <div class="swiper-container viewSwiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <div class="view-card slide001" data-id="1">
-                                    <p>柳川水岸步道</p>
-                                    <p class="fas fa-map"> 1.49km</p>
-                                    <a href="./img/UKG_0155.JPG" data-lightbox="roadtrip" style="display:block;"><span
-                                            class="view-card-img"
-                                            style="background-image: url('./img/UKG_0155.JPG');"></span></a>
-                                    <a href="./img/UKG_0154.JPG" data-lightbox="roadtrip" style="display:none;"></a>
-                                    <a href="./img/UKG_0218.JPG" data-lightbox="roadtrip" style="display:none;"></a>
-                                    <a href="./img/UKG_0272.JPG" data-lightbox="roadtrip" style="display:none;"></a>
-                                    <p>柳川是......</p>
-                                </div>
+                                <a href="./img/UKG_0155.JPG" data-lightbox="roadtrip" style="display:block;">
+                                    <div class="view-card slide001" data-id="1">
+                                        <p>柳川水岸步道</p>
+                                        <p class="fas fa-map"> 1.49km</p>
+                                        <span class="view-card-img"
+                                            style="background-image: url('./img/UKG_0155.JPG');"></span>
+
+                                        <p>柳川是......</p>
+                                    </div>
+                                </a>
+                                <a href="./img/UKG_0154.JPG" data-lightbox="roadtrip"></a>
+                                <a href="./img/UKG_0218.JPG" data-lightbox="roadtrip"></a>
+                                <a href="./img/UKG_0272.JPG" data-lightbox="roadtrip"></a>
                             </div>
                             <div class="swiper-slide slide002" data-id="2">
-                                <div class="view-card">
-                                    <p>柳川水岸步道</p>
-                                    <p class="fas fa-map"> 1.49km</p>
-                                    <span class="view-card-img"
-                                        style="background-image: url('./img/UKG_0155.JPG');"></span>
-                                    <p>柳川是......</p>
-                                </div>
+                                <a href="./img/UKG_0155.JPG" data-lightbox="roadtrip" style="display:block;">
+                                    <div class="view-card slide001" data-id="1">
+                                        <p>綠川戲水步道</p>
+                                        <p class="fas fa-map"> 1.49km</p>
+                                        <span class="view-card-img"
+                                            style="background-image: url('./img/UKG_0155.JPG');"></span>
+
+                                        <p>柳川是......</p>
+                                    </div>
+                                </a>
+                                <a href="./img/UKG_0154.JPG" data-lightbox="roadtrip"></a>
+                                <a href="./img/UKG_0218.JPG" data-lightbox="roadtrip"></a>
+                                <a href="./img/UKG_0272.JPG" data-lightbox="roadtrip"></a>
                             </div>
                             <div class="swiper-slide slide003" data-id="3">
-                                <div class="view-card">
-                                    <p>柳川水岸步道</p>
-                                    <p class="fas fa-map"> 1.49km</p>
-                                    <span class="view-card-img"
-                                        style="background-image: url('./img/UKG_0155.JPG');"></span>
-                                    <p>柳川是......</p>
-                                </div>
+                                <a href="./img/UKG_0155.JPG" data-lightbox="roadtrip" style="display:block;">
+                                    <div class="view-card slide001" data-id="1">
+                                        <p>梅川情人步道</p>
+                                        <p class="fas fa-map"> 1.49km</p>
+                                        <span class="view-card-img"
+                                            style="background-image: url('./img/UKG_0155.JPG');"></span>
+
+                                        <p>柳川是......</p>
+                                    </div>
+                                </a>
+                                <a href="./img/UKG_0154.JPG" data-lightbox="roadtrip"></a>
+                                <a href="./img/UKG_0218.JPG" data-lightbox="roadtrip"></a>
+                                <a href="./img/UKG_0272.JPG" data-lightbox="roadtrip"></a>
                             </div>
                             <div class="swiper-slide slide004" data-id="4">
-                                <div class="view-card">
-                                    <p>柳川水岸步道</p>
-                                    <p class="fas fa-map"> 1.49km</p>
-                                    <span class="view-card-img"
-                                        style="background-image: url('./img/UKG_0155.JPG');"></span>
-                                    <p>柳川是......</p>
-                                </div>
+                                <a href="./img/UKG_0155.JPG" data-lightbox="roadtrip" style="display:block;">
+                                    <div class="view-card slide001" data-id="1">
+                                        <p>流川籃球步道</p>
+                                        <p class="fas fa-map"> 1.49km</p>
+                                        <span class="view-card-img"
+                                            style="background-image: url('./img/UKG_0155.JPG');"></span>
+
+                                        <p>柳川是......</p>
+                                    </div>
+                                </a>
+                                <a href="./img/UKG_0154.JPG" data-lightbox="roadtrip"></a>
+                                <a href="./img/UKG_0218.JPG" data-lightbox="roadtrip"></a>
+                                <a href="./img/UKG_0272.JPG" data-lightbox="roadtrip"></a>
                             </div>
                             <div class="swiper-slide slide005" data-id="5">
-                                <div class="view-card">
-                                    <p>柳川水岸步道</p>
-                                    <p class="fas fa-map"> 1.49km</p>
-                                    <span class="view-card-img"
-                                        style="background-image: url('./img/UKG_0272.JPG');"></span>
-                                    <p>柳川是......</p>
-                                </div>
+                                <a href="./img/UKG_0155.JPG" data-lightbox="roadtrip" style="display:block;">
+                                    <div class="view-card slide001" data-id="1">
+                                        <p>江戶川思考步道</p>
+                                        <p class="fas fa-map"> 1.49km</p>
+                                        <span class="view-card-img"
+                                            style="background-image: url('./img/UKG_0155.JPG');"></span>
+
+                                        <p>柳川是......</p>
+                                    </div>
+                                </a>
+                                <a href="./img/UKG_0154.JPG" data-lightbox="roadtrip"></a>
+                                <a href="./img/UKG_0218.JPG" data-lightbox="roadtrip"></a>
+                                <a href="./img/UKG_0272.JPG" data-lightbox="roadtrip"></a>
                             </div>
                         </div>
                         <!-- Add Pagination -->
@@ -295,26 +254,38 @@
                     </div>
                     <div class="contact-form-main">
                         <form class="contact-form" id="contact-form" action="#" method="POST">
-                            <select name="kg" class="form-type">
-                                <option style="width: 50px;height:30px;background-color: aquamarine;">加入審計</option>
-                                <option>顧客意見</option>
-                            </select>
+                            <div class="select-bcg"></div>
+                            <div class="bcground">
+                                <ul class="form-type">
+                                    <li value="join">加入審計</li>
+                                    <li value="opinion">顧客意見</li>
+                                    
+                                </ul>
+                            </div>
                             <div class="form-storename">
                                 <p>進駐店家</p>
-                                <input type="text">
+                                <input type="text" name="store">
                             </div>
                             <div class="form-email">
                                 <p>E-mail</p>
-                                <input type="text">
+                                <input type="text" name="email">
                             </div>
                             <div class="form-producttype">
                                 <p>商品種類</p>
-                                <select>
-                                    <option></option>
-                                    <option>我</option>
-                                    <option>超</option>
-                                    <option>率</option>
-                                </select>
+                            <div class="form-optiontype"></div>
+                                <div class="opground">
+                                    <ul name="optiontype" class="optiontype">
+                                        <li value="我">我</li>
+                                        <li value="超">超</li>
+                                        <li value="率">率</li>                                      
+                                    </ul>
+                                </div>
+                             <!-- <select name="optiontype" class="optiontype">
+                                    <option value=""></option>
+                                    <option value="我">我</option>
+                                    <option value="超">超</option>
+                                    <option value="率">率</option>
+                                </select> -->
                             </div>
                             <div class="form-description">
                                 <p>詳細資訊</p>
@@ -332,9 +303,10 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="./js/lightbox-plus-jquery.min.js"></script>
     <script>
+        // VIEW Swiper
         var appendNumber = 4;
         var prependNumber = 1;
-        var swiper = new Swiper('.swiper-container', {
+        var viewSwiper = new Swiper('.viewSwiper', {
             slidesPerView: 5,
             centeredSlides: true,
             grabCursor: true,
@@ -346,19 +318,21 @@
                 prevEl: '.swiper-button-prev',
             },
             on: {
-               
-                    init: function () {                       
-                    },
-                    transitionStart: function () {
-                        $('.view-card').css("background-color"," #D28E76");
-                        $('.swiper-slide-active .view-card').css("background-color","#96422D");
-                    },
-                    transitionEnd: function (swiper) {
-                        // $('.swiper-slide-active .view-card').addClass('viewcard-active');
-                        // $('.swiper-slide-active .view-card').css("background-color","#96422D");
-                    }               
+                init: function () {
+
+                },
+                transitionStart: function () {
+                    $('.view-card').css("background-color", " #D28E76");
+                    $('.swiper-slide-active .view-card').css("background-color", "#96422D");
+                },
+                transitionEnd: function (swiper) {
+
+                }
             }
         });
+        // NAV BAR
+        const navcontain = document.querySelector('.nav-container');
+        const navbgimg = document.querySelector('.nav-bgimg');
         const navbar = document.querySelector('.nav');
         const ulbar = document.querySelector('.ulbar');
         const navimg = document.querySelector('.nav-img');
@@ -368,14 +342,93 @@
                 navbar.classList.toggle('active');
                 ulbar.classList.toggle('active');
                 navimg.classList.toggle('active');
+                navcontain.classList.toggle('active');
+                navbgimg.classList.toggle('active');
             }
-             
+        // Lightbox
         lightbox.option({
             'resizeDuration': 200,
             'wrapAround': true
 
         })
-       
+
+        // dropdownlist
+        var SelectBcg = document.querySelector('.select-bcg');
+        var Select = document.querySelector('.form-type');
+        var FormStorename = document.querySelector('.form-storename').firstElementChild;
+        var FormProducttype = document.querySelector('.form-producttype').firstElementChild;
+        var FormDescription = document.querySelector('.form-description').firstElementChild;
+        var ChanSelect = document.querySelector('.optiontype');
+        //判斷form表單類型，並改變表單結構
+        function type_select(koa) {
+           
+            if (koa == '加入審計') {
+                FormStorename.innerHTML = '進駐店家';
+                FormProducttype.innerHTML = '商品種類'; 
+                // 把位於form表單下面的下拉是選單清空
+                FormOp.innerHTML =``;
+                ChanSelect.innerHTML = `
+                                    <li value="我">我</li>
+                                    <li value="超">超</li>
+                                    <li value="率">率</li>`
+                FormDescription.innerHTML = '詳細資訊';
+            } else {
+                FormStorename.innerHTML = '顧客名稱/暱稱';
+                FormProducttype.innerHTML = '意見類別'; 
+                FormOp.innerHTML =``;
+                ChanSelect.innerHTML = `
+                                    <li value="我">我</li>
+                                    <li value="超">超</li>
+                                    <li value="鄭">鄭</li>`
+
+                FormDescription.innerHTML = '建議內容/想對我們說';
+            }
+        }
+
+
+
+        SelectBcg.addEventListener('click', function () {
+            var listChild = document.querySelectorAll('.form-type li');
+            Select.classList.toggle('active');
+           
+            console.log(ChanSelect);
+
+            for (var i = 0; i < listChild.length; i++) {
+                listChild[i].addEventListener('click',function () {
+                    for (var j = 0; j < listChild.length; j++) {
+                        listChild[j].style.background = ' #D28E76';                       
+                    }
+                    // this.style.background = 'gray'; //给选中的li颜色变为red
+                    const koa = this.textContent;
+                    console.log(this.value);
+                    SelectBcg.innerHTML = koa;
+                    Select.classList.remove('active');
+                    type_select(koa);
+                }, false)
+            }
+        })
+
+      
+        
+        var FormOp = document.querySelector('.form-optiontype');
+        var Option = document.querySelector('.optiontype');
+        FormOp.addEventListener('click', function () {
+            var Optionlist= document.querySelectorAll('.optiontype li');
+            Option.classList.toggle('active');
+            for (var i = 0; i < Optionlist.length; i++) {
+                Optionlist[i].addEventListener('click',function () {
+                    for (var j = 0; j < Optionlist.length; j++) {
+                        Optionlist[j].style.background = ' #ffffff';                       
+                    }
+                    // this.style.background = 'gray'; //给选中的li颜色变为red
+                    const koala = this.textContent;
+                    console.log(this.value);
+                    FormOp.innerHTML = koala;
+                    Option.classList.remove('active');
+                }, false)
+            }
+        })
+
     </script>
 </body>
 

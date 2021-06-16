@@ -1,11 +1,11 @@
-.store .store-container .store-title::before, .view .view-container .view-title::before, .traffic .traffic-container .traffic-title::before, .contact .contact-container .contact-title::before {
+.view .view-container .view-title::before, .traffic .traffic-container .traffic-title::before, .contact .contact-container .contact-title::before {
   content: '';
   position: absolute;
   background: #D28E76;
   border-radius: 5px;
 }
 
-.store .store-container .store-title span::before, .view .view-container .view-title span::before, .traffic .traffic-container .traffic-title .tra-title-icon::before, .contact .contact-container .contact-title span::before {
+.view .view-container .view-title span::before, .traffic .traffic-container .traffic-title .tra-title-icon::before, .contact .contact-container .contact-title span::before {
   content: '';
   position: absolute;
   left: 0;
@@ -165,6 +165,20 @@ header {
   bottom: 8%;
 }
 
+.nav-container.active {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nav-bgimg.active {
+  width: 50vw;
+  height: 100vh;
+  background-color: #ccc;
+}
+
 .nav.active {
   width: 50vw;
   height: 100vh;
@@ -231,58 +245,6 @@ header {
   position: absolute;
   top: 50px;
   right: 50px;
-}
-
-.store {
-  width: 100%;
-  height: 100vh;
-  border: 20px solid #54291c;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: relative;
-}
-
-.store .store-container {
-  width: 80vw;
-  height: 68vh;
-}
-
-.store .store-container .store-title {
-  position: relative;
-  padding-left: 60px;
-}
-
-.store .store-container .store-title::before {
-  width: 60px;
-  height: 60px;
-  -webkit-transform: translate(-50px, -20px);
-          transform: translate(-50px, -20px);
-  z-index: -1;
-}
-
-.store .store-container .store-title h2 {
-  font-size: 2.8125rem;
-  text-align: start;
-  line-height: inherit;
-  letter-spacing: 0.3em;
-}
-
-.store .store-container .store-title span {
-  font-size: 1.5rem;
-  text-align: center;
-  line-height: inherit;
-  letter-spacing: 0.1em;
-}
-
-.store .store-container .store-title span::before {
-  content: 'SHOP';
 }
 
 .view {
@@ -431,6 +393,10 @@ header {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.view .view-container .view-main .swiper-container .swiper-wrapper .swiper-slide a {
+  text-decoration: none;
 }
 
 .view .view-container .view-main .swiper-container .swiper-wrapper .swiper-slide .view-card {
@@ -794,15 +760,75 @@ header {
   padding: 2px;
 }
 
-.contact .contact-container .contact-main .contact-form-main .contact-form .form-type {
+.contact .contact-container .contact-main .contact-form-main .contact-form .select-bcg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 150px;
-  height: 41px;
-  background-color: #D28E76;
-  border-radius: 5px;
-  color: #fff;
+  height: 40px;
+  background: #D28E76;
+  color: #FFFCF4;
+  font-size: 1.375rem;
+  border-radius: 4px;
+  cursor: pointer;
   position: absolute;
   top: 140px;
   right: 43px;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form .bcground {
+  border-radius: 5px;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form .bcground .form-type {
+  position: absolute;
+  top: 182px;
+  right: 43px;
+  list-style: none;
+  display: none;
+  -webkit-transform: 1000;
+          transform: 1000;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form .bcground .form-type li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 150px;
+  height: 40px;
+  font-size: 1.375rem;
+  letter-spacing: 0.2em;
+  background: #D28E76;
+  color: #FFFCF4;
+  cursor: pointer;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form .bcground .form-type li:hover {
+  background-color: #C4C4C4 !important;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form .bcground .form-type li:first-child {
+  border-radius: 4px 4px 0 0;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form .bcground .form-type li:last-child {
+  border-radius: 0 0 4px 4px;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form .bcground .form-type.active {
+  display: block;
 }
 
 .contact .contact-container .contact-main .contact-form-main .contact-form p {
@@ -861,5 +887,75 @@ header {
 
 .contact .contact-container .contact-main .contact-form-main .contact-form .form-producttype p {
   line-height: 60px;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form .form-producttype .form-optiontype {
+  width: 150px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 5px;
+  background: #ffffff;
+  border-radius: 4px;
+  color: #000000;
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form .form-producttype .opground {
+  border-radius: 5px;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form .form-producttype .opground .optiontype {
+  position: absolute;
+  top: 56.3%;
+  left: 22.7%;
+  list-style: none;
+  display: none;
+  -webkit-transform: 1000;
+          transform: 1000;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form .form-producttype .opground .optiontype li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 150px;
+  height: 40px;
+  padding-left: 5px;
+  font-size: 1.125rem;
+  letter-spacing: 0.2em;
+  color: #000000;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form .form-producttype .opground .optiontype li:hover {
+  background-color: #D28E76 !important;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form .form-producttype .opground .optiontype li:first-child {
+  border-radius: 4px 4px 0 0;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form .form-producttype .opground .optiontype li:last-child {
+  border-radius: 0 0 4px 4px;
+}
+
+.contact .contact-container .contact-main .contact-form-main .contact-form .form-producttype .opground .optiontype.active {
+  display: block;
 }
 /*# sourceMappingURL=index-kg.css.map */

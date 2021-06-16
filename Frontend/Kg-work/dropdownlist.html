@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            position: relative;
+        }
+
+        .select-bcg {
+            width: 150px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #D28E76;
+            border-radius:4px ;
+            color: #FFFCF4;
+            cursor: pointer;
+
+        }
+
+        .bcground {
+            border-radius: 5px;
+        }
+
+        .select {
+
+            position: absolute;
+            top: 26px;
+            left: -40px;
+            list-style: none;
+            display: none;
+            transform: 1000;
+        }
+
+        .select.active {
+            display: block;
+        }
+
+        li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 150px;
+            height: 40px;
+            /* border: 1px solid black; */
+            font-size: 22px;
+            letter-spacing: 0.2em;
+            color: #FFFCF4;
+            background: #D28E76;
+            cursor: pointer;           
+        }
+        li:hover{
+            background-color: coral!important;
+        }
+        li:first-child{
+            border-radius:4px 4px 0 0 ;
+        }
+        li:last-child{
+            border-radius:0 0 4px 4px ;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="select-bcg"></div>
+    <div class="bcground">
+        <ul class="select">
+            <li value="1">我</li>
+            <li value="2">超</li>
+            <li value="3">級</li>
+            <li value="4">有</li>
+            <li value="5">$$</li>
+        </ul>
+    </div>
+    <script>
+        var SelectBcg = document.querySelector('.select-bcg');
+        var Select = document.querySelector('.select');
+        var listChild = document.querySelectorAll('li');
+        SelectBcg.addEventListener('click', function () {
+
+            Select.classList.toggle('active');
+            for (var i = 0; i < listChild.length; i++) {
+                listChild[i].addEventListener('click', function () {
+                    for (var j = 0; j < listChild.length; j++) {
+                        listChild[j].style.background = ' #D28E76';                       
+                    }
+                    this.style.background = 'gray'; //给选中的li颜色变为red
+                    var koa = this.value;
+                    console.log(koa);
+                    SelectBcg.innerHTML = koa;
+                    Select.classList.remove('active');
+                }, false)
+            }
+        })
+    </script>
+
+</body>
+
+</html>

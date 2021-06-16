@@ -27,6 +27,7 @@ header {
     // }
 }
 
+
 .nav {
 
     position: relative;
@@ -109,6 +110,15 @@ header {
     }
 }
 
+.nav-container.active {
+    @include size(100vw, 100vh);
+    display: flex;
+}
+
+.nav-bgimg.active {
+    @include size(50vw, 100vh);
+    background-color: #ccc;
+}
 
 .nav.active {
     @include size($w:50vw, $h:100vh);
@@ -178,50 +188,6 @@ header {
     right: 50px;
 }
 
-.store {
-    @include size($w:100%, $h:100vh);
-    border: 20px solid $main-color;
-    @include flex;
-    position: relative;
-
-
-    .store-container {
-        @include size($w:80vw, $h:68vh);
-
-
-        .store-title {
-            position: relative;
-            padding-left: 60px;
-
-            &::before {
-                @extend %title-cube;
-                @include size(60px, 60px);
-                transform: translate(-50px, -20px);
-                z-index: -1;
-            }
-
-            h2 {
-                @include font($h1, start);
-                letter-spacing: 0.3em;
-            }
-
-            span {
-                @include font($h5);
-                letter-spacing: 0.1em;
-
-                &::before {
-                    @extend %title-vertical-text;
-                    content: 'SHOP';
-
-                }
-            }
-        }
-
-    }
-
-
-}
-
 .view {
     @include size($w:100%, $h:100vh);
     border: 20px solid $main-color;
@@ -274,10 +240,6 @@ header {
                     margin-left: 30px;
 
                 }
-
-
-
-
             }
         }
     }
@@ -332,8 +294,8 @@ header {
 
                 .swiper-wrapper {
                     padding: 20px 0;
-                    
-                   .swiper-slide {
+
+                    .swiper-slide {
                         @include size(280px, 460px);
                         margin-top: 170px;
                         border-radius: 20px;
@@ -353,6 +315,10 @@ header {
                         // &:last-child:hover {
                         //     margin: 0 -30px;
                         // }
+                        a {
+
+                            text-decoration: none;
+                        }
 
                         .view-card {
                             @include size(280px, 460px);
@@ -381,6 +347,7 @@ header {
                                 line-height: 25px;
                             }
                         }
+
 
                         /* Center slide text vertically */
                         display: -webkit-box;
@@ -694,16 +661,71 @@ header {
                     width: 550px;
                     padding: 2px;
 
-                    .form-type {
-                        @include size($w:150px, $h:41px);
-                        background-color: $title-bg;
-                        border-radius: 5px;
-                        color: #fff;
+                    // .form-type {
+                    //     @include size($w:150px, $h:41px);
+                    //     background-color: $title-bg;
+                    //     border-radius: 5px;
+                    //     color: #fff;
+                    //     position: absolute;
+                    //     top: 140px;
+                    //     right: 43px;
+                    // }
+
+                    .select-bcg {
+                        @include flex();
+                        @include size(150px,40px);
+                        background: $title-bg;
+                        color: $body-bg;
+                        font-size: $h6;
+                        border-radius: 4px;
+                        cursor: pointer;
                         position: absolute;
                         top: 140px;
                         right: 43px;
+
                     }
 
+                    .bcground {
+                        border-radius: 5px;
+
+
+                        .form-type {
+
+                            position: absolute;
+                            top: 182px;
+                            right: 43px;
+                            list-style: none;
+                            display: none;
+                            transform: 1000;
+
+
+                            li {
+                                @include flex();
+                                @include size(150px,40px);
+                                font-size: $h6;
+                                letter-spacing: 0.2em;
+                                background: $title-bg;
+                                color: $body-bg;
+                                cursor: pointer;
+
+                                &:hover {
+                                    background-color: $tag-bg !important;
+                                }
+
+                                &:first-child {
+                                    border-radius: 4px 4px 0 0;
+                                }
+
+                                &:last-child {
+                                    border-radius: 0 0 4px 4px;
+                                }
+                            }
+                        }
+
+                        .form-type.active {
+                            display: block;
+                        }
+                    }
 
                     p {
                         font-size: $h7;
@@ -756,6 +778,59 @@ header {
                         p {
                             line-height: 60px;
                         }
+
+                        .form-optiontype {
+                           @include size(150px,40px);
+                           @include flex(flex-start);
+                            padding-left: 5px;
+                            background: #ffffff;
+                            border-radius: 4px;
+                            color: #000000;
+                            font-size: $h7;
+                            cursor: pointer;
+                        }
+                        .opground {
+                            border-radius: 5px;
+                            .optiontype {
+                                position: absolute;
+                                top: 56.3%;
+                                left: 22.7%;
+                                list-style: none;
+                                display: none;
+                                transform: 1000;
+                                li {
+                                   @include flex(flex-start);
+                                   @include size(150px,40px);
+                                   padding-left: 5px;
+                                    font-size: $h7;
+                                    letter-spacing: 0.2em;
+                                    color: #000000;
+                                    background: #ffffff;
+                                    cursor: pointer;
+
+                                    &:hover {
+                                        background-color: $title-bg !important;
+                                    }
+
+                                    &:first-child {
+                                        border-radius: 4px 4px 0 0;
+                                    }
+
+                                    &:last-child {
+                                        border-radius: 0 0 4px 4px;
+                                    }
+                                }
+                            }
+
+                            .optiontype.active {
+                                display: block;
+                            }
+                        }
+
+
+
+
+
                     }
 
 
