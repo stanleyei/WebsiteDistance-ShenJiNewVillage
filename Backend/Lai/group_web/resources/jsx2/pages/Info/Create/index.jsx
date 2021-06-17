@@ -193,18 +193,18 @@ export default class Create extends Component {
                             <div className="col-md-8">
                                 <img style={{ maxWidth: '100%', display: 'block' }} id="image" />
                             </div>
-                            <div className="col-md-3 offset-1">
-                                <div className="preview" style={{ overflow: 'hidden', height: 200 }}>
-                                </div>
-                                {
-                                    cropper &&
+                            {
+                                cropper &&
+                                <div className="col-md-3 offset-1">
+                                    <div className="preview" style={{ overflow: 'hidden', height: 200 }}>
+                                    </div>
+
                                     <div>
                                         <button id="set-aspectRatio-4-3" onClick={(e) => { this.handleRatio(e, 'ratio43') }} className={this.state.ratioName === 'ratio43' ? 'btn btn-success active' : 'btn btn-success'}>4 : 3</button>&nbsp;
                                         <button id="set-aspectRatio-16-9" onClick={(e) => { this.handleRatio(e, 'ratio169') }} className={this.state.ratioName === 'ratio169' ? 'btn btn-success active' : 'btn btn-success'}>16 : 9</button>
                                     </div>
-
-                                }
-                            </div>
+                                </div>
+                            }
                         </div>
                     </div>
 

@@ -42591,7 +42591,7 @@ var Create = /*#__PURE__*/function (_Component) {
           display: 'block'
         },
         id: "image"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      })), cropper && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "col-md-3 offset-1"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "preview",
@@ -42599,7 +42599,7 @@ var Create = /*#__PURE__*/function (_Component) {
           overflow: 'hidden',
           height: 200
         }
-      }), cropper && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
         id: "set-aspectRatio-4-3",
         onClick: function onClick(e) {
           _this2.handleRatio(e, 'ratio43');
