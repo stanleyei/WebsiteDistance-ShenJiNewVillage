@@ -107,11 +107,37 @@ h6 {
     flex-direction: column;
     border: 1.04vw solid $main-color;
 
+    @include w375 {
+        border: 10px solid $main-color;
+    }
+
     .container {
         transition: 1s ease-in-out;
 
-        img {
+        img:nth-child(1){
+            @include size(7vw, 8vw);
             margin-right: 30px;
+            min-width: 65px;
+            min-height: 70px;
+
+            @include w1366{
+                margin-right: 20px;
+            }
+
+            @include w375{
+                @include size(65px, 70px);
+                margin-right: 10px;
+            }
+        }
+
+        img:nth-child(2){
+            @include size(9vw, 6.5vw);
+            min-width: 95px;
+            min-height: 58px;
+
+            @include w375{
+                @include size(95px, 58px);
+            }
         }
 
         &.complete {
@@ -121,14 +147,32 @@ h6 {
         .loading-bar {
             @include size(18vw, 3vh);
             position: relative;
+            min-width: 175px;
             margin-top: 43px;
             background-color: $title-bg;
             border-radius: 20px;
+            margin-bottom: 20px;
+
+            @include w1024{
+                height: 17px;
+            }
+
+            @include w375{
+                @include size(175px, 17px);
+            }
 
             #loading {
                 @include size(0%, 3vh);
                 background-color: $store-tag-f-bg;
                 border-radius: 20px;
+
+                @include w1024{
+                    height: 17px;
+                }
+
+                @include w375{
+                    @include size(175px, 17px);
+                }
             }
 
             #loading_percent {
@@ -139,6 +183,12 @@ h6 {
                 padding-right: 10px;
                 color: #ffffff;
             }
+        }
+
+        span{
+            @include font($h6);
+            font-weight: bold;
+            padding-left: 1.5vw;
         }
     }
 }
@@ -575,6 +625,9 @@ header {
 
     .news-container {
         @include size(70vw, 76vh);
+        @include w1024{
+            @include size(80vw, 76vh);
+        }
 
         .news-title {
             position: relative;
@@ -626,16 +679,32 @@ header {
         article {
             padding: 7.4vh 0 0 1.67vw;
 
+            @include w768{
+                padding: 0;
+            }
+
             .date-title {
                 @include size(5.21vw, 2.78vh);
                 @include font($h8, center, 2.78vh, 0.2em);
                 border-radius: 6px;
                 background-color: $main-color;
                 color: $store-list-bg;
+
+                @include w1366{
+                    width: 76px;
+                }
+
+                @include w768{
+                    display: none
+                }
             }
 
             .date-btns {
                 @include flex(start);
+
+                @include w768{
+                    display: none
+                }
 
                 .focus-change {
                     background-color: $title-bg;
@@ -656,10 +725,28 @@ header {
                 @include flex(start);
                 margin: 6.5vh 0 4.5vh 0;
 
+                @include w375{
+                    margin: 2vh 0 2vh 0;
+                }
+
                 h3 {
-                    @include font($h1, center, 5.56vh, 0.2em);
+                    @include font(2.6rem, center, 5.56vh, 0.2em);
                     position: relative;
                     padding-left: 0.573vw;
+
+                    @include w1366{
+                        font-size: 1.875rem;
+                    }
+
+                    @include w1024{
+                        font-size: 1.65rem;
+                    }
+
+                    @include w375{
+                        line-height: 0.9rem;
+                        font-size: 0.9rem;
+                        margin: 0;
+                    }
 
                     &::before {
                         @include size(6.35vw, 2.22vh);
@@ -670,6 +757,11 @@ header {
                         border-radius: 6px;
                         background-color: $store-list-bg;
                         z-index: -1;
+
+                        @include w375{
+                            @include size(90%, 40%);
+                            transform: translate(0, -50%);
+                        }
                     }
                 }
 
@@ -679,8 +771,21 @@ header {
                     padding-top: 1.39vh;
                     font-weight: bold;
 
+                    @include w375{
+                        letter-spacing: 0;
+                        font-size: 0.7rem;
+                        line-height: 0.7rem;
+                        transform:  scale(0.7);
+                        padding: 0;
+                        margin: 0;
+                    }
+
                     &:last-child() {
                         margin: 0;
+
+                        @include w375{
+                            transform: translateX(-25%) scale(0.7);
+                        }
                     }
                 }
             }
@@ -689,7 +794,6 @@ header {
 
                 .content-inf {
                     @extend %news-inf;
-                    box-shadow: 0 3px $tag-bg;
 
                     &::before {
                         @extend %news-inf-before;
@@ -713,13 +817,33 @@ header {
                         padding-left: 1.98vw;
                         font-weight: bold;
 
+                        @include w375{
+                            width: 50px;
+                            padding: 9px 0 0 25px;
+                        }
+
                         .during {
                             @include flex(start);
                             padding-top: 5px;
+
+                            @include w375{
+                                justify-content: center;
+                                letter-spacing: 0;
+                                font-size: 0.7rem;
+                                transform: translateY(50%) scale(0.7);
+                                line-height: 0.7rem;
+                            }
                         }
 
                         >span {
                             @include font($h7, start, 20px, 0.2em);
+                            @include w375{
+                                letter-spacing: 0;
+                                display: inline-block;
+                                font-size: 0.7rem;
+                                line-height: 0.7rem;
+                                transform: scale(0.7);
+                            }
                         }
 
                     }
@@ -734,7 +858,7 @@ header {
 
                         h4 {
                             @include font($h3, start, 5.56vh, 0.2em);
-                            margin: 0
+                            margin: 0;
                         }
 
                     }
@@ -743,12 +867,19 @@ header {
                         @include size(4.17vw, 100%);
                         @include font($h6, start, 9.26vh, 0.2em);
                         @include flex();
-                        margin-right: 1.56vw;
 
-                        i {
-                            margin-left: 0.78vw;
-                            transform: translateY(20%);
-                            font-size: $h8;
+                        @include w375{
+                            display: none;
+                        } 
+                    }
+                    
+                    >i {
+                        margin-right: 1vw;
+                        transform: translateY(45%);
+                        font-size: $h8;
+
+                        @include w375{
+                            font-size: 0.9rem;
                         }
                     }
 

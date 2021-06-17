@@ -20,6 +20,7 @@
                 <div id="loading"></div>
                 <div id="loading_percent">0 %</div>
             </div>
+            <span>走吧，一起到審計新村逛逛！</span>
         </div>
     </main>
 

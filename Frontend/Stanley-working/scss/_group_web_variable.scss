@@ -260,7 +260,13 @@ $h10:0.625vw; //12px
     display: flex;
     border-radius: 6px;
     background-color: $form-bg;
+    box-shadow: 0 3px $tag-bg;
     cursor: pointer;
+
+    @include w375{
+        border-radius: 2px;
+        box-shadow: 0 3px 3px $tag-bg;
+    }
 }
 
 %news-inf-before {
@@ -272,6 +278,12 @@ $h10:0.625vw; //12px
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
     background-color: $title-bg;
+
+    @include w375{
+        width: 20px;
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+    }
 }
 
 %news-inf-tag {
@@ -284,6 +296,15 @@ $h10:0.625vw; //12px
     letter-spacing: 0.2em;
     font-size: $h9;
     color: $body-bg;
+    border-radius: 2px;
+
+    @include w375{
+        @include size(55px, 13px);
+        letter-spacing: 0;
+        font-size: 0.7rem;
+        transform: translateX(-10%) scale(0.7);
+        line-height: 0.7rem
+    }
 }
 
 %title-tra-circle {

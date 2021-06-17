@@ -67,9 +67,8 @@ class FrontendController extends Controller
                     <div class='inf-tag'>{$inf->name}</div>
                     <h4>{$inf->infos[0]->name}</h4>
                 </div>
-                <span>more
-                    <i class='fas fa-chevron-right'></i>
-                </span>
+                <span>more</span>
+                <i class='fas fa-chevron-right'></i>
             </a>";
         };
         return $hasEvents;
@@ -107,9 +106,8 @@ class FrontendController extends Controller
                     <div class='inf-tag'>{$inf->name}</div>
                     <h4>{$inf->infos[0]->name}</h4>
                 </div>
-                <span>more
-                    <i class='fas fa-chevron-right'></i>
-                </span>
+                <span>more</span>
+                <i class='fas fa-chevron-right'></i>
             </a>";
         };
 
