@@ -92,13 +92,14 @@
                             <a href="/store" title="點我看介紹" class="check-btn shop-view">看介紹</a>
                         </li>
                     </ul>
-                    <div class="window-title {{$shop->id == 1 ? '' : 'title-hide'}}" data-title="{{$shop->id - 1}}">{{$shop->name}}</div>
+                    <div class="window-title {{$shop->id == 1 ? '' : 'title-hide'}}" data-title="{{$shop->id - 1}}">
+                        {{$shop->name}}</div>
                     @endforeach
                     <div class="hide-area">
                         <div class="figure-box">
                             <div class="tap-change" data-title="1">
                                 @foreach ($foodShops as $shop)
-                                    <figure style="background-image: url({{$shop->shopImgs[0]->img??''}});"></figure>
+                                <figure style="background-image: url({{$shop->shopImgs[0]->img??''}});"></figure>
                                 @endforeach
                             </div>
                             <div class="tap-change" data-title="2">
@@ -190,13 +191,9 @@
                         <p>台中市公車</p>
                     </div>
                     <div class="traffic-content">
-                        <div class="traffic-content-text">
-                            <span>
-                                <P>步行兩分鐘</P>
-                            </span>
-                            <P>「英才郵局」 5路、51路</P>
-                            <P>「向上國中」 11路、23路、71路、89路</P>
-                        </div>
+                        <p>步行兩分鐘</p>
+                        <p>「英才郵局」 5路、51路</p>
+                        <p>「向上國中」 11路、23路、71路、89路</p>
                     </div>
                 </div>
                 <div class="traffic-car">
@@ -206,10 +203,7 @@
                         </div>
                         <p>自行開車</p>
                     </div>
-                    <div class="traffic-content">
-                        <div class="traffic-content-text">
-                            <p>台灣大道二段 → 美村路一段 → 民生路</p>
-                        </div>
+                    <div class="traffic-content">台灣大道二段 → 美村路一段 → 民生路
                     </div>
                 </div>
                 <div class="traffic-bike">
@@ -220,10 +214,8 @@
                         <p>騎乘 YouBike</p>
                     </div>
                     <div class="traffic-content">
-                        <div class="traffic-content-text">
-                            <p>附近YouBike 據點分布資訊</p>
-                            <a href="/tra_map" title="點擊查看附近YouBike">點擊查看></a>
-                        </div>
+                        <div>附近YouBike 據點分布資訊</div>
+                        <a href="/tra_map" title="點擊查看附近YouBike">點擊查看 ></a>
                     </div>
                 </div>
             </div>

@@ -333,7 +333,12 @@ $h10:0.625vw; //12px
     white-space: nowrap;
 
     @include w375{
-       font-size: 0.7rem; 
+       font-size: 0.7rem;
+       transform: translateX(-6px);
+
+       &:nth-child(1){
+        transform: translateX(0);
+        }
     }
 }
 
@@ -342,6 +347,10 @@ $h10:0.625vw; //12px
     background-color: $form-bg;
     border-radius: 10px 0 0 10px;
     border-right: 1.56vw solid $title-bg;
+
+    @include w576{
+        margin-left: 30px;
+    }
 }
 
 %title-tra-contenttext {

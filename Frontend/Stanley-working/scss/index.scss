@@ -1503,10 +1503,18 @@ header {
                 width: 80vw;
             }
 
+            @include w375{
+                width: 85vw;
+            }
+
             .traffic-bus {
                 width: 100%;
                 height: 17vh;
                 display: flex;
+
+                @include w375{
+                    margin-top: 90px;
+                }
             }
 
             .traffic-car {
@@ -1514,6 +1522,13 @@ header {
                 height: 17vh;
                 margin-top: 3vh;
                 display: flex;
+
+                .traffic-content{
+                    font-size: $h4;
+                    letter-spacing: 0.2em;
+                    line-height: 16vh;
+                    padding-left: 2.24vw;
+                }
             }
 
             .traffic-bike {
@@ -1521,6 +1536,22 @@ header {
                 height: 17vh;
                 margin-top: 3vh;
                 display: flex;
+
+                .traffic-content{
+                    display: flex;
+
+                    >div{
+                        font-size: $h4;
+                        letter-spacing: 0.2em;
+                        padding-left: 2.24vw;
+                    }
+
+                    >a{
+                        margin-left:3vw;
+                        color: $store-tag-f-bg;
+                        font-size: $h4;
+                    }
+                }
             }
 
             .traffic-logo {
@@ -1548,40 +1579,35 @@ header {
             }
 
             .traffic-content {
-                height: 17.59vh;
-                flex: 1;
-                align-items: center;
                 @include size(100%, 15vh);
                 @extend %title-tra-contentarea;
+                align-items: center;
+                font-family: 'Noto Sans HK', sans-serif;
 
+                
                 >p {
                     @extend %title-tra-contenttext;
                     line-height: 5vh;
                     white-space: nowrap;
+                    position: relative;
+                    z-index: 1;
 
                     &:nth-child(1){
                         padding-left: 10px;
-                        position: relative;
 
-                        &::after{
+                        &::before{
+                            @include size(9vw, 20%);
                             content: '';
                             position: absolute;
+                            bottom: 30%;
+                            transform: translateX(-7.6%);
                             background-color: $store-list-bg;
-                            
+                            z-index: -1;
+
+                            @include w768{
+                                width: 80px;
+                            }
                         }
-                    }
-                }
-
-                span {
-                    display: inline-block;
-                    @include size(10.1vw, 4.44vh);
-                    border-bottom: 24px solid $store-list-bg;
-                    text-align: center;
-                    margin: 0 0 9px 2.81vw;
-
-                    p {
-                        margin: 0px;
-                        line-height: 5.56vh;
                     }
                 }
             }
