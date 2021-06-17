@@ -41605,10 +41605,17 @@ var Create = /*#__PURE__*/function (_Component) {
       }); // }
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleRatio", function (e, name) {
+      _this.setState({
+        ratioName: name
+      });
+    });
+
     _this.state = {
       // 避免一開始render 使用map時錯誤，先設定[]
       upperRelation: [],
-      imgBase64: ''
+      imgBase64: '',
+      ratioName: 'ratio43'
     }; // 新增頁面有上層關連的需要取得上層所有選項
     // 在controller新增取得此筆資料的method
     // 寫一固定路徑，依照傳過去的upperName回傳對應的上層資料
@@ -41684,8 +41691,8 @@ var Create = /*#__PURE__*/function (_Component) {
       });
       $("#crop").click(function () {
         var canvas = cropper.getCroppedCanvas({
-          width: 1600,
-          height: 1200
+          width: 800,
+          height: 600
         });
 
         if (canvas !== null) {
@@ -41704,16 +41711,7 @@ var Create = /*#__PURE__*/function (_Component) {
 
               _this2.setState({});
 
-              bs_modal.modal('hide'); // $.ajax({
-              //     type: "POST",
-              //     dataType: "json",
-              //     url: "upload.php",
-              //     data: { image: base64data },
-              //     success: function (data) {
-              //         bs_modal.modal('hide');
-              //         alert("success upload image");
-              //     }
-              // });
+              bs_modal.modal('hide');
             };
           });
         }
@@ -41901,11 +41899,12 @@ var Create = /*#__PURE__*/function (_Component) {
         className: "col-md-8"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
         style: {
-          width: '100%'
+          maxWidth: '100%',
+          display: 'block'
         },
         id: "image"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "col-md-4"
+        className: "col-md-3 offset-1"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "preview",
         style: {
@@ -41914,21 +41913,27 @@ var Create = /*#__PURE__*/function (_Component) {
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
         id: "image"
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         id: "set-aspectRatio-4-3",
-        className: "btn btn-success"
+        onClick: function onClick(e) {
+          _this3.handleRatio(e, 'ratio43');
+        },
+        className: this.state.ratioName === 'ratio43' ? 'btn btn-success active' : 'btn btn-success'
       }, "4 : 3"), "\xA0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         id: "set-aspectRatio-16-9",
-        className: "btn btn-success"
-      }, "16 : 9"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        onClick: function onClick(e) {
+          _this3.handleRatio(e, 'ratio169');
+        },
+        className: this.state.ratioName === 'ratio169' ? 'btn btn-success active' : 'btn btn-success'
+      }, "16 : 9")))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "modal-footer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         type: "button",
-        className: "btn-secondary",
+        className: "btn btn-secondary",
         "data-dismiss": "modal"
       }, "Cancel"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         type: "button",
-        className: "btn-primary",
+        className: "btn btn-primary",
         id: "crop"
       }, "Crop"))))));
     }
