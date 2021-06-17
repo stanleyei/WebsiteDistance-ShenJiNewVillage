@@ -9,7 +9,8 @@ export default class Create extends Component {
         this.state = {
             // 避免一開始render 使用map時錯誤，先設定[]
             upperRelation: [],
-            imgBase64: ''
+            imgBase64: '',
+            ratioName: 'ratio43'
         };
 
         // 新增頁面有上層關連的需要取得上層所有選項
@@ -74,6 +75,10 @@ export default class Create extends Component {
         // }
     }
 
+    handleRatio = (e, name) => {
+        this.setState({ ratioName: name })
+    }
+
     componentDidUpdate() {
 
         // summernote
@@ -93,7 +98,6 @@ export default class Create extends Component {
                 image.src = url;
                 bs_modal.modal('show');
             };
-
 
             if (files && files.length > 0) {
                 file = files[0];
@@ -134,8 +138,8 @@ export default class Create extends Component {
 
         $("#crop").click(() => {
             var canvas = cropper.getCroppedCanvas({
-                width: 1600,
-                height: 1200,
+                width: 800,
+                height: 600,
             });
 
             if (canvas !== null) {
@@ -154,17 +158,6 @@ export default class Create extends Component {
                         this.setState({})
 
                         bs_modal.modal('hide');
-
-                        // $.ajax({
-                        //     type: "POST",
-                        //     dataType: "json",
-                        //     url: "upload.php",
-                        //     data: { image: base64data },
-                        //     success: function (data) {
-                        //         bs_modal.modal('hide');
-                        //         alert("success upload image");
-                        //     }
-                        // });
                     };
                 });
             }
@@ -247,23 +240,23 @@ export default class Create extends Component {
                                 <div className="img-container">
                                     <div className="row">
                                         <div className="col-md-8">
-                                            <img style={{width:'100%'}} id="image" />
+                                            <img style={{ maxWidth: '100%', display: 'block' }} id="image" />
                                         </div>
-                                        <div className="col-md-4">
+                                        <div className="col-md-3 offset-1">
                                             <div className="preview" style={{ overflow: 'hidden', height: 100 }}>
                                                 <img id="image" />
                                             </div>
-                                        </div>
-                                        <div>
-                                            <button id="set-aspectRatio-4-3" className="btn btn-success">4 : 3</button>&nbsp;
-                                            <button id="set-aspectRatio-16-9" className="btn btn-success">16 : 9</button>
+                                            <div>
+                                                <button id="set-aspectRatio-4-3" onClick={(e) => { this.handleRatio(e, 'ratio43') }} className={this.state.ratioName === 'ratio43' ? 'btn btn-success active' : 'btn btn-success'}>4 : 3</button>&nbsp;
+                                                <button id="set-aspectRatio-16-9" onClick={(e) => { this.handleRatio(e, 'ratio169') }} className={this.state.ratioName === 'ratio169' ? 'btn btn-success active' : 'btn btn-success'}>16 : 9</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn-secondary" data-dismiss="modal">Cancel</button>
-                                <button type="button" className="btn-primary" id="crop">Crop</button>
+                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" className="btn btn-primary" id="crop">Crop</button>
                             </div>
                         </div>
                     </div>
