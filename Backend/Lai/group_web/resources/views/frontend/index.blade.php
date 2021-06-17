@@ -59,6 +59,9 @@
                         <h3></h3>
                         <div></div>
                         <div></div>
+                        <select name="" id="" class="phone-date-btn">
+                            <option>選擇日期</option>
+                        </select>
                     </div>
                     <div class="content-infs"></div>
                 </div>
@@ -176,9 +179,7 @@
             <div class="traffic-title">
                 <h2>交通資訊</h2>
                 <span class="tra-title-icon">How To Get There</span>
-                <span class="traffic-type">
-                    <p>如何到達審計?</p>
-                </span>
+                <p>如何到達審計?</p>
             </div>
             <div class="traffic-main">
                 <div class="traffic-bus">

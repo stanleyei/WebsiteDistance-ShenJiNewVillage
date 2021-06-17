@@ -127,7 +127,7 @@ header nav ul li a .title {
   }
 }
 
-#about-us .effect-area .about-us-container .about-us-title span::before, #news .news-container .news-title span::before, #store .store-container .store-title span::before, #view .view-container .view-title span::before, #traffic .traffic-container .traffic-title span::before, #contact .contact-container .contact-title span::before {
+#about-us .effect-area .about-us-container .about-us-title span::before, #news .news-container .news-title span::before, #store .store-container .store-title span::before, #view .view-container .view-title span::before, #traffic .traffic-container .traffic-title .tra-title-icon::before, #contact .contact-container .contact-title span::before {
   content: '';
   position: absolute;
   left: 0;
@@ -137,7 +137,7 @@ header nav ul li a .title {
 }
 
 @media (max-width: 1366px) {
-  #about-us .effect-area .about-us-container .about-us-title span::before, #news .news-container .news-title span::before, #store .store-container .store-title span::before, #view .view-container .view-title span::before, #traffic .traffic-container .traffic-title span::before, #contact .contact-container .contact-title span::before {
+  #about-us .effect-area .about-us-container .about-us-title span::before, #news .news-container .news-title span::before, #store .store-container .store-title span::before, #view .view-container .view-title span::before, #traffic .traffic-container .traffic-title .tra-title-icon::before, #contact .contact-container .contact-title span::before {
     font-size: 1rem;
     -webkit-transform: translate(0, -80%) rotate(90deg);
             transform: translate(0, -80%) rotate(90deg);
@@ -145,14 +145,14 @@ header nav ul li a .title {
 }
 
 @media (max-width: 768px) {
-  #about-us .effect-area .about-us-container .about-us-title span::before, #news .news-container .news-title span::before, #store .store-container .store-title span::before, #view .view-container .view-title span::before, #traffic .traffic-container .traffic-title span::before, #contact .contact-container .contact-title span::before {
+  #about-us .effect-area .about-us-container .about-us-title span::before, #news .news-container .news-title span::before, #store .store-container .store-title span::before, #view .view-container .view-title span::before, #traffic .traffic-container .traffic-title .tra-title-icon::before, #contact .contact-container .contact-title span::before {
     -webkit-transform: translate(0, -70%) rotate(90deg);
             transform: translate(0, -70%) rotate(90deg);
   }
 }
 
 @media (max-width: 375px) {
-  #about-us .effect-area .about-us-container .about-us-title span::before, #news .news-container .news-title span::before, #store .store-container .store-title span::before, #view .view-container .view-title span::before, #traffic .traffic-container .traffic-title span::before, #contact .contact-container .contact-title span::before {
+  #about-us .effect-area .about-us-container .about-us-title span::before, #news .news-container .news-title span::before, #store .store-container .store-title span::before, #view .view-container .view-title span::before, #traffic .traffic-container .traffic-title .tra-title-icon::before, #contact .contact-container .contact-title span::before {
     font-size: 8px;
     -webkit-transform: translate(-80%, -70%) rotate(90deg);
             transform: translate(-80%, -70%) rotate(90deg);
@@ -226,6 +226,7 @@ header nav ul li a .title {
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
   background-color: #D28E76;
+  min-width: 20px;
 }
 
 @media (max-width: 375px) {
@@ -247,6 +248,7 @@ header nav ul li a .title {
   font-size: 0.729vw;
   color: #FFFCF4;
   border-radius: 2px;
+  min-width: 64px;
 }
 
 @media (max-width: 375px) {
@@ -261,9 +263,9 @@ header nav ul li a .title {
   }
 }
 
-#traffic .traffic-container .traffic-main .traffic-bus .traffic-logo .traffic-icon, #traffic .traffic-container .traffic-main .traffic-car .traffic-logo .traffic-icon, #traffic .traffic-container .traffic-main .traffic-bike .traffic-logo .traffic-icon {
-  width: 6.77vw;
-  height: 12vh;
+#traffic .traffic-container .traffic-main .traffic-logo .traffic-icon {
+  width: 5.5vw;
+  height: 5.5vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -276,24 +278,40 @@ header nav ul li a .title {
   margin: auto;
   border-radius: 50%;
   background-color: #D28E76;
+  min-width: 70px;
+  min-height: 70px;
 }
 
-#traffic .traffic-container .traffic-main .traffic-bus .traffic-logo p, #traffic .traffic-container .traffic-main .traffic-car .traffic-logo p, #traffic .traffic-container .traffic-main .traffic-bike .traffic-logo p {
+@media (max-width: 375px) {
+  #traffic .traffic-container .traffic-main .traffic-logo .traffic-icon {
+    min-width: 50px;
+    min-height: 50px;
+  }
+}
+
+#traffic .traffic-container .traffic-main .traffic-logo > p {
   font-family: 'Noto Sans TC', sans-serif;
   text-align: center;
   font-size: 1.146vw;
   line-height: 5.56vh;
   letter-spacing: 10%;
+  white-space: nowrap;
 }
 
-#traffic .traffic-container .traffic-main .traffic-bus .traffic-content .traffic-content-text, #traffic .traffic-container .traffic-main .traffic-car .traffic-content .traffic-content-text, #traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text {
+@media (max-width: 375px) {
+  #traffic .traffic-container .traffic-main .traffic-logo > p {
+    font-size: 0.7rem;
+  }
+}
+
+#traffic .traffic-container .traffic-main .traffic-content {
   margin-left: 5.2vw;
   background-color: #F2F2F2;
   border-radius: 10px 0 0 10px;
   border-right: 1.56vw solid #D28E76;
 }
 
-#traffic .traffic-container .traffic-main .traffic-bus .traffic-content .traffic-content-text p, #traffic .traffic-container .traffic-main .traffic-car .traffic-content .traffic-content-text p, #traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text p, #traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text a {
+#traffic .traffic-container .traffic-main .traffic-content > p {
   margin-left: 2.24vw;
   font-size: 1.354vw;
   letter-spacing: 0.2em;
@@ -1444,6 +1462,24 @@ header .nav-img.active {
   }
 }
 
+#news .news-container article .content-title .phone-date-btn {
+  width: 80px;
+  height: 25px;
+  position: absolute;
+  right: 9.5vw;
+  border-radius: 4px;
+  background-color: #96422D;
+  color: #FBE6C3;
+  font-size: 0.7rem;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #news .news-container article .content-title .phone-date-btn {
+    display: block;
+  }
+}
+
 #news .news-container article .content-infs .content-inf:hover {
   background-color: #E0E0E0;
 }
@@ -1464,12 +1500,22 @@ header .nav-img.active {
   height: 100%;
   padding-left: 1.98vw;
   font-weight: bold;
+  -webkit-transform: translateX(15%);
+          transform: translateX(15%);
+}
+
+@media (max-width: 768px) {
+  #news .news-container article .content-infs .content-inf .inf-date {
+    width: 70px;
+  }
 }
 
 @media (max-width: 375px) {
   #news .news-container article .content-infs .content-inf .inf-date {
     width: 50px;
-    padding: 9px 0 0 25px;
+    padding: 9px 0 0 17px;
+    -webkit-transform: translateX(10%);
+            transform: translateX(10%);
   }
 }
 
@@ -1484,18 +1530,31 @@ header .nav-img.active {
       -ms-flex-align: center;
           align-items: center;
   padding-top: 5px;
+  -webkit-transform: translate(10%, 30%);
+          transform: translate(10%, 30%);
 }
 
-@media (max-width: 375px) {
+@media (max-width: 1024px) {
+  #news .news-container article .content-infs .content-inf .inf-date .during {
+    padding-top: 1vh;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
   #news .news-container article .content-infs .content-inf .inf-date .during {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    letter-spacing: 0;
-    font-size: 0.7rem;
-    -webkit-transform: translateY(50%) scale(0.7);
-            transform: translateY(50%) scale(0.7);
-    line-height: 0.7rem;
+    -webkit-transform: translateY(30%);
+            transform: translateY(30%);
+  }
+}
+
+@media (max-width: 375px) {
+  #news .news-container article .content-infs .content-inf .inf-date .during {
+    -webkit-transform: translateY(20%) scale(0.7);
+            transform: translateY(20%) scale(0.7);
   }
 }
 
@@ -1506,14 +1565,30 @@ header .nav-img.active {
   letter-spacing: 0.2em;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 768px) {
+  #news .news-container article .content-infs .content-inf .inf-date > span {
+    display: inline-block;
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+  }
+}
+
+@media (max-width: 576px) {
   #news .news-container article .content-infs .content-inf .inf-date > span {
     letter-spacing: 0;
     display: inline-block;
     font-size: 0.7rem;
+    width: 40px;
     line-height: 0.7rem;
-    -webkit-transform: scale(0.7);
-            transform: scale(0.7);
+    -webkit-transform: translateX(1vw) scale(0.8);
+            transform: translateX(1vw) scale(0.8);
+  }
+}
+
+@media (max-width: 375px) {
+  #news .news-container article .content-infs .content-inf .inf-date > span {
+    -webkit-transform: translateY(-7px) scale(0.7);
+            transform: translateY(-7px) scale(0.7);
   }
 }
 
@@ -1524,12 +1599,40 @@ header .nav-img.active {
   padding-left: 1.04vw;
 }
 
+@media (max-width: 576px) {
+  #news .news-container article .content-infs .content-inf .inf-detail {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 65vw;
+  }
+}
+
+@media (max-width: 375px) {
+  #news .news-container article .content-infs .content-inf .inf-detail {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 210px;
+    margin-right: 20px;
+  }
+}
+
 #news .news-container article .content-infs .content-inf .inf-detail h4 {
   font-size: 1.458vw;
   text-align: start;
   line-height: 5.56vh;
   letter-spacing: 0.2em;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  #news .news-container article .content-infs .content-inf .inf-detail h4 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.9rem;
+  }
 }
 
 #news .news-container article .content-infs .content-inf > span {
@@ -1550,17 +1653,25 @@ header .nav-img.active {
           align-items: center;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 576px) {
   #news .news-container article .content-infs .content-inf > span {
     display: none;
   }
 }
 
 #news .news-container article .content-infs .content-inf > i {
-  margin-right: 1vw;
+  margin-right: 10px;
+  margin-left: 10px;
   -webkit-transform: translateY(45%);
           transform: translateY(45%);
   font-size: 0.833vw;
+}
+
+@media (max-width: 576px) {
+  #news .news-container article .content-infs .content-inf > i {
+    -webkit-transform: translate(-10px, 45%);
+            transform: translate(-10px, 45%);
+  }
 }
 
 @media (max-width: 375px) {
@@ -2140,7 +2251,7 @@ header .nav-img.active {
 
 #traffic .traffic-container {
   width: 80vw;
-  height: 80vh;
+  height: 85vh;
 }
 
 #traffic .traffic-container .traffic-title {
@@ -2181,7 +2292,7 @@ header .nav-img.active {
   }
 }
 
-#traffic .traffic-container .traffic-title span {
+#traffic .traffic-container .traffic-title .tra-title-icon {
   font-size: 1.25vw;
   text-align: center;
   line-height: inherit;
@@ -2189,13 +2300,13 @@ header .nav-img.active {
 }
 
 @media (max-width: 1366px) {
-  #traffic .traffic-container .traffic-title span {
+  #traffic .traffic-container .traffic-title .tra-title-icon {
     font-size: 1rem;
   }
 }
 
 @media (max-width: 375px) {
-  #traffic .traffic-container .traffic-title span {
+  #traffic .traffic-container .traffic-title .tra-title-icon {
     letter-spacing: 0;
     font-size: 0.7rem;
     display: inline-block;
@@ -2204,48 +2315,154 @@ header .nav-img.active {
   }
 }
 
-#traffic .traffic-container .traffic-title span::before {
+#traffic .traffic-container .traffic-title .tra-title-icon::before {
   content: 'About';
+}
+
+#traffic .traffic-container .traffic-title p {
+  width: 100%;
+  height: 48px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+  position: relative;
+  font-size: 2.25rem;
+  list-style: 60px;
+  letter-spacing: 0.2em;
+  font-weight: bold;
+}
+
+@media (max-width: 1366px) {
+  #traffic .traffic-container .traffic-title p {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  #traffic .traffic-container .traffic-title p {
+    font-size: 2.24vw;
+  }
+}
+
+@media (max-width: 768px) {
+  #traffic .traffic-container .traffic-title p {
+    font-size: 1.2rem;
+    height: 30px;
+  }
+}
+
+@media (max-width: 375px) {
+  #traffic .traffic-container .traffic-title p {
+    font-size: 0.8rem;
+  }
+}
+
+#traffic .traffic-container .traffic-title p::before {
+  width: 19vw;
+  height: 15px;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background-color: #FBE6C3;
+  z-index: -1;
 }
 
 #traffic .traffic-container .traffic-main {
   width: 51.56vw;
-  height: 74vh;
-  margin: 6.11vh auto 0 auto;
+  height: 65vh;
+  margin: 6.11vh auto 0;
+}
+
+@media (max-width: 1024px) {
+  #traffic .traffic-container .traffic-main {
+    width: 80vw;
+  }
 }
 
 #traffic .traffic-container .traffic-main .traffic-bus {
   width: 100%;
+  height: 17vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-#traffic .traffic-container .traffic-main .traffic-bus .traffic-logo {
+#traffic .traffic-container .traffic-main .traffic-car {
+  width: 100%;
+  height: 17vh;
+  margin-top: 3vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#traffic .traffic-container .traffic-main .traffic-bike {
+  width: 100%;
+  height: 17vh;
+  margin-top: 3vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#traffic .traffic-container .traffic-main .traffic-logo {
   width: 9.896vw;
-  height: 9.896vw;
+  height: 100%;
+  padding-top: 2.6vh;
 }
 
-#traffic .traffic-container .traffic-main .traffic-bus .traffic-content {
+#traffic .traffic-container .traffic-main .traffic-logo .traffic-icon > img {
+  width: 3vw;
+  height: 3vw;
+  min-width: 40px;
+  min-height: 40px;
+}
+
+@media (max-width: 375px) {
+  #traffic .traffic-container .traffic-main .traffic-logo .traffic-icon > img {
+    min-width: 30px;
+    min-height: 30px;
+  }
+}
+
+#traffic .traffic-container .traffic-main .traffic-content {
   height: 17.59vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
+  height: 15vh;
 }
 
-#traffic .traffic-container .traffic-main .traffic-bus .traffic-content .traffic-content-text {
-  width: 35.67vw;
-  height: 14.81vh;
+#traffic .traffic-container .traffic-main .traffic-content > p {
+  line-height: 5vh;
+  white-space: nowrap;
 }
 
-#traffic .traffic-container .traffic-main .traffic-bus .traffic-content .traffic-content-text p {
-  line-height: 4.17vh;
+#traffic .traffic-container .traffic-main .traffic-content > p:nth-child(1) {
+  padding-left: 10px;
+  position: relative;
 }
 
-#traffic .traffic-container .traffic-main .traffic-bus .traffic-content .traffic-content-text span {
+#traffic .traffic-container .traffic-main .traffic-content > p:nth-child(1)::after {
+  content: '';
+  position: absolute;
+  background-color: #FBE6C3;
+}
+
+#traffic .traffic-container .traffic-main .traffic-content span {
   display: inline-block;
   width: 10.1vw;
   height: 4.44vh;
@@ -2254,90 +2471,8 @@ header .nav-img.active {
   margin: 0 0 9px 2.81vw;
 }
 
-#traffic .traffic-container .traffic-main .traffic-bus .traffic-content .traffic-content-text span p {
+#traffic .traffic-container .traffic-main .traffic-content span p {
   margin: 0px;
-  line-height: 5.56vh;
-}
-
-#traffic .traffic-container .traffic-main .traffic-car {
-  width: 100%;
-  margin-top: 5.56vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-#traffic .traffic-container .traffic-main .traffic-car .traffic-logo {
-  width: 9.896vw;
-  height: 9.896vw;
-}
-
-#traffic .traffic-container .traffic-main .traffic-car .traffic-content {
-  height: 17.59vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#traffic .traffic-container .traffic-main .traffic-car .traffic-content .traffic-content-text {
-  width: 35.67vw;
-  height: 14.81vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#traffic .traffic-container .traffic-main .traffic-car .traffic-content .traffic-content-text p {
-  line-height: 4.17vh;
-}
-
-#traffic .traffic-container .traffic-main .traffic-bike {
-  width: 100%;
-  margin-top: 5.56vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-#traffic .traffic-container .traffic-main .traffic-bike .traffic-logo {
-  width: 9.896vw;
-  height: 9.896vw;
-}
-
-#traffic .traffic-container .traffic-main .traffic-bike .traffic-content {
-  height: 17.59vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text {
-  width: 35.67vw;
-  height: 14.81vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text p {
-  line-height: 4.17vh;
-}
-
-#traffic .traffic-container .traffic-main .traffic-bike .traffic-content .traffic-content-text a {
-  margin-left: 1.15vw;
-  color: #96422D;
   line-height: 5.56vh;
 }
 

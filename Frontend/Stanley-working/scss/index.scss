@@ -114,28 +114,28 @@ h6 {
     .container {
         transition: 1s ease-in-out;
 
-        img:nth-child(1){
+        img:nth-child(1) {
             @include size(7vw, 8vw);
             margin-right: 30px;
             min-width: 65px;
             min-height: 70px;
 
-            @include w1366{
+            @include w1366 {
                 margin-right: 20px;
             }
 
-            @include w375{
+            @include w375 {
                 @include size(65px, 70px);
                 margin-right: 10px;
             }
         }
 
-        img:nth-child(2){
+        img:nth-child(2) {
             @include size(9vw, 6.5vw);
             min-width: 95px;
             min-height: 58px;
 
-            @include w375{
+            @include w375 {
                 @include size(95px, 58px);
             }
         }
@@ -153,11 +153,11 @@ h6 {
             border-radius: 20px;
             margin-bottom: 20px;
 
-            @include w1024{
+            @include w1024 {
                 height: 17px;
             }
 
-            @include w375{
+            @include w375 {
                 @include size(175px, 17px);
             }
 
@@ -166,11 +166,11 @@ h6 {
                 background-color: $store-tag-f-bg;
                 border-radius: 20px;
 
-                @include w1024{
+                @include w1024 {
                     height: 17px;
                 }
 
-                @include w375{
+                @include w375 {
                     @include size(175px, 17px);
                 }
             }
@@ -185,7 +185,7 @@ h6 {
             }
         }
 
-        span{
+        span {
             @include font($h6);
             font-weight: bold;
             padding-left: 1.5vw;
@@ -193,11 +193,11 @@ h6 {
     }
 }
 
-.header-shady{
-    
-    &::after{
+.header-shady {
 
-        @include w768{
+    &::after {
+
+        @include w768 {
             @include size(100vw, 100vh);
             content: '';
             position: absolute;
@@ -208,15 +208,15 @@ h6 {
             animation: shady 1s ease-in-out;
 
             @keyframes shady {
-                0%{
+                0% {
                     opacity: 0;
                 }
-    
-                100%{
+
+                100% {
                     opacity: 0.4;
                 }
             }
-        }  
+        }
     }
 }
 
@@ -237,7 +237,7 @@ header {
         overflow: hidden;
         transition: 1s;
 
-        @include w768{
+        @include w768 {
             @include size(50px, 50px);
             border-radius: 5px;
             position: absolute;
@@ -257,11 +257,11 @@ header {
                 width: 15vw;
             }
 
-            @include w768{
+            @include w768 {
                 width: 18vw;
             }
 
-            @include w576{
+            @include w576 {
                 width: 110px;
             }
 
@@ -309,7 +309,7 @@ header {
             background-repeat: no-repeat;
             position: absolute;
 
-            @include w576{
+            @include w576 {
                 right: 50%;
                 bottom: 15%;
                 transform: translateX(50%);
@@ -427,7 +427,7 @@ header {
                 @include size(80vw, 70vh);
             }
 
-            @include w1024{
+            @include w1024 {
                 height: 80vh;
                 justify-content: flex-start;
             }
@@ -442,7 +442,7 @@ header {
                 padding-left: 3.125vw;
                 margin-bottom: 5.5vmin;
 
-                @include w1366{
+                @include w1366 {
                     margin: 0;
                     padding-left: 40px;
                 }
@@ -458,9 +458,11 @@ header {
 
                 h2 {
                     @include font($h1, start, inherit, 0.3em);
-                    @include w1366{
+
+                    @include w1366 {
                         font-size: 1.8rem;
                     }
+
                     @include w375 {
                         font-size: 1rem;
                     }
@@ -468,9 +470,11 @@ header {
 
                 span {
                     @include font($h5);
-                    @include w1366{
+
+                    @include w1366 {
                         font-size: 1rem;
                     }
+
                     @include w375 {
                         letter-spacing: 0;
                         font-size: 0.7rem;
@@ -523,7 +527,7 @@ header {
                     &:hover .swiper-button {
                         opacity: 0.8;
 
-                        @include w768{
+                        @include w768 {
                             opacity: 0;
                         }
                     }
@@ -553,7 +557,7 @@ header {
                             background-size: cover;
                             font-family: none;
 
-                            @include w1024{
+                            @include w1024 {
                                 transform: translateX(1px);
                             }
                         }
@@ -570,7 +574,7 @@ header {
                             background-size: cover;
                             font-family: none;
 
-                            @include w1024{
+                            @include w1024 {
                                 transform: translateX(-1px);
                             }
                         }
@@ -597,12 +601,12 @@ header {
                     font-weight: bolder;
                     flex-direction: column;
 
-                    @include w1024{
+                    @include w1024 {
                         @include size(100%, auto);
                         font-size: $h3;
                     }
 
-                    @include w768{
+                    @include w768 {
                         font-size: $h2;
                     }
 
@@ -625,7 +629,8 @@ header {
 
     .news-container {
         @include size(70vw, 76vh);
-        @include w1024{
+
+        @include w1024 {
             @include size(80vw, 76vh);
         }
 
@@ -633,7 +638,7 @@ header {
             position: relative;
             padding-left: 3.125vw;
 
-            @include w1366{
+            @include w1366 {
                 margin: 0;
                 padding-left: 40px;
             }
@@ -649,9 +654,11 @@ header {
 
             h2 {
                 @include font($h1, start, inherit, 0.3em);
-                @include w1366{
+
+                @include w1366 {
                     font-size: 1.8rem;
                 }
+
                 @include w375 {
                     font-size: 1rem;
                 }
@@ -659,9 +666,11 @@ header {
 
             span {
                 @include font($h5);
-                @include w1366{
+
+                @include w1366 {
                     font-size: 1rem;
                 }
+
                 @include w375 {
                     letter-spacing: 0;
                     font-size: 0.7rem;
@@ -679,7 +688,7 @@ header {
         article {
             padding: 7.4vh 0 0 1.67vw;
 
-            @include w768{
+            @include w768 {
                 padding: 0;
             }
 
@@ -690,11 +699,11 @@ header {
                 background-color: $main-color;
                 color: $store-list-bg;
 
-                @include w1366{
+                @include w1366 {
                     width: 76px;
                 }
 
-                @include w768{
+                @include w768 {
                     display: none
                 }
             }
@@ -702,7 +711,7 @@ header {
             .date-btns {
                 @include flex(start);
 
-                @include w768{
+                @include w768 {
                     display: none
                 }
 
@@ -725,7 +734,7 @@ header {
                 @include flex(start);
                 margin: 6.5vh 0 4.5vh 0;
 
-                @include w375{
+                @include w375 {
                     margin: 2vh 0 2vh 0;
                 }
 
@@ -734,15 +743,15 @@ header {
                     position: relative;
                     padding-left: 0.573vw;
 
-                    @include w1366{
+                    @include w1366 {
                         font-size: 1.875rem;
                     }
 
-                    @include w1024{
+                    @include w1024 {
                         font-size: 1.65rem;
                     }
 
-                    @include w375{
+                    @include w375 {
                         line-height: 0.9rem;
                         font-size: 0.9rem;
                         margin: 0;
@@ -758,7 +767,7 @@ header {
                         background-color: $store-list-bg;
                         z-index: -1;
 
-                        @include w375{
+                        @include w375 {
                             @include size(90%, 40%);
                             transform: translate(0, -50%);
                         }
@@ -771,11 +780,11 @@ header {
                     padding-top: 1.39vh;
                     font-weight: bold;
 
-                    @include w375{
+                    @include w375 {
                         letter-spacing: 0;
                         font-size: 0.7rem;
                         line-height: 0.7rem;
-                        transform:  scale(0.7);
+                        transform: scale(0.7);
                         padding: 0;
                         margin: 0;
                     }
@@ -783,9 +792,24 @@ header {
                     &:last-child() {
                         margin: 0;
 
-                        @include w375{
+                        @include w375 {
                             transform: translateX(-25%) scale(0.7);
                         }
+                    }
+                }
+
+                .phone-date-btn {
+                    @include size(80px, 25px);
+                    position: absolute;
+                    right: 9.5vw;
+                    border-radius: 4px;
+                    background-color: $store-tag-f-bg;
+                    color: $store-list-bg;
+                    font-size: 0.7rem;
+                    display: none;
+
+                    @include w768 {
+                        display: block;
                     }
                 }
             }
@@ -816,41 +840,75 @@ header {
                         @include size(5.57vw, 100%);
                         padding-left: 1.98vw;
                         font-weight: bold;
+                        transform: translateX(15%);
 
-                        @include w375{
+                        @include w768 {
+                            width: 70px;
+                        }
+
+                        @include w375 {
                             width: 50px;
-                            padding: 9px 0 0 25px;
+                            padding: 9px 0 0 17px;
+                            transform: translateX(10%);
                         }
 
                         .during {
                             @include flex(start);
                             padding-top: 5px;
+                            transform: translate(10%, 30%);
 
-                            @include w375{
+                            @include w1024 {
+                                padding-top: 1vh;
+                                font-size: 0.8rem;
+                            }
+
+                            @include w768 {
                                 justify-content: center;
-                                letter-spacing: 0;
-                                font-size: 0.7rem;
-                                transform: translateY(50%) scale(0.7);
-                                line-height: 0.7rem;
+                                transform: translateY(30%);
+                            }
+
+                            @include w375 {
+                                transform: translateY(20%) scale(0.7);
                             }
                         }
 
                         >span {
                             @include font($h7, start, 20px, 0.2em);
-                            @include w375{
+
+                            @include w768 {
+                                display: inline-block;
+                                transform: translateX(50%);
+                            }
+
+                            @include w576 {
                                 letter-spacing: 0;
                                 display: inline-block;
                                 font-size: 0.7rem;
+                                width: 40px;
                                 line-height: 0.7rem;
-                                transform: scale(0.7);
+                                transform: translateX(1vw) scale(0.8);
+                            }
+
+                            @include w375 {
+                                transform: translateY(-7px) scale(0.7);
                             }
                         }
-
                     }
 
                     .inf-detail {
                         flex: 1;
                         padding-left: 1.04vw;
+
+                        @include w576 {
+                            flex: none;
+                            width: 65vw;
+                        }
+
+                        @include w375 {
+                            flex: none;
+                            width: 210px;
+                            margin-right: 20px;
+                        }
 
                         .inf-tag {
                             @extend %news-inf-tag;
@@ -859,6 +917,13 @@ header {
                         h4 {
                             @include font($h3, start, 5.56vh, 0.2em);
                             margin: 0;
+
+                            @include w768 {
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                font-size: 0.9rem;
+                            }
                         }
 
                     }
@@ -868,17 +933,22 @@ header {
                         @include font($h6, start, 9.26vh, 0.2em);
                         @include flex();
 
-                        @include w375{
+                        @include w576 {
                             display: none;
-                        } 
+                        }
                     }
-                    
+
                     >i {
-                        margin-right: 1vw;
+                        margin-right: 10px;
+                        margin-left: 10px;
                         transform: translateY(45%);
                         font-size: $h8;
 
-                        @include w375{
+                        @include w576 {
+                            transform: translate(-10px, 45%);
+                        }
+
+                        @include w375 {
                             font-size: 0.9rem;
                         }
                     }
@@ -905,7 +975,7 @@ header {
             position: relative;
             padding-left: 3.125vw;
 
-            @include w1366{
+            @include w1366 {
                 margin: 0;
                 padding-left: 40px;
             }
@@ -921,9 +991,11 @@ header {
 
             h2 {
                 @include font($h1, start, inherit, 0.3em);
-                @include w1366{
+
+                @include w1366 {
                     font-size: 1.8rem;
                 }
+
                 @include w375 {
                     font-size: 1rem;
                 }
@@ -931,9 +1003,11 @@ header {
 
             span {
                 @include font($h5);
-                @include w1366{
+
+                @include w1366 {
                     font-size: 1rem;
                 }
+
                 @include w375 {
                     letter-spacing: 0;
                     font-size: 0.7rem;
@@ -1176,7 +1250,7 @@ header {
             position: relative;
             padding-left: 3.125vw;
 
-            @include w1366{
+            @include w1366 {
                 margin: 0;
                 padding-left: 40px;
             }
@@ -1192,9 +1266,11 @@ header {
 
             h2 {
                 @include font($h1, start, inherit, 0.3em);
-                @include w1366{
+
+                @include w1366 {
                     font-size: 1.8rem;
                 }
+
                 @include w375 {
                     font-size: 1rem;
                 }
@@ -1202,9 +1278,11 @@ header {
 
             span {
                 @include font($h5);
-                @include w1366{
+
+                @include w1366 {
                     font-size: 1rem;
                 }
+
                 @include w375 {
                     letter-spacing: 0;
                     font-size: 0.7rem;
@@ -1326,13 +1404,13 @@ header {
     position: relative;
 
     .traffic-container {
-        @include size(80vw, 80vh);
+        @include size(80vw, 85vh);
 
         .traffic-title {
             position: relative;
             padding-left: 3.125vw;
 
-            @include w1366{
+            @include w1366 {
                 margin: 0;
                 padding-left: 40px;
             }
@@ -1348,19 +1426,23 @@ header {
 
             h2 {
                 @include font($h1, start, inherit, 0.3em);
-                @include w1366{
+
+                @include w1366 {
                     font-size: 1.8rem;
                 }
+
                 @include w375 {
                     font-size: 1rem;
                 }
             }
 
-            span {
+            .tra-title-icon {
                 @include font($h5);
-                @include w1366{
+
+                @include w1366 {
                     font-size: 1rem;
                 }
+
                 @include w375 {
                     letter-spacing: 0;
                     font-size: 0.7rem;
@@ -1373,134 +1455,133 @@ header {
                     content: 'About';
                 }
             }
+
+            p {
+                @include size(100%, 48px);
+                @include flex();
+                margin: 0 auto;
+                position: relative;
+                font-size: 2.25rem;
+                list-style: 60px;
+                letter-spacing: 0.2em;
+                font-weight: bold;
+
+                @include w1366 {
+                    font-size: 1.3rem;
+                }
+
+                @include w1024 {
+                    font-size: $h1;
+                }
+
+                @include w768 {
+                    font-size: 1.2rem;
+                    height: 30px;
+                }
+
+                @include w375 {
+                    font-size: 0.8rem;
+                }
+
+                &::before {
+                    @include size(19vw, 15px);
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    transform: translateY(-50%);
+                    background-color: $store-list-bg;
+                    z-index: -1;
+                }
+            }
         }
 
         .traffic-main {
-            @include size(51.56vw, 74vh);
-            margin: 6.11vh auto 0 auto;
+            @include size(51.56vw, 65vh);
+            margin: 6.11vh auto 0;
+
+            @include w1024 {
+                width: 80vw;
+            }
 
             .traffic-bus {
                 width: 100%;
+                height: 17vh;
                 display: flex;
-
-                .traffic-logo {
-                    @include size(9.896vw, 9.896vw);
-
-                    .traffic-icon {
-                        @extend %title-tra-circle;
-                    }
-
-                    p {
-                        @extend %title-tra-logotext;
-                    }
-                }
-
-                .traffic-content {
-                    height: 17.59vh;
-                    display: flex;
-                    align-items: center;
-
-                    .traffic-content-text {
-                        @include size(35.67vw, 14.81vh);
-                        @extend %title-tra-contentarea;
-
-                        p {
-                            @extend %title-tra-contenttext;
-                            line-height: 4.17vh;
-                        }
-
-                        span {
-                            display: inline-block;
-                            @include size(10.1vw, 4.44vh);
-                            border-bottom: 24px solid $store-list-bg;
-                            text-align: center;
-                            margin: 0 0 9px 2.81vw;
-
-                            p {
-                                margin: 0px;
-                                line-height: 5.56vh;
-                            }
-                        }
-
-                    }
-                }
             }
 
             .traffic-car {
                 width: 100%;
-                margin-top: 5.56vh;
+                height: 17vh;
+                margin-top: 3vh;
                 display: flex;
-
-                .traffic-logo {
-                    @include size(9.896vw, 9.896vw);
-
-                    .traffic-icon {
-                        @extend %title-tra-circle;
-                    }
-
-                    p {
-                        @extend %title-tra-logotext;
-                    }
-                }
-
-                .traffic-content {
-                    height: 17.59vh;
-                    display: flex;
-                    align-items: center;
-
-                    .traffic-content-text {
-                        @include size(35.67vw, 14.81vh);
-                        @extend %title-tra-contentarea;
-                        display: flex;
-                        align-items: center;
-
-                        p {
-                            @extend %title-tra-contenttext;
-                            line-height: 4.17vh;
-                        }
-                    }
-                }
             }
 
             .traffic-bike {
                 width: 100%;
-                margin-top: 5.56vh;
+                height: 17vh;
+                margin-top: 3vh;
                 display: flex;
+            }
 
-                .traffic-logo {
-                    @include size(9.896vw, 9.896vw);
+            .traffic-logo {
+                @include size(9.896vw, 100%);
+                padding-top: 2.6vh;
 
-                    .traffic-icon {
-                        @extend %title-tra-circle;
-                    }
+                .traffic-icon {
+                    @extend %title-tra-circle;
 
-                    p {
-                        @extend %title-tra-logotext;
+                    >img {
+                        @include size(3vw, 3vw);
+                        min-width: 40px;
+                        min-height: 40px;
+
+                        @include w375 {
+                            min-width: 30px;
+                            min-height: 30px;
+                        }
                     }
                 }
 
-                .traffic-content {
-                    height: 17.59vh;
-                    display: flex;
-                    align-items: center;
+                >p {
+                    @extend %title-tra-logotext;
+                }
+            }
 
-                    .traffic-content-text {
-                        @include size(35.67vw, 14.81vh);
-                        @extend %title-tra-contentarea;
-                        display: flex;
-                        align-items: center;
+            .traffic-content {
+                height: 17.59vh;
+                flex: 1;
+                align-items: center;
+                @include size(100%, 15vh);
+                @extend %title-tra-contentarea;
 
-                        p {
-                            @extend %title-tra-contenttext;
-                            line-height: 4.17vh;
+                >p {
+                    @extend %title-tra-contenttext;
+                    line-height: 5vh;
+                    white-space: nowrap;
+
+                    &:nth-child(1){
+                        padding-left: 10px;
+                        position: relative;
+
+                        &::after{
+                            content: '';
+                            position: absolute;
+                            background-color: $store-list-bg;
+                            
                         }
+                    }
+                }
 
-                        a {
-                            @extend %title-tra-contenttext;
-                            margin-left: 1.15vw;
-                            color: $store-tag-f-bg;
-                            line-height: 5.56vh;
-                        }
+                span {
+                    display: inline-block;
+                    @include size(10.1vw, 4.44vh);
+                    border-bottom: 24px solid $store-list-bg;
+                    text-align: center;
+                    margin: 0 0 9px 2.81vw;
+
+                    p {
+                        margin: 0px;
+                        line-height: 5.56vh;
                     }
                 }
             }
@@ -1521,7 +1602,7 @@ header {
             position: relative;
             padding-left: 3.125vw;
 
-            @include w1366{
+            @include w1366 {
                 margin: 0;
                 padding-left: 40px;
             }
@@ -1537,9 +1618,11 @@ header {
 
             h2 {
                 @include font($h1, start, inherit, 0.3em);
-                @include w1366{
+
+                @include w1366 {
                     font-size: 1.8rem;
                 }
+
                 @include w375 {
                     font-size: 1rem;
                 }
@@ -1547,9 +1630,11 @@ header {
 
             span {
                 @include font($h5);
-                @include w1366{
+
+                @include w1366 {
                     font-size: 1rem;
                 }
+
                 @include w375 {
                     letter-spacing: 0;
                     font-size: 0.7rem;

@@ -278,6 +278,7 @@ $h10:0.625vw; //12px
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
     background-color: $title-bg;
+    min-width: 20px;
 
     @include w375{
         width: 20px;
@@ -297,6 +298,7 @@ $h10:0.625vw; //12px
     font-size: $h9;
     color: $body-bg;
     border-radius: 2px;
+    min-width: 64px;
 
     @include w375{
         @include size(55px, 13px);
@@ -308,11 +310,18 @@ $h10:0.625vw; //12px
 }
 
 %title-tra-circle {
-    @include size(6.77vw, 12vh);
+    @include size(5.5vw, 5.5vw);
     @include flex;
     margin: auto;
     border-radius: 50%;
     background-color: $title-bg;
+    min-width: 70px;
+    min-height: 70px;
+
+    @include w375{
+        min-width: 50px;
+        min-height: 50px;  
+    }
 }
 
 %title-tra-logotext {
@@ -321,6 +330,11 @@ $h10:0.625vw; //12px
     font-size: $h6;
     line-height: 5.56vh;
     letter-spacing: 10%;
+    white-space: nowrap;
+
+    @include w375{
+       font-size: 0.7rem; 
+    }
 }
 
 %title-tra-contentarea {
