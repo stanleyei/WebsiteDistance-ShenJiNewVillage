@@ -78,6 +78,33 @@ h6 {
     }
 }
 
+.header-shady{
+    
+    &::after{
+
+        @include w768{
+            @include size(100vw, 100vh);
+            content: '';
+            position: absolute;
+            right: -100vw;
+            background-color: $nes-aside-tag;
+            opacity: 0.4;
+            z-index: -99;
+            animation: shady 1s ease-in-out;
+
+            @keyframes shady {
+                0%{
+                    opacity: 0;
+                }
+    
+                100%{
+                    opacity: 0.4;
+                }
+            }
+        }  
+    }
+}
+
 header {
     @include flex();
     min-height: 100vh;
@@ -86,8 +113,9 @@ header {
     z-index: 50;
 
     nav {
-        @include size(37px, 80vh);
+        @include size(1.93vw, 70vh);
         @include flex;
+        min-width: 30px;
         position: relative;
         border-radius: 10px;
         background-color: $main-color;
@@ -95,12 +123,37 @@ header {
         overflow: hidden;
         transition: 1s;
 
+        @include w768{
+            @include size(50px, 50px);
+            border-radius: 5px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            box-shadow: none;
+        }
+
         ul {
             display: none;
-            width: 20%;
+            width: 10vw;
             padding: 0;
             z-index: 20;
             list-style: none;
+
+            @include w1024 {
+                width: 15vw;
+            }
+
+            @include w768{
+                width: 18vw;
+            }
+
+            @include w576{
+                width: 110px;
+            }
+
+            @include w375 {
+                width: 45%;
+            }
 
             li {
                 position: relative;
@@ -131,21 +184,39 @@ header {
         }
 
         .nav-img {
-            @include size(110px, 109px);
+            @include size(5.8vw, 109px);
+            min-width: 50px;
             display: none;
-            right: 7%;
-            bottom: 8%;
+            right: 3vw;
+            bottom: 3vw;
             background-image: url(../img/logo-bg-img.png);
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
             position: absolute;
+
+            @include w576{
+                right: 50%;
+                bottom: 15%;
+                transform: translateX(50%);
+            }
+
+            @include w375 {
+                @include size(52px, 60px);
+                right: 50%;
+                bottom: 15%;
+                transform: translateX(50%);
+            }
         }
     }
 
     nav.active {
         @include size(50vw, 100vh);
         background-color: $nav-bg;
+
+        @include w768 {
+            width: 65vw;
+        }
     }
 
     .toggle {
@@ -161,13 +232,20 @@ header {
             content: "";
             position: absolute;
             left: 15%;
-            top: 50%;
+            top: 43%;
             background-image: url(../img/nav-right.png);
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
             line-height: 20px;
             text-align: center;
+
+            @include w768 {
+                @include size(37px, 50px);
+                background-image: url(../img/nav-hamburger.png);
+                top: 0;
+                left: -42%;
+            }
         }
     }
 
@@ -177,6 +255,18 @@ header {
         &::before {
             top: 50%;
             background-image: url(../img/nav-left.png);
+
+            @include w768 {
+                top: 1vh;
+                left: -57vw;
+                background-image: url(../img/nav-x.png);
+            }
+
+            @include w375 {
+                top: 0.4vh;
+                left: -206px;
+                background-image: url(../img/nav-x.png);
+            }
         }
     }
 
@@ -201,20 +291,45 @@ main {
             position: relative;
             padding-left: 3.125vw;
 
+            @include w1366{
+                margin: 0;
+                padding-left: 40px;
+            }
+
+            @include w375 {
+                height: 30px;
+                padding-left: 20px;
+            }
+
             &::before {
                 @extend %title-cube;
             }
 
             h2 {
                 @include font($h1, start, inherit, 0.3em);
+                @include w1366{
+                    font-size: 1.8rem;
+                }
+                @include w375 {
+                    font-size: 1rem;
+                }
             }
 
             span {
                 @include font($h5);
+                @include w1366{
+                    font-size: 1rem;
+                }
+                @include w375 {
+                    letter-spacing: 0;
+                    font-size: 0.7rem;
+                    display: inline-block;
+                    transform: translate(-15%, -50%) scale(0.7);
+                }
 
                 &::before {
                     @extend %title-vertical-text;
-                    content: 'News';
+                    content: 'NEWS';
                 }
             }
         }
@@ -292,6 +407,20 @@ main {
                     padding-left: 11px;
                     margin: 0;
 
+                    @include w1366{
+                        font-size: 1.875rem;
+                    }
+
+                    @include w1024{
+                        font-size: 1.65rem;
+                    }
+
+                    @include w375{
+                        line-height: 0.9rem;
+                        font-size: 0.9rem;
+                        margin: 0;
+                    }
+
                     &::before {
                         @include size(6.35vw, 2.22vh);
                         content: '';
@@ -301,6 +430,11 @@ main {
                         border-radius: 6px;
                         background-color: $store-list-bg;
                         z-index: -1;
+
+                        @include w375{
+                            @include size(90%, 40%);
+                            transform: translate(0, -50%);
+                        }
                     }
                 }
 
@@ -309,6 +443,15 @@ main {
                     margin-left: 1.04vw;
                     padding-top: 1.39vh;
                     font-weight: bold;
+
+                    @include w375{
+                        letter-spacing: 0;
+                        font-size: 0.7rem;
+                        line-height: 0.7rem;
+                        transform:  scale(0.7);
+                        padding: 0;
+                        margin: 0;
+                    }
                 }
 
                 .years{
@@ -317,6 +460,14 @@ main {
                     padding-top: 1.39vh;
                     font-weight: bold;
                     margin: 0;
+                    @include w375{
+                        letter-spacing: 0;
+                        font-size: 0.7rem;
+                        line-height: 0.7rem;
+                        transform: translateX(-25%) scale(0.7);
+                        padding: 0;
+                        margin: 0;
+                    }
                 }
 
                 .custom-select-list {
@@ -436,14 +587,52 @@ main {
                         @include size(5.57vw, 100%);
                         padding-left: 1.98vw;
                         font-weight: bold;
+                        transform: translateX(15%);
+
+                        @include w768{
+                            width: 70px;
+                        }
+                        @include w375{
+                            width: 50px;
+                            padding: 9px 0 0 17px;
+                            transform: translateX(10%);
+                        }
 
                         .during {
                             @include flex(start);
                             padding-top: 5px;
+                            transform: translate(10%, 30%);
+
+                            @include w1024{
+                                padding-top: 1vh;
+                                font-size: 0.8rem;
+                            }
+                            @include w768{
+                                justify-content: center;
+                                transform: translateY(30%);
+                            }
+                            @include w375{
+                                transform: translateY(20%) scale(0.7);
+                            }
                         }
 
                         >span {
                             @include font($h7, start, 1.85vh, 0.2em);
+                            @include w768{
+                                display: inline-block;
+                                transform: translateX(50%);
+                            }
+                            @include w576{
+                                letter-spacing: 0;
+                                display: inline-block;
+                                font-size: 0.7rem;
+                                width: 40px;
+                                line-height: 0.7rem;
+                                transform: translateX(1vw) scale(0.8);
+                            }
+                            @include w375{
+                                transform: translateY(-7px) scale(0.7);
+                            }
                         }
 
                     }
@@ -452,7 +641,25 @@ main {
                         @include font($h3, start, 9.26vh, 0.2em);
                         flex: 1;
                         padding-left: 1.041vw;
-                        margin: 0
+                        margin: 0;
+
+                        @include w768{
+                            overflow: hidden;
+                            text-overflow : ellipsis;
+                            white-space : nowrap;
+                            font-size: 0.9rem;
+                        }
+
+                        @include w576{
+                            flex: none;
+                            width: 65vw;
+                        }
+
+                        @include w375{
+                            flex: none;
+                            width: 210px;
+                            margin-right: 20px;
+                        }
                     }
 
                     >i {
@@ -462,6 +669,13 @@ main {
                         margin-right: 1.56vw;
                         margin-left: 0.78vw;
                         font-size: $h8;
+
+                        @include w576{
+                            transform: translate(-10px, 45%);
+                        }
+                        @include w375{
+                            font-size: 0.9rem;
+                        }
                     }
                 }
 

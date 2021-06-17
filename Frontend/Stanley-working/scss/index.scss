@@ -4,6 +4,16 @@
     box-sizing: border-box;
 }
 
+// ::-webkit-scrollbar{
+//     width: 7px;
+// }
+// ::-webkit-scrollbar-track{
+//     background-color: $title-bg;
+// }
+// ::-webkit-scrollbar-thumb{
+//     background-color: $store-tag-f-bg;
+// }
+
 body {
     margin: 0;
     padding: 0;
@@ -399,8 +409,14 @@ header {
     position: relative;
     border: 1.04vw solid $main-color;
 
-    @include w375 {
-        border: 10px solid $main-color;
+    @include w1366{
+        border: 1.46vw solid $main-color;
+    }
+    @include w1024{
+        border: 1.95vw solid $main-color;
+    }
+    @include w768{
+        border: 2.67vw solid $main-color;
     }
 
     .effect-area {
@@ -626,6 +642,16 @@ header {
     @include flex();
     position: relative;
     border: 1.04vw solid $main-color;
+
+    @include w1366{
+        border: 1.46vw solid $main-color;
+    }
+    @include w1024{
+        border: 1.95vw solid $main-color;
+    }
+    @include w768{
+        border: 2.67vw solid $main-color;
+    }
 
     .news-container {
         @include size(70vw, 76vh);
@@ -925,7 +951,6 @@ header {
                                 font-size: 0.9rem;
                             }
                         }
-
                     }
 
                     >span {
@@ -954,7 +979,11 @@ header {
                     }
 
                     &:nth-child(2) .inf-tag {
-                        background-color: $store-tag-f-bg;
+                        background-color: $news-event-tag;
+                    }
+
+                    &:nth-child(3) .inf-tag {
+                        background-color: $footer-bg;
                     }
                 }
             }
@@ -968,9 +997,25 @@ header {
     position: relative;
     border: 1.04vw solid $main-color;
 
-    .store-container {
-        @include size(86vw, 80vh);
+    @include w1366{
+        border: 1.46vw solid $main-color;
+    }
+    @include w1024{
+        border: 1.95vw solid $main-color;
+    }
+    @include w768{
+        border: 2.67vw solid $main-color;
+    }
 
+    .store-container {
+        @include size(75vw, 80vh);
+        @include w1024{
+            @include size(90vw, 80vh);
+        }
+        @include w375{
+            @include size(90vw, 90vh);
+        }
+        
         .store-title {
             position: relative;
             padding-left: 3.125vw;
@@ -982,7 +1027,7 @@ header {
 
             @include w375 {
                 height: 30px;
-                padding-left: 20px;
+                padding-left: 60px;
             }
 
             &::before {
@@ -1024,8 +1069,14 @@ header {
 
         article {
             @include flex();
-            padding-top: 4.63vh;
-            padding-left: 5.73vw;
+            padding: 4.63vh 0 0 5.73vw;
+
+            @include w1024{
+                padding: 2vh 0 0 0;
+            }
+            @include w768{
+                display: block;
+            }
 
             .shop-window {
                 @include size(56vw, 36.5625vw);
@@ -1034,11 +1085,26 @@ header {
                 margin-right: 5.2vw;
                 position: relative;
 
+                @include w768{
+                    @include size(100%, 45vw);
+                    margin: 0;
+                }
+                @include w375{
+                    @include size(100%, 200px);
+                }
+
                 >img {
-                    @include size(56vw, 36.5625vw);
+                    @include size(50vw, 65.1vh);
                     max-height: 61vh;
                     position: relative;
                     z-index: 48;
+
+                    @include w1024{
+                        @include size(100%, 45vw);
+                    }
+                    @include w375{
+                        height: 200px;
+                    }
 
                     &:hover {
 
@@ -1060,7 +1126,7 @@ header {
                 }
 
                 .window-title {
-                    @include font($h4, center, 3.375vw);
+                    @include font($h5, center, 3vw);
                     position: absolute;
                     border-radius: 3px;
                     padding: 0 1.04vw;
@@ -1071,6 +1137,13 @@ header {
                     transition: 1s ease-in-out;
                     z-index: 3;
                     opacity: 0;
+
+                    @include w1024{
+                        @include font($h2, center, 4.5vw);
+                    }
+                    @include w768{
+                        @include font($h1, center, 4.5vw);
+                    }
                 }
 
                 .title-hide {
@@ -1101,16 +1174,45 @@ header {
                         @include size(6vw, 2.5vw);
                         @include font($h4, center, 2.5vw);
                         position: absolute;
-                        transform: translate(-50%, -10%);
+                        transform: translate(-95%, -10%);
                         box-shadow: $nav-bg 0px 0px 30px;
                         border-radius: 5px;
                         color: $footer-text;
                         cursor: pointer;
                         background-color: #ffffff3b;
+
+                        @include w1024{
+                            @include size(8vw, 3vw);
+                            @include font($h2, center, 3vw);
+                            transform: translate(-70%, -10%);
+                        }
+                        @include w768{
+                            @include size(10vw, 3vw);
+                            transform: translate(100%, -10%);
+                        }
+                        @include w480{
+                            @include size(12vw, 4vw);
+                            transform: translate(70%, 20%);
+                            line-height: 4vw;
+                        }
+                        @include w375{
+                            @include size(12vw, 5vw);
+                            line-height: 5vw;
+                        }
                     }
 
                     li:nth-child(2)>.check-btn {
-                        transform: translate(60%, -10%);
+                        transform: translate(15%, -10%);
+
+                        @include w1024{
+                            transform: translate(55%, -10%);
+                        }
+                        @include w768{
+                            transform: translate(210%, -10%);
+                        }
+                        @include w480{
+                            transform: translate(180%, 20%);
+                        }
                     }
                 }
 
@@ -1119,10 +1221,22 @@ header {
                 }
 
                 .hide-area {
-                    @include size(30.47vw, 22.135vw);
+                    @include size(26.5vw, 54.7vh);
                     position: absolute;
                     overflow: hidden;
-                    transform: translateY(-19%);
+
+                    @include w1024{
+                        @include size(31vw, 40vw);
+                    }
+                    @include w768{
+                        @include size(50vw, 30vh);
+                    }
+                    @include w480{
+                        @include size(50vw, 24vh);
+                    }
+                    @include w375{
+                        @include size(180px, 180px);
+                    }
 
                     .figure-box {
                         display: flex;
@@ -1133,12 +1247,24 @@ header {
                             display: flex;
 
                             figure {
-                                @include size(30.47vw, 22.135vw);
-                                max-height: 43vh;
+                                @include size(26.5vw, 40.36vh);
                                 background-size: cover;
                                 background-position: center;
                                 background-repeat: no-repeat;
                                 transition: 1s ease-in-out;
+
+                                @include w1024{
+                                    @include size(31vw, 30vw);
+                                }
+                                @include w768{
+                                    @include size(50vw, 22vh);
+                                }
+                                @include w480{
+                                    @include size(50vw, 18vh);
+                                }
+                                @include w375{
+                                    @include size(180px, 130px);
+                                }
 
                                 &::before {
                                     @include size(100%, 100%);
@@ -1159,19 +1285,45 @@ header {
             }
 
             nav {
-                width: 17.7vw;
+                width: 20vw;
                 font-weight: bold;
                 padding-bottom: 5.56vh;
 
+                @include w768{
+                    width: 65%;
+                    margin: 0 auto;
+                }
+                @include w375{
+                    width: 60%;
+                    margin: 0 auto;
+                }
+
                 h3 {
                     @include font($h2, $ls:0.3em);
+                    @include w1024{
+                        font-size: $h1;
+                    }
+                    @include w768{
+                        display: none;
+                    }
                 }
 
                 .nav-tap-list {
                     display: flex;
                     justify-content: space-between;
-                    padding: 0 0.78vw;
                     margin-bottom: 2.31vh;
+
+                    @include w1024{
+                        padding: 0 1.3vw;
+                    }
+                    @include w768{
+                        padding: 0 2.4vw;
+                    }
+                    @include w375{
+                        padding: 0 15px;
+                        margin-bottom: 1vh;
+                        margin-top: 10px;
+                    }
 
                     .nav-tap {
                         @extend %shop-nav-tap;
@@ -1184,18 +1336,35 @@ header {
                 }
 
                 .shop-list {
-                    @include size(16.9vw, 49vh);
-                    padding: 3.7vh 0 0 2.08vw;
+                    @include size(100%, 49vh);
+                    padding: 3.7vh 0 0 1.6vw;
                     background-color: $store-list-bg;
-                    box-shadow: 7px 7px 0 7px $title-bg;
+                    box-shadow: 0 7px $title-bg;
+                    overflow-y: scroll;
+
+                    @include w768{
+                        @include size(100%, 35.5vh);
+                        padding: 15px 0 0 20px;
+                    }
+                    @include w480 {
+                        @include size(100%, 42vh);
+                    }
+                    @include w375{
+                        @include size(100%, 310px);
+                        padding: 15px 0 0 20px;
+                    }
 
                     >div {
                         margin-bottom: 2.8vh;
 
                         span {
-                            @include font($h6, start);
+                            @include font($h7, start);
                             position: relative;
                             cursor: pointer;
+
+                            @include w768{
+                                font-size: $h2;
+                            }
 
                             &:hover {
                                 border-bottom: none;
@@ -1230,8 +1399,17 @@ header {
                 .list-active {
                     display: none;
                 }
-            }
 
+                ::-webkit-scrollbar{
+                    width: 7px;
+                }
+                ::-webkit-scrollbar-track{
+                    background-color: $title-bg;
+                }
+                ::-webkit-scrollbar-thumb{
+                    background-color: $store-tag-f-bg;
+                }
+            }
         }
     }
 }
@@ -1242,6 +1420,16 @@ header {
     border: 1.04vw solid $main-color;
     position: relative;
     overflow: hidden;
+
+    @include w1366{
+        border: 1.46vw solid $main-color;
+    }
+    @include w1024{
+        border: 1.95vw solid $main-color;
+    }
+    @include w768{
+        border: 2.67vw solid $main-color;
+    }
 
     .view-container {
         @include size(80vw, 80vh);
@@ -1402,6 +1590,16 @@ header {
     border: 1.04vw solid $main-color;
     @include flex;
     position: relative;
+
+    @include w1366{
+        border: 1.46vw solid $main-color;
+    }
+    @include w1024{
+        border: 1.95vw solid $main-color;
+    }
+    @include w768{
+        border: 2.67vw solid $main-color;
+    }
 
     .traffic-container {
         @include size(80vw, 85vh);
@@ -1620,6 +1818,16 @@ header {
     @include flex();
     border: 1.04vw solid $main-color;
     position: relative;
+
+    @include w1366{
+        border: 1.46vw solid $main-color;
+    }
+    @include w1024{
+        border: 1.95vw solid $main-color;
+    }
+    @include w768{
+        border: 2.67vw solid $main-color;
+    }
 
     .contact-container {
         @include size(80vw, 80vh);

@@ -20,6 +20,7 @@ $substrate-bg:rgba(255, 255, 255, 0.8);
 $footer-bg:#596E79;
 $footer-text:#ffffff;
 $nes-aside-tag: #333333;
+$news-event-tag:#F2C94C;
 
 //文字尺寸變數
 $h1:2.24vw; //42px
@@ -79,6 +80,12 @@ $h10:0.625vw; //12px
 
 @mixin w576 {
     @media(max-width:576px) {
+        @content;
+    }
+}
+
+@mixin w480 {
+    @media(max-width:480px) {
         @content;
     }
 }
@@ -361,12 +368,24 @@ $h10:0.625vw; //12px
 }
 
 %shop-nav-tap {
-    @include size(7.8vw, 4.3vh);
-    @include font($h6, $lh:3.25vh);
+    @include size(6.5vw, 3.2vh);
+    @include font($h7, $lh:3.2vh);
     background-color: $tag-bg;
     border-radius: 5px;
-    padding: 5px 0;
     cursor: pointer;
+
+    @include w1024{
+        @include size(8vw, 3.6vh);
+        @include font($h5, $lh:3.6vh);
+    }
+    @include w768{
+        @include size(25vw, 3.6vh);
+        @include font($h1, $lh:3.6vh);
+    }
+    @include w375{
+        @include size(80px, 20px);
+        line-height: 20px;
+    }
 }
 
 //元件變數-內頁

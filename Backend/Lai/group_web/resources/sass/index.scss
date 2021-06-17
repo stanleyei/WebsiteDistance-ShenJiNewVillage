@@ -4,6 +4,16 @@
     box-sizing: border-box;
 }
 
+// ::-webkit-scrollbar{
+//     width: 7px;
+// }
+// ::-webkit-scrollbar-track{
+//     background-color: $title-bg;
+// }
+// ::-webkit-scrollbar-thumb{
+//     background-color: $store-tag-f-bg;
+// }
+
 body {
     margin: 0;
     padding: 0;
@@ -62,13 +72,27 @@ h6 {
     top: 5vmin;
     z-index: 1;
 
+    @include w375 {
+        @include size(auto, auto);
+        top: 12px;
+        right: 12px;
+    }
+
     .logo-img {
         @include size(5.729vw, 5.729vw);
         margin-right: 0.521vw;
+
+        @include w375 {
+            @include size(35px, 39px);
+        }
     }
 
     .logo-text {
         @include size(7.552vw, 4.48vw);
+
+        @include w375 {
+            @include size(56px, 38px);
+        }
     }
 }
 
@@ -93,11 +117,37 @@ h6 {
     flex-direction: column;
     border: 1.04vw solid $main-color;
 
+    @include w375 {
+        border: 10px solid $main-color;
+    }
+
     .container {
         transition: 1s ease-in-out;
 
-        img {
+        img:nth-child(1) {
+            @include size(7vw, 8vw);
             margin-right: 30px;
+            min-width: 65px;
+            min-height: 70px;
+
+            @include w1366 {
+                margin-right: 20px;
+            }
+
+            @include w375 {
+                @include size(65px, 70px);
+                margin-right: 10px;
+            }
+        }
+
+        img:nth-child(2) {
+            @include size(9vw, 6.5vw);
+            min-width: 95px;
+            min-height: 58px;
+
+            @include w375 {
+                @include size(95px, 58px);
+            }
         }
 
         &.complete {
@@ -107,14 +157,32 @@ h6 {
         .loading-bar {
             @include size(18vw, 3vh);
             position: relative;
+            min-width: 175px;
             margin-top: 43px;
             background-color: $title-bg;
             border-radius: 20px;
+            margin-bottom: 20px;
+
+            @include w1024 {
+                height: 17px;
+            }
+
+            @include w375 {
+                @include size(175px, 17px);
+            }
 
             #loading {
                 @include size(0%, 3vh);
                 background-color: $store-tag-f-bg;
                 border-radius: 20px;
+
+                @include w1024 {
+                    height: 17px;
+                }
+
+                @include w375 {
+                    @include size(175px, 17px);
+                }
             }
 
             #loading_percent {
@@ -124,6 +192,39 @@ h6 {
                 right: 0;
                 padding-right: 10px;
                 color: #ffffff;
+            }
+        }
+
+        span {
+            @include font($h6);
+            font-weight: bold;
+            padding-left: 1.5vw;
+        }
+    }
+}
+
+.header-shady {
+
+    &::after {
+
+        @include w768 {
+            @include size(100vw, 100vh);
+            content: '';
+            position: absolute;
+            right: -100vw;
+            background-color: $nes-aside-tag;
+            opacity: 0.4;
+            z-index: -99;
+            animation: shady 1s ease-in-out;
+
+            @keyframes shady {
+                0% {
+                    opacity: 0;
+                }
+
+                100% {
+                    opacity: 0.4;
+                }
             }
         }
     }
@@ -136,8 +237,9 @@ header {
     z-index: 50;
 
     nav {
-        @include size(1.93vw, 80vh);
+        @include size(1.93vw, 70vh);
         @include flex;
+        min-width: 30px;
         position: relative;
         border-radius: 10px;
         background-color: $main-color;
@@ -145,12 +247,37 @@ header {
         overflow: hidden;
         transition: 1s;
 
+        @include w768 {
+            @include size(50px, 50px);
+            border-radius: 5px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            box-shadow: none;
+        }
+
         ul {
             display: none;
-            width: 20%;
+            width: 10vw;
             padding: 0;
             z-index: 20;
             list-style: none;
+
+            @include w1024 {
+                width: 15vw;
+            }
+
+            @include w768 {
+                width: 18vw;
+            }
+
+            @include w576 {
+                width: 110px;
+            }
+
+            @include w375 {
+                width: 45%;
+            }
 
             li {
                 position: relative;
@@ -181,21 +308,39 @@ header {
         }
 
         .nav-img {
-            @include size(110px, 109px);
+            @include size(5.8vw, 109px);
+            min-width: 50px;
             display: none;
-            right: 7%;
-            bottom: 8%;
+            right: 3vw;
+            bottom: 3vw;
             background-image: url(../img/logo-bg-img.png);
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
             position: absolute;
+
+            @include w576 {
+                right: 50%;
+                bottom: 15%;
+                transform: translateX(50%);
+            }
+
+            @include w375 {
+                @include size(52px, 60px);
+                right: 50%;
+                bottom: 15%;
+                transform: translateX(50%);
+            }
         }
     }
 
     nav.active {
         @include size(50vw, 100vh);
         background-color: $nav-bg;
+
+        @include w768 {
+            width: 65vw;
+        }
     }
 
     .toggle {
@@ -211,13 +356,20 @@ header {
             content: "";
             position: absolute;
             left: 15%;
-            top: 50%;
+            top: 43%;
             background-image: url(../img/nav-right.png);
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
             line-height: 20px;
             text-align: center;
+
+            @include w768 {
+                @include size(37px, 50px);
+                background-image: url(../img/nav-hamburger.png);
+                top: 0;
+                left: -42%;
+            }
         }
     }
 
@@ -227,6 +379,18 @@ header {
         &::before {
             top: 50%;
             background-image: url(../img/nav-left.png);
+
+            @include w768 {
+                top: 1vh;
+                left: -57vw;
+                background-image: url(../img/nav-x.png);
+            }
+
+            @include w375 {
+                top: 0.4vh;
+                left: -206px;
+                background-image: url(../img/nav-x.png);
+            }
         }
     }
 
@@ -245,6 +409,16 @@ header {
     position: relative;
     border: 1.04vw solid $main-color;
 
+    @include w1366{
+        border: 1.46vw solid $main-color;
+    }
+    @include w1024{
+        border: 1.95vw solid $main-color;
+    }
+    @include w768{
+        border: 2.67vw solid $main-color;
+    }
+
     .effect-area {
         @include flex();
         transition: 1s ease-in-out;
@@ -261,11 +435,38 @@ header {
         }
 
         .about-us-container {
-            @include size(80vw, 68vh);
+            @include size(70vw, 70vh);
+            @include flex($ai:start);
+            flex-direction: column;
+
+            @include w1366 {
+                @include size(80vw, 70vh);
+            }
+
+            @include w1024 {
+                height: 80vh;
+                justify-content: flex-start;
+            }
+
+            @include w375 {
+                @include size(100%, 87vh);
+                padding-top: 30px;
+            }
 
             .about-us-title {
                 position: relative;
                 padding-left: 3.125vw;
+                margin-bottom: 5.5vmin;
+
+                @include w1366 {
+                    margin: 0;
+                    padding-left: 40px;
+                }
+
+                @include w375 {
+                    height: 30px;
+                    padding-left: 20px;
+                }
 
                 &::before {
                     @extend %title-cube;
@@ -273,10 +474,29 @@ header {
 
                 h2 {
                     @include font($h1, start, inherit, 0.3em);
+
+                    @include w1366 {
+                        font-size: 1.8rem;
+                    }
+
+                    @include w375 {
+                        font-size: 1rem;
+                    }
                 }
 
                 span {
                     @include font($h5);
+
+                    @include w1366 {
+                        font-size: 1rem;
+                    }
+
+                    @include w375 {
+                        letter-spacing: 0;
+                        font-size: 0.7rem;
+                        display: inline-block;
+                        transform: translate(-15%, -50%) scale(0.7);
+                    }
 
                     &::before {
                         @extend %title-vertical-text;
@@ -286,23 +506,53 @@ header {
             }
 
             article {
-                @include flex();
-                @include size(100%, 87%);
+                @include flex(space-between);
+                @include size(100%, 470px);
+
+                @include w1366 {
+                    @include size(95%, 50vh);
+                }
+
+                @include w1024 {
+                    @include size(100%, 50vh);
+                    display: block;
+                }
+
+                @include w375 {
+                    @include size(100%, 60%);
+                    display: block;
+                }
 
                 .about-us-swiper {
-                    @include size(52vw, 100%);
+                    @include size(35vw, 100%);
                     position: relative;
                     overflow: hidden;
 
+                    @include w1366 {
+                        width: 42vw;
+                    }
+
+                    @include w1024 {
+                        width: 80vw;
+                    }
+
+                    @include w375 {
+                        @include size(80vw, 240px);
+                    }
+
                     &:hover .swiper-button {
                         opacity: 0.8;
+
+                        @include w768 {
+                            opacity: 0;
+                        }
                     }
 
                     .about-us-slide {
                         @include flex(start);
 
                         .img {
-                            @include size(39vw, 78%);
+                            @include size(100%, 85%);
                             display: block;
                             object-fit: cover;
                             background-size: cover;
@@ -313,7 +563,7 @@ header {
 
                     .swiper-button-next {
                         @extend %about-us-swiper-button;
-                        right: 11vw;
+                        right: 0.5vw;
 
                         &::after {
                             @include size(2.6vw, 2.6vw);
@@ -322,6 +572,10 @@ header {
                             background-image: url(../img/aboutUs-swiper-right.png);
                             background-size: cover;
                             font-family: none;
+
+                            @include w1024 {
+                                transform: translateX(1px);
+                            }
                         }
                     }
 
@@ -335,25 +589,48 @@ header {
                             background-image: url(../img/aboutUs-swiper-left.png);
                             background-size: cover;
                             font-family: none;
+
+                            @include w1024 {
+                                transform: translateX(-1px);
+                            }
                         }
                     }
 
                     .swiper-pagination {
-                        bottom: 2vh;
-                        left: -5.5vw;
+                        bottom: 0;
 
                         span {
-                            @include size(0.42vw, 0.42vw);
+                            @include size(8px, 8px);
                             background-color: $title-bg;
+
+                            @include w375 {
+                                @include size(5px, 5px);
+                            }
                         }
                     }
                 }
 
                 .about-us-content {
-                    @include size(32vw, 100%);
+                    @include size(28vw, 100%);
                     @include flex(center, start);
-                    @include font($h5, start, 5.56vh, normal);
+                    @include font($h6, start, 5.56vh, normal);
+                    font-weight: bolder;
                     flex-direction: column;
+
+                    @include w1024 {
+                        @include size(100%, auto);
+                        font-size: $h3;
+                    }
+
+                    @include w768 {
+                        font-size: $h2;
+                    }
+
+                    @include w375 {
+                        @include size(80vw, 40vh);
+                        padding: 0 20px;
+                        text-indent: 1.5rem;
+                    }
                 }
             }
         }
@@ -366,12 +643,36 @@ header {
     position: relative;
     border: 1.04vw solid $main-color;
 
+    @include w1366{
+        border: 1.46vw solid $main-color;
+    }
+    @include w1024{
+        border: 1.95vw solid $main-color;
+    }
+    @include w768{
+        border: 2.67vw solid $main-color;
+    }
+
     .news-container {
         @include size(70vw, 76vh);
+
+        @include w1024 {
+            @include size(80vw, 76vh);
+        }
 
         .news-title {
             position: relative;
             padding-left: 3.125vw;
+
+            @include w1366 {
+                margin: 0;
+                padding-left: 40px;
+            }
+
+            @include w375 {
+                height: 30px;
+                padding-left: 20px;
+            }
 
             &::before {
                 @extend %title-cube;
@@ -379,14 +680,33 @@ header {
 
             h2 {
                 @include font($h1, start, inherit, 0.3em);
+
+                @include w1366 {
+                    font-size: 1.8rem;
+                }
+
+                @include w375 {
+                    font-size: 1rem;
+                }
             }
 
             span {
                 @include font($h5);
 
+                @include w1366 {
+                    font-size: 1rem;
+                }
+
+                @include w375 {
+                    letter-spacing: 0;
+                    font-size: 0.7rem;
+                    display: inline-block;
+                    transform: translate(-15%, -50%) scale(0.7);
+                }
+
                 &::before {
                     @extend %title-vertical-text;
-                    content: 'News';
+                    content: 'NEWS';
                 }
             }
         }
@@ -394,16 +714,32 @@ header {
         article {
             padding: 7.4vh 0 0 1.67vw;
 
+            @include w768 {
+                padding: 0;
+            }
+
             .date-title {
                 @include size(5.21vw, 2.78vh);
                 @include font($h8, center, 2.78vh, 0.2em);
                 border-radius: 6px;
                 background-color: $main-color;
                 color: $store-list-bg;
+
+                @include w1366 {
+                    width: 76px;
+                }
+
+                @include w768 {
+                    display: none
+                }
             }
 
             .date-btns {
                 @include flex(start);
+
+                @include w768 {
+                    display: none
+                }
 
                 .focus-change {
                     background-color: $title-bg;
@@ -424,10 +760,28 @@ header {
                 @include flex(start);
                 margin: 6.5vh 0 4.5vh 0;
 
+                @include w375 {
+                    margin: 2vh 0 2vh 0;
+                }
+
                 h3 {
-                    @include font($h1, center, 5.56vh, 0.2em);
+                    @include font(2.6rem, center, 5.56vh, 0.2em);
                     position: relative;
                     padding-left: 0.573vw;
+
+                    @include w1366 {
+                        font-size: 1.875rem;
+                    }
+
+                    @include w1024 {
+                        font-size: 1.65rem;
+                    }
+
+                    @include w375 {
+                        line-height: 0.9rem;
+                        font-size: 0.9rem;
+                        margin: 0;
+                    }
 
                     &::before {
                         @include size(6.35vw, 2.22vh);
@@ -438,6 +792,11 @@ header {
                         border-radius: 6px;
                         background-color: $store-list-bg;
                         z-index: -1;
+
+                        @include w375 {
+                            @include size(90%, 40%);
+                            transform: translate(0, -50%);
+                        }
                     }
                 }
 
@@ -447,8 +806,36 @@ header {
                     padding-top: 1.39vh;
                     font-weight: bold;
 
+                    @include w375 {
+                        letter-spacing: 0;
+                        font-size: 0.7rem;
+                        line-height: 0.7rem;
+                        transform: scale(0.7);
+                        padding: 0;
+                        margin: 0;
+                    }
+
                     &:last-child() {
                         margin: 0;
+
+                        @include w375 {
+                            transform: translateX(-25%) scale(0.7);
+                        }
+                    }
+                }
+
+                .phone-date-btn {
+                    @include size(80px, 25px);
+                    position: absolute;
+                    right: 9.5vw;
+                    border-radius: 4px;
+                    background-color: $store-tag-f-bg;
+                    color: $store-list-bg;
+                    font-size: 0.7rem;
+                    display: none;
+
+                    @include w768 {
+                        display: block;
                     }
                 }
             }
@@ -457,7 +844,6 @@ header {
 
                 .content-inf {
                     @extend %news-inf;
-                    box-shadow: 0 3px $tag-bg;
 
                     &::before {
                         @extend %news-inf-before;
@@ -480,21 +866,75 @@ header {
                         @include size(5.57vw, 100%);
                         padding-left: 1.98vw;
                         font-weight: bold;
+                        transform: translateX(15%);
+
+                        @include w768 {
+                            width: 70px;
+                        }
+
+                        @include w375 {
+                            width: 50px;
+                            padding: 9px 0 0 17px;
+                            transform: translateX(10%);
+                        }
 
                         .during {
                             @include flex(start);
                             padding-top: 5px;
+                            transform: translate(10%, 30%);
+
+                            @include w1024 {
+                                padding-top: 1vh;
+                                font-size: 0.8rem;
+                            }
+
+                            @include w768 {
+                                justify-content: center;
+                                transform: translateY(30%);
+                            }
+
+                            @include w375 {
+                                transform: translateY(20%) scale(0.7);
+                            }
                         }
 
                         >span {
                             @include font($h7, start, 20px, 0.2em);
-                        }
 
+                            @include w768 {
+                                display: inline-block;
+                                transform: translateX(50%);
+                            }
+
+                            @include w576 {
+                                letter-spacing: 0;
+                                display: inline-block;
+                                font-size: 0.7rem;
+                                width: 40px;
+                                line-height: 0.7rem;
+                                transform: translateX(1vw) scale(0.8);
+                            }
+
+                            @include w375 {
+                                transform: translateY(-7px) scale(0.7);
+                            }
+                        }
                     }
 
                     .inf-detail {
                         flex: 1;
                         padding-left: 1.04vw;
+
+                        @include w576 {
+                            flex: none;
+                            width: 65vw;
+                        }
+
+                        @include w375 {
+                            flex: none;
+                            width: 210px;
+                            margin-right: 20px;
+                        }
 
                         .inf-tag {
                             @extend %news-inf-tag;
@@ -502,26 +942,48 @@ header {
 
                         h4 {
                             @include font($h3, start, 5.56vh, 0.2em);
-                            margin: 0
-                        }
+                            margin: 0;
 
+                            @include w768 {
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                font-size: 0.9rem;
+                            }
+                        }
                     }
 
                     >span {
                         @include size(4.17vw, 100%);
                         @include font($h6, start, 9.26vh, 0.2em);
                         @include flex();
-                        margin-right: 1.56vw;
 
-                        i {
-                            margin-left: 0.78vw;
-                            transform: translateY(20%);
-                            font-size: $h8;
+                        @include w576 {
+                            display: none;
+                        }
+                    }
+
+                    >i {
+                        margin-right: 10px;
+                        margin-left: 10px;
+                        transform: translateY(45%);
+                        font-size: $h8;
+
+                        @include w576 {
+                            transform: translate(-10px, 45%);
+                        }
+
+                        @include w375 {
+                            font-size: 0.9rem;
                         }
                     }
 
                     &:nth-child(2) .inf-tag {
-                        background-color: $store-tag-f-bg;
+                        background-color: $news-event-tag;
+                    }
+
+                    &:nth-child(3) .inf-tag {
+                        background-color: $footer-bg;
                     }
                 }
             }
@@ -535,12 +997,38 @@ header {
     position: relative;
     border: 1.04vw solid $main-color;
 
-    .store-container {
-        @include size(86vw, 80vh);
+    @include w1366{
+        border: 1.46vw solid $main-color;
+    }
+    @include w1024{
+        border: 1.95vw solid $main-color;
+    }
+    @include w768{
+        border: 2.67vw solid $main-color;
+    }
 
+    .store-container {
+        @include size(75vw, 80vh);
+        @include w1024{
+            @include size(90vw, 80vh);
+        }
+        @include w375{
+            @include size(90vw, 90vh);
+        }
+        
         .store-title {
             position: relative;
             padding-left: 3.125vw;
+
+            @include w1366 {
+                margin: 0;
+                padding-left: 40px;
+            }
+
+            @include w375 {
+                height: 30px;
+                padding-left: 60px;
+            }
 
             &::before {
                 @extend %title-cube;
@@ -548,10 +1036,29 @@ header {
 
             h2 {
                 @include font($h1, start, inherit, 0.3em);
+
+                @include w1366 {
+                    font-size: 1.8rem;
+                }
+
+                @include w375 {
+                    font-size: 1rem;
+                }
             }
 
             span {
                 @include font($h5);
+
+                @include w1366 {
+                    font-size: 1rem;
+                }
+
+                @include w375 {
+                    letter-spacing: 0;
+                    font-size: 0.7rem;
+                    display: inline-block;
+                    transform: translate(-15%, -50%) scale(0.7);
+                }
 
                 &::before {
                     @extend %title-vertical-text;
@@ -562,8 +1069,14 @@ header {
 
         article {
             @include flex();
-            padding-top: 4.63vh;
-            padding-left: 5.73vw;
+            padding: 4.63vh 0 0 5.73vw;
+
+            @include w1024{
+                padding: 2vh 0 0 0;
+            }
+            @include w768{
+                display: block;
+            }
 
             .shop-window {
                 @include size(56vw, 36.5625vw);
@@ -572,11 +1085,26 @@ header {
                 margin-right: 5.2vw;
                 position: relative;
 
+                @include w768{
+                    @include size(100%, 45vw);
+                    margin: 0;
+                }
+                @include w375{
+                    @include size(100%, 200px);
+                }
+
                 >img {
-                    @include size(56vw, 36.5625vw);
+                    @include size(50vw, 65.1vh);
                     max-height: 61vh;
                     position: relative;
                     z-index: 48;
+
+                    @include w1024{
+                        @include size(100%, 45vw);
+                    }
+                    @include w375{
+                        height: 200px;
+                    }
 
                     &:hover {
 
@@ -598,7 +1126,7 @@ header {
                 }
 
                 .window-title {
-                    @include font($h4, center, 3.375vw);
+                    @include font($h5, center, 3vw);
                     position: absolute;
                     border-radius: 3px;
                     padding: 0 1.04vw;
@@ -609,6 +1137,13 @@ header {
                     transition: 1s ease-in-out;
                     z-index: 3;
                     opacity: 0;
+
+                    @include w1024{
+                        @include font($h2, center, 4.5vw);
+                    }
+                    @include w768{
+                        @include font($h1, center, 4.5vw);
+                    }
                 }
 
                 .title-hide {
@@ -639,16 +1174,45 @@ header {
                         @include size(6vw, 2.5vw);
                         @include font($h4, center, 2.5vw);
                         position: absolute;
-                        transform: translate(-50%, -10%);
+                        transform: translate(-95%, -10%);
                         box-shadow: $nav-bg 0px 0px 30px;
                         border-radius: 5px;
                         color: $footer-text;
                         cursor: pointer;
                         background-color: #ffffff3b;
+
+                        @include w1024{
+                            @include size(8vw, 3vw);
+                            @include font($h2, center, 3vw);
+                            transform: translate(-70%, -10%);
+                        }
+                        @include w768{
+                            @include size(10vw, 3vw);
+                            transform: translate(100%, -10%);
+                        }
+                        @include w480{
+                            @include size(12vw, 4vw);
+                            transform: translate(70%, 20%);
+                            line-height: 4vw;
+                        }
+                        @include w375{
+                            @include size(12vw, 5vw);
+                            line-height: 5vw;
+                        }
                     }
 
                     li:nth-child(2)>.check-btn {
-                        transform: translate(60%, -10%);
+                        transform: translate(15%, -10%);
+
+                        @include w1024{
+                            transform: translate(55%, -10%);
+                        }
+                        @include w768{
+                            transform: translate(210%, -10%);
+                        }
+                        @include w480{
+                            transform: translate(180%, 20%);
+                        }
                     }
                 }
 
@@ -657,10 +1221,22 @@ header {
                 }
 
                 .hide-area {
-                    @include size(30.47vw, 22.135vw);
+                    @include size(26.5vw, 54.7vh);
                     position: absolute;
                     overflow: hidden;
-                    transform: translateY(-19%);
+
+                    @include w1024{
+                        @include size(31vw, 40vw);
+                    }
+                    @include w768{
+                        @include size(50vw, 30vh);
+                    }
+                    @include w480{
+                        @include size(50vw, 24vh);
+                    }
+                    @include w375{
+                        @include size(180px, 180px);
+                    }
 
                     .figure-box {
                         display: flex;
@@ -671,12 +1247,24 @@ header {
                             display: flex;
 
                             figure {
-                                @include size(30.47vw, 22.135vw);
-                                max-height: 43vh;
+                                @include size(26.5vw, 40.36vh);
                                 background-size: cover;
                                 background-position: center;
                                 background-repeat: no-repeat;
                                 transition: 1s ease-in-out;
+
+                                @include w1024{
+                                    @include size(31vw, 30vw);
+                                }
+                                @include w768{
+                                    @include size(50vw, 22vh);
+                                }
+                                @include w480{
+                                    @include size(50vw, 18vh);
+                                }
+                                @include w375{
+                                    @include size(180px, 130px);
+                                }
 
                                 &::before {
                                     @include size(100%, 100%);
@@ -697,19 +1285,45 @@ header {
             }
 
             nav {
-                width: 17.7vw;
+                width: 20vw;
                 font-weight: bold;
                 padding-bottom: 5.56vh;
 
+                @include w768{
+                    width: 65%;
+                    margin: 0 auto;
+                }
+                @include w375{
+                    width: 60%;
+                    margin: 0 auto;
+                }
+
                 h3 {
                     @include font($h2, $ls:0.3em);
+                    @include w1024{
+                        font-size: $h1;
+                    }
+                    @include w768{
+                        display: none;
+                    }
                 }
 
                 .nav-tap-list {
                     display: flex;
                     justify-content: space-between;
-                    padding: 0 0.78vw;
                     margin-bottom: 2.31vh;
+
+                    @include w1024{
+                        padding: 0 1.3vw;
+                    }
+                    @include w768{
+                        padding: 0 2.4vw;
+                    }
+                    @include w375{
+                        padding: 0 15px;
+                        margin-bottom: 1vh;
+                        margin-top: 10px;
+                    }
 
                     .nav-tap {
                         @extend %shop-nav-tap;
@@ -722,18 +1336,35 @@ header {
                 }
 
                 .shop-list {
-                    @include size(16.9vw, 49vh);
-                    padding: 3.7vh 0 0 2.08vw;
+                    @include size(100%, 49vh);
+                    padding: 3.7vh 0 0 1.6vw;
                     background-color: $store-list-bg;
-                    box-shadow: 7px 7px 0 7px $title-bg;
+                    box-shadow: 0 7px $title-bg;
+                    overflow-y: scroll;
+
+                    @include w768{
+                        @include size(100%, 35.5vh);
+                        padding: 15px 0 0 20px;
+                    }
+                    @include w480 {
+                        @include size(100%, 42vh);
+                    }
+                    @include w375{
+                        @include size(100%, 310px);
+                        padding: 15px 0 0 20px;
+                    }
 
                     >div {
                         margin-bottom: 2.8vh;
 
                         span {
-                            @include font($h6, start);
+                            @include font($h7, start);
                             position: relative;
                             cursor: pointer;
+
+                            @include w768{
+                                font-size: $h2;
+                            }
 
                             &:hover {
                                 border-bottom: none;
@@ -768,10 +1399,18 @@ header {
                 .list-active {
                     display: none;
                 }
+
+                ::-webkit-scrollbar{
+                    width: 7px;
+                }
+                ::-webkit-scrollbar-track{
+                    background-color: $title-bg;
+                }
+                ::-webkit-scrollbar-thumb{
+                    background-color: $store-tag-f-bg;
+                }
             }
-
         }
-
     }
 }
 
@@ -782,6 +1421,16 @@ header {
     position: relative;
     overflow: hidden;
 
+    @include w1366{
+        border: 1.46vw solid $main-color;
+    }
+    @include w1024{
+        border: 1.95vw solid $main-color;
+    }
+    @include w768{
+        border: 2.67vw solid $main-color;
+    }
+
     .view-container {
         @include size(80vw, 80vh);
 
@@ -789,17 +1438,45 @@ header {
             position: relative;
             padding-left: 3.125vw;
 
+            @include w1366 {
+                margin: 0;
+                padding-left: 40px;
+            }
+
+            @include w375 {
+                height: 30px;
+                padding-left: 20px;
+            }
+
             &::before {
                 @extend %title-cube;
             }
 
             h2 {
-                @include font($h1, start);
-                letter-spacing: 0.3em;
+                @include font($h1, start, inherit, 0.3em);
+
+                @include w1366 {
+                    font-size: 1.8rem;
+                }
+
+                @include w375 {
+                    font-size: 1rem;
+                }
             }
 
             span {
                 @include font($h5);
+
+                @include w1366 {
+                    font-size: 1rem;
+                }
+
+                @include w375 {
+                    letter-spacing: 0;
+                    font-size: 0.7rem;
+                    display: inline-block;
+                    transform: translate(-15%, -50%) scale(0.7);
+                }
 
                 &::before {
                     @extend %title-vertical-text;
@@ -850,7 +1527,7 @@ header {
                                 background-size: cover;
                             }
 
-                            p{
+                            p {
                                 padding: 0 1.6vw;
                             }
 
@@ -871,13 +1548,14 @@ header {
                     }
 
                 }
+
                 .swiper-button-next {
                     @include size(3.125vw, 3.125vw);
                     position: absolute;
                     top: 38%;
                     right: 36.5%;
 
-                    &::after{
+                    &::after {
                         @include size(3.125vw, 3.125vw);
                         content: '';
                         background-image: url(../img/view-prev.svg);
@@ -893,7 +1571,7 @@ header {
                     top: 38%;
                     left: 38%;
 
-                    &::after{
+                    &::after {
                         @include size(3.125vw, 3.125vw);
                         content: '';
                         background-image: url(../img/view-next.svg);
@@ -913,24 +1591,62 @@ header {
     @include flex;
     position: relative;
 
+    @include w1366{
+        border: 1.46vw solid $main-color;
+    }
+    @include w1024{
+        border: 1.95vw solid $main-color;
+    }
+    @include w768{
+        border: 2.67vw solid $main-color;
+    }
+
     .traffic-container {
-        @include size(80vw, 80vh);
+        @include size(80vw, 85vh);
 
         .traffic-title {
             position: relative;
             padding-left: 3.125vw;
+
+            @include w1366 {
+                margin: 0;
+                padding-left: 40px;
+            }
+
+            @include w375 {
+                height: 30px;
+                padding-left: 20px;
+            }
 
             &::before {
                 @extend %title-cube;
             }
 
             h2 {
-                @include font($h1, start);
-                letter-spacing: 0.3em;
+                @include font($h1, start, inherit, 0.3em);
+
+                @include w1366 {
+                    font-size: 1.8rem;
+                }
+
+                @include w375 {
+                    font-size: 1rem;
+                }
             }
 
             .tra-title-icon {
                 @include font($h5);
+
+                @include w1366 {
+                    font-size: 1rem;
+                }
+
+                @include w375 {
+                    letter-spacing: 0;
+                    font-size: 0.7rem;
+                    display: inline-block;
+                    transform: translate(-15%, -50%) scale(0.7);
+                }
 
                 &::before {
                     @extend %title-vertical-text;
@@ -938,149 +1654,157 @@ header {
                 }
             }
 
-            .traffic-type {
-                display: inline-block;
-                @include size(18.96vw, 4.44vh);
-                @include position(64%, 44%, 0, 0);
-                border-bottom: 1.25vw solid $store-list-bg;
-                text-align: center;
+            p {
+                @include size(100%, 48px);
+                @include flex();
+                margin: 0 auto;
+                position: relative;
+                font-size: 2.25rem;
+                list-style: 60px;
+                letter-spacing: 0.2em;
+                font-weight: bold;
 
-                p {
-                    font-size: $h2;
-                    list-style: 60px;
-                    letter-spacing: 0.2em;
-                    font-weight: bold;
+                @include w1366 {
+                    font-size: 1.3rem;
                 }
 
-            }
+                @include w1024 {
+                    font-size: $h1;
+                }
 
+                @include w768 {
+                    font-size: 1.2rem;
+                    height: 30px;
+                }
+
+                @include w375 {
+                    font-size: 0.8rem;
+                }
+
+                &::before {
+                    @include size(19vw, 15px);
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    transform: translateY(-50%);
+                    background-color: $store-list-bg;
+                    z-index: -1;
+                }
+            }
         }
 
         .traffic-main {
-            @include size(51.56vw, 74vh);
-            margin: 6.11vh auto 0 auto;
+            @include size(51.56vw, 65vh);
+            margin: 6.11vh auto 0;
+
+            @include w1024 {
+                width: 80vw;
+            }
+
+            @include w375{
+                width: 85vw;
+            }
 
             .traffic-bus {
                 width: 100%;
+                height: 17vh;
                 display: flex;
 
-                .traffic-logo {
-                    @include size(9.896vw, 9.896vw);
-
-                    .traffic-icon {
-                        @extend %title-tra-circle;
-                    }
-
-                    p {
-                        @extend %title-tra-logotext;
-                    }
-                }
-
-                .traffic-content {
-                    height: 17.59vh;
-                    display: flex;
-                    align-items: center;
-
-                    .traffic-content-text {
-                        @include size(35.67vw, 14.81vh);
-                        @extend %title-tra-contentarea;
-
-                        p {
-                            @extend %title-tra-contenttext;
-                            line-height: 4.17vh;
-                        }
-
-                        span {
-                            display: inline-block;
-                            @include size(10.1vw, 4.44vh);
-                            border-bottom: 24px solid $store-list-bg;
-                            text-align: center;
-                            margin: 0 0 9px 2.81vw;
-
-                            p {
-                                margin: 0px;
-                                line-height: 5.56vh;
-                            }
-                        }
-
-                    }
+                @include w375{
+                    margin-top: 90px;
                 }
             }
 
             .traffic-car {
                 width: 100%;
-                margin-top: 5.56vh;
+                height: 17vh;
+                margin-top: 3vh;
                 display: flex;
 
-                .traffic-logo {
-                    @include size(9.896vw, 9.896vw);
-
-                    .traffic-icon {
-                        @extend %title-tra-circle;
-                    }
-
-                    p {
-                        @extend %title-tra-logotext;
-                    }
-                }
-
-                .traffic-content {
-                    height: 17.59vh;
-                    display: flex;
-                    align-items: center;
-
-                    .traffic-content-text {
-                        @include size(35.67vw, 14.81vh);
-                        @extend %title-tra-contentarea;
-                        display: flex;
-                        align-items: center;
-
-                        p {
-                            @extend %title-tra-contenttext;
-                            line-height: 4.17vh;
-                        }
-                    }
+                .traffic-content{
+                    font-size: $h4;
+                    letter-spacing: 0.2em;
+                    line-height: 16vh;
+                    padding-left: 2.24vw;
                 }
             }
 
             .traffic-bike {
                 width: 100%;
-                margin-top: 5.56vh;
+                height: 17vh;
+                margin-top: 3vh;
                 display: flex;
 
-                .traffic-logo {
-                    @include size(9.896vw, 9.896vw);
+                .traffic-content{
+                    display: flex;
 
-                    .traffic-icon {
-                        @extend %title-tra-circle;
+                    >div{
+                        font-size: $h4;
+                        letter-spacing: 0.2em;
+                        padding-left: 2.24vw;
                     }
 
-                    p {
-                        @extend %title-tra-logotext;
+                    >a{
+                        margin-left:3vw;
+                        color: $store-tag-f-bg;
+                        font-size: $h4;
+                    }
+                }
+            }
+
+            .traffic-logo {
+                @include size(9.896vw, 100%);
+                padding-top: 2.6vh;
+
+                .traffic-icon {
+                    @extend %title-tra-circle;
+
+                    >img {
+                        @include size(3vw, 3vw);
+                        min-width: 40px;
+                        min-height: 40px;
+
+                        @include w375 {
+                            min-width: 30px;
+                            min-height: 30px;
+                        }
                     }
                 }
 
-                .traffic-content {
-                    height: 17.59vh;
-                    display: flex;
-                    align-items: center;
+                >p {
+                    @extend %title-tra-logotext;
+                }
+            }
 
-                    .traffic-content-text {
-                        @include size(35.67vw, 14.81vh);
-                        @extend %title-tra-contentarea;
-                        display: flex;
-                        align-items: center;
+            .traffic-content {
+                @include size(100%, 15vh);
+                @extend %title-tra-contentarea;
+                align-items: center;
+                font-family: 'Noto Sans HK', sans-serif;
 
-                        p {
-                            @extend %title-tra-contenttext;
-                            line-height: 4.17vh;
-                        }
+                
+                >p {
+                    @extend %title-tra-contenttext;
+                    line-height: 5vh;
+                    white-space: nowrap;
+                    position: relative;
+                    z-index: 1;
 
-                        a {
-                            @extend %title-tra-contenttext;
-                            margin-left: 1.15vw;
-                            color: $store-tag-f-bg;
-                            line-height: 5.56vh;
+                    &:nth-child(1){
+                        padding-left: 10px;
+
+                        &::before{
+                            @include size(9vw, 20%);
+                            content: '';
+                            position: absolute;
+                            bottom: 30%;
+                            transform: translateX(-7.6%);
+                            background-color: $store-list-bg;
+                            z-index: -1;
+
+                            @include w768{
+                                width: 80px;
+                            }
                         }
                     }
                 }
@@ -1095,25 +1819,62 @@ header {
     border: 1.04vw solid $main-color;
     position: relative;
 
+    @include w1366{
+        border: 1.46vw solid $main-color;
+    }
+    @include w1024{
+        border: 1.95vw solid $main-color;
+    }
+    @include w768{
+        border: 2.67vw solid $main-color;
+    }
+
     .contact-container {
         @include size(80vw, 80vh);
-
 
         .contact-title {
             position: relative;
             padding-left: 3.125vw;
+
+            @include w1366 {
+                margin: 0;
+                padding-left: 40px;
+            }
+
+            @include w375 {
+                height: 30px;
+                padding-left: 20px;
+            }
 
             &::before {
                 @extend %title-cube;
             }
 
             h2 {
-                @include font($h1, start);
-                letter-spacing: 0.3em;
+                @include font($h1, start, inherit, 0.3em);
+
+                @include w1366 {
+                    font-size: 1.8rem;
+                }
+
+                @include w375 {
+                    font-size: 1rem;
+                }
             }
 
             span {
                 @include font($h5);
+
+                @include w1366 {
+                    font-size: 1rem;
+                }
+
+                @include w375 {
+                    letter-spacing: 0;
+                    font-size: 0.7rem;
+                    display: inline-block;
+                    transform: translate(-15%, -50%) scale(0.7);
+                }
 
                 &::before {
                     @extend %title-vertical-text;
@@ -1230,7 +1991,6 @@ header {
             }
 
         }
-
     }
 }
 
