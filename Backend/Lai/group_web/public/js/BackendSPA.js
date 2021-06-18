@@ -42424,7 +42424,7 @@ var Create = /*#__PURE__*/function (_Component) {
       var files = params.target.files;
 
       var done = function done(url) {
-        image.src = url;
+        return image.src = url;
       };
 
       if (files && files.length > 0) {
@@ -42473,7 +42473,7 @@ var Create = /*#__PURE__*/function (_Component) {
       ratioName: 'ratio43',
       cropper: false,
       cropperArgs: {
-        aspectRatio: 400 / 300,
+        aspectRatio: 4 / 3,
         viewMode: 3,
         preview: '.preview'
       },
@@ -42514,7 +42514,8 @@ var Create = /*#__PURE__*/function (_Component) {
       var createPageDown = this.props.createPageDown;
       var _this$state2 = this.state,
           upperRelation = _this$state2.upperRelation,
-          cropper = _this$state2.cropper;
+          cropper = _this$state2.cropper,
+          ratioName = _this$state2.ratioName;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h1", {
@@ -42600,17 +42601,15 @@ var Create = /*#__PURE__*/function (_Component) {
           height: 200
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
-        id: "set-aspectRatio-4-3",
         onClick: function onClick(e) {
           _this2.handleRatio(e, 'ratio43');
         },
-        className: this.state.ratioName === 'ratio43' ? 'btn btn-success active' : 'btn btn-success'
+        className: ratioName === 'ratio43' ? 'btn btn-success active' : 'btn btn-success'
       }, "4 : 3"), "\xA0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
-        id: "set-aspectRatio-16-9",
         onClick: function onClick(e) {
           _this2.handleRatio(e, 'ratio169');
         },
-        className: this.state.ratioName === 'ratio169' ? 'btn btn-success active' : 'btn btn-success'
+        className: ratioName === 'ratio169' ? 'btn btn-success active' : 'btn btn-success'
       }, "16 : 9"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "form-group row"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", {

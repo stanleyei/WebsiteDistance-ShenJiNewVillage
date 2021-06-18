@@ -12,7 +12,7 @@ export default class Create extends Component {
             ratioName: 'ratio43',
             cropper: false,
             cropperArgs: {
-                aspectRatio: 400 / 300,
+                aspectRatio: 4 / 3,
                 viewMode: 3,
                 preview: '.preview'
             },
@@ -108,9 +108,7 @@ export default class Create extends Component {
         let reader, file;
 
         const files = params.target.files;
-        const done = (url) => {
-            image.src = url;
-        };
+        const done = url => image.src = url
 
         if (files && files.length > 0) {
             file = files[0];
@@ -158,7 +156,7 @@ export default class Create extends Component {
 
     render() {
         const { createPageDown } = this.props
-        const { upperRelation, cropper } = this.state
+        const { upperRelation, cropper, ratioName } = this.state
         return (
             <div className="container">
                 <h1 className="display-3 text-center">新增</h1>
@@ -200,8 +198,8 @@ export default class Create extends Component {
                                     </div>
 
                                     <div>
-                                        <button id="set-aspectRatio-4-3" onClick={(e) => { this.handleRatio(e, 'ratio43') }} className={this.state.ratioName === 'ratio43' ? 'btn btn-success active' : 'btn btn-success'}>4 : 3</button>&nbsp;
-                                        <button id="set-aspectRatio-16-9" onClick={(e) => { this.handleRatio(e, 'ratio169') }} className={this.state.ratioName === 'ratio169' ? 'btn btn-success active' : 'btn btn-success'}>16 : 9</button>
+                                        <button onClick={(e) => { this.handleRatio(e, 'ratio43') }} className={ratioName === 'ratio43' ? 'btn btn-success active' : 'btn btn-success'}>4 : 3</button>&nbsp;
+                                        <button onClick={(e) => { this.handleRatio(e, 'ratio169') }} className={ratioName === 'ratio169' ? 'btn btn-success active' : 'btn btn-success'}>16 : 9</button>
                                     </div>
                                 </div>
                             }
