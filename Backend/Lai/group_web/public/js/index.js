@@ -29,11 +29,9 @@ new fullpage('#fullpage', {
   menu: '#fullpageMenu',
   //配置導航,位置，提示,顯示當前位置
   navigation: true,
-  navigation: 'left',
   //導航欄
   anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage', 'sixthPage', 'seventhPage'],
   menu: '#myMenu',
-  responsiveWidth: 769,
 });
 
 //header的點擊拉出效果

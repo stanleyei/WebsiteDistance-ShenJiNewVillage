@@ -284,7 +284,7 @@ $h10:0.625vw; //12px
     left: 0;
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
-    background-color: $title-bg;
+    background-color: $news-tag-f-bg;
     min-width: 20px;
 
     @include w375{
@@ -368,14 +368,14 @@ $h10:0.625vw; //12px
 }
 
 %shop-nav-tap {
-    @include size(6.5vw, 3.2vh);
+    @include size(6.7vw, 3.2vh);
     @include font($h7, $lh:3.2vh);
     background-color: $tag-bg;
     border-radius: 5px;
     cursor: pointer;
 
     @include w1024{
-        @include size(8vw, 3.6vh);
+        @include size(9.3vw, 3.6vh);
         @include font($h5, $lh:3.6vh);
     }
     @include w768{
