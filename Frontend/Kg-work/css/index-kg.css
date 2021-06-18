@@ -407,6 +407,7 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  display: none;
   cursor: pointer;
   z-index: 15;
 }
@@ -487,7 +488,7 @@ header {
 .map .map-container .map-bgc .map-b01:hover ~ .map-message {
   display: block;
   top: 30.6%;
-  left: 2.5%;
+  left: 2.7%;
   -webkit-transform: translate(-35px, -10px);
           transform: translate(-35px, -10px);
 }
@@ -500,7 +501,7 @@ header {
 .map .map-container .map-bgc .map-b02:hover ~ .map-message {
   display: block;
   top: 30.6%;
-  left: 14.5%;
+  left: 14.7%;
   -webkit-transform: translate(-35px, -10px);
           transform: translate(-35px, -10px);
 }
@@ -628,9 +629,25 @@ header {
   left: 81%;
 }
 
+.map .map-container .map-bgc .map-c05:hover ~ .map-message {
+  display: block;
+  top: -15.7%;
+  left: 79%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
 .map .map-container .map-bgc .map-c06 {
   top: 23.9%;
   left: 42%;
+}
+
+.map .map-container .map-bgc .map-c06:hover ~ .map-message {
+  display: block;
+  top: 5.3%;
+  left: 40.5%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
 }
 
 .map .map-container .map-bgc .map-c07 {
@@ -638,9 +655,25 @@ header {
   left: 50.8%;
 }
 
+.map .map-container .map-bgc .map-c07:hover ~ .map-message {
+  display: block;
+  top: 5.3%;
+  left: 48.7%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
 .map .map-container .map-bgc .map-c08 {
   top: 23.3%;
   left: 59.8%;
+}
+
+.map .map-container .map-bgc .map-c08:hover ~ .map-message {
+  display: block;
+  top: 4.9%;
+  left: 58%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
 }
 
 .map .map-container .map-bgc .map-c09 {
@@ -648,14 +681,38 @@ header {
   left: 68.8%;
 }
 
+.map .map-container .map-bgc .map-c09:hover ~ .map-message {
+  display: block;
+  top: 4.9%;
+  left: 67%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
 .map .map-container .map-bgc .map-c10 {
   top: 23.3%;
   left: 77.8%;
 }
 
+.map .map-container .map-bgc .map-c10:hover ~ .map-message {
+  display: block;
+  top: 4.9%;
+  left: 76%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
 .map .map-container .map-bgc .map-c11 {
   top: 23.3%;
   left: 86.8%;
+}
+
+.map .map-container .map-bgc .map-c11:hover ~ .map-message {
+  display: block;
+  top: 4.7%;
+  left: 84.5%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
 }
 
 .map .map-container .map-bgc .map-d01:hover ~ .map-black-bgc,
@@ -678,9 +735,25 @@ header {
   left: 43.5%;
 }
 
+.map .map-container .map-bgc .map-d01:hover ~ .map-message {
+  display: block;
+  top: 23.7%;
+  left: 41.8%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
 .map .map-container .map-bgc .map-d02 {
   top: 42%;
   left: 52%;
+}
+
+.map .map-container .map-bgc .map-d02:hover ~ .map-message {
+  display: block;
+  top: 23.5%;
+  left: 50%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
 }
 
 .map .map-container .map-bgc .map-d03 {
@@ -688,9 +761,25 @@ header {
   left: 60.5%;
 }
 
+.map .map-container .map-bgc .map-d03:hover ~ .map-message {
+  display: block;
+  top: 23.5%;
+  left: 58.5%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
 .map .map-container .map-bgc .map-d04 {
   top: 42%;
   left: 69%;
+}
+
+.map .map-container .map-bgc .map-d04:hover ~ .map-message {
+  display: block;
+  top: 23.5%;
+  left: 67.2%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
 }
 
 .map .map-container .map-bgc .map-d05 {
@@ -698,9 +787,25 @@ header {
   left: 77.5%;
 }
 
+.map .map-container .map-bgc .map-d05:hover ~ .map-message {
+  display: block;
+  top: 23.5%;
+  left: 75.8%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
 .map .map-container .map-bgc .map-d06 {
   top: 41.6%;
   left: 86.2%;
+}
+
+.map .map-container .map-bgc .map-d06:hover ~ .map-message {
+  display: block;
+  top: 23.2%;
+  left: 84.2%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
 }
 
 .map .map-container .map-bgc .map-d07 {
@@ -708,9 +813,25 @@ header {
   left: 41.2%;
 }
 
+.map .map-container .map-bgc .map-d07:hover ~ .map-message {
+  display: block;
+  top: 50.7%;
+  left: 39.6%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
 .map .map-container .map-bgc .map-d08 {
   top: 69.1%;
   left: 50.2%;
+}
+
+.map .map-container .map-bgc .map-d08:hover ~ .map-message {
+  display: block;
+  top: 50.7%;
+  left: 48.4%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
 }
 
 .map .map-container .map-bgc .map-d09 {
@@ -718,9 +839,25 @@ header {
   left: 59%;
 }
 
+.map .map-container .map-bgc .map-d09:hover ~ .map-message {
+  display: block;
+  top: 50.7%;
+  left: 57%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
 .map .map-container .map-bgc .map-d10 {
   top: 69.1%;
   left: 67.5%;
+}
+
+.map .map-container .map-bgc .map-d10:hover ~ .map-message {
+  display: block;
+  top: 50.7%;
+  left: 65.8%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
 }
 
 .map .map-container .map-bgc .map-d11 {
@@ -728,9 +865,25 @@ header {
   left: 76.2%;
 }
 
+.map .map-container .map-bgc .map-d11:hover ~ .map-message {
+  display: block;
+  top: 50.7%;
+  left: 74.2%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
 .map .map-container .map-bgc .map-d12 {
   top: 69.1%;
   left: 84.8%;
+}
+
+.map .map-container .map-bgc .map-d12:hover ~ .map-message {
+  display: block;
+  top: 50.7%;
+  left: 82.8%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
 }
 
 .view {
