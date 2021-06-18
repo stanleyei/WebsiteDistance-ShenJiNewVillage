@@ -267,12 +267,11 @@ $h10:0.625vw; //12px
     display: flex;
     border-radius: 6px;
     background-color: $form-bg;
-    box-shadow: 0 3px $tag-bg;
+    box-shadow: 0 3px 3px $tag-bg;
     cursor: pointer;
 
     @include w375{
         border-radius: 2px;
-        box-shadow: 0 3px 3px $tag-bg;
     }
 }
 

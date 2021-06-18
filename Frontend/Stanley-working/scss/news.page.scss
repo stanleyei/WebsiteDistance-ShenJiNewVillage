@@ -563,7 +563,6 @@ main {
 
                 .content-inf {
                     @extend %news-inf;
-                    box-shadow: 0 3px $tag-bg;
 
                     &::before {
                         @extend %news-inf-before;

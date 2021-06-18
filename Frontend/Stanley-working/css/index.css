@@ -204,16 +204,14 @@ header nav ul li a .title {
   display: flex;
   border-radius: 6px;
   background-color: #F2F2F2;
-  -webkit-box-shadow: 0 3px #C4C4C4;
-          box-shadow: 0 3px #C4C4C4;
+  -webkit-box-shadow: 0 3px 3px #C4C4C4;
+          box-shadow: 0 3px 3px #C4C4C4;
   cursor: pointer;
 }
 
 @media (max-width: 375px) {
   #news .news-container article .content-infs .content-inf {
     border-radius: 2px;
-    -webkit-box-shadow: 0 3px 3px #C4C4C4;
-            box-shadow: 0 3px 3px #C4C4C4;
   }
 }
 
