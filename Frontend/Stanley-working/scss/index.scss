@@ -113,7 +113,11 @@ h6 {
 
     &::before {
         position: absolute;
-        transform: translate(-5px, 10px);
+        transform: translate(-10px, -3px);
+
+        @include w1366{
+            transform: translate(-5px, 10px);
+        }
     }
 }
 
@@ -1478,17 +1482,15 @@ header {
     @include w1366 {
         border: 1.46vw solid $main-color;
     }
-
     @include w1024 {
         border: 1.95vw solid $main-color;
     }
-
     @include w768 {
         border: 2.67vw solid $main-color;
     }
 
     .view-container {
-        @include size(80vw, 80vh);
+        @include size(70vw, 80vh);
 
         .view-title {
             position: relative;
@@ -1566,7 +1568,7 @@ header {
                         font-size: $h7;
 
                         .view-card {
-                            @include size(14.58vw, 43vh);
+                            @include size(13vw, 43vh);
                             background-color: $title-bg;
                             border-radius: 20px;
                             text-align: center;
@@ -1575,25 +1577,27 @@ header {
                             line-height: 2.78vh;
                             padding-top: 2.31vh;
 
-                            span {
+                            .view-card-img {
+                                @include size(9.5vw, 7.5vw);
                                 display: block;
-                                margin: 10px auto 2.31vh;
-                                @include size(11.98vw, 16.67vh);
+                                margin: 10px auto 0;
                                 background-position: center;
                                 background-size: cover;
                             }
 
-                            p {
-                                padding: 0 1.6vw;
-                            }
-
                             p:first-child {
                                 font-size: $h9;
+
+                                @include w1366{
+                                    font-size: 1.2rem;
+                                }
                             }
 
                             p:last-child {
                                 letter-spacing: 0.2em;
                                 line-height: 2.31vh;
+                                font-size: 0.8rem;
+                                transform: scale(0.8);
                             }
                         }
                     }
@@ -1880,11 +1884,9 @@ header {
     @include w1366 {
         border: 1.46vw solid $main-color;
     }
-
     @include w1024 {
         border: 1.95vw solid $main-color;
     }
-
     @include w768 {
         border: 2.67vw solid $main-color;
     }

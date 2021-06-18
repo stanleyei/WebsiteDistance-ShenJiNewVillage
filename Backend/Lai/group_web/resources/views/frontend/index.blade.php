@@ -239,32 +239,37 @@
                 </div>
                 <div class="contact-form-main">
                     <form class="contact-form" id="contact-form" action="" method="POST">
-                        <select name="kg" class="form-type">
-                            <option>加入審計</option>
-                            <option>顧客意見</option>
-                        </select>
+                        <div class="select-bcg">加入審計</div>
+                        <div class="bcground">
+                            <ul class="form-type">
+                                <li value="join">加入審計</li>
+                                <li value="opinion">顧客意見</li>
+                            </ul>
+                        </div>
                         <div class="form-storename">
                             <p>進駐店家</p>
-                            <input type="text">
+                            <input type="text" name="store">
                         </div>
                         <div class="form-email">
                             <p>E-mail</p>
-                            <input type="text">
+                            <input type="text" name="email">
                         </div>
                         <div class="form-producttype">
                             <p>商品種類</p>
-                            <select>
-                                <option></option>
-                                <option>食物類</option>
-                                <option>小物類</option>
-                                <option>其他</option>
-                            </select>
+                            <div class="form-optiontype"></div>
+                            <div class="opground">
+                                <ul name="optiontype" class="optiontype">
+                                    <li value="美食點心類">美食點心類</li>
+                                    <li value="小物禮品類">小物禮品類</li>
+                                    <li value="其他類">其他類</li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="form-description">
                             <p>詳細資訊</p>
                             <textarea name="description" id="" cols="30" rows="10"></textarea>
                         </div>
-                        <input class="form-sendout" type="submit" value="送出資料">
+                        <input class="form-sendout" type="submit" value="送出資料" title="送出資料">
                     </form>
                 </div>
             </div>
