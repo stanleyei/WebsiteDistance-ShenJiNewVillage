@@ -234,9 +234,32 @@ const swiper = new Swiper('.swiper-container', {
   spaceBetween: 150,
   speed: 500,
   loop: true,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+  slideToClickedSlide: true,
+  breakpoints:{
+    1366: {
+      slidesPerView:5,
+      spaceBetween: 150,
+    },
+    1024: {
+      slidesPerView:5,
+      spaceBetween: 110,
+    },
+    768: {
+      slidesPerView:3,
+      spaceBetween: 70,
+    },
+    540: {
+      slidesPerView:2.5,
+      spaceBetween: 60,
+    },
+    375: {
+      slidesPerView:1.75,
+      spaceBetween: 30,
+    },
+    320:{
+      slidesPerView:1.75,
+      spaceBetween: 30,
+    },
   },
   on: {
     init: function () {

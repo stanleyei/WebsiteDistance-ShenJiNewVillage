@@ -115,7 +115,7 @@ h6 {
         position: absolute;
         transform: translate(-10px, -3px);
 
-        @include w1366{
+        @include w1366 {
             transform: translate(-5px, 10px);
         }
     }
@@ -211,6 +211,12 @@ h6 {
             font-weight: bold;
             padding-left: 1.5vw;
         }
+    }
+}
+
+.fp-right {
+    @include w768{
+        display: none;
     }
 }
 
@@ -1482,9 +1488,11 @@ header {
     @include w1366 {
         border: 1.46vw solid $main-color;
     }
+
     @include w1024 {
         border: 1.95vw solid $main-color;
     }
+
     @include w768 {
         border: 2.67vw solid $main-color;
     }
@@ -1555,20 +1563,19 @@ header {
                 margin: 0 auto;
                 display: flex;
                 align-items: center;
-                position: relative;
 
                 .swiper-wrapper {
                     padding: 1.85vh 0;
 
                     .swiper-slide {
-                        @include size(14.58vw, 43vh);
+                        @include size(230px, 43vh);
                         margin-top: 15.74vh;
                         border-radius: 20px;
                         text-align: center;
                         font-size: $h7;
 
                         .view-card {
-                            @include size(13vw, 43vh);
+                            @include size(208px, 43vh);
                             background-color: $title-bg;
                             border-radius: 20px;
                             text-align: center;
@@ -1577,8 +1584,16 @@ header {
                             line-height: 2.78vh;
                             padding-top: 2.31vh;
 
+                            @include w576 {
+                                border-radius: 10px;
+                            }
+
+                            @include w375 {
+                                width: 48vw;
+                            }
+
                             .view-card-img {
-                                @include size(9.5vw, 7.5vw);
+                                @include size(150px, 100px);
                                 display: block;
                                 margin: 10px auto 0;
                                 background-position: center;
@@ -1588,8 +1603,8 @@ header {
                             p:first-child {
                                 font-size: $h9;
 
-                                @include w1366{
-                                    font-size: 1.2rem;
+                                @include w1366 {
+                                    font-size: 0.8rem;
                                 }
                             }
 
@@ -1605,39 +1620,6 @@ header {
                     .swiper-slide-active {
                         transform: scale(1.2);
                         transition: .4s;
-                    }
-
-                }
-
-                .swiper-button-next {
-                    @include size(3.125vw, 3.125vw);
-                    position: absolute;
-                    top: 38%;
-                    right: 36.5%;
-
-                    &::after {
-                        @include size(3.125vw, 3.125vw);
-                        content: '';
-                        background-image: url(../img/view-prev.svg);
-                        background-repeat: no-repeat;
-                        background-size: contain;
-                        font-family: none;
-                    }
-                }
-
-                .swiper-button-prev {
-                    @include size(3.125vw, 3.125vw);
-                    position: absolute;
-                    top: 38%;
-                    left: 38%;
-
-                    &::after {
-                        @include size(3.125vw, 3.125vw);
-                        content: '';
-                        background-image: url(../img/view-next.svg);
-                        background-repeat: no-repeat;
-                        background-size: contain;
-                        font-family: none;
                     }
                 }
             }
@@ -1884,15 +1866,17 @@ header {
     @include w1366 {
         border: 1.46vw solid $main-color;
     }
+
     @include w1024 {
         border: 1.95vw solid $main-color;
     }
+
     @include w768 {
         border: 2.67vw solid $main-color;
     }
 
     .contact-container {
-        @include size(70vw, 85vh);
+        @include size(70vw, 80vh);
         padding-top: 4vh;
 
         .contact-title {
@@ -1953,10 +1937,11 @@ header {
             border-radius: 10px;
             background-color: $form-bg;
 
-            @include w1366{
+            @include w1366 {
                 width: 60vw;
             }
-            @include w1024{
+
+            @include w1024 {
                 width: 70vw;
             }
 
@@ -1974,11 +1959,12 @@ header {
                         letter-spacing: 0.3em;
                         text-align: center;
 
-                        @include w1366{
+                        @include w1366 {
                             font-size: 1.25rem;
                             line-height: 1.25rem;
                         }
-                        @include w480{
+
+                        @include w480 {
                             font-size: 0.9rem;
                             line-height: 0.9rem;
                         }
@@ -1990,11 +1976,12 @@ header {
                         letter-spacing: 0.05em;
                         padding-left: 1px;
 
-                        @include w1366{
+                        @include w1366 {
                             font-size: 0.75rem;
                             line-height: 0.75rem;
                         }
-                        @include w480{
+
+                        @include w480 {
                             font-size: 0.7rem;
                             line-height: 0.7rem;
                             transform: scale(0.7);
@@ -2013,10 +2000,11 @@ header {
                     padding: 2px;
 
 
-                    @include w1024{
+                    @include w1024 {
                         width: 60%;
                     }
-                    @include w576{
+
+                    @include w576 {
                         width: 85%;
                     }
 
@@ -2104,7 +2092,7 @@ header {
                         border-radius: 6px;
                         border: 2px solid $form-title-bg;
                     }
-                    
+
                     .form-storename {
                         margin-bottom: 1.39vh;
                     }
@@ -2112,7 +2100,7 @@ header {
                     .form-producttype {
                         margin-bottom: 3.24vh;
                         position: relative;
-                        
+
                         p {
                             line-height: 5.56vh;
                         }
@@ -2180,12 +2168,12 @@ header {
                         position: absolute;
                         bottom: 0;
                         left: 50%;
-                        transform: translate(-50%, 140%);
+                        transform: translate(-50%, 90%);
                         background-color: $title-bg;
                         border-radius: 6px;
                         color: $footer-text;
 
-                        @include w1366{
+                        @include w1366 {
                             font-size: 1rem;
                         }
                     }
@@ -2218,9 +2206,17 @@ footer {
         overflow: hidden;
         margin-top: 3.7vh;
 
+        @include w1366{
+            width: 88%;
+        }
+
         h2 {
             @include font($h2, start, 4.53vh, 0.15em);
             margin-bottom: 6.48vh;
+            
+            @include w1024{
+                text-align: center;
+            }
         }
 
         article {
@@ -2228,36 +2224,76 @@ footer {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
 
+            @include w1024{
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: 130px 70px;
+                grid-template-areas: 
+                "A B"
+                "C C";
+            }
+
             h3 {
                 @include font($h4, start, inherit, 0.15em);
+                @include w1366{
+                    font-size: 1.16rem;
+                }
+                @include w1024{
+                    text-align: center;
+                }
             }
 
             .inf-detil {
                 @include font($h6, start, 2.78vh, 0.15em);
                 padding-left: 28px;
+                grid-area: A;
+
+                @include w1366{
+                    font-size: 1rem;
+                }
+                @include w1024{
+                    text-align: center;
+                    padding: 0;
+                }
 
                 &>div:nth-child(2) {
                     padding-left: 3.151vw;
+
+                    @include w1024{
+                        padding: 0;
+                    }
                 }
             }
 
             .open-detil {
-                @include size(12.4vw, 100%);
+                @include size(240px, 100%);
                 padding-left: 18px;
+                grid-area: B;
 
-                .date-box {
+                @include w1024{
+                    width: 100%;
+                    padding: 0;
+                }
+
+                .date-area {
                     @include flex(start, start);
                     @include font($h6, center, 2.78vh, 0.15em);
 
+                    @include w1366{
+                        font-size: 1rem;
+                    }
+                    @include w1024{
+                        justify-content: center;
+                    }
+                    
                     .date-box {
-                        @include size(4.17vw, 3.7vh);
+                        @include size(80px, 3.7vh);
                         @include flex();
                         border: $footer-text 1px solid;
                         border-radius: 60px;
                     }
 
                     span {
-                        @include size(3.125vw, 3.7vh);
+                        @include size(60px, 3.7vh);
                         line-height: 3.7vh;
                     }
                 }
@@ -2266,6 +2302,17 @@ footer {
                     @include flex();
                     @include font($h6, center, 2.78vh, 0.15em);
                     padding-top: 13px;
+
+                    @include w1366{
+                        font-size: 1rem;
+                    }
+                }
+            }
+
+            .fb-page{
+                @include w1024{
+                    grid-area: C;
+                    text-align: center;
                 }
             }
         }
@@ -2273,6 +2320,10 @@ footer {
         >p {
             @include font($h6, center, 2.78vh, 0.05em);
             margin: 0;
+
+            @include w1366{
+                font-size: 1rem;
+            }
         }
     }
 }

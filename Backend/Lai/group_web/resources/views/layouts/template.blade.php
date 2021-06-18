@@ -97,7 +97,7 @@
                 <div>
                     <h3>營業時間</h3>
                     <div class="open-detil">
-                        <div class="date-box">
+                        <div class="date-area">
                             <div class="date-box">周一</div>
                             <span>至</span>
                             <div class="date-box">周日</div>
