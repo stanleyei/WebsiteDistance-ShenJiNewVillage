@@ -1,17 +1,91 @@
-.view .view-container .view-title::before, .traffic .traffic-container .traffic-title::before, .contact .contact-container .contact-title::before {
+.map .map-container .map-title::before, .view .view-container .view-title::before, .traffic .traffic-container .traffic-title::before, .contact .contact-container .contact-title::before {
   content: '';
   position: absolute;
   background: #D28E76;
   border-radius: 5px;
 }
 
-.view .view-container .view-title span::before, .traffic .traffic-container .traffic-title .tra-title-icon::before, .contact .contact-container .contact-title span::before {
+.map .map-container .map-title span::before, .view .view-container .view-title span::before, .traffic .traffic-container .traffic-title .tra-title-icon::before, .contact .contact-container .contact-title span::before {
   content: '';
   position: absolute;
   left: 0;
   -webkit-transform: translate(-15%, -80%) rotate(90deg);
           transform: translate(-15%, -80%) rotate(90deg);
   letter-spacing: 0.1em;
+}
+
+.map .map-container .map-bgc .map-a01,
+.map .map-container .map-bgc .map-a02,
+.map .map-container .map-bgc .map-a03,
+.map .map-container .map-bgc .map-a04, .map .map-container .map-bgc .map-b01,
+.map .map-container .map-bgc .map-b02,
+.map .map-container .map-bgc .map-b03,
+.map .map-container .map-bgc .map-b04,
+.map .map-container .map-bgc .map-b05,
+.map .map-container .map-bgc .map-b06, .map .map-container .map-bgc .map-c01,
+.map .map-container .map-bgc .map-c02,
+.map .map-container .map-bgc .map-c03,
+.map .map-container .map-bgc .map-c04,
+.map .map-container .map-bgc .map-c05,
+.map .map-container .map-bgc .map-c06,
+.map .map-container .map-bgc .map-c07,
+.map .map-container .map-bgc .map-c08,
+.map .map-container .map-bgc .map-c09,
+.map .map-container .map-bgc .map-c10,
+.map .map-container .map-bgc .map-c11, .map .map-container .map-bgc .map-d01,
+.map .map-container .map-bgc .map-d02,
+.map .map-container .map-bgc .map-d03,
+.map .map-container .map-bgc .map-d04,
+.map .map-container .map-bgc .map-d05,
+.map .map-container .map-bgc .map-d06,
+.map .map-container .map-bgc .map-d07,
+.map .map-container .map-bgc .map-d08,
+.map .map-container .map-bgc .map-d09,
+.map .map-container .map-bgc .map-d10,
+.map .map-container .map-bgc .map-d11,
+.map .map-container .map-bgc .map-d12 {
+  width: 9%;
+  height: 14%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.map .map-container .map-bgc .map-a01:hover,
+.map .map-container .map-bgc .map-a02:hover,
+.map .map-container .map-bgc .map-a03:hover,
+.map .map-container .map-bgc .map-a04:hover, .map .map-container .map-bgc .map-b01:hover,
+.map .map-container .map-bgc .map-b02:hover,
+.map .map-container .map-bgc .map-b03:hover,
+.map .map-container .map-bgc .map-b04:hover,
+.map .map-container .map-bgc .map-b05:hover,
+.map .map-container .map-bgc .map-b06:hover, .map .map-container .map-bgc .map-c01:hover,
+.map .map-container .map-bgc .map-c02:hover,
+.map .map-container .map-bgc .map-c03:hover,
+.map .map-container .map-bgc .map-c04:hover,
+.map .map-container .map-bgc .map-c05:hover,
+.map .map-container .map-bgc .map-c06:hover,
+.map .map-container .map-bgc .map-c07:hover,
+.map .map-container .map-bgc .map-c08:hover,
+.map .map-container .map-bgc .map-c09:hover,
+.map .map-container .map-bgc .map-c10:hover,
+.map .map-container .map-bgc .map-c11:hover, .map .map-container .map-bgc .map-d01:hover,
+.map .map-container .map-bgc .map-d02:hover,
+.map .map-container .map-bgc .map-d03:hover,
+.map .map-container .map-bgc .map-d04:hover,
+.map .map-container .map-bgc .map-d05:hover,
+.map .map-container .map-bgc .map-d06:hover,
+.map .map-container .map-bgc .map-d07:hover,
+.map .map-container .map-bgc .map-d08:hover,
+.map .map-container .map-bgc .map-d09:hover,
+.map .map-container .map-bgc .map-d10:hover,
+.map .map-container .map-bgc .map-d11:hover,
+.map .map-container .map-bgc .map-d12:hover {
+  background-image: url(../img/map-house.svg);
+  cursor: pointer;
 }
 
 .traffic .traffic-container .traffic-main .traffic-bus .traffic-logo .traffic-icon, .traffic .traffic-container .traffic-main .traffic-car .traffic-logo .traffic-icon, .traffic .traffic-container .traffic-main .traffic-bike .traffic-logo .traffic-icon {
@@ -247,6 +321,418 @@ header {
   right: 50px;
 }
 
+.map {
+  width: 100%;
+  height: 100vh;
+  border: 20px solid #54291c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.map .map-container {
+  width: 80%;
+  height: 90vh;
+}
+
+.map .map-container .map-title {
+  position: relative;
+  padding-left: 60px;
+}
+
+.map .map-container .map-title::before {
+  width: 60px;
+  height: 60px;
+  -webkit-transform: translate(-50px, -20px);
+          transform: translate(-50px, -20px);
+  z-index: -1;
+}
+
+.map .map-container .map-title h2 {
+  font-size: 2.8125rem;
+  text-align: start;
+  line-height: inherit;
+  letter-spacing: 0.3em;
+}
+
+.map .map-container .map-title span {
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: inherit;
+  letter-spacing: 0.1em;
+}
+
+.map .map-container .map-title span::before {
+  content: 'Map';
+}
+
+.map .map-container .map-bgc {
+  width: 800px;
+  height: 560px;
+  margin: auto;
+  background-color: #ffffff;
+  background-image: url(../img/map-bgc.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.map .map-container .map-bgc .map-black-bgc {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+  display: none;
+}
+
+.map .map-container .map-bgc .map-message {
+  width: 20%;
+  height: 19.7%;
+  background-image: url(../img/message-green.svg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  z-index: 15;
+}
+
+.map .map-container .map-bgc .map-a01:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-a02:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-a03:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-a04:hover ~ .map-black-bgc {
+  display: block;
+}
+
+.map .map-container .map-bgc .map-a01 {
+  top: 4.9%;
+  left: 20.9%;
+}
+
+.map .map-container .map-bgc .map-a01:hover ~ .map-message {
+  display: block;
+  top: -13.5%;
+  left: 18.9%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
+.map .map-container .map-bgc .map-a02 {
+  top: 4.8%;
+  left: 29.7%;
+}
+
+.map .map-container .map-bgc .map-a02:hover ~ .map-message {
+  display: block;
+  top: -13.5%;
+  left: 27.9%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
+.map .map-container .map-bgc .map-a03 {
+  top: 30.8%;
+  left: 3.7%;
+}
+
+.map .map-container .map-bgc .map-a03:hover ~ .map-message {
+  display: block;
+  top: 12.9%;
+  left: 1.9%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
+.map .map-container .map-bgc .map-a04 {
+  top: 30.8%;
+  left: 13.7%;
+}
+
+.map .map-container .map-bgc .map-a04:hover ~ .map-message {
+  display: block;
+  top: 12.9%;
+  left: 11.9%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
+.map .map-container .map-bgc .map-b01:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-b02:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-b03:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-b04:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-b05:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-b06:hover ~ .map-black-bgc {
+  display: block;
+}
+
+.map .map-container .map-bgc .map-b01 {
+  top: 48.8%;
+  left: 4.6%;
+}
+
+.map .map-container .map-bgc .map-b01:hover ~ .map-message {
+  display: block;
+  top: 30.6%;
+  left: 2.5%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
+.map .map-container .map-bgc .map-b02 {
+  top: 48.7%;
+  left: 16.5%;
+}
+
+.map .map-container .map-bgc .map-b02:hover ~ .map-message {
+  display: block;
+  top: 30.6%;
+  left: 14.5%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
+.map .map-container .map-bgc .map-b03 {
+  top: 48.6%;
+  left: 26.3%;
+}
+
+.map .map-container .map-bgc .map-b03:hover ~ .map-message {
+  display: block;
+  top: 30.4%;
+  left: 24.2%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
+.map .map-container .map-bgc .map-b04 {
+  top: 69%;
+  left: 4%;
+}
+
+.map .map-container .map-bgc .map-b04:hover ~ .map-message {
+  display: block;
+  top: 50.6%;
+  left: 2.2%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
+.map .map-container .map-bgc .map-b05 {
+  top: 69%;
+  left: 13.6%;
+}
+
+.map .map-container .map-bgc .map-b05:hover ~ .map-message {
+  display: block;
+  top: 50.6%;
+  left: 11.7%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
+.map .map-container .map-bgc .map-b06 {
+  top: 69%;
+  left: 23.6%;
+}
+
+.map .map-container .map-bgc .map-b06:hover ~ .map-message {
+  display: block;
+  top: 50.6%;
+  left: 21.7%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
+.map .map-container .map-bgc .map-c01:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-c02:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-c03:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-c04:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-c05:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-c06:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-c07:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-c08:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-c09:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-c10:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-c11:hover ~ .map-black-bgc {
+  display: block;
+}
+
+.map .map-container .map-bgc .map-c01 {
+  top: 3.35%;
+  left: 45.5%;
+}
+
+.map .map-container .map-bgc .map-c01:hover ~ .map-message {
+  display: block;
+  top: -15.2%;
+  left: 43.7%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
+.map .map-container .map-bgc .map-c02 {
+  top: 3.4%;
+  left: 54.5%;
+}
+
+.map .map-container .map-bgc .map-c02:hover ~ .map-message {
+  display: block;
+  top: -15.3%;
+  left: 52.7%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
+.map .map-container .map-bgc .map-c03 {
+  top: 3.4%;
+  left: 63.5%;
+}
+
+.map .map-container .map-bgc .map-c03:hover ~ .map-message {
+  display: block;
+  top: -15.3%;
+  left: 61.5%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
+.map .map-container .map-bgc .map-c04 {
+  top: 3.2%;
+  left: 72.5%;
+}
+
+.map .map-container .map-bgc .map-c04:hover ~ .map-message {
+  display: block;
+  top: -15.3%;
+  left: 70.5%;
+  -webkit-transform: translate(-35px, -10px);
+          transform: translate(-35px, -10px);
+}
+
+.map .map-container .map-bgc .map-c05 {
+  top: 2.9%;
+  left: 81%;
+}
+
+.map .map-container .map-bgc .map-c06 {
+  top: 23.9%;
+  left: 42%;
+}
+
+.map .map-container .map-bgc .map-c07 {
+  top: 23.9%;
+  left: 50.8%;
+}
+
+.map .map-container .map-bgc .map-c08 {
+  top: 23.3%;
+  left: 59.8%;
+}
+
+.map .map-container .map-bgc .map-c09 {
+  top: 23.3%;
+  left: 68.8%;
+}
+
+.map .map-container .map-bgc .map-c10 {
+  top: 23.3%;
+  left: 77.8%;
+}
+
+.map .map-container .map-bgc .map-c11 {
+  top: 23.3%;
+  left: 86.8%;
+}
+
+.map .map-container .map-bgc .map-d01:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-d02:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-d03:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-d04:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-d05:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-d06:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-d07:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-d08:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-d09:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-d10:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-d11:hover ~ .map-black-bgc,
+.map .map-container .map-bgc .map-d12:hover ~ .map-black-bgc {
+  display: block;
+}
+
+.map .map-container .map-bgc .map-d01 {
+  top: 42.3%;
+  left: 43.5%;
+}
+
+.map .map-container .map-bgc .map-d02 {
+  top: 42%;
+  left: 52%;
+}
+
+.map .map-container .map-bgc .map-d03 {
+  top: 42%;
+  left: 60.5%;
+}
+
+.map .map-container .map-bgc .map-d04 {
+  top: 42%;
+  left: 69%;
+}
+
+.map .map-container .map-bgc .map-d05 {
+  top: 41.9%;
+  left: 77.5%;
+}
+
+.map .map-container .map-bgc .map-d06 {
+  top: 41.6%;
+  left: 86.2%;
+}
+
+.map .map-container .map-bgc .map-d07 {
+  top: 69.1%;
+  left: 41.2%;
+}
+
+.map .map-container .map-bgc .map-d08 {
+  top: 69.1%;
+  left: 50.2%;
+}
+
+.map .map-container .map-bgc .map-d09 {
+  top: 69.1%;
+  left: 59%;
+}
+
+.map .map-container .map-bgc .map-d10 {
+  top: 69.1%;
+  left: 67.5%;
+}
+
+.map .map-container .map-bgc .map-d11 {
+  top: 69.1%;
+  left: 76.2%;
+}
+
+.map .map-container .map-bgc .map-d12 {
+  top: 69.1%;
+  left: 84.8%;
+}
+
 .view {
   width: 100%;
   height: 100vh;
@@ -262,57 +748,6 @@ header {
           align-items: center;
   position: relative;
   overflow: hidden;
-}
-
-.view .view-album {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  background-color: #f2f2f2;
-  display: none;
-}
-
-.view .view-album .view-backimg {
-  width: 80%;
-  height: 100%;
-  margin: auto;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-auto-rows: 350px;
-}
-
-.view .view-album .view-backimg a {
-  text-decoration: none;
-  color: #96422D;
-}
-
-.view .view-album .view-backimg .view-pics {
-  width: 95%;
-  height: 330px;
-  background-color: #fff;
-  margin: 10px auto;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-}
-
-.view .view-album .view-backimg .view-pics .view-pic {
-  width: 90%;
-  height: 230px;
-  margin: 20px auto 10px;
-  border: 1px solid black;
-  border-radius: 20px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.view .view-album .view-backimg .view-pics .view-pic-des {
-  margin-left: 30px;
 }
 
 .view .view-container {

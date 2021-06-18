@@ -77,7 +77,55 @@
         <section class="loading"></section>
         <section class="news"></section>
         <section class="about-us"></section>
-        <section class="map"></section>
+        <section class="map">
+            <img class="logo-img" src="./img/Logo-img.png" alt="">
+            <img class="logo-text" src="./img/Logo-text.png" alt="">
+            <div class="map-container">
+                <div class="map-title">
+                    <h2>園區地圖</h2>
+                    <span>Shen Ji New Village</span>
+                </div>
+                <div class="map-bgc">
+                    
+                    <div class="map-a01"></div>
+                    <div class="map-a02"></div>
+                    <div class="map-a03"></div>
+                    <div class="map-a04"></div>
+                    <div class="map-b01"></div>
+                    <div class="map-b02"></div>
+                    <div class="map-b03"></div>
+                    <div class="map-b04"></div>
+                    <div class="map-b05"></div>
+                    <div class="map-b06"></div>
+                    <div class="map-c01"></div>
+                    <div class="map-c02"></div>
+                    <div class="map-c03"></div>
+                    <div class="map-c04"></div>
+                    <div class="map-c05"></div>
+                    <div class="map-c06"></div>
+                    <div class="map-c07"></div>
+                    <div class="map-c08"></div>
+                    <div class="map-c09"></div>
+                    <div class="map-c10"></div>
+                    <div class="map-c11"></div>
+                    <div class="map-d01"></div>
+                    <div class="map-d02"></div>
+                    <div class="map-d03"></div>
+                    <div class="map-d04"></div>
+                    <div class="map-d05"></div>
+                    <div class="map-d06"></div>
+                    <div class="map-d07"></div>
+                    <div class="map-d08"></div>
+                    <div class="map-d09"></div>
+                    <div class="map-d10"></div>
+                    <div class="map-d11"></div>
+                    <div class="map-d12"></div>
+                    <div class="map-black-bgc"></div>
+                    <div class="map-message"></div>
+                </div>
+            </div>
+
+        </section>
         <section class="store">
             </div>
         </section>
@@ -252,12 +300,15 @@
                             <p>Contact Shen Ji</p>
                         </div>
                     </div>
-                    <div class="contact-form-main">
+                    <div class="contact-form-main">        
                         <form class="contact-form" id="contact-form" action="#" method="POST">
+                            
                             <div class="select-bcg"></div>
+                            <input type="text" name="contact_type" hidden>
                             <div class="bcground">
                                 <ul class="form-type">
                                     <li value="join">加入審計</li>
+
                                     <li value="opinion">顧客意見</li>
                                     
                                 </ul>
@@ -273,11 +324,12 @@
                             <div class="form-producttype">
                                 <p>商品種類</p>
                             <div class="form-optiontype"></div>
+                            <input type="text" name="contact_content_type" hidden>
                                 <div class="opground">
                                     <ul name="optiontype" class="optiontype">
-                                        <li value="我">我</li>
-                                        <li value="超">超</li>
-                                        <li value="率">率</li>                                      
+                                        <li value="">我</li>
+                                        <li value="">超</li>
+                                        <li value="">率</li>                                      
                                     </ul>
                                 </div>
                              <!-- <select name="optiontype" class="optiontype">
@@ -360,7 +412,7 @@
         var FormDescription = document.querySelector('.form-description').firstElementChild;
         var ChanSelect = document.querySelector('.optiontype');
         //判斷form表單類型，並改變表單結構
-        function type_select(koa) {
+        function typeSelect(koa) {
            
             if (koa == '加入審計') {
                 FormStorename.innerHTML = '進駐店家';
@@ -368,9 +420,9 @@
                 // 把位於form表單下面的下拉是選單清空
                 FormOp.innerHTML =``;
                 ChanSelect.innerHTML = `
-                                    <li value="我">我</li>
-                                    <li value="超">超</li>
-                                    <li value="率">率</li>`
+                                    <li value="">美食小物類</li>
+                                    <li value=""></li>
+                                    <li value=""></li>`
                 FormDescription.innerHTML = '詳細資訊';
             } else {
                 FormStorename.innerHTML = '顧客名稱/暱稱';
@@ -403,7 +455,7 @@
                     console.log(this.value);
                     SelectBcg.innerHTML = koa;
                     Select.classList.remove('active');
-                    type_select(koa);
+                    typeSelect(koa);
                 }, false)
             }
         })

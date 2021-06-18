@@ -188,61 +188,457 @@ header {
     right: 50px;
 }
 
+.map {
+    @include size($w:100%, $h:100vh);
+    border: 20px solid $main-color;
+    @include flex;
+    position: relative;
+
+    .map-container {
+        @include size($w:80%, $h:90vh);
+
+
+        .map-title {
+            position: relative;
+            padding-left: 60px;
+
+            &::before {
+                @extend %title-cube;
+                @include size(60px, 60px);
+                transform: translate(-50px, -20px);
+                z-index: -1;
+            }
+
+            h2 {
+                @include font($h1, start);
+                letter-spacing: 0.3em;
+            }
+
+            span {
+                @include font($h5);
+                letter-spacing: 0.1em;
+
+                &::before {
+                    @extend %title-vertical-text;
+                    content: 'Map';
+
+                }
+            }
+        }
+
+        .map-bgc {
+            @include size(800px, 560px);
+            margin: auto;
+            background-color: #ffffff;
+            background-image: url(../img/map-bgc.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+
+            .map-black-bgc {
+                @include size(100%, 100%);
+                background-color: rgba(0, 0, 0, 0.6);
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: 1s ease-in-out;
+                display: none;
+            }
+
+            .map-message {
+                @include size(20%, 19.7%);
+                background-image: url(../img/message-green.svg);
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                // display: none;
+                cursor: pointer;
+                z-index: 15;
+            }
+
+            .map-a01,
+            .map-a02,
+            .map-a03,
+            .map-a04 {
+                @extend %map-house;
+
+                &:hover {
+                    @extend %map-househover;
+
+                    ~.map-black-bgc {
+                        display: block;
+                    }
+                }
+            }
+
+            .map-a01 {
+                top: 4.9%;
+                left: 20.9%;
+
+                &:hover {
+                    ~.map-message {
+                        display: block;
+                        top: -13.5%;
+                        left: 18.9%;
+                        transform: translate(-35px, -10px);
+                    }
+                }
+            }
+
+            .map-a02 {
+                top: 4.8%;
+                left: 29.7%;
+
+                &:hover {
+                    ~.map-message {
+                        display: block;
+                        top: -13.5%;
+                        left: 27.9%;
+                        transform: translate(-35px, -10px);
+                    }
+                }
+            }
+
+            .map-a03 {
+                top: 30.8%;
+                left: 3.7%;
+
+                &:hover {
+                    ~.map-message {
+                        display: block;
+                        top: 12.9%;
+                        left: 1.9%;
+                        transform: translate(-35px, -10px);
+                    }
+                }
+            }
+
+            .map-a04 {
+                top: 30.8%;
+                left: 13.7%;
+
+                &:hover {
+                    ~.map-message {
+                        display: block;
+                        top: 12.9%;
+                        left: 11.9%;
+                        transform: translate(-35px, -10px);
+                    }
+                }
+            }
+
+            .map-b01,
+            .map-b02,
+            .map-b03,
+            .map-b04,
+            .map-b05,
+            .map-b06 {
+                @extend %map-house;
+
+                &:hover {
+                    @extend %map-househover;
+
+                    ~.map-black-bgc {
+                        display: block;
+                    }
+                }
+            }
+
+            .map-b01 {
+                top: 48.8%;
+                left: 4.6%;
+
+                &:hover {
+                    ~.map-message {
+                        display: block;
+                        top: 30.6%;
+                        left: 2.5%;
+                        transform: translate(-35px, -10px);
+                    }
+                }
+            }
+
+            .map-b02 {
+                top: 48.7%;
+                left: 16.5%;
+
+                &:hover {
+                    ~.map-message {
+                        display: block;
+                        top: 30.6%;
+                        left: 14.5%;
+                        transform: translate(-35px, -10px);
+                    }
+                }
+            }
+
+            .map-b03 {
+                top: 48.6%;
+                left: 26.3%;
+
+                &:hover {
+                    ~.map-message {
+                        display: block;
+                        top: 30.4%;
+                        left: 24.2%;
+                        transform: translate(-35px, -10px);
+                    }
+                }
+            }
+
+            .map-b04 {
+                top: 69%;
+                left: 4%;
+
+                &:hover {
+                    ~.map-message {
+                        display: block;
+                        top: 50.6%;
+                        left: 2.2%;
+                        transform: translate(-35px, -10px);
+                    }
+                }
+            }
+
+            .map-b05 {
+                top: 69%;
+                left: 13.6%;
+
+                &:hover {
+                    ~.map-message {
+                        display: block;
+                        top: 50.6%;
+                        left: 11.7%;
+                        transform: translate(-35px, -10px);
+                    }
+                }
+            }
+
+            .map-b06 {
+                top: 69%;
+                left: 23.6%;
+
+                &:hover {
+                    ~.map-message {
+                        display: block;
+                        top: 50.6%;
+                        left: 21.7%;
+                        transform: translate(-35px, -10px);
+                    }
+                }
+            }
+
+            .map-c01,
+            .map-c02,
+            .map-c03,
+            .map-c04,
+            .map-c05,
+            .map-c06,
+            .map-c07,
+            .map-c08,
+            .map-c09,
+            .map-c10,
+            .map-c11 {
+                @extend %map-house;
+
+                &:hover {
+                    @extend %map-househover;
+
+                    ~.map-black-bgc {
+                        display: block;
+                    }
+                }
+            }
+
+            .map-c01 {
+                top: 3.35%;
+                left: 45.5%;
+
+                &:hover {
+                    ~.map-message {
+                        display: block;
+                        top: -15.2%;
+                        left: 43.7%;
+                        transform: translate(-35px, -10px);
+                    }
+                }
+            }
+
+            .map-c02 {
+                top: 3.4%;
+                left: 54.5%;
+
+                &:hover {
+                    ~.map-message {
+                        display: block;
+                        top: -15.3%;
+                        left: 52.7%;
+                        transform: translate(-35px, -10px);
+                    }
+                }
+            }
+
+            .map-c03 {
+                top: 3.4%;
+                left: 63.5%;
+
+                &:hover {
+                    ~.map-message {
+                        display: block;
+                        top: -15.3%;
+                        left: 61.5%;
+                        transform: translate(-35px, -10px);
+                    }
+                }
+            }
+
+            .map-c04 {
+                top: 3.2%;
+                left: 72.5%;
+
+                &:hover {
+                    ~.map-message {
+                        display: block;
+                        top: -15.3%;
+                        left: 70.5%;
+                        transform: translate(-35px, -10px);
+                    }
+                }
+            }
+
+            .map-c05 {
+                top: 2.9%;
+                left: 81%;
+            }
+
+            .map-c06 {
+                top: 23.9%;
+                left: 42%;
+            }
+
+            .map-c07 {
+                top: 23.9%;
+                left: 50.8%;
+            }
+
+            .map-c08 {
+                top: 23.3%;
+                left: 59.8%;
+            }
+
+            .map-c09 {
+                top: 23.3%;
+                left: 68.8%;
+            }
+
+            .map-c10 {
+                top: 23.3%;
+                left: 77.8%;
+            }
+
+            .map-c11 {
+                top: 23.3%;
+                left: 86.8%;
+            }
+
+            .map-d01,
+            .map-d02,
+            .map-d03,
+            .map-d04,
+            .map-d05,
+            .map-d06,
+            .map-d07,
+            .map-d08,
+            .map-d09,
+            .map-d10,
+            .map-d11,
+            .map-d12 {
+                @extend %map-house;
+
+                &:hover {
+                    @extend %map-househover;
+
+                    ~.map-black-bgc {
+                        display: block;
+                    }
+                }
+            }
+
+            .map-d01 {
+                top: 42.3%;
+                left: 43.5%;
+            }
+
+            .map-d02 {
+                top: 42%;
+                left: 52%;
+            }
+
+            .map-d03 {
+                top: 42%;
+                left: 60.5%;
+            }
+
+            .map-d04 {
+                top: 42%;
+                left: 69%;
+            }
+
+            .map-d05 {
+                top: 41.9%;
+                left: 77.5%;
+            }
+
+            .map-d06 {
+                top: 41.6%;
+                left: 86.2%;
+            }
+
+            .map-d07 {
+                top: 69.1%;
+                left: 41.2%;
+            }
+
+            .map-d08 {
+                top: 69.1%;
+                left: 50.2%;
+            }
+
+            .map-d09 {
+                top: 69.1%;
+                left: 59%;
+            }
+
+            .map-d10 {
+                top: 69.1%;
+                left: 67.5%;
+            }
+
+            .map-d11 {
+                top: 69.1%;
+                left: 76.2%;
+            }
+
+            .map-d12 {
+                top: 69.1%;
+                left: 84.8%;
+            }
+        }
+
+    }
+}
+
+
 .view {
     @include size($w:100%, $h:100vh);
     border: 20px solid $main-color;
     @include flex;
     position: relative;
     overflow: hidden;
-
-    .view-album {
-        @include size($w:100vw, $h:100vh);
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 10;
-        background-color: #f2f2f2;
-        display: none;
-
-        .view-backimg {
-            @include size($w:80%, $h:100%);
-            margin: auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-auto-rows: 350px;
-
-            // display: none;
-
-            a {
-                text-decoration: none;
-                color: $store-tag-f-bg;
-            }
-
-            .view-pics {
-                @include size(95%, 330px);
-                background-color: #fff;
-                margin: 10px auto;
-                border: 1px solid #ccc;
-                border-radius: 20px;
-
-
-                .view-pic {
-                    @include size(90%, 230px);
-                    margin: 20px auto 10px;
-                    border: 1px solid black;
-                    border-radius: 20px;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                }
-
-                .view-pic-des {
-                    margin-left: 30px;
-
-                }
-            }
-        }
-    }
 
     .view-container {
         @include size($w:80vw, $h:80vh);
@@ -673,7 +1069,7 @@ header {
 
                     .select-bcg {
                         @include flex();
-                        @include size(150px,40px);
+                        @include size(150px, 40px);
                         background: $title-bg;
                         color: $body-bg;
                         font-size: $h6;
@@ -701,7 +1097,7 @@ header {
 
                             li {
                                 @include flex();
-                                @include size(150px,40px);
+                                @include size(150px, 40px);
                                 font-size: $h6;
                                 letter-spacing: 0.2em;
                                 background: $title-bg;
@@ -780,8 +1176,8 @@ header {
                         }
 
                         .form-optiontype {
-                           @include size(150px,40px);
-                           @include flex(flex-start);
+                            @include size(150px, 40px);
+                            @include flex(flex-start);
                             padding-left: 5px;
                             background: #ffffff;
                             border-radius: 4px;
@@ -789,8 +1185,10 @@ header {
                             font-size: $h7;
                             cursor: pointer;
                         }
+
                         .opground {
                             border-radius: 5px;
+
                             .optiontype {
                                 position: absolute;
                                 top: 56.3%;
@@ -798,10 +1196,11 @@ header {
                                 list-style: none;
                                 display: none;
                                 transform: 1000;
+
                                 li {
-                                   @include flex(flex-start);
-                                   @include size(150px,40px);
-                                   padding-left: 5px;
+                                    @include flex(flex-start);
+                                    @include size(150px, 40px);
+                                    padding-left: 5px;
                                     font-size: $h7;
                                     letter-spacing: 0.2em;
                                     color: #000000;

@@ -84,6 +84,22 @@ $h10:0.75rem;
 }
 
 // kg create
+%map-house{
+    @include size(9%, 14%);            
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+    
+}
+%map-househover{
+    // @include size(12%, 18.5%);
+    background-image: url(../img/map-house.svg);
+    // transform: translate(-35px,-10px);
+    cursor: pointer;
+}
 %title-tra-circle{
     @include size(130px,130px);
     @include flex;
