@@ -252,6 +252,73 @@ const swiper = new Swiper('.swiper-container', {
   }
 });
 
+//聯絡審計dropdownlist
+var SelectBcg = document.querySelector('.select-bcg');
+var Select = document.querySelector('.form-type');
+var FormStorename = document.querySelector('.form-storename').firstElementChild;
+var FormProducttype = document.querySelector('.form-producttype').firstElementChild;
+var FormDescription = document.querySelector('.form-description').firstElementChild;
+var ChanSelect = document.querySelector('.optiontype');
+//判斷form表單類型，並改變表單結構
+function type_select(koa) {
+  if (koa == '加入審計') {
+    FormStorename.innerHTML = '進駐店家';
+    FormProducttype.innerHTML = '商品種類';
+    // 把位於form表單下面的下拉是選單清空
+    FormOp.innerHTML = ``;
+    ChanSelect.innerHTML =
+      `<li value="我">我</li>
+    <li value="超">超</li>
+    <li value="率">率</li>`
+    FormDescription.innerHTML = '詳細資訊';
+  } else {
+    FormStorename.innerHTML = '顧客名稱/暱稱';
+    FormProducttype.innerHTML = '意見類別';
+    FormOp.innerHTML = ``;
+    ChanSelect.innerHTML =
+      `<li value="我">我</li>
+    <li value="超">超</li>
+    <li value="鄭">鄭</li>`
+    FormDescription.innerHTML = '建議內容/想對我們說';
+  }
+};
+SelectBcg.addEventListener('click', function () {
+  var listChild = document.querySelectorAll('.form-type li');
+  Select.classList.toggle('active');
+  for (var i = 0; i < listChild.length; i++) {
+    listChild[i].addEventListener('click', function () {
+      for (var j = 0; j < listChild.length; j++) {
+        listChild[j].style.background = ' #D28E76';
+      }
+      // this.style.background = 'gray'; //给选中的li颜色变为red
+      const koa = this.textContent;
+      console.log(this.value);
+      SelectBcg.innerHTML = koa;
+      Select.classList.remove('active');
+      type_select(koa);
+    }, false)
+  }
+});
+
+var FormOp = document.querySelector('.form-optiontype');
+var Option = document.querySelector('.optiontype');
+FormOp.addEventListener('click', function () {
+  var Optionlist = document.querySelectorAll('.optiontype li');
+  Option.classList.toggle('active');
+  for (var i = 0; i < Optionlist.length; i++) {
+    Optionlist[i].addEventListener('click', function () {
+      for (var j = 0; j < Optionlist.length; j++) {
+        Optionlist[j].style.background = ' #ffffff';
+      }
+      // this.style.background = 'gray'; //给选中的li颜色变为red
+      const koala = this.textContent;
+      console.log(this.value);
+      FormOp.innerHTML = koala;
+      Option.classList.remove('active');
+    }, false)
+  }
+});
+
 //回到頂端按鈕
 (function () {
   $("body").append("<a href='#firstPage' id='goTopButton' class='fas fa-chevron-up' style='display: none; z-index: 5; cursor: pointer;' title='回到頂端'/></a>");
