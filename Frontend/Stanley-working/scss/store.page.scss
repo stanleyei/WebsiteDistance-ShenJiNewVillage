@@ -415,7 +415,7 @@ main {
                     "C"
                     "D"
                     "E";
-                grid-row-gap: 10vw;
+                grid-row-gap: 7vw;
             }
 
             h3 {
@@ -440,6 +440,7 @@ main {
 
                 @include w768 {
                     grid-area: B;
+                    width: 100%;
                 }
 
                 .main-photo {
@@ -448,6 +449,12 @@ main {
                     margin-bottom: 3.24vh;
                     transition: 1s ease-in-out;
                     overflow: hidden;
+
+                    @include w768{
+                        width: 75vw;
+                        height: 50vw;
+                        margin: 0 auto 20px;
+                    }
 
                     figure {
                         @include size(38.95vw, 31.25vw);
@@ -458,6 +465,12 @@ main {
                         max-height: 600px;
                         transition: 1.5s ease-in-out;
                         transform: translateX(-200%);
+
+                        @include w768{
+                            width: 75vw;
+                            height: 50vw;
+                            min-width: 75vw;
+                        }
                     }
                 }
 
@@ -465,12 +478,22 @@ main {
                     @include flex(space-between);
                     width: 38.95vw;
 
+                    @include w768{
+                        width: 75vw;
+                        margin: 0 auto;
+                    }
+
                     figure {
                         @include size(6.5vw, 4.17vw);
                         background-size: cover;
                         background-position: center;
                         background-repeat: no-repeat;
                         cursor: pointer;
+
+                        @include w768{
+                            width: 12vw;
+                            height: 7.74vw;
+                        }
 
                         &:hover {
                             border: $main-color solid 2px;
@@ -496,17 +519,23 @@ main {
 
                 @include w768 {
                     grid-area: D;
+                    margin: 0 auto;
+                    width: 75vw;
+                    height: 50vw;
                 }
             }
 
             >p {
                 @include font($h5, start, 3.7vh);
-                padding: 0 3.125vw;
+                padding: 8vw 3.125vw 0;
                 grid-area: F;
                 font-family: 'Noto Sans HK', sans-serif;
                 color: #000000;
                 font-weight: bold;
-                padding-top: 17%;
+
+                @include w1024{
+                    padding-top: 3vw;
+                }
 
                 @include w768 {
                     grid-area: C;

@@ -673,7 +673,7 @@ main .store-page-container article {
     -ms-grid-rows: 150px 1fr 150px 1fr 100px;
         grid-template-rows: 150px 1fr 150px 1fr 100px;
         grid-template-areas: "A" "B" "C" "D" "E";
-    grid-row-gap: 10vw;
+    grid-row-gap: 7vw;
   }
 }
 
@@ -711,6 +711,7 @@ main .store-page-container article .photo-wall {
     -ms-grid-row: 1;
     -ms-grid-column: 2;
     grid-area: B;
+    width: 100%;
   }
 }
 
@@ -724,6 +725,14 @@ main .store-page-container article .photo-wall .main-photo {
   -webkit-transition: 1s ease-in-out;
   transition: 1s ease-in-out;
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  main .store-page-container article .photo-wall .main-photo {
+    width: 75vw;
+    height: 50vw;
+    margin: 0 auto 20px;
+  }
 }
 
 main .store-page-container article .photo-wall .main-photo figure {
@@ -740,6 +749,14 @@ main .store-page-container article .photo-wall .main-photo figure {
           transform: translateX(-200%);
 }
 
+@media (max-width: 768px) {
+  main .store-page-container article .photo-wall .main-photo figure {
+    width: 75vw;
+    height: 50vw;
+    min-width: 75vw;
+  }
+}
+
 main .store-page-container article .photo-wall .nav-photo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -753,6 +770,13 @@ main .store-page-container article .photo-wall .nav-photo {
   width: 38.95vw;
 }
 
+@media (max-width: 768px) {
+  main .store-page-container article .photo-wall .nav-photo {
+    width: 75vw;
+    margin: 0 auto;
+  }
+}
+
 main .store-page-container article .photo-wall .nav-photo figure {
   width: 6.5vw;
   height: 4.17vw;
@@ -760,6 +784,13 @@ main .store-page-container article .photo-wall .nav-photo figure {
   background-position: center;
   background-repeat: no-repeat;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  main .store-page-container article .photo-wall .nav-photo figure {
+    width: 12vw;
+    height: 7.74vw;
+  }
 }
 
 main .store-page-container article .photo-wall .nav-photo figure:hover {
@@ -791,6 +822,9 @@ main .store-page-container article .down-content-photo {
     -ms-grid-row: 2;
     -ms-grid-column: 2;
     grid-area: D;
+    margin: 0 auto;
+    width: 75vw;
+    height: 50vw;
   }
 }
 
@@ -799,14 +833,19 @@ main .store-page-container article > p {
   text-align: start;
   line-height: 3.7vh;
   letter-spacing: 0.1em;
-  padding: 0 3.125vw;
+  padding: 8vw 3.125vw 0;
   -ms-grid-row: 3;
   -ms-grid-column: 2;
   grid-area: F;
   font-family: 'Noto Sans HK', sans-serif;
   color: #000000;
   font-weight: bold;
-  padding-top: 17%;
+}
+
+@media (max-width: 1024px) {
+  main .store-page-container article > p {
+    padding-top: 3vw;
+  }
 }
 
 @media (max-width: 768px) {
