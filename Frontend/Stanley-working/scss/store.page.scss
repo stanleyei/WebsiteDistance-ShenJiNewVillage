@@ -65,16 +65,37 @@ h6 {
 }
 
 #goTopButton {
-    @include size(80px, 80px);
+    @include size(4.17vw, 4.17vw);
     @include font($h6, center, 40px);
+    position: relative;
     border-radius: 50%;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background-color: $footer-text;
     color: $footer-bg;
+    min-width: 40px;
+    min-height: 40px;
+
+    @include w1366 {
+        font-size: $h9;
+        line-height: $h9;
+    }
 
     &::after {
         @include position(55%, 50%);
         content: 'Top';
+
+        @include w1366 {
+            transform: translate(-50%, 10%);
+        }
+    }
+
+    &::before {
+        position: absolute;
+        transform: translate(-10px, -3px);
+
+        @include w1366 {
+            transform: translate(-5px, 10px);
+        }
     }
 }
 
@@ -435,68 +456,138 @@ main {
 }
 
 footer {
-    @include size(100%, 64.81vh);
     @include flex();
     background-color: $footer-bg;
     position: relative;
     color: $footer-text;
 
-    .footer-logo-img {
-        @include size(4.84vw, 4.84vw);
-        @include position(50.92vh, 8.3vw, 0, 0);
-    }
-
-    .footer-logo-text {
-        @include size(7.55vw, 4.48vw);
-        @include position(50.92vh, 8.3vw, 90%, 0);
-    }
-
     .footer-container {
-        @include size(83%, 57.6vh);
+        width: 83%;
         overflow: hidden;
         margin-top: 3.7vh;
+        padding-bottom: 30px;
+
+        @include w1366{
+            width: 88%;
+        }
+        @include w576{
+            width: 100%;
+        }
 
         h2 {
             @include font($h2, start, 4.53vh, 0.15em);
             margin-bottom: 6.48vh;
+            
+            @include w1024{
+                font-size: 1.19rem;
+                text-align: center;
+            }
+            @include w576{
+                font-size: 1rem;
+                margin-bottom: 35px;
+            }
         }
 
         article {
             @include size(100%, 43.99vh);
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            margin-bottom: 25px;
+
+            @include w1024{
+                height: auto;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: 130px 70 70px;
+                grid-row-gap: 30px;
+                grid-template-areas: 
+                "A B"
+                "C C"
+                "D D";
+            }
 
             h3 {
                 @include font($h4, start, inherit, 0.15em);
+                @include w1366{
+                    font-size: 1.16rem;
+                }
+                @include w1024{
+                    text-align: center;
+                }
+                @include w576{
+                    font-size: 0.75rem;
+                }
             }
 
             .inf-detil {
                 @include font($h6, start, 2.78vh, 0.15em);
                 padding-left: 28px;
+                grid-area: A;
+
+                @include w1366{
+                    font-size: 1rem;
+                }
+                @include w1024{
+                    text-align: center;
+                    padding: 0;
+                }
+                @include w576{
+                    font-size: 0.7rem;
+                    transform: scale(0.8);
+                    white-space: nowrap;
+                }
 
                 &>div:nth-child(2) {
                     padding-left: 3.151vw;
+
+                    @include w1024{
+                        padding: 0;
+                    }
                 }
             }
 
             .open-detil {
-                @include size(12.4vw, 100%);
+                @include size(240px, 100%);
                 padding-left: 18px;
+                grid-area: B;
 
-                .date-box {
+                @include w1024{
+                    width: 100%;
+                    padding: 0;
+                }
+
+                .date-area {
                     @include flex(start, start);
                     @include font($h6, center, 2.78vh, 0.15em);
 
+                    @include w1366{
+                        font-size: 1rem;
+                    }
+                    @include w1024{
+                        justify-content: center;
+                    }
+                    @include w576{
+                        font-size: 0.7rem;
+                        transform: scale(0.8);
+                    }
+                    
                     .date-box {
-                        @include size(4.17vw, 3.7vh);
+                        @include size(80px, 3.7vh);
                         @include flex();
                         border: $footer-text 1px solid;
                         border-radius: 60px;
+
+                        @include w576{
+                            width: 50px;
+                        }
                     }
 
                     span {
-                        @include size(3.125vw, 3.7vh);
+                        @include size(60px, 3.7vh);
                         line-height: 3.7vh;
+
+                        @include w576{
+                            width: 30px;
+                        }
                     }
                 }
 
@@ -504,13 +595,94 @@ footer {
                     @include flex();
                     @include font($h6, center, 2.78vh, 0.15em);
                     padding-top: 13px;
+
+                    @include w1366{
+                        font-size: 1rem;
+                    }
+                    @include w576{
+                        font-size: 0.7rem;
+                        transform: scale(0.8);
+                    }
                 }
             }
+
+            .fb-page{
+                @include w1024{
+                    grid-area: C;
+                    text-align: center;
+                }
+            }
+
+            .fb-big{
+                @include w1024{
+                    display: none;
+                }
+            }
+
+            .fb-middle{
+                display: none;
+                @include w1024{
+                    display: block;
+                }
+                @include w576{
+                    display: none;
+                }
+            }
+
+            .fb-small{
+                display: none;
+                @include w576{
+                    display: block;
+                }
+            }
+
+            .foot-logo-box{
+                @include w1024{
+                    grid-area: D;
+                    text-align: center;
+                }
+                .footer-logo-img {
+                    @include size(4.84vw, 4.84vw);
+                    @include position(50.92vh, 8.3vw, 0, 0);
+            
+                    @include w1024{
+                        @include size(60px, 60px);
+                        position: static;
+                        margin-right: 20px;
+                    }
+                    @include w576{
+                        @include size(45px, 45px);
+                        margin-right: 10px;
+                    }
+                }
+            
+                .footer-logo-text {
+                    @include size(7.55vw, 4.48vw);
+                    @include position(50.92vh, 8.3vw, 90%, 0);
+                    
+                    @include w1024{
+                        @include size(85px, 50px);
+                        position: static;
+                        transform: translate(0, 0);
+                    }
+                    @include w576{
+                        @include size(70px, 35px);
+                    }
+                }
+            }
+
         }
 
         >p {
             @include font($h6, center, 2.78vh, 0.05em);
             margin: 0;
+
+            @include w1366{
+                font-size: 1rem;
+            }
+            @include w576{
+                font-size: 0.75rem;
+            }
         }
     }
 }

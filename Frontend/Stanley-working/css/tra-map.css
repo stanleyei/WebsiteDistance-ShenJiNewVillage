@@ -159,6 +159,24 @@ header nav ul li a .title {
   }
 }
 
+.traffic .traffic-container .traffic-title .tra-youbike::before, .traffic .traffic-container .traffic-title .youbike-point::before {
+  width: 100%;
+  height: 30%;
+  content: '';
+  position: absolute;
+  bottom: 30%;
+  left: 0;
+  background-color: #FBE6C3;
+  z-index: -1;
+}
+
+@media (max-width: 375px) {
+  .traffic .traffic-container .traffic-title .tra-youbike::before, .traffic .traffic-container .traffic-title .youbike-point::before {
+    height: 80%;
+    bottom: -40%;
+  }
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -571,34 +589,99 @@ header .nav-img.active {
 }
 
 .traffic .traffic-container .traffic-title .tra-youbike {
-  width: 17.5vw;
+  width: 250px;
   height: 4.44vh;
   position: absolute;
   top: 33%;
   left: 33%;
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
-  border-bottom: 2.22vh solid #FBE6C3;
   text-align: center;
-  font-size: 1.875vw;
+  font-size: 1.7rem;
   line-height: 5.56vh;
   letter-spacing: 0.2em;
   font-weight: bold;
 }
 
+@media (max-width: 1024px) {
+  .traffic .traffic-container .traffic-title .tra-youbike {
+    font-size: 1.5rem;
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .traffic .traffic-container .traffic-title .tra-youbike {
+    top: 120%;
+    left: 20%;
+  }
+}
+
+@media (max-width: 576px) {
+  .traffic .traffic-container .traffic-title .tra-youbike {
+    font-size: 1rem;
+    width: 130px;
+  }
+}
+
+@media (max-width: 375px) {
+  .traffic .traffic-container .traffic-title .tra-youbike {
+    width: 100px;
+    height: 20px;
+    top: 140%;
+    font-size: 0.75rem;
+  }
+}
+
 .traffic .traffic-container .traffic-title .youbike-point {
-  width: 16.5vw;
+  width: 240px;
   height: 3.33vh;
   position: absolute;
   top: 102%;
   left: 52%;
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
-  border-bottom: 2.04vh solid #FBE6C3;
   text-align: center;
-  font-size: 1.354vw;
+  font-size: 1.2rem;
   letter-spacing: 0.2em;
   font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+  .traffic .traffic-container .traffic-title .youbike-point {
+    font-size: 1.1rem;
+    width: 190px;
+  }
+}
+
+@media (max-width: 768px) {
+  .traffic .traffic-container .traffic-title .youbike-point {
+    top: 180%;
+    left: 40%;
+  }
+}
+
+@media (max-width: 576px) {
+  .traffic .traffic-container .traffic-title .youbike-point {
+    font-size: 1rem;
+    width: 180px;
+  }
+}
+
+@media (max-width: 375px) {
+  .traffic .traffic-container .traffic-title .youbike-point {
+    width: 130px;
+    height: 20px;
+    top: 250%;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .traffic .traffic-container .traffic-title .youbike-point::before {
+    height: 80%;
+    bottom: 15%;
+  }
 }
 
 .traffic .traffic-container .traffic-bike {

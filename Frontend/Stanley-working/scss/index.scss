@@ -1593,11 +1593,17 @@ header {
                             }
 
                             .view-card-img {
-                                @include size(150px, 100px);
+                                @include size(150px, 120px);
                                 display: block;
-                                margin: 10px auto 0;
+                                margin: 10px auto;
                                 background-position: center;
                                 background-size: cover;
+
+                                @include w375{
+                                    border-radius: 2px;
+                                    height: 105px;
+                                    margin: 10px auto 0;
+                                }
                             }
 
                             p:first-child {
@@ -1733,6 +1739,15 @@ header {
                     transform: translateY(-50%);
                     background-color: $store-list-bg;
                     z-index: -1;
+
+                    @include w768{
+                        width: 170px;
+                        height: 10px;
+                    }
+                    @include w375{
+                        width: 110px;
+                        height: 16px;
+                    }
                 }
             }
         }
@@ -1741,21 +1756,26 @@ header {
             @include size(51.56vw, 65vh);
             margin: 6.11vh auto 0;
 
+            @include w1366{
+                width: 70%;
+            }
             @include w1024 {
-                width: 80vw;
+                width: 100%;
             }
 
             @include w375 {
                 width: 85vw;
+                margin: 0;
             }
 
             .traffic-bus {
                 width: 100%;
                 height: 17vh;
                 display: flex;
+                align-items: center;
 
                 @include w375 {
-                    margin-top: 90px;
+                    margin-top: 70px;
                 }
             }
 
@@ -1764,12 +1784,17 @@ header {
                 height: 17vh;
                 margin-top: 3vh;
                 display: flex;
+                align-items: center;
 
                 .traffic-content {
                     font-size: $h4;
                     letter-spacing: 0.2em;
                     line-height: 16vh;
                     padding-left: 2.24vw;
+
+                    @include w576{
+                        letter-spacing: 0.1em;
+                    }
                 }
             }
 
@@ -1778,6 +1803,7 @@ header {
                 height: 17vh;
                 margin-top: 3vh;
                 display: flex;
+                align-items: center;
 
                 .traffic-content {
                     display: flex;
@@ -1797,20 +1823,30 @@ header {
             }
 
             .traffic-logo {
-                @include size(9.896vw, 100%);
-                padding-top: 2.6vh;
+                @include size(160px, 100%);
+                @include flex();
+                flex-direction: column;
+
+                @include w768{
+                    @include size(120px, 80%);
+                }
+                @include w576{
+                    width: 70px;
+                }
+                @include w375{
+                    width: 50px;
+                }
 
                 .traffic-icon {
                     @extend %title-tra-circle;
 
                     >img {
-                        @include size(3vw, 3vw);
-                        min-width: 40px;
-                        min-height: 40px;
-
-                        @include w375 {
-                            min-width: 30px;
-                            min-height: 30px;
+                        @include size(60px, 60px);
+                        @include w768{
+                            @include size(40px, 40px);
+                        }
+                        @include w576{
+                            @include size(30px, 30px);
                         }
                     }
                 }
@@ -1821,18 +1857,20 @@ header {
             }
 
             .traffic-content {
-                @include size(100%, 15vh);
                 @extend %title-tra-contentarea;
-                align-items: center;
-                font-family: 'Noto Sans HK', sans-serif;
 
+                &::after{
+                    @include size(1.56vw, 100%);
+                    min-width: 10px;
+                    content: '';
+                    position: absolute;
+                    background-color: $title-bg;
+                    top: 0;
+                    right: 0;
+                }
 
                 >p {
                     @extend %title-tra-contenttext;
-                    line-height: 5vh;
-                    white-space: nowrap;
-                    position: relative;
-                    z-index: 1;
 
                     &:nth-child(1) {
                         padding-left: 10px;
@@ -2185,14 +2223,12 @@ header {
 }
 
 footer {
-    // @include size(100%, 64.81vh);
     @include flex();
     background-color: $footer-bg;
     position: relative;
     color: $footer-text;
 
     .footer-container {
-        // @include size(83%, 57.6vh);
         width: 83%;
         overflow: hidden;
         margin-top: 3.7vh;

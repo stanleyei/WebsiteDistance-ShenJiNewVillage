@@ -316,17 +316,18 @@ $h10:0.625vw; //12px
 }
 
 %title-tra-circle {
-    @include size(5.5vw, 5.5vw);
+    @include size(60%, 100%);
     @include flex;
     margin: auto;
     border-radius: 50%;
     background-color: $title-bg;
-    min-width: 70px;
-    min-height: 70px;
 
+    @include w576{
+        height: 50%;
+    }
     @include w375{
-        min-width: 50px;
-        min-height: 50px;  
+        width: 50px;
+        height: 50px;
     }
 }
 
@@ -340,7 +341,7 @@ $h10:0.625vw; //12px
 
     @include w375{
        font-size: 0.7rem;
-       transform: translateX(-6px);
+       transform: scale(0.8);
 
        &:nth-child(1){
         transform: translateX(0);
@@ -349,13 +350,17 @@ $h10:0.625vw; //12px
 }
 
 %title-tra-contentarea {
+    flex: 1;
+    height: 100%;
     margin-left: 5.2vw;
     background-color: $form-bg;
     border-radius: 10px 0 0 10px;
-    border-right: 1.56vw solid $title-bg;
+    position: relative;
+    align-items: center;
+    font-family: 'Noto Sans HK', sans-serif;
 
-    @include w576{
-        margin-left: 30px;
+    @include w768{
+        margin-left: 20px;
     }
 }
 
@@ -364,6 +369,17 @@ $h10:0.625vw; //12px
     font-size: $h4;
     letter-spacing: 0.2em;
     font-family: 'Noto Sans HK', sans-serif;
+    line-height: 5vh;
+    white-space: nowrap;
+    position: relative;
+    z-index: 1;
+
+    @include w576{
+        margin-left: 0;
+        font-size: 0.7rem;
+        transform: scale(0.9);
+        letter-spacing: 0.1em;
+    }
 }
 
 %shop-nav-tap {
@@ -402,4 +418,19 @@ $h10:0.625vw; //12px
     box-shadow: 1px 1px 3px $footer-bg;
     text-align: center;
     cursor: pointer;
+}
+
+%tra-map-title-line{
+    @include size(100%, 30%);
+    content: '';
+    position: absolute;
+    bottom: 30%;
+    left: 0;
+    background-color: $store-list-bg;
+    z-index: -1;
+
+    @include w375{
+        height: 80%;
+        bottom: -40%;
+    }
 }

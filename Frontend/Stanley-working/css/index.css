@@ -262,8 +262,8 @@ header nav ul li a .title {
 }
 
 #traffic .traffic-container .traffic-main .traffic-logo .traffic-icon {
-  width: 5.5vw;
-  height: 5.5vw;
+  width: 60%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -276,14 +276,18 @@ header nav ul li a .title {
   margin: auto;
   border-radius: 50%;
   background-color: #D28E76;
-  min-width: 70px;
-  min-height: 70px;
+}
+
+@media (max-width: 576px) {
+  #traffic .traffic-container .traffic-main .traffic-logo .traffic-icon {
+    height: 50%;
+  }
 }
 
 @media (max-width: 375px) {
   #traffic .traffic-container .traffic-main .traffic-logo .traffic-icon {
-    min-width: 50px;
-    min-height: 50px;
+    width: 50px;
+    height: 50px;
   }
 }
 
@@ -299,8 +303,8 @@ header nav ul li a .title {
 @media (max-width: 375px) {
   #traffic .traffic-container .traffic-main .traffic-logo > p {
     font-size: 0.7rem;
-    -webkit-transform: translateX(-6px);
-            transform: translateX(-6px);
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
   }
   #traffic .traffic-container .traffic-main .traffic-logo > p:nth-child(1) {
     -webkit-transform: translateX(0);
@@ -309,15 +313,23 @@ header nav ul li a .title {
 }
 
 #traffic .traffic-container .traffic-main .traffic-content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 100%;
   margin-left: 5.2vw;
   background-color: #F2F2F2;
   border-radius: 10px 0 0 10px;
-  border-right: 1.56vw solid #D28E76;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Noto Sans HK', sans-serif;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   #traffic .traffic-container .traffic-main .traffic-content {
-    margin-left: 30px;
+    margin-left: 20px;
   }
 }
 
@@ -326,6 +338,20 @@ header nav ul li a .title {
   font-size: 1.354vw;
   letter-spacing: 0.2em;
   font-family: 'Noto Sans HK', sans-serif;
+  line-height: 5vh;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 576px) {
+  #traffic .traffic-container .traffic-main .traffic-content > p {
+    margin-left: 0;
+    font-size: 0.7rem;
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+    letter-spacing: 0.1em;
+  }
 }
 
 #store .store-container article nav .nav-tap-list .nav-tap {
@@ -2597,11 +2623,19 @@ header .nav-img.active {
 
 #view .view-container .view-main .swiper-container .swiper-wrapper .swiper-slide .view-card .view-card-img {
   width: 150px;
-  height: 100px;
+  height: 120px;
   display: block;
-  margin: 10px auto 0;
+  margin: 10px auto;
   background-position: center;
   background-size: cover;
+}
+
+@media (max-width: 375px) {
+  #view .view-container .view-main .swiper-container .swiper-wrapper .swiper-slide .view-card .view-card-img {
+    border-radius: 2px;
+    height: 105px;
+    margin: 10px auto 0;
+  }
 }
 
 #view .view-container .view-main .swiper-container .swiper-wrapper .swiper-slide .view-card p:first-child {
@@ -2790,21 +2824,42 @@ header .nav-img.active {
   z-index: -1;
 }
 
+@media (max-width: 768px) {
+  #traffic .traffic-container .traffic-title p::before {
+    width: 170px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 375px) {
+  #traffic .traffic-container .traffic-title p::before {
+    width: 110px;
+    height: 16px;
+  }
+}
+
 #traffic .traffic-container .traffic-main {
   width: 51.56vw;
   height: 65vh;
   margin: 6.11vh auto 0;
 }
 
+@media (max-width: 1366px) {
+  #traffic .traffic-container .traffic-main {
+    width: 70%;
+  }
+}
+
 @media (max-width: 1024px) {
   #traffic .traffic-container .traffic-main {
-    width: 80vw;
+    width: 100%;
   }
 }
 
 @media (max-width: 375px) {
   #traffic .traffic-container .traffic-main {
     width: 85vw;
+    margin: 0;
   }
 }
 
@@ -2814,11 +2869,14 @@ header .nav-img.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media (max-width: 375px) {
   #traffic .traffic-container .traffic-main .traffic-bus {
-    margin-top: 90px;
+    margin-top: 70px;
   }
 }
 
@@ -2829,6 +2887,9 @@ header .nav-img.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #traffic .traffic-container .traffic-main .traffic-car .traffic-content {
@@ -2838,6 +2899,12 @@ header .nav-img.active {
   padding-left: 2.24vw;
 }
 
+@media (max-width: 576px) {
+  #traffic .traffic-container .traffic-main .traffic-car .traffic-content {
+    letter-spacing: 0.1em;
+  }
+}
+
 #traffic .traffic-container .traffic-main .traffic-bike {
   width: 100%;
   height: 17vh;
@@ -2845,6 +2912,9 @@ header .nav-img.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #traffic .traffic-container .traffic-main .traffic-bike .traffic-content {
@@ -2866,39 +2936,70 @@ header .nav-img.active {
 }
 
 #traffic .traffic-container .traffic-main .traffic-logo {
-  width: 9.896vw;
+  width: 160px;
   height: 100%;
-  padding-top: 2.6vh;
-}
-
-#traffic .traffic-container .traffic-main .traffic-logo .traffic-icon > img {
-  width: 3vw;
-  height: 3vw;
-  min-width: 40px;
-  min-height: 40px;
-}
-
-@media (max-width: 375px) {
-  #traffic .traffic-container .traffic-main .traffic-logo .traffic-icon > img {
-    min-width: 30px;
-    min-height: 30px;
-  }
-}
-
-#traffic .traffic-container .traffic-main .traffic-content {
-  width: 100%;
-  height: 15vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-family: 'Noto Sans HK', sans-serif;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-#traffic .traffic-container .traffic-main .traffic-content > p {
-  line-height: 5vh;
-  white-space: nowrap;
-  position: relative;
-  z-index: 1;
+@media (max-width: 768px) {
+  #traffic .traffic-container .traffic-main .traffic-logo {
+    width: 120px;
+    height: 80%;
+  }
+}
+
+@media (max-width: 576px) {
+  #traffic .traffic-container .traffic-main .traffic-logo {
+    width: 70px;
+  }
+}
+
+@media (max-width: 375px) {
+  #traffic .traffic-container .traffic-main .traffic-logo {
+    width: 50px;
+  }
+}
+
+#traffic .traffic-container .traffic-main .traffic-logo .traffic-icon > img {
+  width: 60px;
+  height: 60px;
+}
+
+@media (max-width: 768px) {
+  #traffic .traffic-container .traffic-main .traffic-logo .traffic-icon > img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  #traffic .traffic-container .traffic-main .traffic-logo .traffic-icon > img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+#traffic .traffic-container .traffic-main .traffic-content::after {
+  width: 1.56vw;
+  height: 100%;
+  min-width: 10px;
+  content: '';
+  position: absolute;
+  background-color: #D28E76;
+  top: 0;
+  right: 0;
 }
 
 #traffic .traffic-container .traffic-main .traffic-content > p:nth-child(1) {
