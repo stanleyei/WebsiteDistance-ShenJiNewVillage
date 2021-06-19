@@ -284,7 +284,6 @@ header {
                 margin: 0;
                 padding-left: 40px;
             }
-
             @include w375 {
                 height: 30px;
                 padding-left: 20px;
@@ -332,24 +331,70 @@ header {
             }
 
             .tra-youbike {
-                @include size(17.5vw, 4.44vh);
+                @include size(250px, 4.44vh);
                 @include position(33%, 33%, 0, 0);
-                border-bottom: 2.22vh solid $store-list-bg;
                 text-align: center;
-                font-size: $h2;
+                font-size: 1.7rem;
                 line-height: 5.56vh;
                 letter-spacing: 0.2em;
                 font-weight: bold;
+
+                @include w1024{
+                    font-size: 1.5rem;
+                    width: 200px;
+                }
+                @include w768{
+                    top: 120%;
+                    left: 20%;
+                }
+                @include w576{
+                    font-size: 1rem;
+                    width: 130px;
+                }
+                @include w375{
+                    @include size(100px , 20px);
+                    top: 140%;
+                    font-size: 0.75rem;
+                }
+
+                &::before{
+                    @extend %tra-map-title-line;
+                }
             }
 
             .youbike-point {
-                @include size(16.5vw, 3.33vh);
+                @include size(240px, 3.33vh);
                 @include position(102%, 52%, 0, 0);
-                border-bottom: 2.04vh solid $store-list-bg;
                 text-align: center;
-                font-size: $h4;
+                font-size: 1.2rem;
                 letter-spacing: 0.2em;
                 font-weight: bold;
+
+                @include w1024{
+                    font-size: 1.1rem;
+                    width: 190px;
+                }
+                @include w768{
+                    top: 180%;
+                    left: 40%;
+                }
+                @include w576{
+                    font-size: 1rem;
+                    width: 180px;
+                }
+                @include w375{
+                    @include size(130px , 20px);
+                    top: 250%;
+                    font-size: 0.75rem;
+                }
+
+                &::before{
+                    @extend %tra-map-title-line;
+                    @include w375{
+                        height: 80%;
+                        bottom: 15%;
+                    }
+                }
             }
         }
 
@@ -358,7 +403,7 @@ header {
             display: flex;
 
             .bike-map {
-                @include size(65vw, 55vh);
+                @include size(65vw, 53vh);
                 margin: 100px auto;
                 background-color: $footer-text;
                 position: relative;

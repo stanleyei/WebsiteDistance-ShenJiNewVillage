@@ -40,7 +40,7 @@ h2 {
     margin: 0;
 }
 
-figure{
+figure {
     margin: 0;
 }
 
@@ -125,11 +125,11 @@ h6 {
     }
 }
 
-.header-shady{
-    
-    &::after{
+.header-shady {
 
-        @include w768{
+    &::after {
+
+        @include w768 {
             @include size(100vw, 100vh);
             content: '';
             position: absolute;
@@ -140,15 +140,15 @@ h6 {
             animation: shady 1s ease-in-out;
 
             @keyframes shady {
-                0%{
+                0% {
                     opacity: 0;
                 }
-    
-                100%{
+
+                100% {
                     opacity: 0.4;
                 }
             }
-        }  
+        }
     }
 }
 
@@ -158,6 +158,10 @@ header {
     position: fixed;
     transform: translate(-20px, -20px);
     z-index: 50;
+
+    @include w576 {
+        transform: translate(-10px, -10px);
+    }
 
     nav {
         @include size(1.93vw, 70vh);
@@ -170,7 +174,7 @@ header {
         overflow: hidden;
         transition: 1s;
 
-        @include w768{
+        @include w768 {
             @include size(50px, 50px);
             border-radius: 5px;
             position: absolute;
@@ -190,11 +194,11 @@ header {
                 width: 15vw;
             }
 
-            @include w768{
+            @include w768 {
                 width: 18vw;
             }
 
-            @include w576{
+            @include w576 {
                 width: 110px;
             }
 
@@ -242,7 +246,7 @@ header {
             background-repeat: no-repeat;
             position: absolute;
 
-            @include w576{
+            @include w576 {
                 right: 50%;
                 bottom: 15%;
                 transform: translateX(50%);
@@ -327,18 +331,30 @@ header {
 }
 
 main {
+    @include flex($ai:start);
     position: relative;
-    @include flex();
+
+    @include w768{
+        min-height: 657px;
+    }
 
     .news-page-container {
-        @include size(65vw, 100%);
+        @include size(70vw, 100%);
         padding: 10.02vw 0;
+
+        @include w1024 {
+            width: 80vw;
+        }
+
+        @include w375 {
+            padding-top: 55px;
+        }
 
         .news-title {
             position: relative;
             padding-left: 3.125vw;
 
-            @include w1366{
+            @include w1366 {
                 margin: 0;
                 padding-left: 40px;
             }
@@ -354,9 +370,11 @@ main {
 
             h2 {
                 @include font($h1, start, inherit, 0.3em);
-                @include w1366{
+
+                @include w1366 {
                     font-size: 1.8rem;
                 }
+
                 @include w375 {
                     font-size: 1rem;
                 }
@@ -364,9 +382,11 @@ main {
 
             span {
                 @include font($h5);
-                @include w1366{
+
+                @include w1366 {
                     font-size: 1rem;
                 }
+
                 @include w375 {
                     letter-spacing: 0;
                     font-size: 0.7rem;
@@ -386,6 +406,10 @@ main {
             @include flex(flex-end);
             margin-top: 3.7vh;
             padding-right: 1.5625vw;
+
+            @include w375 {
+                justify-content: center;
+            }
 
             .aside-tab {
                 @extend %news-page-aside-tag;
@@ -413,8 +437,16 @@ main {
         article {
             padding: 7.4vh 0 0 1.67vw;
 
+            @include w375 {
+                padding: 3vh 0 0 0;
+            }
+
             .news-date {
                 margin-bottom: 6.48vh;
+
+                @include w768 {
+                    display: none;
+                }
 
                 .date-title {
                     @include size(5.21vw, 2.78vh);
@@ -422,6 +454,10 @@ main {
                     border-radius: 6px;
                     background-color: $main-color;
                     color: $store-list-bg;
+
+                    @include w1366 {
+                        width: 76px;
+                    }
                 }
 
                 .date-btns {
@@ -448,21 +484,25 @@ main {
                 position: relative;
                 margin-bottom: 5.56vh;
 
+                @include w375 {
+                    margin: 2vh 0 3vh 0;
+                }
+
                 h4 {
                     @include font($h1, center, 5.56vh, 0.2em);
                     position: relative;
                     padding-left: 11px;
                     margin: 0;
 
-                    @include w1366{
+                    @include w1366 {
                         font-size: 1.875rem;
                     }
 
-                    @include w1024{
+                    @include w1024 {
                         font-size: 1.65rem;
                     }
 
-                    @include w375{
+                    @include w375 {
                         line-height: 0.9rem;
                         font-size: 0.9rem;
                         margin: 0;
@@ -478,7 +518,15 @@ main {
                         background-color: $store-list-bg;
                         z-index: -1;
 
-                        @include w375{
+                        @include w1366{
+                            width: 86px;
+                        }
+
+                        @include w1024{
+                            width: 73px;
+                        }
+
+                        @include w375 {
                             @include size(90%, 40%);
                             transform: translate(0, -50%);
                         }
@@ -491,29 +539,78 @@ main {
                     padding-top: 1.39vh;
                     font-weight: bold;
 
-                    @include w375{
+                    @include w375 {
                         letter-spacing: 0;
                         font-size: 0.7rem;
                         line-height: 0.7rem;
-                        transform:  scale(0.7);
+                        transform: scale(0.7);
                         padding: 0;
                         margin: 0;
                     }
                 }
 
-                .years{
+                .years {
                     @include font($h7, center, inherit, 0.2em);
                     margin-left: 1.04vw;
                     padding-top: 1.39vh;
                     font-weight: bold;
                     margin: 0;
-                    @include w375{
+
+                    @include w375 {
                         letter-spacing: 0;
                         font-size: 0.7rem;
                         line-height: 0.7rem;
                         transform: translateX(-25%) scale(0.7);
                         padding: 0;
                         margin: 0;
+                    }
+                }
+
+                >i {
+                    display: none;
+                    cursor: pointer;
+                    text-shadow: -2px 0px 4px lighten($nes-aside-tag, 30%);
+
+                    @include w768{
+                        display: block;
+                    }
+
+                    &:active{
+                        text-shadow: none;
+                        transform: translateX(-1px);
+                    }
+
+                    &:first-of-type(){
+                        margin-right: 10px;
+
+                        @include w375{
+                            margin: 0;
+                        }
+                    }
+
+                    &:last-of-type(){
+                        margin-left: 10px;
+
+                        @include w375{
+                            margin: 0;
+                        }
+                    }
+
+
+                }
+
+                .phone-date-btn {
+                    @include size(80px, 25px);
+                    position: absolute;
+                    right: 0;
+                    border-radius: 4px;
+                    background-color: $store-tag-f-bg;
+                    color: $store-list-bg;
+                    font-size: 0.7rem;
+                    display: none;
+
+                    @include w768 {
+                        display: block;
                     }
                 }
 
@@ -524,8 +621,8 @@ main {
                     right: 1.041vw;
                     top: 0.926vh;
 
-                    &:hover{
-                        &::after{
+                    &:hover {
+                        &::after {
                             transform: translate(-1.041vw, -0.625vh);
                         }
                     }
@@ -540,7 +637,7 @@ main {
                         background-image: url(../img/select-down.png);
                         background-repeat: no-repeat;
                         transition: 0.5s ease-in-out;
-                    }   
+                    }
                 }
 
                 .custom-select-list select {
@@ -584,7 +681,7 @@ main {
                 }
 
                 .select-items div:hover {
-                    &::before{
+                    &::before {
                         @include size(11.2vw, 3.7vh);
                         content: '';
                         position: absolute;
@@ -595,7 +692,7 @@ main {
                 }
 
                 .select-items .active {
-                    &::before{
+                    &::before {
                         @include size(11.2vw, 3.7vh);
                         content: '';
                         position: absolute;
@@ -635,10 +732,11 @@ main {
                         font-weight: bold;
                         transform: translateX(15%);
 
-                        @include w768{
+                        @include w768 {
                             width: 70px;
                         }
-                        @include w375{
+
+                        @include w375 {
                             width: 50px;
                             padding: 9px 0 0 17px;
                             transform: translateX(10%);
@@ -649,26 +747,34 @@ main {
                             padding-top: 5px;
                             transform: translate(10%, 30%);
 
-                            @include w1024{
+                            @include w1024 {
                                 padding-top: 1vh;
                                 font-size: 0.8rem;
                             }
-                            @include w768{
+
+                            @include w768 {
                                 justify-content: center;
                                 transform: translateY(30%);
                             }
-                            @include w375{
-                                transform: translateY(20%) scale(0.7);
+
+                            @include w576{
+                                transform: translate(-15% ,30%);
+                            }
+
+                            @include w375 {
+                                transform: translate(-8%, -30%) scale(0.7);
                             }
                         }
 
                         >span {
                             @include font($h7, start, 1.85vh, 0.2em);
-                            @include w768{
+
+                            @include w768 {
                                 display: inline-block;
                                 transform: translateX(50%);
                             }
-                            @include w576{
+
+                            @include w576 {
                                 letter-spacing: 0;
                                 display: inline-block;
                                 font-size: 0.7rem;
@@ -676,8 +782,9 @@ main {
                                 line-height: 0.7rem;
                                 transform: translateX(1vw) scale(0.8);
                             }
-                            @include w375{
-                                transform: translateY(-7px) scale(0.7);
+
+                            @include w375 {
+                                transform: translateY(-22px) scale(0.7);
                             }
                         }
 
@@ -689,21 +796,23 @@ main {
                         padding-left: 1.041vw;
                         margin: 0;
 
-                        @include w768{
+                        @include w768 {
                             overflow: hidden;
-                            text-overflow : ellipsis;
-                            white-space : nowrap;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
                             font-size: 0.9rem;
                         }
 
-                        @include w576{
+                        @include w576 {
                             flex: none;
-                            width: 65vw;
+                            width: 55vw;
+                            margin-right: 2vw;
                         }
 
-                        @include w375{
+                        @include w375 {
                             flex: none;
                             width: 210px;
+                            line-height: 45px;
                             margin-right: 20px;
                         }
                     }
@@ -715,11 +824,9 @@ main {
                         margin-right: 1.56vw;
                         margin-left: 0.78vw;
                         font-size: $h8;
+                        text-shadow: 0px 2px 2px lighten($nes-aside-tag, 40%);
 
-                        @include w576{
-                            transform: translate(-10px, 45%);
-                        }
-                        @include w375{
+                        @include w375 {
                             font-size: 0.9rem;
                         }
                     }
@@ -736,37 +843,67 @@ main {
                         display: block;
                         padding: 2.31vh 0 0 3.5vh;
                         font-weight: bold;
+                        
+                        @include w375{
+                            font-size: 0.75rem;
+                        }
                     }
 
                     .card-body {
                         padding: 3.7vh 4.7vw 0;
 
+                        @include w576{
+                            padding-top: 2vh;
+                        }
+
                         .card-imgs {
                             @include flex(space-between);
 
-                            figure {
-                                @include size(26vw, 15vw);
+                            >figure {
+                                @include size(30vw, 15vw);
                                 background-repeat: no-repeat;
+                                background-size: contain;
+
+                                @include w1024{
+                                    @include size(35vw, 20vw);
+                                }
+
+                                @include w375{
+                                    @include size(120px, 70px);
+                                }
                             }
                         }
 
                         .card-content {
                             @include font($h7, start, 2.78vh 0.2em);
                             display: grid;
-                            grid-template-columns: repeat(3, 1fr);
+                            grid-template-columns: repeat(2, 1fr);
                             padding: 5.09vh 2.6vw 0 2.6vw;
+
+                            @include w576{
+                                padding: 2.6vh 0 0 0;
+                            }
 
                             span {
                                 display: block;
                                 padding: 0;
+
+                                @include w375{
+                                    font-size: 0.8rem;
+                                    transform: scale(0.8);
+                                }
                             }
                         }
                     }
 
                     .card-other-inf {
                         display: grid;
-                        grid-row: 2;
                         grid-template-columns: repeat(2, 1fr);
+                        align-items: center;
+                        
+                        @include w375{
+                            grid-template-columns: 140px 160px;
+                        }
 
                         >div {
                             @include flex(flex-start);
@@ -775,23 +912,32 @@ main {
                             font-weight: bold;
                             height: 12.96vh;
 
+                            @include w576{
+                                padding-left: 2vw;
+                            }
+                            @include w375{
+                                height: 66px;
+                            }
 
                             i {
                                 margin-right: 10px;
                                 font-size: $h4;
-                            }
 
-                            time {
-                                padding-top: 1.85vh;
-                                margin-left: 1.56vw;
-                                display: flex;
-                                flex-direction: column;
-                                justify-self: flex-end;
-                                line-height: 1.85vh;
+                                @include w1366{
+                                    font-size: 1rem;
+                                }
+                                @include w768{
+                                    transform: translate(25%, 15%);
+                                }
                             }
 
                             >img {
                                 margin-left: 1.56vw;
+
+                                @include w576{
+                                    width: 40px;
+                                    height: 40px;
+                                }
                             }
 
                             span {
@@ -807,8 +953,124 @@ main {
                             }
                         }
 
-                        >div:nth-child(1),
-                        >div:nth-child(2) {
+                        .event-time{
+
+                            @include w768{
+                                @include flex($ai: start);
+                                flex-direction: column;
+                            }
+
+                            >div{
+                                display: flex;
+
+                                @include w375{
+                                    font-size: 0.8rem;
+                                    transform: scale(0.8);
+                                }
+                            }
+
+                            time {
+                                padding-top: 1.85vh;
+                                margin-left: 1.56vw;
+                                display: flex;
+                                flex-direction: column;
+                                justify-self: flex-end;
+                                line-height: 1.85vh;
+
+                                @include w768{
+                                    padding: 0;
+                                }
+
+                                @include w375{
+                                    font-size: 0.8rem;
+                                    transform: scale(0.8);
+                                }
+
+                                span {
+                                    @include w768{
+                                        display: block;
+                                        text-align: start;
+                                        padding-left: 30px;
+                                    }
+
+                                    @include w375{
+                                        padding: 0;
+                                        word-break: break-all;
+                                    }
+                                }
+
+                                >div:last-of-type() {
+                                    @include w375{
+                                        text-align: start;
+                                    }
+                                }
+                            }
+                        } 
+
+                        .event-place {
+
+                            @include w768{
+                                @include flex($ai: start);
+                                flex-direction: column;
+                                text-align: start;
+                            }
+
+                            >div {
+                                margin-right: 10px;
+                                display: flex;
+
+                                @include w375{
+                                    font-size: 0.8rem;
+                                    transform: scale(0.8);
+                                }
+                            }
+
+                            >span {
+                                display: block;
+
+                                @include w768{
+                                    padding-left: 20px;
+                                }
+
+                                @include w375{
+                                    font-size: 0.8rem;
+                                    transform: scale(0.8);
+                                    padding-left: 10px;
+                                }
+                            }
+                        }
+
+                        .event-organizer{
+                            @include w375{
+                                padding-left: 20px;
+                            }
+
+                            >i {
+                                @include w375{
+                                    width: 1px;
+                                    font-size: 0.8rem;
+                                    transform: scale(0.8);
+                                }
+                            }
+
+                            >span {
+                                @include w375{
+                                    font-size: 0.8rem;
+                                    transform: scale(0.8);
+                                }
+                            }
+                        }
+
+                        .event-calendar >a{
+                            
+                            @include w375{
+                                font-size: 0.8rem;
+                                transform: scale(0.8);
+                            }
+                        }
+
+                        .event-time,
+                        .event-place {
                             border-top: 3px solid $body-bg;
                             border-bottom: 3px solid $body-bg;
                         }
@@ -820,6 +1082,26 @@ main {
                 @include font($h1, start, 60px, 0.2em);
                 margin: 25.46vh 0 1.39vh 0;
                 font-family: 'Noto Sans TC', sans-serif;
+
+                @include w1366 {
+                    font-size: 2rem;
+                }
+
+                @include w768 {
+                    display: none;
+                }
+            }
+
+            #next-month-title {
+                @include w768 {
+                    display: none;
+                }
+            }
+
+            #content-infs-next {
+                @include w768 {
+                    display: none;
+                }
             }
 
             .inf-focus {
@@ -828,14 +1110,14 @@ main {
                 color: $footer-text;
             }
 
-            .feast-photo-wall{
+            .feast-photo-wall {
                 padding: 1.85vh 1.56vw 0;
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 grid-gap: 2vw;
                 display: none;
 
-                figure{
+                figure {
                     @include size(18.65vw, 10.14vw);
                     position: relative;
                     background-size: cover;
@@ -843,15 +1125,15 @@ main {
                     border-radius: 2px;
                     box-shadow: 0 0 3px $footer-bg;
 
-                    &:hover{
+                    &:hover {
 
-                        .figure-hover-appear{
+                        .figure-hover-appear {
                             opacity: 0.9;
                             transition: 0.8s ease-in-out;
-                        }    
+                        }
                     }
 
-                    .figure-hover-appear{
+                    .figure-hover-appear {
                         @include size(100%, 100%);
                         @include font($h6, center, 10.65vw);
                         position: absolute;
@@ -877,22 +1159,24 @@ footer {
         margin-top: 3.7vh;
         padding-bottom: 30px;
 
-        @include w1366{
+        @include w1366 {
             width: 88%;
         }
-        @include w576{
+
+        @include w576 {
             width: 100%;
         }
 
         h2 {
             @include font($h2, start, 4.53vh, 0.15em);
             margin-bottom: 6.48vh;
-            
-            @include w1024{
+
+            @include w1024 {
                 font-size: 1.19rem;
                 text-align: center;
             }
-            @include w576{
+
+            @include w576 {
                 font-size: 1rem;
                 margin-bottom: 35px;
             }
@@ -904,26 +1188,29 @@ footer {
             grid-template-columns: repeat(3, 1fr);
             margin-bottom: 25px;
 
-            @include w1024{
+            @include w1024 {
                 height: auto;
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: 130px 70 70px;
                 grid-row-gap: 30px;
-                grid-template-areas: 
-                "A B"
-                "C C"
-                "D D";
+                grid-template-areas:
+                    "A B"
+                    "C C"
+                    "D D";
             }
 
             h3 {
                 @include font($h4, start, inherit, 0.15em);
-                @include w1366{
+
+                @include w1366 {
                     font-size: 1.16rem;
                 }
-                @include w1024{
+
+                @include w1024 {
                     text-align: center;
                 }
-                @include w576{
+
+                @include w576 {
                     font-size: 0.75rem;
                 }
             }
@@ -933,14 +1220,16 @@ footer {
                 padding-left: 28px;
                 grid-area: A;
 
-                @include w1366{
+                @include w1366 {
                     font-size: 1rem;
                 }
-                @include w1024{
+
+                @include w1024 {
                     text-align: center;
                     padding: 0;
                 }
-                @include w576{
+
+                @include w576 {
                     font-size: 0.7rem;
                     transform: scale(0.8);
                     white-space: nowrap;
@@ -949,7 +1238,7 @@ footer {
                 &>div:nth-child(2) {
                     padding-left: 3.151vw;
 
-                    @include w1024{
+                    @include w1024 {
                         padding: 0;
                     }
                 }
@@ -960,7 +1249,7 @@ footer {
                 padding-left: 18px;
                 grid-area: B;
 
-                @include w1024{
+                @include w1024 {
                     width: 100%;
                     padding: 0;
                 }
@@ -969,24 +1258,26 @@ footer {
                     @include flex(start, start);
                     @include font($h6, center, 2.78vh, 0.15em);
 
-                    @include w1366{
+                    @include w1366 {
                         font-size: 1rem;
                     }
-                    @include w1024{
+
+                    @include w1024 {
                         justify-content: center;
                     }
-                    @include w576{
+
+                    @include w576 {
                         font-size: 0.7rem;
                         transform: scale(0.8);
                     }
-                    
+
                     .date-box {
                         @include size(80px, 3.7vh);
                         @include flex();
                         border: $footer-text 1px solid;
                         border-radius: 60px;
 
-                        @include w576{
+                        @include w576 {
                             width: 50px;
                         }
                     }
@@ -995,7 +1286,7 @@ footer {
                         @include size(60px, 3.7vh);
                         line-height: 3.7vh;
 
-                        @include w576{
+                        @include w576 {
                             width: 30px;
                         }
                     }
@@ -1006,76 +1297,83 @@ footer {
                     @include font($h6, center, 2.78vh, 0.15em);
                     padding-top: 13px;
 
-                    @include w1366{
+                    @include w1366 {
                         font-size: 1rem;
                     }
-                    @include w576{
+
+                    @include w576 {
                         font-size: 0.7rem;
                         transform: scale(0.8);
                     }
                 }
             }
 
-            .fb-page{
-                @include w1024{
+            .fb-page {
+                @include w1024 {
                     grid-area: C;
                     text-align: center;
                 }
             }
 
-            .fb-big{
-                @include w1024{
+            .fb-big {
+                @include w1024 {
                     display: none;
                 }
             }
 
-            .fb-middle{
+            .fb-middle {
                 display: none;
-                @include w1024{
+
+                @include w1024 {
                     display: block;
                 }
-                @include w576{
+
+                @include w576 {
                     display: none;
                 }
             }
 
-            .fb-small{
+            .fb-small {
                 display: none;
-                @include w576{
+
+                @include w576 {
                     display: block;
                 }
             }
 
-            .foot-logo-box{
-                @include w1024{
+            .foot-logo-box {
+                @include w1024 {
                     grid-area: D;
                     text-align: center;
                 }
+
                 .footer-logo-img {
                     @include size(4.84vw, 4.84vw);
                     @include position(50.92vh, 8.3vw, 0, 0);
-            
-                    @include w1024{
+
+                    @include w1024 {
                         @include size(60px, 60px);
                         position: static;
                         margin-right: 20px;
                     }
-                    @include w576{
+
+                    @include w576 {
                         @include size(45px, 45px);
                         margin-right: 10px;
                     }
                 }
-            
+
                 .footer-logo-text {
                     @include size(7.55vw, 4.48vw);
                     @include position(50.92vh, 8.3vw, 90%, 0);
-                    
-                    @include w1024{
+
+                    @include w1024 {
                         @include size(85px, 50px);
                         position: static;
                         transform: translate(0, 0);
                     }
-                    @include w576{
+
+                    @include w576 {
                         @include size(70px, 35px);
                     }
                 }
@@ -1087,10 +1385,11 @@ footer {
             @include font($h6, center, 2.78vh, 0.05em);
             margin: 0;
 
-            @include w1366{
+            @include w1366 {
                 font-size: 1rem;
             }
-            @include w576{
+
+            @include w576 {
                 font-size: 0.75rem;
             }
         }

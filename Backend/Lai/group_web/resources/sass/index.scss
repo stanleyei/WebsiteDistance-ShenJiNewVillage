@@ -4,16 +4,6 @@
     box-sizing: border-box;
 }
 
-// ::-webkit-scrollbar{
-//     width: 7px;
-// }
-// ::-webkit-scrollbar-track{
-//     background-color: $title-bg;
-// }
-// ::-webkit-scrollbar-thumb{
-//     background-color: $store-tag-f-bg;
-// }
-
 body {
     margin: 0;
     padding: 0;
@@ -99,14 +89,35 @@ h6 {
 #goTopButton {
     @include size(4.17vw, 4.17vw);
     @include font($h6, center, 40px);
+    position: relative;
     border-radius: 50%;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background-color: $footer-text;
     color: $footer-bg;
+    min-width: 40px;
+    min-height: 40px;
+
+    @include w1366 {
+        font-size: $h9;
+        line-height: $h9;
+    }
 
     &::after {
         @include position(55%, 50%);
         content: 'Top';
+
+        @include w1366 {
+            transform: translate(-50%, 10%);
+        }
+    }
+
+    &::before {
+        position: absolute;
+        transform: translate(-10px, -3px);
+
+        @include w1366 {
+            transform: translate(-5px, 10px);
+        }
     }
 }
 
@@ -201,6 +212,16 @@ h6 {
             padding-left: 1.5vw;
         }
     }
+}
+
+.fp-right {
+    @include w768 {
+        display: none;
+    }
+}
+
+.fp-sr-only~span {
+    background-color: #596E79 !important;
 }
 
 .header-shady {
@@ -409,13 +430,15 @@ header {
     position: relative;
     border: 1.04vw solid $main-color;
 
-    @include w1366{
+    @include w1366 {
         border: 1.46vw solid $main-color;
     }
-    @include w1024{
+
+    @include w1024 {
         border: 1.95vw solid $main-color;
     }
-    @include w768{
+
+    @include w768 {
         border: 2.67vw solid $main-color;
     }
 
@@ -599,13 +622,16 @@ header {
                     .swiper-pagination {
                         bottom: 0;
 
-                        span {
+                        .swiper-pagination-bullet {
                             @include size(8px, 8px);
-                            background-color: $title-bg;
 
                             @include w375 {
                                 @include size(5px, 5px);
                             }
+                        }
+
+                        .swiper-pagination-bullet-active {
+                            background-color: $title-bg;
                         }
                     }
                 }
@@ -643,13 +669,15 @@ header {
     position: relative;
     border: 1.04vw solid $main-color;
 
-    @include w1366{
+    @include w1366 {
         border: 1.46vw solid $main-color;
     }
-    @include w1024{
+
+    @include w1024 {
         border: 1.95vw solid $main-color;
     }
-    @include w768{
+
+    @include w768 {
         border: 2.67vw solid $main-color;
     }
 
@@ -761,7 +789,7 @@ header {
                 margin: 6.5vh 0 4.5vh 0;
 
                 @include w375 {
-                    margin: 2vh 0 2vh 0;
+                    margin: 2vh 0 3vh 0;
                 }
 
                 h3 {
@@ -793,6 +821,14 @@ header {
                         background-color: $store-list-bg;
                         z-index: -1;
 
+                        @include w1366{
+                            width: 86px;
+                        }
+
+                        @include w1024{
+                            width: 73px;
+                        }
+
                         @include w375 {
                             @include size(90%, 40%);
                             transform: translate(0, -50%);
@@ -815,7 +851,7 @@ header {
                         margin: 0;
                     }
 
-                    &:last-child() {
+                    &:nth-child(3) {
                         margin: 0;
 
                         @include w375 {
@@ -847,13 +883,30 @@ header {
 
                     &::before {
                         @extend %news-inf-before;
+
+                    }
+
+                    &:nth-child(2)::before {
+                        background-color: $news-event-tag;
+                    }
+
+                    &:nth-child(3)::before {
+                        background-color: $footer-bg;
                     }
 
                     &:hover {
                         background-color: $form-title-bg;
 
                         &::before {
-                            background-color: darken($title-bg, 5%);
+                            background-color: darken($news-tag-f-bg, 5%);
+                        }
+
+                        &:nth-child(2)::before {
+                            background-color: darken($news-event-tag, 5%);
+                        }
+
+                        &:nth-child(3)::before {
+                            background-color: darken($footer-bg, 5%);
                         }
                     }
 
@@ -894,7 +947,8 @@ header {
                             }
 
                             @include w375 {
-                                transform: translateY(20%) scale(0.7);
+                                padding: 0;
+                                transform: translate(-5%, -9%) scale(0.7);
                             }
                         }
 
@@ -916,7 +970,7 @@ header {
                             }
 
                             @include w375 {
-                                transform: translateY(-7px) scale(0.7);
+                                transform: translateY(-13px) scale(0.7);
                             }
                         }
                     }
@@ -949,6 +1003,7 @@ header {
                                 text-overflow: ellipsis;
                                 white-space: nowrap;
                                 font-size: 0.9rem;
+                                line-height: 25px;
                             }
                         }
                     }
@@ -968,6 +1023,7 @@ header {
                         margin-left: 10px;
                         transform: translateY(45%);
                         font-size: $h8;
+                        text-shadow: 0px 2px 2px lighten($nes-aside-tag, 40%);
 
                         @include w576 {
                             transform: translate(-10px, 45%);
@@ -997,25 +1053,31 @@ header {
     position: relative;
     border: 1.04vw solid $main-color;
 
-    @include w1366{
+    @include w1366 {
         border: 1.46vw solid $main-color;
     }
-    @include w1024{
+
+    @include w1024 {
         border: 1.95vw solid $main-color;
     }
-    @include w768{
+
+    @include w768 {
         border: 2.67vw solid $main-color;
     }
 
     .store-container {
-        @include size(75vw, 80vh);
-        @include w1024{
-            @include size(90vw, 80vh);
+        @include size(75vw, 100%);
+        padding-top: 9vh;
+
+        @include w1024 {
+            width: 90vw;
+            padding-top: 6vh;
         }
-        @include w375{
-            @include size(90vw, 90vh);
+
+        @include w375 {
+            padding-top: 4vh;
         }
-        
+
         .store-title {
             position: relative;
             padding-left: 3.125vw;
@@ -1069,41 +1131,51 @@ header {
 
         article {
             @include flex();
-            padding: 4.63vh 0 0 5.73vw;
+            height: 65%;
+            margin-top: 5%;
+            padding-left: 5.73vw;
 
-            @include w1024{
-                padding: 2vh 0 0 0;
+            @include w1024 {
+                height: 78%;
+                margin: 0;
+                padding: 5vh 0 0 0;
             }
-            @include w768{
+
+            @include w768 {
                 display: block;
+                height: 87%;
             }
 
             .shop-window {
-                @include size(56vw, 36.5625vw);
+                @include size(63%, 100%);
                 @include flex();
-                max-height: 61vh;
-                margin-right: 5.2vw;
+                margin-right: 100px;
                 position: relative;
 
-                @include w768{
-                    @include size(100%, 45vw);
+                @include w1024 {
+                    margin-right: 50px;
+                }
+
+                @include w768 {
+                    @include size(100%, 50%);
                     margin: 0;
                 }
-                @include w375{
-                    @include size(100%, 200px);
+
+                @include w375 {
+                    height: 40%;
                 }
 
                 >img {
-                    @include size(50vw, 65.1vh);
-                    max-height: 61vh;
+                    @include size(100%, 100%);
                     position: relative;
                     z-index: 48;
 
-                    @include w1024{
-                        @include size(100%, 45vw);
+                    @include w1024 {
+                        height: 45vw;
                     }
-                    @include w375{
-                        height: 200px;
+
+                    @include w768 {
+                        height: 100%;
                     }
 
                     &:hover {
@@ -1138,10 +1210,11 @@ header {
                     z-index: 3;
                     opacity: 0;
 
-                    @include w1024{
+                    @include w1024 {
                         @include font($h2, center, 4.5vw);
                     }
-                    @include w768{
+
+                    @include w768 {
                         @include font($h1, center, 4.5vw);
                     }
                 }
@@ -1174,43 +1247,48 @@ header {
                         @include size(6vw, 2.5vw);
                         @include font($h4, center, 2.5vw);
                         position: absolute;
-                        transform: translate(-95%, -10%);
+                        transform: translate(-150%, -10%);
                         box-shadow: $nav-bg 0px 0px 30px;
                         border-radius: 5px;
                         color: $footer-text;
                         cursor: pointer;
                         background-color: #ffffff3b;
 
-                        @include w1024{
+                        @include w1024 {
                             @include size(8vw, 3vw);
                             @include font($h2, center, 3vw);
                             transform: translate(-70%, -10%);
                         }
-                        @include w768{
+
+                        @include w768 {
                             @include size(10vw, 3vw);
                             transform: translate(100%, -10%);
                         }
-                        @include w480{
+
+                        @include w480 {
                             @include size(12vw, 4vw);
                             transform: translate(70%, 20%);
                             line-height: 4vw;
                         }
-                        @include w375{
+
+                        @include w375 {
                             @include size(12vw, 5vw);
                             line-height: 5vw;
                         }
                     }
 
                     li:nth-child(2)>.check-btn {
-                        transform: translate(15%, -10%);
+                        transform: translate(-38%, -10%);
 
-                        @include w1024{
+                        @include w1024 {
                             transform: translate(55%, -10%);
                         }
-                        @include w768{
+
+                        @include w768 {
                             transform: translate(210%, -10%);
                         }
-                        @include w480{
+
+                        @include w480 {
                             transform: translate(180%, 20%);
                         }
                     }
@@ -1221,21 +1299,16 @@ header {
                 }
 
                 .hide-area {
-                    @include size(26.5vw, 54.7vh);
+                    @include size(55%, 54.7vh);
                     position: absolute;
                     overflow: hidden;
 
-                    @include w1024{
+                    @include w1024 {
                         @include size(31vw, 40vw);
                     }
-                    @include w768{
-                        @include size(50vw, 30vh);
-                    }
-                    @include w480{
-                        @include size(50vw, 24vh);
-                    }
-                    @include w375{
-                        @include size(180px, 180px);
+
+                    @include w768 {
+                        @include size(50vw, 90%);
                     }
 
                     .figure-box {
@@ -1247,23 +1320,22 @@ header {
                             display: flex;
 
                             figure {
-                                @include size(26.5vw, 40.36vh);
+                                @include size(26vw, 40.36vh);
                                 background-size: cover;
                                 background-position: center;
                                 background-repeat: no-repeat;
                                 transition: 1s ease-in-out;
 
-                                @include w1024{
+                                @include w1024 {
                                     @include size(31vw, 30vw);
                                 }
-                                @include w768{
-                                    @include size(50vw, 22vh);
+
+                                @include w768 {
+                                    @include size(50vw, 25.5vh);
                                 }
-                                @include w480{
-                                    @include size(50vw, 18vh);
-                                }
-                                @include w375{
-                                    @include size(180px, 130px);
+
+                                @include w375 {
+                                    height: 20vh;
                                 }
 
                                 &::before {
@@ -1285,25 +1357,31 @@ header {
             }
 
             nav {
-                width: 20vw;
+                width: 15vw;
                 font-weight: bold;
                 padding-bottom: 5.56vh;
 
-                @include w768{
-                    width: 65%;
+                @include w1024 {
+                    width: 25%;
+                }
+
+                @include w768 {
+                    @include size(65%, 45%);
                     margin: 0 auto;
                 }
-                @include w375{
-                    width: 60%;
-                    margin: 0 auto;
+
+                @include w375 {
+                    @include size(60%, 65%);
                 }
 
                 h3 {
                     @include font($h2, $ls:0.3em);
-                    @include w1024{
+
+                    @include w1024 {
                         font-size: $h1;
                     }
-                    @include w768{
+
+                    @include w768 {
                         display: none;
                     }
                 }
@@ -1312,14 +1390,17 @@ header {
                     display: flex;
                     justify-content: space-between;
                     margin-bottom: 2.31vh;
+                    padding: 0 5px;
 
-                    @include w1024{
-                        padding: 0 1.3vw;
+                    @include w1024 {
+                        padding: 0 10px;
                     }
-                    @include w768{
+
+                    @include w768 {
                         padding: 0 2.4vw;
                     }
-                    @include w375{
+
+                    @include w375 {
                         padding: 0 15px;
                         margin-bottom: 1vh;
                         margin-top: 10px;
@@ -1336,21 +1417,13 @@ header {
                 }
 
                 .shop-list {
-                    @include size(100%, 49vh);
+                    @include size(100%, 100%);
                     padding: 3.7vh 0 0 1.6vw;
                     background-color: $store-list-bg;
                     box-shadow: 0 7px $title-bg;
                     overflow-y: scroll;
 
-                    @include w768{
-                        @include size(100%, 35.5vh);
-                        padding: 15px 0 0 20px;
-                    }
-                    @include w480 {
-                        @include size(100%, 42vh);
-                    }
-                    @include w375{
-                        @include size(100%, 310px);
+                    @include w768 {
                         padding: 15px 0 0 20px;
                     }
 
@@ -1362,7 +1435,7 @@ header {
                             position: relative;
                             cursor: pointer;
 
-                            @include w768{
+                            @include w768 {
                                 font-size: $h2;
                             }
 
@@ -1400,13 +1473,15 @@ header {
                     display: none;
                 }
 
-                ::-webkit-scrollbar{
+                ::-webkit-scrollbar {
                     width: 7px;
                 }
-                ::-webkit-scrollbar-track{
+
+                ::-webkit-scrollbar-track {
                     background-color: $title-bg;
                 }
-                ::-webkit-scrollbar-thumb{
+
+                ::-webkit-scrollbar-thumb {
                     background-color: $store-tag-f-bg;
                 }
             }
@@ -1421,18 +1496,20 @@ header {
     position: relative;
     overflow: hidden;
 
-    @include w1366{
+    @include w1366 {
         border: 1.46vw solid $main-color;
     }
-    @include w1024{
+
+    @include w1024 {
         border: 1.95vw solid $main-color;
     }
-    @include w768{
+
+    @include w768 {
         border: 2.67vw solid $main-color;
     }
 
     .view-container {
-        @include size(80vw, 80vh);
+        @include size(70vw, 80vh);
 
         .view-title {
             position: relative;
@@ -1497,20 +1574,19 @@ header {
                 margin: 0 auto;
                 display: flex;
                 align-items: center;
-                position: relative;
 
                 .swiper-wrapper {
                     padding: 1.85vh 0;
 
                     .swiper-slide {
-                        @include size(14.58vw, 43vh);
+                        @include size(230px, 43vh);
                         margin-top: 15.74vh;
                         border-radius: 20px;
                         text-align: center;
                         font-size: $h7;
 
                         .view-card {
-                            @include size(14.58vw, 43vh);
+                            @include size(208px, 43vh);
                             background-color: $title-bg;
                             border-radius: 20px;
                             text-align: center;
@@ -1519,25 +1595,41 @@ header {
                             line-height: 2.78vh;
                             padding-top: 2.31vh;
 
-                            span {
-                                display: block;
-                                margin: 10px auto 2.31vh;
-                                @include size(11.98vw, 16.67vh);
-                                background-position: center;
-                                background-size: cover;
+                            @include w576 {
+                                border-radius: 10px;
                             }
 
-                            p {
-                                padding: 0 1.6vw;
+                            @include w375 {
+                                width: 48vw;
+                            }
+
+                            .view-card-img {
+                                @include size(150px, 120px);
+                                display: block;
+                                margin: 10px auto;
+                                background-position: center;
+                                background-size: cover;
+
+                                @include w375 {
+                                    border-radius: 2px;
+                                    height: 105px;
+                                    margin: 10px auto 0;
+                                }
                             }
 
                             p:first-child {
                                 font-size: $h9;
+
+                                @include w1366 {
+                                    font-size: 0.8rem;
+                                }
                             }
 
                             p:last-child {
                                 letter-spacing: 0.2em;
                                 line-height: 2.31vh;
+                                font-size: 0.8rem;
+                                transform: scale(0.8);
                             }
                         }
                     }
@@ -1545,39 +1637,6 @@ header {
                     .swiper-slide-active {
                         transform: scale(1.2);
                         transition: .4s;
-                    }
-
-                }
-
-                .swiper-button-next {
-                    @include size(3.125vw, 3.125vw);
-                    position: absolute;
-                    top: 38%;
-                    right: 36.5%;
-
-                    &::after {
-                        @include size(3.125vw, 3.125vw);
-                        content: '';
-                        background-image: url(../img/view-prev.svg);
-                        background-repeat: no-repeat;
-                        background-size: contain;
-                        font-family: none;
-                    }
-                }
-
-                .swiper-button-prev {
-                    @include size(3.125vw, 3.125vw);
-                    position: absolute;
-                    top: 38%;
-                    left: 38%;
-
-                    &::after {
-                        @include size(3.125vw, 3.125vw);
-                        content: '';
-                        background-image: url(../img/view-next.svg);
-                        background-repeat: no-repeat;
-                        background-size: contain;
-                        font-family: none;
                     }
                 }
             }
@@ -1591,13 +1650,15 @@ header {
     @include flex;
     position: relative;
 
-    @include w1366{
+    @include w1366 {
         border: 1.46vw solid $main-color;
     }
-    @include w1024{
+
+    @include w1024 {
         border: 1.95vw solid $main-color;
     }
-    @include w768{
+
+    @include w768 {
         border: 2.67vw solid $main-color;
     }
 
@@ -1665,11 +1726,11 @@ header {
                 font-weight: bold;
 
                 @include w1366 {
-                    font-size: 1.3rem;
+                    font-size: 1.8rem;
                 }
 
                 @include w1024 {
-                    font-size: $h1;
+                    font-size: 1.5rem;
                 }
 
                 @include w768 {
@@ -1689,6 +1750,16 @@ header {
                     transform: translateY(-50%);
                     background-color: $store-list-bg;
                     z-index: -1;
+
+                    @include w768 {
+                        width: 170px;
+                        height: 10px;
+                    }
+
+                    @include w375 {
+                        width: 110px;
+                        height: 16px;
+                    }
                 }
             }
         }
@@ -1697,21 +1768,27 @@ header {
             @include size(51.56vw, 65vh);
             margin: 6.11vh auto 0;
 
-            @include w1024 {
-                width: 80vw;
+            @include w1366 {
+                width: 70%;
             }
 
-            @include w375{
+            @include w1024 {
+                width: 100%;
+            }
+
+            @include w375 {
                 width: 85vw;
+                margin: 0;
             }
 
             .traffic-bus {
                 width: 100%;
                 height: 17vh;
                 display: flex;
+                align-items: center;
 
-                @include w375{
-                    margin-top: 90px;
+                @include w375 {
+                    margin-top: 70px;
                 }
             }
 
@@ -1720,12 +1797,17 @@ header {
                 height: 17vh;
                 margin-top: 3vh;
                 display: flex;
+                align-items: center;
 
-                .traffic-content{
+                .traffic-content {
                     font-size: $h4;
                     letter-spacing: 0.2em;
                     line-height: 16vh;
                     padding-left: 2.24vw;
+
+                    @include w576 {
+                        letter-spacing: 0.1em;
+                    }
                 }
             }
 
@@ -1734,18 +1816,19 @@ header {
                 height: 17vh;
                 margin-top: 3vh;
                 display: flex;
+                align-items: center;
 
-                .traffic-content{
+                .traffic-content {
                     display: flex;
 
-                    >div{
+                    >div {
                         font-size: $h4;
                         letter-spacing: 0.2em;
                         padding-left: 2.24vw;
                     }
 
-                    >a{
-                        margin-left:3vw;
+                    >a {
+                        margin-left: 3vw;
                         color: $store-tag-f-bg;
                         font-size: $h4;
                     }
@@ -1753,20 +1836,34 @@ header {
             }
 
             .traffic-logo {
-                @include size(9.896vw, 100%);
-                padding-top: 2.6vh;
+                @include size(160px, 100%);
+                @include flex();
+                flex-direction: column;
+
+                @include w768 {
+                    @include size(120px, 80%);
+                }
+
+                @include w576 {
+                    width: 70px;
+                }
+
+                @include w375 {
+                    width: 50px;
+                }
 
                 .traffic-icon {
                     @extend %title-tra-circle;
 
                     >img {
-                        @include size(3vw, 3vw);
-                        min-width: 40px;
-                        min-height: 40px;
+                        @include size(60px, 60px);
 
-                        @include w375 {
-                            min-width: 30px;
-                            min-height: 30px;
+                        @include w768 {
+                            @include size(40px, 40px);
+                        }
+
+                        @include w576 {
+                            @include size(30px, 30px);
                         }
                     }
                 }
@@ -1777,23 +1874,25 @@ header {
             }
 
             .traffic-content {
-                @include size(100%, 15vh);
                 @extend %title-tra-contentarea;
-                align-items: center;
-                font-family: 'Noto Sans HK', sans-serif;
 
-                
+                &::after {
+                    @include size(1.56vw, 100%);
+                    min-width: 10px;
+                    content: '';
+                    position: absolute;
+                    background-color: $title-bg;
+                    top: 0;
+                    right: 0;
+                }
+
                 >p {
                     @extend %title-tra-contenttext;
-                    line-height: 5vh;
-                    white-space: nowrap;
-                    position: relative;
-                    z-index: 1;
 
-                    &:nth-child(1){
+                    &:nth-child(1) {
                         padding-left: 10px;
 
-                        &::before{
+                        &::before {
                             @include size(9vw, 20%);
                             content: '';
                             position: absolute;
@@ -1802,7 +1901,7 @@ header {
                             background-color: $store-list-bg;
                             z-index: -1;
 
-                            @include w768{
+                            @include w768 {
                                 width: 80px;
                             }
                         }
@@ -1819,18 +1918,21 @@ header {
     border: 1.04vw solid $main-color;
     position: relative;
 
-    @include w1366{
+    @include w1366 {
         border: 1.46vw solid $main-color;
     }
-    @include w1024{
+
+    @include w1024 {
         border: 1.95vw solid $main-color;
     }
-    @include w768{
+
+    @include w768 {
         border: 2.67vw solid $main-color;
     }
 
     .contact-container {
-        @include size(80vw, 80vh);
+        @include size(70vw, 80vh);
+        padding-top: 4vh;
 
         .contact-title {
             position: relative;
@@ -1884,17 +1986,25 @@ header {
         }
 
         .contact-main {
-            @include size(52.08vw, 74.07vh);
-            background-color: $form-bg;
-            margin: auto;
-            border-radius: 10px;
+            @include size(45vw, 88%);
             position: relative;
+            margin: 20px auto 0;
+            border-radius: 10px;
+            background-color: $form-bg;
+
+            @include w1366 {
+                width: 60vw;
+            }
+
+            @include w1024 {
+                width: 70vw;
+            }
 
             .contact-form-title {
                 @include size(100%, 9.26vh);
-                background-color: $form-title-bg;
+                @include flex();
                 border-radius: 10px 10px 0 0;
-                @include flex;
+                background-color: $form-title-bg;
 
                 .form-text {
 
@@ -1902,36 +2012,109 @@ header {
                         font-size: $h3;
                         line-height: $h3;
                         letter-spacing: 0.3em;
+                        text-align: center;
 
+                        @include w1366 {
+                            font-size: 1.25rem;
+                            line-height: 1.25rem;
+                        }
+
+                        @include w480 {
+                            font-size: 0.9rem;
+                            line-height: 0.9rem;
+                        }
                     }
 
                     p {
                         font-size: $h7;
                         line-height: $h3;
                         letter-spacing: 0.05em;
+                        padding-left: 1px;
+
+                        @include w1366 {
+                            font-size: 0.75rem;
+                            line-height: 0.75rem;
+                        }
+
+                        @include w480 {
+                            font-size: 0.7rem;
+                            line-height: 0.7rem;
+                            transform: scale(0.7);
+                        }
                     }
                 }
-
             }
 
             .contact-form-main {
                 @include flex();
+                position: relative;
                 padding-top: 6.57vh;
 
                 .contact-form {
                     width: 28.65vw;
                     padding: 2px;
 
-                    .form-type {
-                        @include size(7.81vw, 3.8vh);
-                        background-color: $title-bg;
-                        border-radius: 5px;
-                        color: $footer-text;
-                        position: absolute;
-                        top: 12.96vh;
-                        right: 2.24vw;
+
+                    @include w1024 {
+                        width: 60%;
                     }
 
+                    @include w576 {
+                        width: 85%;
+                    }
+
+                    .select-bcg {
+                        @include flex();
+                        @include size(7vw, 30px);
+                        min-width: 70px;
+                        position: absolute;
+                        background: $title-bg;
+                        color: $body-bg;
+                        font-size: $h6;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        top: 5%;
+                        right: 5%;
+                    }
+
+                    .bcground {
+                        border-radius: 5px;
+
+                        .form-type {
+                            position: absolute;
+                            top: 12%;
+                            right: 5%;
+                            list-style: none;
+                            display: none;
+
+                            li {
+                                @include flex();
+                                @include size(7vw, 30px);
+                                min-width: 70px;
+                                font-size: $h6;
+                                letter-spacing: 0.2em;
+                                background: $title-bg;
+                                color: $body-bg;
+                                cursor: pointer;
+
+                                &:hover {
+                                    background-color: $tag-bg !important;
+                                }
+
+                                &:first-child {
+                                    border-radius: 4px 4px 0 0;
+                                }
+
+                                &:last-child {
+                                    border-radius: 0 0 4px 4px;
+                                }
+                            }
+                        }
+
+                        .form-type.active {
+                            display: block;
+                        }
+                    }
 
                     p {
                         font-size: $h7;
@@ -1942,9 +2125,8 @@ header {
                     }
 
                     input {
-                        @include size(28.44vw, 3.7vh);
+                        @include size(100%, 3.7vh);
                         border: 2px solid $form-title-bg;
-
                     }
 
                     select {
@@ -1961,19 +2143,9 @@ header {
                     }
 
                     textarea {
-                        @include size(28.44vw, 12.5vh);
+                        @include size(100%, 12.5vh);
                         border-radius: 6px;
                         border: 2px solid $form-title-bg;
-                    }
-
-                    .form-sendout {
-                        @include position(67.3vh, 26vw);
-                        @include size(12.34vw, 4.63vh);
-                        @include font($h6, center, inherit, 0.2em);
-                        // transform:translate(10%,10%);
-                        background-color: $title-bg;
-                        border-radius: 6px;
-                        color: $footer-text;
                     }
 
                     .form-storename {
@@ -1982,9 +2154,82 @@ header {
 
                     .form-producttype {
                         margin-bottom: 3.24vh;
+                        position: relative;
 
                         p {
                             line-height: 5.56vh;
+                        }
+
+                        .form-optiontype {
+                            @include size(7vw, 30px);
+                            @include flex(flex-start);
+                            min-width: 100px;
+                            padding-left: 5px;
+                            background: #ffffff;
+                            border-radius: 4px;
+                            color: #000000;
+                            font-size: $h7;
+                            cursor: pointer;
+                            border: $form-title-bg solid 2px;
+                        }
+
+                        .opground {
+                            border-radius: 5px;
+                            // position: relative;
+
+
+                            .optiontype {
+                                position: absolute;
+                                top: 98%;
+                                left: -40px;
+                                list-style: none;
+                                display: none;
+
+                                li {
+                                    @include flex(flex-start);
+                                    @include size(7vw, 30px);
+                                    min-width: 100px;
+                                    padding-left: 5px;
+                                    font-size: $h7;
+                                    letter-spacing: 0.2em;
+                                    color: #000000;
+                                    background: #ffffff;
+                                    cursor: pointer;
+
+                                    &:hover {
+                                        background-color: $title-bg !important;
+                                    }
+
+                                    &:first-child {
+                                        border-radius: 4px 4px 0 0;
+                                    }
+
+                                    &:last-child {
+                                        border-radius: 0 0 4px 4px;
+                                    }
+                                }
+                            }
+
+                            .optiontype.active {
+                                display: block;
+                            }
+                        }
+                    }
+
+                    .form-sendout {
+                        @include size(12.34vw, 4.63vh);
+                        @include font($h6, center, inherit, 0.2em);
+                        min-width: 150px;
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translate(-50%, 90%);
+                        background-color: $title-bg;
+                        border-radius: 6px;
+                        color: $footer-text;
+
+                        @include w1366 {
+                            font-size: 1rem;
                         }
                     }
                 }
@@ -1995,68 +2240,147 @@ header {
 }
 
 footer {
-    @include size(100%, 64.81vh);
     @include flex();
     background-color: $footer-bg;
     position: relative;
     color: $footer-text;
 
-    .footer-logo-img {
-        @include size(4.84vw, 4.84vw);
-        @include position(50.92vh, 8.3vw, 0, 0);
-    }
-
-    .footer-logo-text {
-        @include size(7.55vw, 4.48vw);
-        @include position(50.92vh, 8.3vw, 90%, 0);
-    }
-
     .footer-container {
-        @include size(83%, 57.6vh);
+        width: 83%;
         overflow: hidden;
         margin-top: 3.7vh;
+        padding-bottom: 30px;
+
+        @include w1366 {
+            width: 88%;
+        }
+
+        @include w576 {
+            width: 100%;
+        }
 
         h2 {
             @include font($h2, start, 4.53vh, 0.15em);
             margin-bottom: 6.48vh;
+
+            @include w1024 {
+                font-size: 1.19rem;
+                text-align: center;
+            }
+
+            @include w576 {
+                font-size: 1rem;
+                margin-bottom: 35px;
+            }
         }
 
         article {
             @include size(100%, 43.99vh);
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            margin-bottom: 25px;
+
+            @include w1024 {
+                height: auto;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: 130px 70 70px;
+                grid-row-gap: 30px;
+                grid-template-areas:
+                    "A B"
+                    "C C"
+                    "D D";
+            }
 
             h3 {
                 @include font($h4, start, inherit, 0.15em);
+
+                @include w1366 {
+                    font-size: 1.16rem;
+                }
+
+                @include w1024 {
+                    text-align: center;
+                }
+
+                @include w576 {
+                    font-size: 0.75rem;
+                }
             }
 
             .inf-detil {
                 @include font($h6, start, 2.78vh, 0.15em);
                 padding-left: 28px;
+                grid-area: A;
+
+                @include w1366 {
+                    font-size: 1rem;
+                }
+
+                @include w1024 {
+                    text-align: center;
+                    padding: 0;
+                }
+
+                @include w576 {
+                    font-size: 0.7rem;
+                    transform: scale(0.8);
+                    white-space: nowrap;
+                }
 
                 &>div:nth-child(2) {
                     padding-left: 3.151vw;
+
+                    @include w1024 {
+                        padding: 0;
+                    }
                 }
             }
 
             .open-detil {
-                @include size(12.4vw, 100%);
+                @include size(240px, 100%);
                 padding-left: 18px;
+                grid-area: B;
 
-                .date-box {
+                @include w1024 {
+                    width: 100%;
+                    padding: 0;
+                }
+
+                .date-area {
                     @include flex(start, start);
                     @include font($h6, center, 2.78vh, 0.15em);
 
+                    @include w1366 {
+                        font-size: 1rem;
+                    }
+
+                    @include w1024 {
+                        justify-content: center;
+                    }
+
+                    @include w576 {
+                        font-size: 0.7rem;
+                        transform: scale(0.8);
+                    }
+
                     .date-box {
-                        @include size(4.17vw, 3.7vh);
+                        @include size(80px, 3.7vh);
                         @include flex();
                         border: $footer-text 1px solid;
                         border-radius: 60px;
+
+                        @include w576 {
+                            width: 50px;
+                        }
                     }
 
                     span {
-                        @include size(3.125vw, 3.7vh);
+                        @include size(60px, 3.7vh);
                         line-height: 3.7vh;
+
+                        @include w576 {
+                            width: 30px;
+                        }
                     }
                 }
 
@@ -2064,13 +2388,102 @@ footer {
                     @include flex();
                     @include font($h6, center, 2.78vh, 0.15em);
                     padding-top: 13px;
+
+                    @include w1366 {
+                        font-size: 1rem;
+                    }
+
+                    @include w576 {
+                        font-size: 0.7rem;
+                        transform: scale(0.8);
+                    }
                 }
             }
+
+            .fb-page {
+                @include w1024 {
+                    grid-area: C;
+                    text-align: center;
+                }
+            }
+
+            .fb-big {
+                @include w1024 {
+                    display: none;
+                }
+            }
+
+            .fb-middle {
+                display: none;
+
+                @include w1024 {
+                    display: block;
+                }
+
+                @include w576 {
+                    display: none;
+                }
+            }
+
+            .fb-small {
+                display: none;
+
+                @include w576 {
+                    display: block;
+                }
+            }
+
+            .foot-logo-box {
+                @include w1024 {
+                    grid-area: D;
+                    text-align: center;
+                }
+
+                .footer-logo-img {
+                    @include size(4.84vw, 4.84vw);
+                    @include position(50.92vh, 8.3vw, 0, 0);
+
+                    @include w1024 {
+                        @include size(60px, 60px);
+                        position: static;
+                        margin-right: 20px;
+                    }
+
+                    @include w576 {
+                        @include size(45px, 45px);
+                        margin-right: 10px;
+                    }
+                }
+
+                .footer-logo-text {
+                    @include size(7.55vw, 4.48vw);
+                    @include position(50.92vh, 8.3vw, 90%, 0);
+
+                    @include w1024 {
+                        @include size(85px, 50px);
+                        position: static;
+                        transform: translate(0, 0);
+                    }
+
+                    @include w576 {
+                        @include size(70px, 35px);
+                    }
+                }
+            }
+
         }
 
         >p {
             @include font($h6, center, 2.78vh, 0.05em);
             margin: 0;
+
+            @include w1366 {
+                font-size: 1rem;
+            }
+
+            @include w576 {
+                font-size: 0.75rem;
+            }
         }
     }
 }

@@ -28,9 +28,14 @@
             </div>
             <div class="news-content">
                 <div class="content-title" id="this-month-title">
+                    <i class="fas fa-chevron-left"></i>
                     <h4></h4>
                     <div class="month"></div>
                     <div class="years"></div>
+                    <i class="fas fa-chevron-right"></i>
+                    <select name="" id="" class="phone-date-btn">
+                        <option>選擇日期</option>
+                    </select>
                     <div class="custom-select-list">
                         <select name="" class="nwes-select">
                             <option value="">全部照片</option>

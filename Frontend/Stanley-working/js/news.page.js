@@ -49,7 +49,7 @@ const monthBtns = document.querySelectorAll('.month-btn');
 const yearsBtns = document.querySelectorAll('.years-btn');
 const thisMonthTitle = document.querySelector('#this-month-title > h4');
 const nextMonthTitle = document.querySelector('#next-month-title > h4');
-const yearsTitle = document.querySelectorAll('.content-title > div:nth-child(3)');
+const yearsTitle = document.querySelectorAll('.content-title > .years');
 const date = new Date();
 const thisYear = String(date.getFullYear());
 const thisMonth = String(date.getMonth() + 1);
@@ -143,13 +143,6 @@ function infCard(id, i) {
               <span>鳥人鳥事多</span>
           </p>
           <p>
-              <span>☆香氛 / 手工皂類</span>
-              <span>#angel_candle_tw</span>
-              <span>も Monster</span>
-              <span>Yiweiya 創意手作設計</span>
-              <span>晴空手作皂 Clear Sky</span>
-          </p>
-          <p>
               <span>☆植栽 / 木作類</span>
               <span>深白曙光工房</span>
               <span>Lady Is Gaga 手木系</span>
@@ -159,25 +152,32 @@ function infCard(id, i) {
       </div>
   </div>
   <div class="card-other-inf">
-      <div>
-          <i class="far fa-clock"></i>
-          <div>時間</div>
+      <div class="event-time">
+          <div>
+            <i class="far fa-clock"></i>
+            <div>時間</div>
+          </div>
           <time>
-              <span>2021/05/03(一)-05/14(五)</span>
+              <div>
+                <span>2021/05/03(一)</span>
+                <span>-05/14(五)</span>
+              </div>
               <div>10:00-19:00</div>
           </time>
       </div>
-      <div>
-          <i class="fas fa-map-marker-alt"></i>
-          <span>地點<span>
-                  <span>台中市西區民生路368巷</span>
+      <div class="event-place">
+          <div>
+            <i class="fas fa-map-marker-alt"></i>
+            <div>地點</div>
+          </div>
+          <span>台中市西區民生路368巷</span>
       </div>
-      <div>
+      <div class="event-organizer">
           <i class="fas fa-suitcase"></i>
           <span>主辦單位</span>
           <img src="./img/news-event-logo.png" alt="">
       </div>
-      <div>
+      <div class="event-calendar">
           <a target="_blank" href="http://www.google.com/calendar/event?action=TEMPLATE&text=pokemon go 俱樂部聚餐&dates=20210710T183000/20210711T235900&details=第一屆 pokemon go 會員大會，聚餐時間與注意事項%0A1.來吃飯%0A2.帶妹來%0A3.自備飲料&location=道館&trp=false" title="加入google日曆">
               <i class="far fa-calendar-minus"></i>
               <div>加入google日曆</div>
