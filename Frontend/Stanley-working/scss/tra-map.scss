@@ -403,7 +403,7 @@ header {
             display: flex;
 
             .bike-map {
-                @include size(65vw, 55vh);
+                @include size(65vw, 53vh);
                 margin: 100px auto;
                 background-color: $footer-text;
                 position: relative;

@@ -12,6 +12,18 @@ body {
     font-family: 'Noto Sans', sans-serif;
     color: $main-color;
     scroll-behavior: smooth;
+
+    @include w1366 {
+        border: 1.46vw solid $main-color;
+    }
+
+    @include w1024 {
+        border: 1.95vw solid $main-color;
+    }
+
+    @include w768 {
+        border: 2.67vw solid $main-color;
+    }
 }
 
 a {
@@ -47,20 +59,34 @@ h6 {
     font-weight: bold;
 }
 
-.logo-link{
+.logo-link {
     @include size(15vw, 5.729vw);
     position: absolute;
     right: 5vmin;
     top: 5vmin;
     z-index: 1;
 
+    @include w375 {
+        @include size(auto, auto);
+        top: 20px;
+        right: 20px;
+    }
+
     .logo-img {
         @include size(5.729vw, 5.729vw);
         margin-right: 0.521vw;
+
+        @include w375 {
+            @include size(35px, 39px);
+        }
     }
-    
+
     .logo-text {
         @include size(7.552vw, 4.48vw);
+
+        @include w375 {
+            @include size(56px, 38px);
+        }
     }
 }
 

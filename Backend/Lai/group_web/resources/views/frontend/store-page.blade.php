@@ -10,11 +10,11 @@
         <img class="logo-img" src="{{asset('/img/Logo-img.png')}}" alt="審計新村LOGO插圖">
         <img class="logo-text" src="{{asset('/img/Logo-text.png')}}" alt="審計新村LOGO文字">
     </a>
+    <div class="store-title">
+        <h2>店家資訊</h2>
+        <span>Shen Ji New Village</span>
+    </div>
     <div class="store-page-container">
-        <div class="store-title">
-            <h2>店家資訊</h2>
-            <span>Shen Ji New Village</span>
-        </div>
         <article>
             <div>
                 <h3>Two Day 日日鬆餅</h3>

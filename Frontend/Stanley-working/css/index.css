@@ -148,6 +148,7 @@ header nav ul li a .title {
   #about-us .effect-area .about-us-container .about-us-title span::before, #news .news-container .news-title span::before, #store .store-container .store-title span::before, #view .view-container .view-title span::before, #traffic .traffic-container .traffic-title .tra-title-icon::before, #contact .contact-container .contact-title span::before {
     -webkit-transform: translate(0, -70%) rotate(90deg);
             transform: translate(0, -70%) rotate(90deg);
+    font-size: 0.8rem;
   }
 }
 
@@ -2789,13 +2790,13 @@ header .nav-img.active {
 
 @media (max-width: 1366px) {
   #traffic .traffic-container .traffic-title p {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
   }
 }
 
 @media (max-width: 1024px) {
   #traffic .traffic-container .traffic-title p {
-    font-size: 2.24vw;
+    font-size: 1.5rem;
   }
 }
 
