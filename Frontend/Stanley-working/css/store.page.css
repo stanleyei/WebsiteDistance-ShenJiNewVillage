@@ -648,9 +648,9 @@ main .store-page-container {
   padding-top: 8.7vh;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 768px) {
   main .store-page-container {
-    padding-top: 10px;
+    padding-top: 0;
   }
 }
 
@@ -682,7 +682,7 @@ main .store-page-container article h3 {
   text-align: center;
   line-height: 5.56vh;
   letter-spacing: 0.1em;
-  padding-top: 30%;
+  padding-top: 20%;
 }
 
 @media (max-width: 768px) {

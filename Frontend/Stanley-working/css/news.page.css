@@ -1009,7 +1009,7 @@ main .news-page-container article .content-infs .content-inf:hover {
 }
 
 main .news-page-container article .content-infs .content-inf:hover::before {
-  background-color: #cc7e63;
+  background-color: #972a2a;
 }
 
 main .news-page-container article .content-infs .content-inf:active {

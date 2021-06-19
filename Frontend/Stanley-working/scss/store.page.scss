@@ -390,8 +390,8 @@ main {
         margin: 0 auto;
         padding-top: 8.7vh;
 
-        @include w375 {
-            padding-top: 10px;
+        @include w768{
+            padding-top: 0;
         }
 
         article {
@@ -420,7 +420,7 @@ main {
 
             h3 {
                 @include font($h1, center, 5.56vh);
-                padding-top: 30%;
+                padding-top: 20%;
 
                 @include w768 {
                     padding: 0;
