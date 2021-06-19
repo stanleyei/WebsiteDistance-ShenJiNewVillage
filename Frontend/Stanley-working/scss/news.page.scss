@@ -334,7 +334,7 @@ main {
     @include flex($ai:start);
     position: relative;
 
-    @include w768{
+    @include w768 {
         min-height: 657px;
     }
 
@@ -422,14 +422,40 @@ main {
                     background-color: $news-tag-f-bg;
                     color: $footer-text;
                 }
+
+                &:nth-of-type(2):active {
+                    background-color: #F2C94C;
+                }
+
+                &:nth-of-type(3):active {
+                    background-color: #596E79;
+                }
             }
 
-            .aside-tab-focus {
+            .news-tab-focus {
                 background-color: $news-tag-f-bg;
                 color: $footer-text;
 
                 &:hover {
                     background-color: lighten($news-tag-f-bg, 5%);
+                }
+            }
+
+            .event-tab-focus {
+                background-color: $news-event-tag;
+                color: $footer-text;
+
+                &:hover {
+                    background-color: lighten($news-event-tag, 5%);
+                }
+            }
+
+            .festival-tab-focus {
+                background-color: $footer-bg;
+                color: $footer-text;
+
+                &:hover {
+                    background-color: lighten($footer-bg, 5%);
                 }
             }
         }
@@ -518,11 +544,11 @@ main {
                         background-color: $store-list-bg;
                         z-index: -1;
 
-                        @include w1366{
+                        @include w1366 {
                             width: 86px;
                         }
 
-                        @include w1024{
+                        @include w1024 {
                             width: 73px;
                         }
 
@@ -571,27 +597,27 @@ main {
                     cursor: pointer;
                     text-shadow: -2px 0px 4px lighten($nes-aside-tag, 30%);
 
-                    @include w768{
+                    @include w768 {
                         display: block;
                     }
 
-                    &:active{
+                    &:active {
                         text-shadow: none;
                         transform: translateX(-1px);
                     }
 
-                    &:first-of-type(){
+                    &:first-of-type() {
                         margin-right: 10px;
 
-                        @include w375{
+                        @include w375 {
                             margin: 0;
                         }
                     }
 
-                    &:last-of-type(){
+                    &:last-of-type() {
                         margin-left: 10px;
 
-                        @include w375{
+                        @include w375 {
                             margin: 0;
                         }
                     }
@@ -614,11 +640,15 @@ main {
                     }
                 }
 
+                .phone-date-none {
+                    display: none !important;
+                }
+
                 .custom-select-list {
-                    @include size(11.2vw, 3.7vh);
+                    @include size(192px, 28px);
                     display: none;
                     position: absolute;
-                    right: 1.041vw;
+                    right: 4vw;
                     top: 0.926vh;
 
                     &:hover {
@@ -646,7 +676,7 @@ main {
 
                 .select-items div,
                 .select-selected {
-                    @include size(11.2vw, 3.7vh);
+                    @include size(192px, 28px);
                     padding: 0 0 0 0.625vw;
                     background-color: $title-bg;
                     color: $footer-text;
@@ -682,7 +712,7 @@ main {
 
                 .select-items div:hover {
                     &::before {
-                        @include size(11.2vw, 3.7vh);
+                        @include size(192px, 28px);
                         content: '';
                         position: absolute;
                         transform: translateX(-0.625vw);
@@ -693,7 +723,7 @@ main {
 
                 .select-items .active {
                     &::before {
-                        @include size(11.2vw, 3.7vh);
+                        @include size(192px, 28px);
                         content: '';
                         position: absolute;
                         transform: translateX(-0.625vw);
@@ -757,8 +787,8 @@ main {
                                 transform: translateY(30%);
                             }
 
-                            @include w576{
-                                transform: translate(-15% ,30%);
+                            @include w576 {
+                                transform: translate(-15%, 30%);
                             }
 
                             @include w375 {
@@ -832,6 +862,21 @@ main {
                     }
                 }
 
+                .event-content-inf {
+
+                    &::before {
+                        @extend %news-inf-before;
+                        background-color: $news-event-tag;
+                    }
+
+                    &:hover {
+
+                        &::before {
+                            background-color: darken($news-event-tag, 5%);
+                        }
+                    }
+                }
+
                 .inf-detail {
                     border-bottom-left-radius: 6px;
                     border-bottom-right-radius: 6px;
@@ -843,8 +888,8 @@ main {
                         display: block;
                         padding: 2.31vh 0 0 3.5vh;
                         font-weight: bold;
-                        
-                        @include w375{
+
+                        @include w375 {
                             font-size: 0.75rem;
                         }
                     }
@@ -852,7 +897,7 @@ main {
                     .card-body {
                         padding: 3.7vh 4.7vw 0;
 
-                        @include w576{
+                        @include w576 {
                             padding-top: 2vh;
                         }
 
@@ -864,11 +909,11 @@ main {
                                 background-repeat: no-repeat;
                                 background-size: contain;
 
-                                @include w1024{
+                                @include w1024 {
                                     @include size(35vw, 20vw);
                                 }
 
-                                @include w375{
+                                @include w375 {
                                     @include size(120px, 70px);
                                 }
                             }
@@ -880,7 +925,7 @@ main {
                             grid-template-columns: repeat(2, 1fr);
                             padding: 5.09vh 2.6vw 0 2.6vw;
 
-                            @include w576{
+                            @include w576 {
                                 padding: 2.6vh 0 0 0;
                             }
 
@@ -888,7 +933,7 @@ main {
                                 display: block;
                                 padding: 0;
 
-                                @include w375{
+                                @include w375 {
                                     font-size: 0.8rem;
                                     transform: scale(0.8);
                                 }
@@ -900,8 +945,8 @@ main {
                         display: grid;
                         grid-template-columns: repeat(2, 1fr);
                         align-items: center;
-                        
-                        @include w375{
+
+                        @include w375 {
                             grid-template-columns: 140px 160px;
                         }
 
@@ -912,10 +957,11 @@ main {
                             font-weight: bold;
                             height: 12.96vh;
 
-                            @include w576{
+                            @include w576 {
                                 padding-left: 2vw;
                             }
-                            @include w375{
+
+                            @include w375 {
                                 height: 66px;
                             }
 
@@ -923,10 +969,11 @@ main {
                                 margin-right: 10px;
                                 font-size: $h4;
 
-                                @include w1366{
+                                @include w1366 {
                                     font-size: 1rem;
                                 }
-                                @include w768{
+
+                                @include w768 {
                                     transform: translate(25%, 15%);
                                 }
                             }
@@ -934,7 +981,7 @@ main {
                             >img {
                                 margin-left: 1.56vw;
 
-                                @include w576{
+                                @include w576 {
                                     width: 40px;
                                     height: 40px;
                                 }
@@ -953,17 +1000,17 @@ main {
                             }
                         }
 
-                        .event-time{
+                        .event-time {
 
-                            @include w768{
+                            @include w768 {
                                 @include flex($ai: start);
                                 flex-direction: column;
                             }
 
-                            >div{
+                            >div {
                                 display: flex;
 
-                                @include w375{
+                                @include w375 {
                                     font-size: 0.8rem;
                                     transform: scale(0.8);
                                 }
@@ -977,39 +1024,39 @@ main {
                                 justify-self: flex-end;
                                 line-height: 1.85vh;
 
-                                @include w768{
+                                @include w768 {
                                     padding: 0;
                                 }
 
-                                @include w375{
+                                @include w375 {
                                     font-size: 0.8rem;
                                     transform: scale(0.8);
                                 }
 
                                 span {
-                                    @include w768{
+                                    @include w768 {
                                         display: block;
                                         text-align: start;
                                         padding-left: 30px;
                                     }
 
-                                    @include w375{
+                                    @include w375 {
                                         padding: 0;
                                         word-break: break-all;
                                     }
                                 }
 
                                 >div:last-of-type() {
-                                    @include w375{
+                                    @include w375 {
                                         text-align: start;
                                     }
                                 }
                             }
-                        } 
+                        }
 
                         .event-place {
 
-                            @include w768{
+                            @include w768 {
                                 @include flex($ai: start);
                                 flex-direction: column;
                                 text-align: start;
@@ -1019,7 +1066,7 @@ main {
                                 margin-right: 10px;
                                 display: flex;
 
-                                @include w375{
+                                @include w375 {
                                     font-size: 0.8rem;
                                     transform: scale(0.8);
                                 }
@@ -1028,11 +1075,11 @@ main {
                             >span {
                                 display: block;
 
-                                @include w768{
+                                @include w768 {
                                     padding-left: 20px;
                                 }
 
-                                @include w375{
+                                @include w375 {
                                     font-size: 0.8rem;
                                     transform: scale(0.8);
                                     padding-left: 10px;
@@ -1040,13 +1087,13 @@ main {
                             }
                         }
 
-                        .event-organizer{
-                            @include w375{
+                        .event-organizer {
+                            @include w375 {
                                 padding-left: 20px;
                             }
 
                             >i {
-                                @include w375{
+                                @include w375 {
                                     width: 1px;
                                     font-size: 0.8rem;
                                     transform: scale(0.8);
@@ -1054,16 +1101,16 @@ main {
                             }
 
                             >span {
-                                @include w375{
+                                @include w375 {
                                     font-size: 0.8rem;
                                     transform: scale(0.8);
                                 }
                             }
                         }
 
-                        .event-calendar >a{
-                            
-                            @include w375{
+                        .event-calendar>a {
+
+                            @include w375 {
                                 font-size: 0.8rem;
                                 transform: scale(0.8);
                             }

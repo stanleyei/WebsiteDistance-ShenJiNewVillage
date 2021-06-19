@@ -11,99 +11,6 @@ document.querySelector('.toggle').onclick = function () {
   header.classList.toggle('header-shady');
 };
 
-//判斷傳進來的url值後切換到對應的分類
-const getUrlString = location.href;
-const newsUrl = new URL(getUrlString);
-const asideTabs = document.querySelectorAll('.aside-tab');
-const customSelect = document.querySelector('.custom-select-list');
-const infsNone = document.querySelector('#content-infs-none');
-const photoWall = document.querySelector('.feast-photo-wall');
-asideTabs.forEach(tab => {
-  tab.classList.remove('aside-tab-focus');
-  if(newsUrl.searchParams.get('tap') === tab.dataset.tap){
-    tab.classList.add('aside-tab-focus');
-  };
-});
-if(newsUrl.searchParams.get('tap') === '3'){
-  customSelect.style = 'display:block';
-  photoWall.style = 'display:grid';
-  infsNone.style = 'display:none';
-};
-
-//審計新訊-生成按鈕
-const monthList = document.querySelector('#month-list');
-const yearsList = document.querySelector('#years-list');
-const monthData = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
-let dataValue = 1;
-monthData.forEach(data => {
-  monthList.innerHTML += `<button class="month-btn" data-month="${dataValue}" title="${data}">${data}</button>`
-  dataValue++;
-});
-for (let i = 0; i < 5; i++) {
-  yearsList.innerHTML += `<button class="years-btn" title="${2019 + i}">${2019 + i}</button>`;
-};
-
-//審計新訊-切換選擇日期的效果
-const monthEn = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-const monthBtns = document.querySelectorAll('.month-btn');
-const yearsBtns = document.querySelectorAll('.years-btn');
-const thisMonthTitle = document.querySelector('#this-month-title > h4');
-const nextMonthTitle = document.querySelector('#next-month-title > h4');
-const yearsTitle = document.querySelectorAll('.content-title > .years');
-const date = new Date();
-const thisYear = String(date.getFullYear());
-const thisMonth = String(date.getMonth() + 1);
-focusChange(monthBtns);
-focusChange(yearsBtns);
-
-function focusChange(dateBtns) {
-  thisMonthTitle.nextElementSibling.textContent = monthEn[date.getMonth()];
-  nextMonthTitle.nextElementSibling.textContent = monthEn[date.getMonth() + 1];
-  yearsTitle.forEach(title => {
-    title.textContent = `,${thisYear}`;
-  });
-  dateBtns.forEach(btns => {
-    if (btns.textContent === thisYear) {
-      btns.classList.add('focus-change');
-    }
-    else if (btns.dataset.month === thisMonth) {
-      monthChoose(btns);
-      btns.classList.add('focus-change');
-    }
-    btns.addEventListener('click', function () {
-      if (this.getAttribute('class') === 'month-btn') {
-        thisMonthTitle.nextElementSibling.textContent = monthEn[this.dataset.month - 1];
-        this.dataset.month === '12'
-          ?
-          nextMonthTitle.nextElementSibling.textContent = monthEn[0]
-          :
-          nextMonthTitle.nextElementSibling.textContent = monthEn[this.dataset.month];
-        monthChoose(this);
-      }
-      else if (this.getAttribute('class') === 'years-btn') {
-        yearsTitle.forEach(title => {
-          title.textContent = `,${this.textContent}`;
-        });
-      }
-      dateBtns.forEach(btn => {
-        btn === this
-          ?
-          btn.classList.add('focus-change')
-          :
-          btn.classList.remove('focus-change');
-      });
-    });
-  });
-}
-function monthChoose(element) {
-  thisMonthTitle.textContent = element.textContent;
-  element.nextSibling === null
-    ?
-    nextMonthTitle.textContent = '一月'
-    :
-    nextMonthTitle.textContent = element.nextSibling.textContent;
-}
-
 // 生出活動內容結構
 const contentInfsNow = document.querySelector('#content-infs-now');
 const contentInfsNext = document.querySelector('#content-infs-next');
@@ -188,6 +95,112 @@ function infCard(id, i) {
   return ic;
 };
 
+//判斷傳進來的url值後切換到對應的分類
+const getUrlString = location.href;
+const newsUrl = new URL(getUrlString);
+const asideTabs = document.querySelectorAll('.aside-tab');
+const customSelect = document.querySelector('.custom-select-list');
+const infsNone = document.querySelector('#content-infs-none');
+const photoWall = document.querySelector('.feast-photo-wall');
+const phoneDateSelect = document.querySelector('.phone-date-btn');
+const contentInf = document.querySelectorAll('.content-inf');
+asideTabs.forEach(tab => {
+  if (newsUrl.searchParams.get('tap') === tab.dataset.tap) {
+    if (tab.dataset.tap === '1') {
+      tab.classList.add('news-tab-focus');
+    }
+    else if (tab.dataset.tap === '2') {
+      tab.classList.add('event-tab-focus');
+      contentInf.forEach(inf => {
+        inf.classList.add('event-content-inf');
+      });
+    }
+    else {
+      tab.classList.add('festival-tab-focus');
+    };
+  };
+});
+if (newsUrl.searchParams.get('tap') === '3') {
+  customSelect.style = 'display:block';
+  photoWall.style = 'display:grid';
+  infsNone.style = 'display:none';
+  phoneDateSelect.classList.add('phone-date-none');
+};
+
+//審計新訊-生成按鈕
+const monthList = document.querySelector('#month-list');
+const yearsList = document.querySelector('#years-list');
+const monthData = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+let dataValue = 1;
+monthData.forEach(data => {
+  monthList.innerHTML += `<button class="month-btn" data-month="${dataValue}" title="${data}">${data}</button>`
+  dataValue++;
+});
+for (let i = 0; i < 5; i++) {
+  yearsList.innerHTML += `<button class="years-btn" title="${2019 + i}">${2019 + i}</button>`;
+};
+
+//審計新訊-切換選擇日期的效果
+const monthEn = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const monthBtns = document.querySelectorAll('.month-btn');
+const yearsBtns = document.querySelectorAll('.years-btn');
+const thisMonthTitle = document.querySelector('#this-month-title > h4');
+const nextMonthTitle = document.querySelector('#next-month-title > h4');
+const yearsTitle = document.querySelectorAll('.content-title > .years');
+const date = new Date();
+const thisYear = String(date.getFullYear());
+const thisMonth = String(date.getMonth() + 1);
+focusChange(monthBtns);
+focusChange(yearsBtns);
+
+function focusChange(dateBtns) {
+  thisMonthTitle.nextElementSibling.textContent = monthEn[date.getMonth()];
+  nextMonthTitle.nextElementSibling.textContent = monthEn[date.getMonth() + 1];
+  yearsTitle.forEach(title => {
+    title.textContent = `,${thisYear}`;
+  });
+  dateBtns.forEach(btns => {
+    if (btns.textContent === thisYear) {
+      btns.classList.add('focus-change');
+    }
+    else if (btns.dataset.month === thisMonth) {
+      monthChoose(btns);
+      btns.classList.add('focus-change');
+    }
+    btns.addEventListener('click', function () {
+      if (this.getAttribute('class') === 'month-btn') {
+        thisMonthTitle.nextElementSibling.textContent = monthEn[this.dataset.month - 1];
+        this.dataset.month === '12'
+          ?
+          nextMonthTitle.nextElementSibling.textContent = monthEn[0]
+          :
+          nextMonthTitle.nextElementSibling.textContent = monthEn[this.dataset.month];
+        monthChoose(this);
+      }
+      else if (this.getAttribute('class') === 'years-btn') {
+        yearsTitle.forEach(title => {
+          title.textContent = `,${this.textContent}`;
+        });
+      }
+      dateBtns.forEach(btn => {
+        btn === this
+          ?
+          btn.classList.add('focus-change')
+          :
+          btn.classList.remove('focus-change');
+      });
+    });
+  });
+}
+function monthChoose(element) {
+  thisMonthTitle.textContent = element.textContent;
+  element.nextSibling === null
+    ?
+    nextMonthTitle.textContent = '一月'
+    :
+    nextMonthTitle.textContent = element.nextSibling.textContent;
+}
+
 //news-aside-tap被點擊後的效果
 const feastPhoto = document.querySelector('#feast-photo');
 asideTabs.forEach(tabs => {
@@ -196,17 +209,32 @@ asideTabs.forEach(tabs => {
       customSelect.style = 'display:block';
       photoWall.style = 'display:grid';
       infsNone.style = 'display:none';
+      phoneDateSelect.classList.add('phone-date-none');
     } else {
       customSelect.style = "display:none";
       photoWall.style = 'display:none';
       infsNone.style = 'display:block';
+      phoneDateSelect.classList.remove('phone-date-none');
     }
     asideTabs.forEach(tab => {
-      tab === this
-        ?
-        tab.classList.add('aside-tab-focus')
-        :
-        tab.classList.remove('aside-tab-focus');
+      tab.classList.remove('news-tab-focus', 'event-tab-focus', 'festival-tab-focus');
+      if (this === tab) {
+        if (tab.dataset.tap === '1') {
+          tab.classList.add('news-tab-focus');
+          contentInf.forEach(inf => {
+            inf.classList.remove('event-content-inf');
+          });
+        }
+        else if (tab.dataset.tap === '2') {
+          tab.classList.add('event-tab-focus');
+          contentInf.forEach(inf => {
+            inf.classList.add('event-content-inf');
+          });
+        }
+        else {
+          tab.classList.add('festival-tab-focus');
+        };
+      };
     });
   });
 });
@@ -307,7 +335,7 @@ function infsFocusStyle(infsName, iconsName) {
 //生成活動花絮結構
 for (let i = 1; i < 13; i++) {
   photoWall.innerHTML +=
-    `<a href="/img/text-2.png" data-lightbox="image-1"><figure style="background-image: url(/img/text-2.png);"><div class="figure-hover-appear">0501 小蝸牛市集</div></figure></a>`;
+    `<a href="/img/ShenJiNewVillage-27.png" data-lightbox="image-1"><figure style="background-image: url(/img/ShenJiNewVillage-27.png);"><div class="figure-hover-appear">0501 小蝸牛市集</div></figure></a>`;
 };
 
 //燈箱套件
