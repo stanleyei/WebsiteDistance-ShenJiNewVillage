@@ -514,6 +514,49 @@ main {
                     margin: 2vh 0 3vh 0;
                 }
 
+                .date-title-control{
+                    @include flex();
+
+                    >i {
+                        display: none;
+                        cursor: pointer;
+                        text-shadow: -2px 0px 4px lighten($nes-aside-tag, 30%);
+    
+                        @include w768 {
+                            display: block;
+                        }
+    
+                        &:active {
+                            text-shadow: none;
+                            transform: translateX(-1px);
+                        }
+    
+                        &:first-of-type() {
+                            margin-right: 10px;
+    
+                            @include w375 {
+                                margin: 0;
+                            }
+                        }
+    
+                        &:last-of-type() {
+                            margin-left: 10px;
+    
+                            @include w375 {
+                                margin: 0;
+                            }
+                        }
+    
+    
+                    }
+                }
+
+                .date-title-control-none{
+                    @include w768{
+                        display: none !important;
+                    }
+                }
+
                 h4 {
                     @include font($h1, center, 5.56vh, 0.2em);
                     position: relative;
@@ -592,39 +635,6 @@ main {
                     }
                 }
 
-                >i {
-                    display: none;
-                    cursor: pointer;
-                    text-shadow: -2px 0px 4px lighten($nes-aside-tag, 30%);
-
-                    @include w768 {
-                        display: block;
-                    }
-
-                    &:active {
-                        text-shadow: none;
-                        transform: translateX(-1px);
-                    }
-
-                    &:first-of-type() {
-                        margin-right: 10px;
-
-                        @include w375 {
-                            margin: 0;
-                        }
-                    }
-
-                    &:last-of-type() {
-                        margin-left: 10px;
-
-                        @include w375 {
-                            margin: 0;
-                        }
-                    }
-
-
-                }
-
                 .phone-date-btn {
                     @include size(80px, 25px);
                     position: absolute;
@@ -648,12 +658,25 @@ main {
                     @include size(192px, 28px);
                     display: none;
                     position: absolute;
-                    right: 4vw;
+                    right: 5%;
                     top: 0.926vh;
+
+                    @include w1024{
+                        right: 8.5%;
+                    }
+
+                    @include w768{
+                        width: 100%;
+                        right: 0;
+                    }
 
                     &:hover {
                         &::after {
                             transform: translate(-1.041vw, -0.625vh);
+
+                            @include w768{
+                                transform: translate(-50%, -0.625vh);
+                            }
                         }
                     }
 
@@ -667,6 +690,16 @@ main {
                         background-image: url(../img/select-down.png);
                         background-repeat: no-repeat;
                         transition: 0.5s ease-in-out;
+
+                        @include w1024{
+                            right: 0.5vw;
+                        }
+
+                        @include w768{
+                            width: 20px;
+                            right: 0;
+                            transform: translate(-50%,-1.25vh);
+                        }
                     }
                 }
 
@@ -683,7 +716,12 @@ main {
                     text-align: start;
                     cursor: pointer;
                     letter-spacing: 0.1em;
-                    line-height: 3.7vh;
+                    line-height: 28px;
+
+                    @include w768{
+                        width: 78.33vw;
+                        text-align: center;
+                    }
                 }
 
                 .select-items div:last-child() {
@@ -718,6 +756,12 @@ main {
                         transform: translateX(-0.625vw);
                         background-color: $footer-text;
                         opacity: 0.5;
+
+                        @include w768{
+                            width: 100%;
+                            left: 0;
+                            transform: translateX(0);
+                        }
                     }
                 }
 
@@ -729,6 +773,12 @@ main {
                         transform: translateX(-0.625vw);
                         background-color: $footer-text;
                         opacity: 0.2;
+
+                        @include w768{
+                            width: 100%;
+                            left: 0;
+                            transform: translateX(0);
+                        }
                     }
                 }
             }
@@ -1158,14 +1208,28 @@ main {
             }
 
             .feast-photo-wall {
-                padding: 1.85vh 1.56vw 0;
+                padding: 1.85vh 80px 0 30px;
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                grid-gap: 2vw;
+                grid-gap: 30px;
                 display: none;
 
+                @include w1024{
+                    grid-gap: 20px;
+                }
+
+                @include w768{
+                    grid-gap: 15px;
+                    padding: 15px 0 0 0;
+                }
+                
+                @include w375{
+                    padding-top: 35px; 
+                }
+
                 figure {
-                    @include size(18.65vw, 10.14vw);
+                    @include size(100%, 10.14vw);
+                    min-height: 60px;
                     position: relative;
                     background-size: cover;
                     background-repeat: no-repeat;
@@ -1190,6 +1254,54 @@ main {
                     }
                 }
             }
+        }
+    }
+}
+
+#ui-datepicker-div{
+    @extend %news-date-select;
+    width: 140px;
+    transform: translateX(-7.8vw);
+
+    .ui-datepicker-prev, .ui-datepicker-next, .ui-datepicker-calendar{
+        display: none;
+    }
+
+    .ui-datepicker-header{
+        @extend %news-date-select;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+
+        .ui-datepicker-title{
+            @extend %news-date-select;
+    
+            .ui-datepicker-year{
+                @extend %news-date-select;
+                margin-right: 10px;
+                color: $main-color;
+                cursor: pointer;
+            }
+    
+            .ui-datepicker-month{
+                @extend %news-date-select;
+                color: $main-color;
+                cursor: pointer;
+            }
+        }
+
+    }
+
+    .ui-widget-content{
+        border-color: $store-list-bg;
+        background-color: $store-list-bg;
+        background: none $store-list-bg;
+    
+        >button{
+            width: 67px;
+            border-color: $store-list-bg;
+            background-color: $store-list-bg;
+            color: $main-color;
+            font-weight: bold;  
         }
     }
 }

@@ -35,9 +35,7 @@
                         <div class="years"></div>
                         <i class="fas fa-chevron-right"></i>
                     </div>
-                    <select name="" id="" class="phone-date-btn">
-                        <option>選擇日期</option>
-                    </select>
+                    <input type="button" id="datepicker" class="phone-date-btn" name="setuptime" value="選擇日期">
                     <div class="custom-select-list">
                         <select name="" class="nwes-select">
                             <option value="">全部照片</option>

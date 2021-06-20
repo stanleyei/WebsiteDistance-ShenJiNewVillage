@@ -59,9 +59,7 @@
                         <h3></h3>
                         <div></div>
                         <div></div>
-                        <select name="" id="" class="phone-date-btn">
-                            <option>選擇日期</option>
-                        </select>
+                        <input type="button" id="datepicker" class="phone-date-btn" name="setuptime" value="選擇日期">
                     </div>
                     <div class="content-infs"></div>
                 </div>

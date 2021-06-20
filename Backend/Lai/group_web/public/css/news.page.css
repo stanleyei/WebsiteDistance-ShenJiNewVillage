@@ -219,6 +219,13 @@ main .news-page-container article .content-infs .content-inf::before, main .news
   }
 }
 
+#ui-datepicker-div, #ui-datepicker-div .ui-datepicker-header, #ui-datepicker-div .ui-datepicker-header .ui-datepicker-title, #ui-datepicker-div .ui-datepicker-header .ui-datepicker-title .ui-datepicker-year, #ui-datepicker-div .ui-datepicker-header .ui-datepicker-title .ui-datepicker-month {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-color: #FBE6C3;
+  background-color: #FBE6C3;
+}
+
 main .news-page-container .aside .aside-tab {
   width: 9.375vw;
   height: 5.56vh;
@@ -920,6 +927,62 @@ main .news-page-container article .content-title {
   }
 }
 
+main .news-page-container article .content-title .date-title-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .news-page-container article .content-title .date-title-control > i {
+  display: none;
+  cursor: pointer;
+  text-shadow: -2px 0px 4px gray;
+}
+
+@media (max-width: 768px) {
+  main .news-page-container article .content-title .date-title-control > i {
+    display: block;
+  }
+}
+
+main .news-page-container article .content-title .date-title-control > i:active {
+  text-shadow: none;
+  -webkit-transform: translateX(-1px);
+          transform: translateX(-1px);
+}
+
+main .news-page-container article .content-title .date-title-control > i:first-of-type {
+  margin-right: 10px;
+}
+
+@media (max-width: 375px) {
+  main .news-page-container article .content-title .date-title-control > i:first-of-type {
+    margin: 0;
+  }
+}
+
+main .news-page-container article .content-title .date-title-control > i:last-of-type {
+  margin-left: 10px;
+}
+
+@media (max-width: 375px) {
+  main .news-page-container article .content-title .date-title-control > i:last-of-type {
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  main .news-page-container article .content-title .date-title-control-none {
+    display: none !important;
+  }
+}
+
 main .news-page-container article .content-title h4 {
   font-size: 2.24vw;
   text-align: center;
@@ -1029,44 +1092,6 @@ main .news-page-container article .content-title .years {
   }
 }
 
-main .news-page-container article .content-title > i {
-  display: none;
-  cursor: pointer;
-  text-shadow: -2px 0px 4px gray;
-}
-
-@media (max-width: 768px) {
-  main .news-page-container article .content-title > i {
-    display: block;
-  }
-}
-
-main .news-page-container article .content-title > i:active {
-  text-shadow: none;
-  -webkit-transform: translateX(-1px);
-          transform: translateX(-1px);
-}
-
-main .news-page-container article .content-title > i:first-of-type {
-  margin-right: 10px;
-}
-
-@media (max-width: 375px) {
-  main .news-page-container article .content-title > i:first-of-type {
-    margin: 0;
-  }
-}
-
-main .news-page-container article .content-title > i:last-of-type {
-  margin-left: 10px;
-}
-
-@media (max-width: 375px) {
-  main .news-page-container article .content-title > i:last-of-type {
-    margin: 0;
-  }
-}
-
 main .news-page-container article .content-title .phone-date-btn {
   width: 80px;
   height: 25px;
@@ -1094,13 +1119,33 @@ main .news-page-container article .content-title .custom-select-list {
   height: 28px;
   display: none;
   position: absolute;
-  right: 4vw;
+  right: 5%;
   top: 0.926vh;
+}
+
+@media (max-width: 1024px) {
+  main .news-page-container article .content-title .custom-select-list {
+    right: 8.5%;
+  }
+}
+
+@media (max-width: 768px) {
+  main .news-page-container article .content-title .custom-select-list {
+    width: 100%;
+    right: 0;
+  }
 }
 
 main .news-page-container article .content-title .custom-select-list:hover::after {
   -webkit-transform: translate(-1.041vw, -0.625vh);
           transform: translate(-1.041vw, -0.625vh);
+}
+
+@media (max-width: 768px) {
+  main .news-page-container article .content-title .custom-select-list:hover::after {
+    -webkit-transform: translate(-50%, -0.625vh);
+            transform: translate(-50%, -0.625vh);
+  }
 }
 
 main .news-page-container article .content-title .custom-select-list::after {
@@ -1118,6 +1163,21 @@ main .news-page-container article .content-title .custom-select-list::after {
   transition: 0.5s ease-in-out;
 }
 
+@media (max-width: 1024px) {
+  main .news-page-container article .content-title .custom-select-list::after {
+    right: 0.5vw;
+  }
+}
+
+@media (max-width: 768px) {
+  main .news-page-container article .content-title .custom-select-list::after {
+    width: 20px;
+    right: 0;
+    -webkit-transform: translate(-50%, -1.25vh);
+            transform: translate(-50%, -1.25vh);
+  }
+}
+
 main .news-page-container article .content-title .custom-select-list select {
   display: none;
 }
@@ -1132,7 +1192,15 @@ main .news-page-container article .content-title .select-selected {
   text-align: start;
   cursor: pointer;
   letter-spacing: 0.1em;
-  line-height: 3.7vh;
+  line-height: 28px;
+}
+
+@media (max-width: 768px) {
+  main .news-page-container article .content-title .select-items div,
+  main .news-page-container article .content-title .select-selected {
+    width: 78.33vw;
+    text-align: center;
+  }
 }
 
 main .news-page-container article .content-title .select-items div:last-child {
@@ -1170,6 +1238,15 @@ main .news-page-container article .content-title .select-items div:hover::before
   opacity: 0.5;
 }
 
+@media (max-width: 768px) {
+  main .news-page-container article .content-title .select-items div:hover::before {
+    width: 100%;
+    left: 0;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
 main .news-page-container article .content-title .select-items .active::before {
   width: 192px;
   height: 28px;
@@ -1179,6 +1256,15 @@ main .news-page-container article .content-title .select-items .active::before {
           transform: translateX(-0.625vw);
   background-color: #ffffff;
   opacity: 0.2;
+}
+
+@media (max-width: 768px) {
+  main .news-page-container article .content-title .select-items .active::before {
+    width: 100%;
+    left: 0;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
 }
 
 main .news-page-container article .content-infs .content-inf:hover {
@@ -1777,18 +1863,38 @@ main .news-page-container article .inf-focus {
 }
 
 main .news-page-container article .feast-photo-wall {
-  padding: 1.85vh 1.56vw 0;
+  padding: 1.85vh 80px 0 30px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2vw;
+  grid-gap: 30px;
   display: none;
 }
 
+@media (max-width: 1024px) {
+  main .news-page-container article .feast-photo-wall {
+    grid-gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  main .news-page-container article .feast-photo-wall {
+    grid-gap: 15px;
+    padding: 15px 0 0 0;
+  }
+}
+
+@media (max-width: 375px) {
+  main .news-page-container article .feast-photo-wall {
+    padding-top: 35px;
+  }
+}
+
 main .news-page-container article .feast-photo-wall figure {
-  width: 18.65vw;
+  width: 100%;
   height: 10.14vw;
+  min-height: 60px;
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1814,6 +1920,46 @@ main .news-page-container article .feast-photo-wall figure .figure-hover-appear 
   background-color: #AB3030;
   color: #FFFCF4;
   opacity: 0;
+}
+
+#ui-datepicker-div {
+  width: 140px;
+  -webkit-transform: translateX(-7.8vw);
+          transform: translateX(-7.8vw);
+}
+
+#ui-datepicker-div .ui-datepicker-prev, #ui-datepicker-div .ui-datepicker-next, #ui-datepicker-div .ui-datepicker-calendar {
+  display: none;
+}
+
+#ui-datepicker-div .ui-datepicker-header {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+#ui-datepicker-div .ui-datepicker-header .ui-datepicker-title .ui-datepicker-year {
+  margin-right: 10px;
+  color: #54291c;
+  cursor: pointer;
+}
+
+#ui-datepicker-div .ui-datepicker-header .ui-datepicker-title .ui-datepicker-month {
+  color: #54291c;
+  cursor: pointer;
+}
+
+#ui-datepicker-div .ui-widget-content {
+  border-color: #FBE6C3;
+  background-color: #FBE6C3;
+  background: none #FBE6C3;
+}
+
+#ui-datepicker-div .ui-widget-content > button {
+  width: 67px;
+  border-color: #FBE6C3;
+  background-color: #FBE6C3;
+  color: #54291c;
+  font-weight: bold;
 }
 
 footer {
