@@ -146,9 +146,9 @@ for (let i = 0; i < 5; i++) {
 const monthEn = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const monthBtns = document.querySelectorAll('.month-btn');
 const yearsBtns = document.querySelectorAll('.years-btn');
-const thisMonthTitle = document.querySelector('#this-month-title > h4');
-const nextMonthTitle = document.querySelector('#next-month-title > h4');
-const yearsTitle = document.querySelectorAll('.content-title > .years');
+const thisMonthTitle = document.querySelector('#this-month-title h4');
+const nextMonthTitle = document.querySelector('#next-month-title h4');
+const yearsTitle = document.querySelectorAll('.content-title .years');
 const date = new Date();
 const thisYear = String(date.getFullYear());
 const thisMonth = String(date.getMonth() + 1);
@@ -343,14 +343,6 @@ for (let i = 1; i < 13; i++) {
     `<a href="/img/ShenJiNewVillage-27.png" data-lightbox="image-1"><figure style="background-image: url(/img/ShenJiNewVillage-27.png);"><div class="figure-hover-appear">0501 小蝸牛市集</div></figure></a>`;
 };
 
-//燈箱套件
-lightbox.option({
-  'resizeDuration': 500,
-  'wrapAround': true,
-  'disableScrolling': true,
-  'positionFromTop': 100,
-});
-
 //日期選擇jquery.datepicker套件
 $(function () {
   $('#datepicker').datepicker({
@@ -378,6 +370,14 @@ $(function () {
       $('#datepicker').val(year + '-' + parseIn); //给input赋值，其中要對月值加1才是實際的月份
     }
   });
+});
+
+//燈箱套件
+lightbox.option({
+  'resizeDuration': 500,
+  'wrapAround': true,
+  'disableScrolling': true,
+  'positionFromTop': 100,
 });
 
 //回到頂端按鈕
