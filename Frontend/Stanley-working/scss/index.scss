@@ -1586,7 +1586,8 @@ header {
                         font-size: $h7;
 
                         .view-card {
-                            @include size(208px, 43vh);
+                            @include size(208px, 40vh);
+                            min-height: 310px;
                             background-color: $title-bg;
                             border-radius: 20px;
                             text-align: center;

@@ -658,12 +658,25 @@ main {
                     @include size(192px, 28px);
                     display: none;
                     position: absolute;
-                    right: 4vw;
+                    right: 5%;
                     top: 0.926vh;
+
+                    @include w1024{
+                        right: 8.5%;
+                    }
+
+                    @include w768{
+                        width: 100%;
+                        right: 0;
+                    }
 
                     &:hover {
                         &::after {
                             transform: translate(-1.041vw, -0.625vh);
+
+                            @include w768{
+                                transform: translate(-50%, -0.625vh);
+                            }
                         }
                     }
 
@@ -677,6 +690,16 @@ main {
                         background-image: url(../img/select-down.png);
                         background-repeat: no-repeat;
                         transition: 0.5s ease-in-out;
+
+                        @include w1024{
+                            right: 0.5vw;
+                        }
+
+                        @include w768{
+                            width: 20px;
+                            right: 0;
+                            transform: translate(-50%,-1.25vh);
+                        }
                     }
                 }
 
@@ -693,7 +716,12 @@ main {
                     text-align: start;
                     cursor: pointer;
                     letter-spacing: 0.1em;
-                    line-height: 3.7vh;
+                    line-height: 28px;
+
+                    @include w768{
+                        width: 78.33vw;
+                        text-align: center;
+                    }
                 }
 
                 .select-items div:last-child() {
@@ -728,6 +756,12 @@ main {
                         transform: translateX(-0.625vw);
                         background-color: $footer-text;
                         opacity: 0.5;
+
+                        @include w768{
+                            width: 100%;
+                            left: 0;
+                            transform: translateX(0);
+                        }
                     }
                 }
 
@@ -739,6 +773,12 @@ main {
                         transform: translateX(-0.625vw);
                         background-color: $footer-text;
                         opacity: 0.2;
+
+                        @include w768{
+                            width: 100%;
+                            left: 0;
+                            transform: translateX(0);
+                        }
                     }
                 }
             }
@@ -1168,14 +1208,28 @@ main {
             }
 
             .feast-photo-wall {
-                padding: 1.85vh 1.56vw 0;
+                padding: 1.85vh 80px 0 30px;
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                grid-gap: 2vw;
+                grid-gap: 30px;
                 display: none;
 
+                @include w1024{
+                    grid-gap: 20px;
+                }
+
+                @include w768{
+                    grid-gap: 15px;
+                    padding: 15px 0 0 0;
+                }
+                
+                @include w375{
+                    padding-top: 35px; 
+                }
+
                 figure {
-                    @include size(18.65vw, 10.14vw);
+                    @include size(100%, 10.14vw);
+                    min-height: 60px;
                     position: relative;
                     background-size: cover;
                     background-repeat: no-repeat;

@@ -2618,7 +2618,8 @@ header .nav-img.active {
 
 #view .view-container .view-main .swiper-container .swiper-wrapper .swiper-slide .view-card {
   width: 208px;
-  height: 43vh;
+  height: 40vh;
+  min-height: 310px;
   background-color: #D28E76;
   border-radius: 20px;
   text-align: center;
