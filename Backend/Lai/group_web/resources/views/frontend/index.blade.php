@@ -84,7 +84,7 @@
                     <ul data-list="{{$shop->id - 1}}" class="{{$shop->id == 1 ? '' : 'check-list-hide'}}">
                         <li>
                             <a href="{{$shop->shopImgs[0]->img??''}}" title="點我看大圖" class="check-btn photo-view"
-                                data-lightbox="food-shop-{{$shop->id}}" data-title="{{$shop->name}}">看大圖</a>
+                                data-lightbox="food-shop-{{$shop->id}}">看大圖</a>
                         </li>
                         <li>
                             <a href="/store" title="點我看介紹" class="check-btn shop-view">看介紹</a>

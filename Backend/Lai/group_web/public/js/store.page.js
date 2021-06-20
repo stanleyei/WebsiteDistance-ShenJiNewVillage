@@ -3,13 +3,22 @@ const navbar = document.querySelector('nav');
 const ulbar = document.querySelector('.ulbar');
 const navimg = document.querySelector('.nav-img');
 const header = document.querySelector('header');
-document.querySelector('.toggle').onclick = function () {
+const navToggle = document.querySelector('.toggle');
+const main = document.querySelector('main');
+navToggle.addEventListener('click', function () {
   this.classList.toggle('active');
   navbar.classList.toggle('active');
   ulbar.classList.toggle('active');
   navimg.classList.toggle('active');
   header.classList.toggle('header-shady');
-};
+});
+main.addEventListener('click', function () {
+  navToggle.classList.remove('active');
+  navbar.classList.remove('active');
+  ulbar.classList.remove('active');
+  navimg.classList.remove('active');
+  header.classList.remove('header-shady');
+});
 
 //點擊照片切換
 const mainPhotos = document.querySelectorAll('.main-photo > figure');

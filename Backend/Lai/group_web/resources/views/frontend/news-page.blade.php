@@ -29,11 +29,11 @@
             <div class="news-content">
                 <div class="content-title" id="this-month-title">
                     <div class="date-title-control">
-                        <i class="fas fa-chevron-left"></i>
+                        <i class="fas fa-chevron-left" data-month="prev"></i>
                         <h4></h4>
                         <div class="month"></div>
                         <div class="years"></div>
-                        <i class="fas fa-chevron-right"></i>
+                        <i class="fas fa-chevron-right" data-month="next"></i>
                     </div>
                     <input type="button" id="datepicker" class="phone-date-btn" name="setuptime" value="選擇日期">
                     <div class="custom-select-list">

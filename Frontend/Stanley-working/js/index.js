@@ -23,13 +23,22 @@ const navbar = document.querySelector('nav');
 const ulbar = document.querySelector('.ulbar');
 const navimg = document.querySelector('.nav-img');
 const header = document.querySelector('header');
-document.querySelector('.toggle').onclick = function () {
+const navToggle = document.querySelector('.toggle');
+const main = document.querySelector('main');
+navToggle.addEventListener('click', function () {
   this.classList.toggle('active');
   navbar.classList.toggle('active');
   ulbar.classList.toggle('active');
   navimg.classList.toggle('active');
   header.classList.toggle('header-shady');
-};
+});
+main.addEventListener('click', function () {
+  navToggle.classList.remove('active');
+  navbar.classList.remove('active');
+  ulbar.classList.remove('active');
+  navimg.classList.remove('active');
+  header.classList.remove('header-shady');
+});
 
 //關於審計-Swiper輪播套件
 const aboutUsSwiper = new Swiper(".aboutUsSwiper", {
@@ -111,6 +120,34 @@ function focusChange(dateBtns) {
     });
   });
 }
+
+//審計新訊-點擊選擇日期按鈕切換效果
+const phoneDateSelect = document.querySelector('.phone-date-btn');
+const mutationObserver = new MutationObserver(function (mutations) {
+  mutations.forEach(function () {
+    if (phoneDateSelect.value !== '選擇日期') {
+      const seleteArray = phoneDateSelect.value.split('-');
+      dateTitle.nextElementSibling.textContent = `,${seleteArray[0]}`;
+      if(seleteArray[1] === '10' || seleteArray[1] === '11' || seleteArray[1] === '12'){
+        dateTitle.textContent = monthEn[seleteArray[1] - 1];
+        dateTitle.previousElementSibling.textContent = monthData[seleteArray[1] - 1];
+      }
+      else{
+        const titleMonth = seleteArray[1].split('0');
+        dateTitle.textContent = monthEn[titleMonth[1] - 1];
+        dateTitle.previousElementSibling.textContent = monthData[titleMonth[1] - 1];
+      }
+    };
+  });
+});
+mutationObserver.observe(phoneDateSelect, {
+  attributes: true,
+  characterData: true,
+  childList: true,
+  subtree: true,
+  attributeOldValue: true,
+  characterDataOldValue: true
+});
 
 //店家介紹-切換店家分類按鈕
 const navTaps = document.querySelectorAll('.nav-tap');

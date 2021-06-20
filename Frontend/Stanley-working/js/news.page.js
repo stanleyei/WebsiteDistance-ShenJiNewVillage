@@ -3,13 +3,22 @@ const navbar = document.querySelector('nav');
 const ulbar = document.querySelector('.ulbar');
 const navimg = document.querySelector('.nav-img');
 const header = document.querySelector('header');
-document.querySelector('.toggle').onclick = function () {
+const navToggle = document.querySelector('.toggle');
+const main = document.querySelector('main');
+navToggle.addEventListener('click', function () {
   this.classList.toggle('active');
   navbar.classList.toggle('active');
   ulbar.classList.toggle('active');
   navimg.classList.toggle('active');
   header.classList.toggle('header-shady');
-};
+});
+main.addEventListener('click', function () {
+  navToggle.classList.remove('active');
+  navbar.classList.remove('active');
+  ulbar.classList.remove('active');
+  navimg.classList.remove('active');
+  header.classList.remove('header-shady');
+});
 
 // 生出活動內容結構
 const contentInfsNow = document.querySelector('#content-infs-now');
@@ -202,6 +211,47 @@ function monthChoose(element) {
     :
     nextMonthTitle.textContent = element.nextSibling.textContent;
 }
+
+//審計新訊-點擊選擇日期按鈕切換效果
+const mutationObserver = new MutationObserver(function (mutations) {
+  mutations.forEach(function (mutation) {
+    if (phoneDateSelect.value !== '選擇日期') {
+      const seleteArray = phoneDateSelect.value.split('-');
+      yearsTitle[0].textContent = `,${seleteArray[0]}`;
+      if (seleteArray[1] === '10' || seleteArray[1] === '11' || seleteArray[1] === '12') {
+        thisMonthTitle.nextElementSibling.textContent = monthEn[seleteArray[1] - 1];
+        thisMonthTitle.textContent = monthData[seleteArray[1] - 1];
+      }
+      else {
+        const titleMonth = seleteArray[1].split('0');
+        thisMonthTitle.nextElementSibling.textContent = monthEn[titleMonth[1] - 1];
+        thisMonthTitle.textContent = monthData[titleMonth[1] - 1];
+      }
+    };
+  });
+});
+mutationObserver.observe(phoneDateSelect, {
+  attributes: true,
+  characterData: true,
+  childList: true,
+  subtree: true,
+  attributeOldValue: true,
+  characterDataOldValue: true
+});
+
+//點擊前後箭頭更換月份
+let montnMinus = 2;
+dateTitleControl.addEventListener('click', function (e) {
+  if (Number(thisMonth) - montnMinus > -1) {
+    if (e.target.dataset.month === 'prev') {
+      thisMonthTitle.textContent = monthData[Number(thisMonth) - montnMinus];
+      montnMinus = montnMinus + 1;
+    }
+    else {
+      thisMonthTitle.textContent = monthData[Number(thisMonth)];
+    };
+  };
+});
 
 //news-aside-tap被點擊後的效果
 const feastPhoto = document.querySelector('#feast-photo');

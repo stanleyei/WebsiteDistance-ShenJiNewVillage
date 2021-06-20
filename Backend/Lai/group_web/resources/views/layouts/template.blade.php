@@ -13,8 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/lightbox.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/swiper-bundle.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/all.min.css')}}">
@@ -131,11 +130,10 @@
         nonce="gw7gekne"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
-    </script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     {{-- <script src="{{asset('js/swiper-bundle.min.js')}}}"></script> --}}
+    {{-- <script src="{{asset('js/jquery.min.js')}}"></script> --}}
+    <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('js/lightbox-plus-jquery.min.js')}}"></script>
     <script src="{{asset('js/fullpage.min.js')}}"></script>
     <script src="{{asset('js/jquery-ui.min.js')}}"></script>
