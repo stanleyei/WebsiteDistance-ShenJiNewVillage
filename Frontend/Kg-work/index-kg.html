@@ -77,6 +77,7 @@
         <section class="loading"></section>
         <section class="news"></section>
         <section class="about-us"></section>
+
         <section class="map">
             <img class="logo-img" src="./img/Logo-img.png" alt="">
             <img class="logo-text" src="./img/Logo-text.png" alt="">
@@ -85,43 +86,58 @@
                     <h2>園區地圖</h2>
                     <span>Shen Ji New Village</span>
                 </div>
-                <div class="map-bgc">
-                    
-                    <div class="map-a01"></div>
-                    <div class="map-a02"></div>
-                    <div class="map-a03"></div>
-                    <div class="map-a04"></div>
-                    <div class="map-b01"></div>
-                    <div class="map-b02"></div>
-                    <div class="map-b03"></div>
-                    <div class="map-b04"></div>
-                    <div class="map-b05"></div>
-                    <div class="map-b06"></div>
-                    <div class="map-c01"></div>
-                    <div class="map-c02"></div>
-                    <div class="map-c03"></div>
-                    <div class="map-c04"></div>
-                    <div class="map-c05"></div>
-                    <div class="map-c06"></div>
-                    <div class="map-c07"></div>
-                    <div class="map-c08"></div>
-                    <div class="map-c09"></div>
-                    <div class="map-c10"></div>
-                    <div class="map-c11"></div>
-                    <div class="map-d01"></div>
-                    <div class="map-d02"></div>
-                    <div class="map-d03"></div>
-                    <div class="map-d04"></div>
-                    <div class="map-d05"></div>
-                    <div class="map-d06"></div>
-                    <div class="map-d07"></div>
-                    <div class="map-d08"></div>
-                    <div class="map-d09"></div>
-                    <div class="map-d10"></div>
-                    <div class="map-d11"></div>
-                    <div class="map-d12"></div>
-                    <div class="map-black-bgc"></div>
-                    <div class="map-message"></div>
+                <div class="map-area">
+                    <div class="map-bgc">
+
+                        <div class="map-a01"></div>
+                        <div class="map-a02"></div>
+                        <div class="map-a03"></div>
+                        <div class="map-a04"></div>
+                        <div class="map-b01"></div>
+                        <div class="map-b02"></div>
+                        <div class="map-b03"></div>
+                        <div class="map-b04"></div>
+                        <div class="map-b05"></div>
+                        <div class="map-b06"></div>
+                        <div class="map-c01"></div>
+                        <div class="map-c02"></div>
+                        <div class="map-c03"></div>
+                        <div class="map-c04"></div>
+                        <div class="map-c05"></div>
+                        <div class="map-c06"></div>
+                        <div class="map-c07"></div>
+                        <div class="map-c08"></div>
+                        <div class="map-c09"></div>
+                        <div class="map-c10"></div>
+                        <div class="map-c11"></div>
+                        <div class="map-d01"></div>
+                        <div class="map-d02"></div>
+                        <div class="map-d03"></div>
+                        <div class="map-d04"></div>
+                        <div class="map-d05"></div>
+                        <div class="map-d06"></div>
+                        <div class="map-d07"></div>
+                        <div class="map-d08"></div>
+                        <div class="map-d09"></div>
+                        <div class="map-d10"></div>
+                        <div class="map-d11"></div>
+                        <div class="map-d12"></div>
+                        <div class="map-black-bgc"></div>
+                        <div class="map-message">
+                            <div class="map-shopname">
+                                <img class="shopname-logo" src="/img/shopping-icon.svg" alt="">
+                                森多水耕植研所
+                            </div>
+                            <div class="map-businesshour">
+                                <img class="businesshour-logo" src="/img/clock02-icon.svg" alt="">
+                                12:00~19:00
+                            </div>
+                            <div class="map-shopphone">
+                                <img class="shopphone-logo" src="/img/phone-icon.svg" alt="">
+                                無
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -300,9 +316,9 @@
                             <p>Contact Shen Ji</p>
                         </div>
                     </div>
-                    <div class="contact-form-main">        
+                    <div class="contact-form-main">
                         <form class="contact-form" id="contact-form" action="#" method="POST">
-                            
+
                             <div class="select-bcg"></div>
                             <input type="text" name="contact_type" hidden>
                             <div class="bcground">
@@ -310,7 +326,7 @@
                                     <li value="join">加入審計</li>
 
                                     <li value="opinion">顧客意見</li>
-                                    
+
                                 </ul>
                             </div>
                             <div class="form-storename">
@@ -323,16 +339,16 @@
                             </div>
                             <div class="form-producttype">
                                 <p>商品種類</p>
-                            <div class="form-optiontype"></div>
-                            <input type="text" name="contact_content_type" hidden>
+                                <div class="form-optiontype"></div>
+                                <input type="text" name="contact_content_type" hidden>
                                 <div class="opground">
                                     <ul name="optiontype" class="optiontype">
                                         <li value="">我</li>
                                         <li value="">超</li>
-                                        <li value="">率</li>                                      
+                                        <li value="">率</li>
                                     </ul>
                                 </div>
-                             <!-- <select name="optiontype" class="optiontype">
+                                <!-- <select name="optiontype" class="optiontype">
                                     <option value=""></option>
                                     <option value="我">我</option>
                                     <option value="超">超</option>
@@ -413,12 +429,12 @@
         var ChanSelect = document.querySelector('.optiontype');
         //判斷form表單類型，並改變表單結構
         function typeSelect(koa) {
-           
+
             if (koa == '加入審計') {
                 FormStorename.innerHTML = '進駐店家';
-                FormProducttype.innerHTML = '商品種類'; 
+                FormProducttype.innerHTML = '商品種類';
                 // 把位於form表單下面的下拉是選單清空
-                FormOp.innerHTML =``;
+                FormOp.innerHTML = ``;
                 ChanSelect.innerHTML = `
                                     <li value="">美食小物類</li>
                                     <li value=""></li>
@@ -426,8 +442,8 @@
                 FormDescription.innerHTML = '詳細資訊';
             } else {
                 FormStorename.innerHTML = '顧客名稱/暱稱';
-                FormProducttype.innerHTML = '意見類別'; 
-                FormOp.innerHTML =``;
+                FormProducttype.innerHTML = '意見類別';
+                FormOp.innerHTML = ``;
                 ChanSelect.innerHTML = `
                                     <li value="我">我</li>
                                     <li value="超">超</li>
@@ -442,13 +458,13 @@
         SelectBcg.addEventListener('click', function () {
             var listChild = document.querySelectorAll('.form-type li');
             Select.classList.toggle('active');
-           
+
             console.log(ChanSelect);
 
             for (var i = 0; i < listChild.length; i++) {
-                listChild[i].addEventListener('click',function () {
+                listChild[i].addEventListener('click', function () {
                     for (var j = 0; j < listChild.length; j++) {
-                        listChild[j].style.background = ' #D28E76';                       
+                        listChild[j].style.background = ' #D28E76';
                     }
                     // this.style.background = 'gray'; //给选中的li颜色变为red
                     const koa = this.textContent;
@@ -460,17 +476,17 @@
             }
         })
 
-      
-        
+
+
         var FormOp = document.querySelector('.form-optiontype');
         var Option = document.querySelector('.optiontype');
         FormOp.addEventListener('click', function () {
-            var Optionlist= document.querySelectorAll('.optiontype li');
+            var Optionlist = document.querySelectorAll('.optiontype li');
             Option.classList.toggle('active');
             for (var i = 0; i < Optionlist.length; i++) {
-                Optionlist[i].addEventListener('click',function () {
+                Optionlist[i].addEventListener('click', function () {
                     for (var j = 0; j < Optionlist.length; j++) {
-                        Optionlist[j].style.background = ' #ffffff';                       
+                        Optionlist[j].style.background = ' #ffffff';
                     }
                     // this.style.background = 'gray'; //给选中的li颜色变为red
                     const koala = this.textContent;
@@ -480,7 +496,6 @@
                 }, false)
             }
         })
-
     </script>
 </body>
 

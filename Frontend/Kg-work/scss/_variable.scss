@@ -67,21 +67,106 @@ $h10:0.75rem;
     left:$lf;
     transform: translate($tx,$ty);
 }
+@mixin w1366 {
+    @media(max-width:1366px) {
+        @content;
+    }
+}
+
+@mixin w1024 {
+    @media(max-width:1024px) {
+        @content;
+    }
+}
+
+@mixin w768 {
+    @media(max-width:768px) {
+        @content;
+    }
+}
+
+@mixin w576 {
+    @media(max-width:576px) {
+        @content;
+    }
+}
+
+@mixin w480 {
+    @media(max-width:480px) {
+        @content;
+    }
+}
+
+@mixin w375 {
+    @media(max-width:375px) {
+        @content;
+    }
+}
 
 //元件變數
+// %title-cube {
+//     content: '';
+//     position: absolute;
+//     background: $title-bg;
+//     border-radius: 5px;
+// };
+// %title-vertical-text{
+//     content: '';
+//     position: absolute;
+//     left: 0;
+//     transform: translate(-15%, -80%) rotate(90deg);
+//     letter-spacing: 0.1em;
+// }
+
+//change
 %title-cube {
+    width: 3.125vw;
+    height: 3.125vw;
+    min-height: 20px;
+    min-width: 20px;
     content: '';
     position: absolute;
     background: $title-bg;
     border-radius: 5px;
-};
-%title-vertical-text{
+    transform: translate(-2.6vw, -1vw);
+    z-index: -1;
+
+    @include w1024{
+        @include size(35px, 35px);
+    }
+
+    @include w375{
+        @include size(20px, 20px);
+        border-radius: 0;
+        transform: translate(-15px,0);
+    };
+}
+
+%title-vertical-text {
     content: '';
     position: absolute;
     left: 0;
     transform: translate(-15%, -80%) rotate(90deg);
     letter-spacing: 0.1em;
+
+    @include w1366{
+        font-size: 1rem;
+        transform: translate(0, -80%) rotate(90deg);
+    }
+
+    @include w768{
+        transform: translate(0, -70%) rotate(90deg);
+    }
+
+    @include w375 {
+        font-size: 8px;
+        transform: translate(-80%, -70%) rotate(90deg);
+    }
 }
+//change
+
+
+
 
 // kg create
 %map-house{
