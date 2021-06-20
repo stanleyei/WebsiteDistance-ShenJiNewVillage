@@ -219,6 +219,13 @@ main .news-page-container article .content-infs .content-inf::before, main .news
   }
 }
 
+#ui-datepicker-div, #ui-datepicker-div .ui-datepicker-header, #ui-datepicker-div .ui-datepicker-header .ui-datepicker-title, #ui-datepicker-div .ui-datepicker-header .ui-datepicker-title .ui-datepicker-year, #ui-datepicker-div .ui-datepicker-header .ui-datepicker-title .ui-datepicker-month {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-color: #FBE6C3;
+  background-color: #FBE6C3;
+}
+
 main .news-page-container .aside .aside-tab {
   width: 9.375vw;
   height: 5.56vh;
@@ -1913,6 +1920,46 @@ main .news-page-container article .feast-photo-wall figure .figure-hover-appear 
   background-color: #AB3030;
   color: #FFFCF4;
   opacity: 0;
+}
+
+#ui-datepicker-div {
+  width: 140px;
+  -webkit-transform: translateX(-7.8vw);
+          transform: translateX(-7.8vw);
+}
+
+#ui-datepicker-div .ui-datepicker-prev, #ui-datepicker-div .ui-datepicker-next, #ui-datepicker-div .ui-datepicker-calendar {
+  display: none;
+}
+
+#ui-datepicker-div .ui-datepicker-header {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+#ui-datepicker-div .ui-datepicker-header .ui-datepicker-title .ui-datepicker-year {
+  margin-right: 10px;
+  color: #54291c;
+  cursor: pointer;
+}
+
+#ui-datepicker-div .ui-datepicker-header .ui-datepicker-title .ui-datepicker-month {
+  color: #54291c;
+  cursor: pointer;
+}
+
+#ui-datepicker-div .ui-widget-content {
+  border-color: #FBE6C3;
+  background-color: #FBE6C3;
+  background: none #FBE6C3;
+}
+
+#ui-datepicker-div .ui-widget-content > button {
+  width: 67px;
+  border-color: #FBE6C3;
+  background-color: #FBE6C3;
+  color: #54291c;
+  font-weight: bold;
 }
 
 footer {
