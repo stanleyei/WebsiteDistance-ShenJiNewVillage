@@ -180,6 +180,32 @@ mutationObserver.observe(phoneDateSelect, {
   characterDataOldValue: true
 });
 
+//點擊前後箭頭更換月份
+const dateTitleControl = document.querySelector('.date-title-control');
+let monthIndex = Number(thisMonth) - 1;
+let yearsIndex = date.getFullYear();
+dateTitleControl.addEventListener('click', function (e) {
+  monthLoop(e, 'prev', 0, 11, -1);
+  monthLoop(e, 'next', 11, 0, 1);
+});
+
+function monthLoop(e, direction, startIndex, finalIndex, count) {
+  if (e.target.dataset.month === `${direction}`) {
+    if (dateTitle.previousElementSibling.textContent !== monthData[startIndex]) {
+      dateTitle.previousElementSibling.textContent = monthData[monthIndex + count];
+      dateTitle.textContent = monthEn[monthIndex + count];
+      monthIndex = monthIndex + count;
+    }
+    else {
+      dateTitle.previousElementSibling.textContent = monthData[finalIndex];
+      dateTitle.textContent = monthEn[finalIndex];
+      dateTitle.nextElementSibling.textContent = yearsIndex + count;
+      yearsIndex = yearsIndex + count;
+      monthIndex = finalIndex;
+    };
+  };
+};
+
 //店家介紹-切換店家分類按鈕
 const navTaps = document.querySelectorAll('.nav-tap');
 const shopList = document.querySelectorAll('.shop-list');

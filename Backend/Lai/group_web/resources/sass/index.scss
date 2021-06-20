@@ -792,66 +792,101 @@ header {
                     margin: 2vh 0 3vh 0;
                 }
 
-                h3 {
-                    @include font(2.6rem, center, 5.56vh, 0.2em);
-                    position: relative;
-                    padding-left: 0.573vw;
+                .date-title-control{
+                    @include flex();
 
-                    @include w1366 {
-                        font-size: 1.875rem;
-                    }
-
-                    @include w1024 {
-                        font-size: 1.65rem;
-                    }
-
-                    @include w375 {
-                        line-height: 0.9rem;
-                        font-size: 0.9rem;
-                        margin: 0;
-                    }
-
-                    &::before {
-                        @include size(6.35vw, 2.22vh);
-                        content: '';
-                        position: absolute;
-                        bottom: 0;
-                        transform: translate(-10%, -50%);
-                        border-radius: 6px;
-                        background-color: $store-list-bg;
-                        z-index: -1;
-
-                        @include w1366{
-                            width: 86px;
+                    h3 {
+                        @include font(2.6rem, center, 5.56vh, 0.2em);
+                        position: relative;
+                        padding-left: 0.573vw;
+    
+                        @include w1366 {
+                            font-size: 1.875rem;
                         }
-
-                        @include w1024{
-                            width: 73px;
+    
+                        @include w1024 {
+                            font-size: 1.65rem;
                         }
-
+    
                         @include w375 {
-                            @include size(90%, 40%);
-                            transform: translate(0, -50%);
+                            line-height: 0.9rem;
+                            font-size: 0.9rem;
+                            margin: 0;
+                        }
+    
+                        &::before {
+                            @include size(6.35vw, 2.22vh);
+                            content: '';
+                            position: absolute;
+                            bottom: 0;
+                            transform: translate(-10%, -50%);
+                            border-radius: 6px;
+                            background-color: $store-list-bg;
+                            z-index: -1;
+    
+                            @include w1366{
+                                width: 86px;
+                            }
+    
+                            @include w1024{
+                                width: 73px;
+                            }
+    
+                            @include w375 {
+                                @include size(90%, 40%);
+                                transform: translate(0, -50%);
+                            }
                         }
                     }
-                }
-
-                div {
-                    @include font($h7, center, inherit, 0.2em);
-                    margin-left: 1.04vw;
-                    padding-top: 1.39vh;
-                    font-weight: bold;
-
-                    @include w375 {
-                        letter-spacing: 0;
-                        font-size: 0.7rem;
-                        line-height: 0.7rem;
-                        transform: scale(0.7);
-                        padding: 0;
-                        margin: 0;
+    
+                    div {
+                        @include font($h7, center, inherit, 0.2em);
+                        margin-left: 1.04vw;
+                        padding-top: 1.39vh;
+                        font-weight: bold;
+    
+                        @include w375 {
+                            letter-spacing: 0;
+                            font-size: 0.7rem;
+                            line-height: 0.7rem;
+                            transform: scale(0.7);
+                            padding: 0;
+                            margin: 0;
+                        }
                     }
 
-                    &:nth-child(3) {
+                    >i {
+                        display: none;
+                        cursor: pointer;
+                        text-shadow: -2px 0px 4px lighten($nes-aside-tag, 30%);
+    
+                        @include w768 {
+                            display: block;
+                        }
+    
+                        &:active {
+                            text-shadow: none;
+                            transform: translateX(-1px);
+                        }
+    
+                        &:first-of-type() {
+                            margin-right: 10px;
+    
+                            @include w375 {
+                                margin: 0;
+                            }
+                        }
+    
+                        &:last-of-type() {
+                            margin-left: 10px;
+    
+                            @include w375 {
+                                margin: 0;
+                            }
+                        }
+                    }
+
+                    >.years {
                         margin: 0;
 
                         @include w375 {

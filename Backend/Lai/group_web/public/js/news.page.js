@@ -239,6 +239,31 @@ mutationObserver.observe(phoneDateSelect, {
   characterDataOldValue: true
 });
 
+//點擊前後箭頭更換月份
+let monthIndex = Number(thisMonth) - 1;
+let yearsIndex = date.getFullYear();
+dateTitleControl.addEventListener('click', function (e) {
+  monthLoop(e, 'prev', 0, 11, -1);
+  monthLoop(e, 'next', 11, 0, 1);
+});
+
+function monthLoop(e, direction, startIndex, finalIndex, count) {
+  if (e.target.dataset.month === `${direction}`) {
+    if (thisMonthTitle.textContent !== monthData[startIndex]) {
+      thisMonthTitle.textContent = monthData[monthIndex + count];
+      thisMonthTitle.nextElementSibling.textContent = monthEn[monthIndex + count];
+      monthIndex = monthIndex + count;
+    }
+    else {
+      thisMonthTitle.textContent = monthData[finalIndex];
+      thisMonthTitle.nextElementSibling.textContent = monthEn[finalIndex];
+      yearsTitle[0].textContent = yearsIndex + count;
+      yearsIndex = yearsIndex + count;
+      monthIndex = finalIndex;
+    };
+  };
+};
+
 //news-aside-tap被點擊後的效果
 const feastPhoto = document.querySelector('#feast-photo');
 asideTabs.forEach(tabs => {

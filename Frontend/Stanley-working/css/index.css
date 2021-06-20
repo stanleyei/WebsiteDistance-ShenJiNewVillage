@@ -1527,7 +1527,19 @@ header .nav-img.active {
   }
 }
 
-#news .news-container article .content-title h3 {
+#news .news-container article .content-title .date-title-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#news .news-container article .content-title .date-title-control h3 {
   font-size: 2.6rem;
   text-align: center;
   line-height: 5.56vh;
@@ -1537,26 +1549,26 @@ header .nav-img.active {
 }
 
 @media (max-width: 1366px) {
-  #news .news-container article .content-title h3 {
+  #news .news-container article .content-title .date-title-control h3 {
     font-size: 1.875rem;
   }
 }
 
 @media (max-width: 1024px) {
-  #news .news-container article .content-title h3 {
+  #news .news-container article .content-title .date-title-control h3 {
     font-size: 1.65rem;
   }
 }
 
 @media (max-width: 375px) {
-  #news .news-container article .content-title h3 {
+  #news .news-container article .content-title .date-title-control h3 {
     line-height: 0.9rem;
     font-size: 0.9rem;
     margin: 0;
   }
 }
 
-#news .news-container article .content-title h3::before {
+#news .news-container article .content-title .date-title-control h3::before {
   width: 6.35vw;
   height: 2.22vh;
   content: '';
@@ -1570,19 +1582,19 @@ header .nav-img.active {
 }
 
 @media (max-width: 1366px) {
-  #news .news-container article .content-title h3::before {
+  #news .news-container article .content-title .date-title-control h3::before {
     width: 86px;
   }
 }
 
 @media (max-width: 1024px) {
-  #news .news-container article .content-title h3::before {
+  #news .news-container article .content-title .date-title-control h3::before {
     width: 73px;
   }
 }
 
 @media (max-width: 375px) {
-  #news .news-container article .content-title h3::before {
+  #news .news-container article .content-title .date-title-control h3::before {
     width: 90%;
     height: 40%;
     -webkit-transform: translate(0, -50%);
@@ -1590,7 +1602,7 @@ header .nav-img.active {
   }
 }
 
-#news .news-container article .content-title div {
+#news .news-container article .content-title .date-title-control div {
   font-size: 0.9375vw;
   text-align: center;
   line-height: inherit;
@@ -1601,7 +1613,7 @@ header .nav-img.active {
 }
 
 @media (max-width: 375px) {
-  #news .news-container article .content-title div {
+  #news .news-container article .content-title .date-title-control div {
     letter-spacing: 0;
     font-size: 0.7rem;
     line-height: 0.7rem;
@@ -1612,12 +1624,50 @@ header .nav-img.active {
   }
 }
 
-#news .news-container article .content-title div:nth-child(3) {
+#news .news-container article .content-title .date-title-control > i {
+  display: none;
+  cursor: pointer;
+  text-shadow: -2px 0px 4px gray;
+}
+
+@media (max-width: 768px) {
+  #news .news-container article .content-title .date-title-control > i {
+    display: block;
+  }
+}
+
+#news .news-container article .content-title .date-title-control > i:active {
+  text-shadow: none;
+  -webkit-transform: translateX(-1px);
+          transform: translateX(-1px);
+}
+
+#news .news-container article .content-title .date-title-control > i:first-of-type {
+  margin-right: 10px;
+}
+
+@media (max-width: 375px) {
+  #news .news-container article .content-title .date-title-control > i:first-of-type {
+    margin: 0;
+  }
+}
+
+#news .news-container article .content-title .date-title-control > i:last-of-type {
+  margin-left: 10px;
+}
+
+@media (max-width: 375px) {
+  #news .news-container article .content-title .date-title-control > i:last-of-type {
+    margin: 0;
+  }
+}
+
+#news .news-container article .content-title .date-title-control > .years {
   margin: 0;
 }
 
 @media (max-width: 375px) {
-  #news .news-container article .content-title div:nth-child(3) {
+  #news .news-container article .content-title .date-title-control > .years {
     -webkit-transform: translateX(-25%) scale(0.7);
             transform: translateX(-25%) scale(0.7);
   }
