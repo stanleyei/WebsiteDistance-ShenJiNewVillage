@@ -104,6 +104,7 @@ const infsNone = document.querySelector('#content-infs-none');
 const photoWall = document.querySelector('.feast-photo-wall');
 const phoneDateSelect = document.querySelector('.phone-date-btn');
 const contentInf = document.querySelectorAll('.content-inf');
+const dateTitleControl = document.querySelector('.date-title-control');
 asideTabs.forEach(tab => {
   if (newsUrl.searchParams.get('tap') === tab.dataset.tap) {
     if (tab.dataset.tap === '1') {
@@ -125,6 +126,7 @@ if (newsUrl.searchParams.get('tap') === '3') {
   photoWall.style = 'display:grid';
   infsNone.style = 'display:none';
   phoneDateSelect.classList.add('phone-date-none');
+  dateTitleControl.classList.add('date-title-control-none');
 };
 
 //審計新訊-生成按鈕
@@ -144,9 +146,9 @@ for (let i = 0; i < 5; i++) {
 const monthEn = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const monthBtns = document.querySelectorAll('.month-btn');
 const yearsBtns = document.querySelectorAll('.years-btn');
-const thisMonthTitle = document.querySelector('#this-month-title > h4');
-const nextMonthTitle = document.querySelector('#next-month-title > h4');
-const yearsTitle = document.querySelectorAll('.content-title > .years');
+const thisMonthTitle = document.querySelector('#this-month-title h4');
+const nextMonthTitle = document.querySelector('#next-month-title h4');
+const yearsTitle = document.querySelectorAll('.content-title .years');
 const date = new Date();
 const thisYear = String(date.getFullYear());
 const thisMonth = String(date.getMonth() + 1);
@@ -220,18 +222,21 @@ asideTabs.forEach(tabs => {
       tab.classList.remove('news-tab-focus', 'event-tab-focus', 'festival-tab-focus');
       if (this === tab) {
         if (tab.dataset.tap === '1') {
+          dateTitleControl.classList.remove('date-title-control-none');
           tab.classList.add('news-tab-focus');
           contentInf.forEach(inf => {
             inf.classList.remove('event-content-inf');
           });
         }
         else if (tab.dataset.tap === '2') {
+          dateTitleControl.classList.remove('date-title-control-none');
           tab.classList.add('event-tab-focus');
           contentInf.forEach(inf => {
             inf.classList.add('event-content-inf');
           });
         }
         else {
+          dateTitleControl.classList.add('date-title-control-none');
           tab.classList.add('festival-tab-focus');
         };
       };

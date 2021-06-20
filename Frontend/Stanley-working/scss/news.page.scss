@@ -514,6 +514,49 @@ main {
                     margin: 2vh 0 3vh 0;
                 }
 
+                .date-title-control{
+                    @include flex();
+
+                    >i {
+                        display: none;
+                        cursor: pointer;
+                        text-shadow: -2px 0px 4px lighten($nes-aside-tag, 30%);
+    
+                        @include w768 {
+                            display: block;
+                        }
+    
+                        &:active {
+                            text-shadow: none;
+                            transform: translateX(-1px);
+                        }
+    
+                        &:first-of-type() {
+                            margin-right: 10px;
+    
+                            @include w375 {
+                                margin: 0;
+                            }
+                        }
+    
+                        &:last-of-type() {
+                            margin-left: 10px;
+    
+                            @include w375 {
+                                margin: 0;
+                            }
+                        }
+    
+    
+                    }
+                }
+
+                .date-title-control-none{
+                    @include w768{
+                        display: none !important;
+                    }
+                }
+
                 h4 {
                     @include font($h1, center, 5.56vh, 0.2em);
                     position: relative;
@@ -590,39 +633,6 @@ main {
                         padding: 0;
                         margin: 0;
                     }
-                }
-
-                >i {
-                    display: none;
-                    cursor: pointer;
-                    text-shadow: -2px 0px 4px lighten($nes-aside-tag, 30%);
-
-                    @include w768 {
-                        display: block;
-                    }
-
-                    &:active {
-                        text-shadow: none;
-                        transform: translateX(-1px);
-                    }
-
-                    &:first-of-type() {
-                        margin-right: 10px;
-
-                        @include w375 {
-                            margin: 0;
-                        }
-                    }
-
-                    &:last-of-type() {
-                        margin-left: 10px;
-
-                        @include w375 {
-                            margin: 0;
-                        }
-                    }
-
-
                 }
 
                 .phone-date-btn {

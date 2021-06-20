@@ -104,6 +104,7 @@ const infsNone = document.querySelector('#content-infs-none');
 const photoWall = document.querySelector('.feast-photo-wall');
 const phoneDateSelect = document.querySelector('.phone-date-btn');
 const contentInf = document.querySelectorAll('.content-inf');
+const dateTitleControl = document.querySelector('.date-title-control');
 asideTabs.forEach(tab => {
   if (newsUrl.searchParams.get('tap') === tab.dataset.tap) {
     if (tab.dataset.tap === '1') {
@@ -125,6 +126,7 @@ if (newsUrl.searchParams.get('tap') === '3') {
   photoWall.style = 'display:grid';
   infsNone.style = 'display:none';
   phoneDateSelect.classList.add('phone-date-none');
+  dateTitleControl.classList.add('date-title-control-none');
 };
 
 //審計新訊-生成按鈕
@@ -220,18 +222,21 @@ asideTabs.forEach(tabs => {
       tab.classList.remove('news-tab-focus', 'event-tab-focus', 'festival-tab-focus');
       if (this === tab) {
         if (tab.dataset.tap === '1') {
+          dateTitleControl.classList.remove('date-title-control-none');
           tab.classList.add('news-tab-focus');
           contentInf.forEach(inf => {
             inf.classList.remove('event-content-inf');
           });
         }
         else if (tab.dataset.tap === '2') {
+          dateTitleControl.classList.remove('date-title-control-none');
           tab.classList.add('event-tab-focus');
           contentInf.forEach(inf => {
             inf.classList.add('event-content-inf');
           });
         }
         else {
+          dateTitleControl.classList.add('date-title-control-none');
           tab.classList.add('festival-tab-focus');
         };
       };
