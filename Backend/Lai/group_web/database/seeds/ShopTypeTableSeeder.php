@@ -15,7 +15,7 @@ class ShopTypeTableSeeder extends Seeder
     {
         ShopType::insert([
             [
-                'name' => '食物類',
+                'name' => '美食類',
                 'created_at' => now()->toDateString(),
                 'updated_at' => now()->toDateString(),
             ],
