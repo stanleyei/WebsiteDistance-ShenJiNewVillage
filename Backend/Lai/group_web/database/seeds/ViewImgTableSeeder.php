@@ -14,37 +14,37 @@ class ViewImgTableSeeder extends Seeder
         ViewImg::insert([
             [
                 'view_id' => '1',
-                'img' => 'https://memes.tw/user-template/a03333632536be8fe3c13c453f5bcb31.png',
+                'img' => '/img/views/01-台中文學館/主要圖片/台中文學館-01',
                 'created_at' => now()->toDateString(),
                 'updated_at' => now()->toDateString(),
             ],
             [
                 'view_id' => '2',
-                'img' => 'https://memes.tw/user-template/a03333632536be8fe3c13c453f5bcb31.png',
+                'img' => '/img/views/02-國立自然科學博物館之植物園/主要圖片/國立自然科學博物館-植物園-01',
                 'created_at' => now()->toDateString(),
                 'updated_at' => now()->toDateString(),
             ],
             [
                 'view_id' => '3',
-                'img' => 'https://memes.tw/user-template/a03333632536be8fe3c13c453f5bcb31.png',
+                'img' => '/img/views/03-柳川水岸步道/主要圖片/柳川水岸步道-01',
                 'created_at' => now()->toDateString(),
                 'updated_at' => now()->toDateString(),
             ],
             [
                 'view_id' => '4',
-                'img' => 'https://memes.tw/user-template/a03333632536be8fe3c13c453f5bcb31.png',
+                'img' => '/img/views/04-國立自然科學博物館/主要圖片/國立自然科學博物館-01',
                 'created_at' => now()->toDateString(),
                 'updated_at' => now()->toDateString(),
             ],
             [
                 'view_id' => '5',
-                'img' => 'https://memes.tw/user-template/a03333632536be8fe3c13c453f5bcb31.png',
+                'img' => '/img/views/05-道禾六藝文化館_臺中刑務所演武場/主要圖片/道禾六藝文化館-01',
                 'created_at' => now()->toDateString(),
                 'updated_at' => now()->toDateString(),
             ],
             [
                 'view_id' => '6',
-                'img' => 'https://memes.tw/user-template/a03333632536be8fe3c13c453f5bcb31.png',
+                'img' => '/img/views/06-國立臺灣美術館/主要圖片/國立臺灣美術館-01',
                 'created_at' => now()->toDateString(),
                 'updated_at' => now()->toDateString(),
             ],
