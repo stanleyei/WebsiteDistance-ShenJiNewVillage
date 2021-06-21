@@ -135,12 +135,12 @@ class FrontendController extends Controller
             $dataNews = Info::with('infoType', 'infoImgs')->whereBetween('date_start', $range)->orderBy('updated_at', 'DESC')->where('type_id', 3)->first();
             $data = [];
             // 1 活動花絮 
-            $data[] = $dataAction;
+            $data[] = $dataAction ?? 'none';
             // 2 審計公告
-            $data[] = $dataAnnouncement;
+            $data[] = $dataAnnouncement ?? 'none';
             // 3 最新消息
-            $data[] = $dataNews;
-            
+            $data[] = $dataNews ?? 'none';
+
             return $data;
         }
         return 'give me month & year!';
