@@ -162,7 +162,7 @@
                                     <span class="view-card-img"
                                         style="background-image: url('{{$view->viewImgs[0]->img??''}}');"></span>
                                 </a>
-                                <a href="{{$view->viewImgs[1]->img??''}}" data-lightbox="roadtrip-{{$view->id}}"></a>
+                                {{-- <a href="{{$view->viewImgs[1]->img??''}}" data-lightbox="roadtrip-{{$view->id}}"></a> --}}
                                 <p>{{$view->content}}</p>
                             </div>
                         </div>

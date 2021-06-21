@@ -42,38 +42,6 @@ class FrontendController extends Controller
         return view('frontend.tra-map');
     }
 
-    public function newsInitialization()
-    {
-        $infs = InfoTypes::with('infos')->get();
-        $startOfMonth = Carbon::now()->startOfMonth()->toDateTimeString();
-        $endOfMonth = Carbon::now()->endOfMonth()->toDateTimeString();
-        // $infs = Info::with('infoType')->whereBetween('created_at', array($startOfMonth, $endOfMonth));
-
-        // dd($infs[0]->infos->whereBetween('created_at', array($startOfMonth, $endOfMonth))->first());
-        $monthData = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
-        $hasEvents = '';
-        foreach ($infs as $inf) {
-            $eventDay = Carbon::create($inf->infos[0]->created_at->toDateTimeString())->day;
-            $eventMonth = Carbon::create($inf->infos[0]->created_at->toDateTimeString())->month;
-            $hasEvents .=
-                "<a class='content-inf' href='/news?tap={$inf->id}' title='前往{$inf->name}'>
-                <div class='inf-date'>
-                    <div class='during'>
-                        <div class='start-date'>{$eventDay}</div>
-                    </div>
-                    <span>{$monthData[$eventMonth - 1]}</span>
-                </div>
-                <div class='inf-detail'>
-                    <div class='inf-tag'>{$inf->name}</div>
-                    <h4>{$inf->infos[0]->name}</h4>
-                </div>
-                <span>more</span>
-                <i class='fas fa-chevron-right'></i>
-            </a>";
-        };
-        return $hasEvents;
-    }
-
     public function newsSwitch(Request $request)
     {
         $infs = InfoTypes::with('infos')->get();

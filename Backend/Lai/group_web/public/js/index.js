@@ -1,4 +1,4 @@
-//一進頁面便發送POST撈出審計新訓資料
+//一進頁面便發送POST撈出審計新訊資料
 const token = document.querySelector('[name="csrf-token"]').getAttribute('content');
 const monthData = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
 const contentInfs = document.querySelector('.content-infs');
@@ -7,7 +7,7 @@ const postYear = date.getFullYear();
 const postMonth = date.getMonth() + 1;
 const infsData = new FormData;
 infsData.append('_token', token);
-infsData.append('month', 5);
+infsData.append('month', postMonth);
 infsData.append('year', postYear);
 fetch('/get_date_data', {
   method: 'POST',
@@ -15,22 +15,20 @@ fetch('/get_date_data', {
 })
   .then(response => response.json())
   .then(result => {
-    if(result == []){
-      for(let i = 0 ; i < 3 ; i++){
-        contentInfs.innerHTML += 
-        `<div class='content-inf'>
+    const monthArray = [];
+    const dataArray = [];
+    result.forEach(data => {
+      if (data === 'none') {
+        contentInfs.innerHTML +=
+          `<div class='content-inf'>
           <div class='inf-detail ml-4'>
               <h4 style='line-height:9.25vh'>No Events</h4>
           </div>
         </div>
         `;
-      };
-    }else{
-      const monthArray = [];
-      const dataArray = [];
-      result.forEach(data => {
+      } else {
         contentInfs.innerHTML +=
-        `<a class='content-inf' href='/news?tap=${data.info_type.id}' title='前往${data.info_type.name}'>
+          `<a class='content-inf' href='/news?tap=${data.info_type.id}' title='前往${data.info_type.name}'>
           <div class='inf-date'>
               <div class='during'>
                   <div class='start-date'></div>
@@ -45,28 +43,28 @@ fetch('/get_date_data', {
           <i class='fas fa-chevron-right'></i>
         </a>`;
         const monthNumber = data.created_at.split('-');
-        if(monthNumber[1] === '10' || monthNumber[1] === '11' || monthNumber[1] === '12'){
+        if (monthNumber[1] === '10' || monthNumber[1] === '11' || monthNumber[1] === '12') {
           monthArray.push(monthNumber[1]);
-        }else{
+        } else {
           const singleMonth = monthNumber[1].split('0');
           monthArray.push(singleMonth[1]);
         };
         const dataNumber = monthNumber[2].split('T');
         dataArray.push(dataNumber[0]);
-      });
-  
-      let x = 0;
-      document.querySelectorAll('.start-date').forEach(date => {
-        date.textContent = dataArray[x];
-        x++;
-      });
-  
-      let i = 0;
-      document.querySelectorAll('.inf-date > span').forEach(month => {
-        month.textContent = monthData[monthArray[i] - 1];
-        i++
-      });
-    };
+      };
+    });
+
+    let x = 0;
+    document.querySelectorAll('.start-date').forEach(date => {
+      date.textContent = dataArray[x];
+      x++;
+    });
+
+    let i = 0;
+    document.querySelectorAll('.inf-date > span').forEach(month => {
+      month.textContent = monthData[monthArray[i] - 1];
+      i++
+    });
   });
 
 // 整頁-fullpage輪播套件
@@ -200,53 +198,77 @@ function focusChange(dateBtns) {
       const month = this.dataset.month;
       const formData = new FormData;
       formData.append('month', month);
+      formData.append('year', postYear);
       formData.append('_token', token);
-      fetch('/news_switch', {
+      fetch('/get_date_data', {
         method: 'POST',
         body: formData,
       })
         .then(response => {
-          return response.text();
+          return response.json();
         })
         .then(result => {
-          contentInfs.innerHTML = result;
+          const monthArray = [];
+          const dataArray = [];
+          contentInfs.innerHTML = '';
+          result.forEach(data => {
+            if (data === 'none') {
+              contentInfs.innerHTML +=
+                `<div class='content-inf'>
+                <div class='inf-detail ml-4'>
+                    <h4 style='line-height:9.25vh'>No Events</h4>
+                </div>
+              </div>
+              `;
+            } else {
+              contentInfs.innerHTML +=
+                `<a class='content-inf' href='/news?tap=${data.info_type.id}' title='前往${data.info_type.name}'>
+                <div class='inf-date'>
+                    <div class='during'>
+                        <div class='start-date'></div>
+                    </div>
+                    <span></span>
+                </div>
+                <div class='inf-detail'>
+                    <div class='inf-tag'>${data.info_type.name}</div>
+                    <h4>${data.name}</h4>
+                </div>
+                <span>more</span>
+                <i class='fas fa-chevron-right'></i>
+              </a>`;
+              const monthNumber = data.created_at.split('-');
+              if (monthNumber[1] === '10' || monthNumber[1] === '11' || monthNumber[1] === '12') {
+                monthArray.push(monthNumber[1]);
+              } else {
+                const singleMonth = monthNumber[1].split('0');
+                monthArray.push(singleMonth[1]);
+              };
+              const dataNumber = monthNumber[2].split('T');
+              dataArray.push(dataNumber[0]);
+            };
+          });
+
+          let x = 0;
+          document.querySelectorAll('.start-date').forEach(date => {
+            date.textContent = dataArray[x];
+            x++;
+          });
+
+          let i = 0;
+          document.querySelectorAll('.inf-date > span').forEach(month => {
+            month.textContent = monthData[monthArray[i] - 1];
+            i++
+          });
         });
     });
   });
 }
 
-//審計新訊-點擊選擇日期按鈕切換效果
-const phoneDateSelect = document.querySelector('.phone-date-btn');
-const mutationObserver = new MutationObserver(function (mutations) {
-  mutations.forEach(function () {
-    if (phoneDateSelect.value !== '選擇日期') {
-      const seleteArray = phoneDateSelect.value.split('-');
-      dateTitle.nextElementSibling.textContent = `,${seleteArray[0]}`;
-      if (seleteArray[1] === '10' || seleteArray[1] === '11' || seleteArray[1] === '12') {
-        dateTitle.textContent = monthEn[seleteArray[1] - 1];
-        dateTitle.previousElementSibling.textContent = monthData[seleteArray[1] - 1];
-      }
-      else {
-        const titleMonth = seleteArray[1].split('0');
-        dateTitle.textContent = monthEn[titleMonth[1] - 1];
-        dateTitle.previousElementSibling.textContent = monthData[titleMonth[1] - 1];
-      }
-    };
-  });
-});
-mutationObserver.observe(phoneDateSelect, {
-  attributes: true,
-  characterData: true,
-  childList: true,
-  subtree: true,
-  attributeOldValue: true,
-  characterDataOldValue: true
-});
-
 //點擊前後箭頭更換月份
 const dateTitleControl = document.querySelector('.date-title-control');
 let monthIndex = Number(thisMonth) - 1;
 let yearsIndex = date.getFullYear();
+let changeMonth = postMonth;
 dateTitleControl.addEventListener('click', function (e) {
   monthLoop(e, 'prev', 0, 11, -1);
   monthLoop(e, 'next', 11, 0, 1);
@@ -254,6 +276,72 @@ dateTitleControl.addEventListener('click', function (e) {
 
 function monthLoop(e, direction, startIndex, finalIndex, count) {
   if (e.target.dataset.month === `${direction}`) {
+    const changeYear = dateTitle.nextElementSibling.textContent;
+    const formData = new FormData;
+    formData.append('month', changeMonth + count);
+    formData.append('year', changeYear);
+    formData.append('_token', token);
+    fetch('/get_date_data', {
+      method: 'POST',
+      body: formData,
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(result => {
+        const monthArray = [];
+        const dataArray = [];
+        contentInfs.innerHTML = '';
+        result.forEach(data => {
+          if (data === 'none') {
+            contentInfs.innerHTML +=
+              `<div class='content-inf'>
+              <div class='inf-detail ml-4'>
+                  <h4 style='line-height:9.25vh'>No Events</h4>
+              </div>
+            </div>
+            `;
+          } else {
+            contentInfs.innerHTML +=
+              `<a class='content-inf' href='/news?tap=${data.info_type.id}' title='前往${data.info_type.name}'>
+              <div class='inf-date'>
+                  <div class='during'>
+                      <div class='start-date'></div>
+                  </div>
+                  <span></span>
+              </div>
+              <div class='inf-detail'>
+                  <div class='inf-tag'>${data.info_type.name}</div>
+                  <h4>${data.name}</h4>
+              </div>
+              <span>more</span>
+              <i class='fas fa-chevron-right'></i>
+            </a>`;
+            const monthNumber = data.created_at.split('-');
+            if (monthNumber[1] === '10' || monthNumber[1] === '11' || monthNumber[1] === '12') {
+              monthArray.push(monthNumber[1]);
+            } else {
+              const singleMonth = monthNumber[1].split('0');
+              monthArray.push(singleMonth[1]);
+            };
+            const dataNumber = monthNumber[2].split('T');
+            dataArray.push(dataNumber[0]);
+          };
+        });
+
+        let x = 0;
+        document.querySelectorAll('.start-date').forEach(date => {
+          date.textContent = dataArray[x];
+          x++;
+        });
+
+        let i = 0;
+        document.querySelectorAll('.inf-date > span').forEach(month => {
+          month.textContent = monthData[monthArray[i] - 1];
+          i++
+        });
+      });
+    changeMonth = changeMonth + count;  
     if (dateTitle.previousElementSibling.textContent !== monthData[startIndex]) {
       dateTitle.previousElementSibling.textContent = monthData[monthIndex + count];
       dateTitle.textContent = monthEn[monthIndex + count];
@@ -268,6 +356,168 @@ function monthLoop(e, direction, startIndex, finalIndex, count) {
     };
   };
 };
+
+//審計新訊-點擊選擇日期按鈕切換效果
+const phoneDateSelect = document.querySelector('.phone-date-btn');
+const mutationObserver = new MutationObserver(function (mutations) {
+  mutations.forEach(function () {
+    if (phoneDateSelect.value !== '選擇日期') {
+      const seleteArray = phoneDateSelect.value.split('-');
+      dateTitle.nextElementSibling.textContent = `,${seleteArray[0]}`;
+      if (seleteArray[1] === '10' || seleteArray[1] === '11' || seleteArray[1] === '12') {
+        dateTitle.textContent = monthEn[seleteArray[1] - 1];
+        dateTitle.previousElementSibling.textContent = monthData[seleteArray[1] - 1];
+
+        const month = seleteArray[1];
+        const year = seleteArray[0];
+        const formData = new FormData;
+        formData.append('month', month);
+        formData.append('year', year);
+        formData.append('_token', token);
+        fetch('/get_date_data', {
+          method: 'POST',
+          body: formData,
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then(result => {
+            const monthArray = [];
+            const dataArray = [];
+            contentInfs.innerHTML = '';
+            result.forEach(data => {
+              if (data === 'none') {
+                contentInfs.innerHTML +=
+                  `<div class='content-inf'>
+                  <div class='inf-detail ml-4'>
+                      <h4 style='line-height:9.25vh'>No Events</h4>
+                  </div>
+                </div>
+                `;
+              } else {
+                contentInfs.innerHTML +=
+                  `<a class='content-inf' href='/news?tap=${data.info_type.id}' title='前往${data.info_type.name}'>
+                  <div class='inf-date'>
+                      <div class='during'>
+                          <div class='start-date'></div>
+                      </div>
+                      <span></span>
+                  </div>
+                  <div class='inf-detail'>
+                      <div class='inf-tag'>${data.info_type.name}</div>
+                      <h4>${data.name}</h4>
+                  </div>
+                  <span>more</span>
+                  <i class='fas fa-chevron-right'></i>
+                </a>`;
+                const monthNumber = data.created_at.split('-');
+                if (monthNumber[1] === '10' || monthNumber[1] === '11' || monthNumber[1] === '12') {
+                  monthArray.push(monthNumber[1]);
+                } else {
+                  const singleMonth = monthNumber[1].split('0');
+                  monthArray.push(singleMonth[1]);
+                };
+                const dataNumber = monthNumber[2].split('T');
+                dataArray.push(dataNumber[0]);
+              };
+            });
+
+            let x = 0;
+            document.querySelectorAll('.start-date').forEach(date => {
+              date.textContent = dataArray[x];
+              x++;
+            });
+
+            let i = 0;
+            document.querySelectorAll('.inf-date > span').forEach(month => {
+              month.textContent = monthData[monthArray[i] - 1];
+              i++
+            });
+          });
+      }
+      else {
+        const titleMonth = seleteArray[1].split('0');
+        dateTitle.textContent = monthEn[titleMonth[1] - 1];
+        dateTitle.previousElementSibling.textContent = monthData[titleMonth[1] - 1];
+
+        const month = titleMonth[1];
+        const year = seleteArray[0];
+        const formData = new FormData;
+        formData.append('month', month);
+        formData.append('year', year);
+        formData.append('_token', token);
+        fetch('/get_date_data', {
+          method: 'POST',
+          body: formData,
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then(result => {
+            const monthArray = [];
+            const dataArray = [];
+            contentInfs.innerHTML = '';
+            result.forEach(data => {
+              if (data === 'none') {
+                contentInfs.innerHTML +=
+                  `<div class='content-inf'>
+                  <div class='inf-detail ml-4'>
+                      <h4 style='line-height:9.25vh'>No Events</h4>
+                  </div>
+                </div>
+                `;
+              } else {
+                contentInfs.innerHTML +=
+                  `<a class='content-inf' href='/news?tap=${data.info_type.id}' title='前往${data.info_type.name}'>
+                  <div class='inf-date'>
+                      <div class='during'>
+                          <div class='start-date'></div>
+                      </div>
+                      <span></span>
+                  </div>
+                  <div class='inf-detail'>
+                      <div class='inf-tag'>${data.info_type.name}</div>
+                      <h4>${data.name}</h4>
+                  </div>
+                  <span>more</span>
+                  <i class='fas fa-chevron-right'></i>
+                </a>`;
+                const monthNumber = data.created_at.split('-');
+                if (monthNumber[1] === '10' || monthNumber[1] === '11' || monthNumber[1] === '12') {
+                  monthArray.push(monthNumber[1]);
+                } else {
+                  const singleMonth = monthNumber[1].split('0');
+                  monthArray.push(singleMonth[1]);
+                };
+                const dataNumber = monthNumber[2].split('T');
+                dataArray.push(dataNumber[0]);
+              };
+            });
+
+            let x = 0;
+            document.querySelectorAll('.start-date').forEach(date => {
+              date.textContent = dataArray[x];
+              x++;
+            });
+
+            let i = 0;
+            document.querySelectorAll('.inf-date > span').forEach(month => {
+              month.textContent = monthData[monthArray[i] - 1];
+              i++
+            });
+          });
+      }
+    };
+  });
+});
+mutationObserver.observe(phoneDateSelect, {
+  attributes: true,
+  characterData: true,
+  childList: true,
+  subtree: true,
+  attributeOldValue: true,
+  characterDataOldValue: true
+});
 
 //店家介紹-切換店家分類按鈕
 const navTaps = document.querySelectorAll('.nav-tap');
