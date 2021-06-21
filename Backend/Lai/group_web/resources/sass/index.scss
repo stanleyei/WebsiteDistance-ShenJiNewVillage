@@ -1659,7 +1659,7 @@ header {
                             .view-card-img {
                                 @include size(150px, 120px);
                                 display: block;
-                                margin: 10px auto;
+                                margin: 10px auto 0;
                                 background-position: center;
                                 background-size: cover;
 

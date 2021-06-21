@@ -2727,7 +2727,7 @@ header .nav-img.active {
   width: 150px;
   height: 120px;
   display: block;
-  margin: 10px auto;
+  margin: 10px auto 0;
   background-position: center;
   background-size: cover;
 }

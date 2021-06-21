@@ -22,7 +22,7 @@
                         <div class="swiper-wrapper">
                             @foreach ($sliders as $slider)
                             <div class="about-us-slide swiper-slide">
-                                <div class="img" style="background-image: url({{$slider->img}});"
+                                <div class="img" style="background-image: url({{asset($slider->img)}});"
                                     alt="{{$slider->name}}"></div>
                             </div>
                             @endforeach
@@ -162,6 +162,7 @@
                                     <span class="view-card-img"
                                         style="background-image: url('{{$view->viewImgs[0]->img??''}}');"></span>
                                 </a>
+                                <a href="{{$view->viewImgs[1]->img??''}}" data-lightbox="roadtrip-{{$view->id}}"></a>
                                 <p>{{$view->content}}</p>
                             </div>
                         </div>

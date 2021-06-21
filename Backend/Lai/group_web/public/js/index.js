@@ -1,18 +1,73 @@
 //一進頁面便發送POST撈出審計新訓資料
 const token = document.querySelector('[name="csrf-token"]').getAttribute('content');
+const monthData = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
 const contentInfs = document.querySelector('.content-infs');
+const date = new Date();
+const postYear = date.getFullYear();
+const postMonth = date.getMonth() + 1;
 const infsData = new FormData;
 infsData.append('_token', token);
-fetch('/newsInitialization', {
+infsData.append('month', 5);
+infsData.append('year', postYear);
+fetch('/get_date_data', {
   method: 'POST',
   body: infsData,
 })
-.then(response => {
-  return response.text();
-})
-.then(result => {
-  contentInfs.innerHTML = result;
-});
+  .then(response => response.json())
+  .then(result => {
+    if(result == []){
+      for(let i = 0 ; i < 3 ; i++){
+        contentInfs.innerHTML += 
+        `<div class='content-inf'>
+          <div class='inf-detail ml-4'>
+              <h4 style='line-height:9.25vh'>No Events</h4>
+          </div>
+        </div>
+        `;
+      };
+    }else{
+      const monthArray = [];
+      const dataArray = [];
+      result.forEach(data => {
+        contentInfs.innerHTML +=
+        `<a class='content-inf' href='/news?tap=${data.info_type.id}' title='前往${data.info_type.name}'>
+          <div class='inf-date'>
+              <div class='during'>
+                  <div class='start-date'></div>
+              </div>
+              <span></span>
+          </div>
+          <div class='inf-detail'>
+              <div class='inf-tag'>${data.info_type.name}</div>
+              <h4>${data.name}</h4>
+          </div>
+          <span>more</span>
+          <i class='fas fa-chevron-right'></i>
+        </a>`;
+        const monthNumber = data.created_at.split('-');
+        if(monthNumber[1] === '10' || monthNumber[1] === '11' || monthNumber[1] === '12'){
+          monthArray.push(monthNumber[1]);
+        }else{
+          const singleMonth = monthNumber[1].split('0');
+          monthArray.push(singleMonth[1]);
+        };
+        const dataNumber = monthNumber[2].split('T');
+        dataArray.push(dataNumber[0]);
+      });
+  
+      let x = 0;
+      document.querySelectorAll('.start-date').forEach(date => {
+        date.textContent = dataArray[x];
+        x++;
+      });
+  
+      let i = 0;
+      document.querySelectorAll('.inf-date > span').forEach(month => {
+        month.textContent = monthData[monthArray[i] - 1];
+        i++
+      });
+    };
+  });
 
 // 整頁-fullpage輪播套件
 new fullpage('#fullpage', {
@@ -50,12 +105,21 @@ navToggle.addEventListener('click', function () {
   header.classList.toggle('header-shady');
 });
 main.addEventListener('click', function () {
+  navRemove();
+});
+header.addEventListener('click', function (e) {
+  if (e.target !== navToggle) {
+    navRemove();
+  };
+});
+
+function navRemove() {
   navToggle.classList.remove('active');
   navbar.classList.remove('active');
   ulbar.classList.remove('active');
   navimg.classList.remove('active');
   header.classList.remove('header-shady');
-});
+};
 
 //關於審計-Swiper輪播套件
 const aboutUsSwiper = new Swiper(".aboutUsSwiper", {
@@ -87,7 +151,6 @@ const aboutUsSwiper = new Swiper(".aboutUsSwiper", {
 //審計新訊-生成按鈕
 const monthList = document.querySelector('#month-list');
 const yearsList = document.querySelector('#years-list');
-const monthData = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
 let dataValue = 1;
 monthData.forEach(data => {
   monthList.innerHTML += `<button class="month-btn" data-month="${dataValue}" title="${data}">${data}</button>`
@@ -102,7 +165,6 @@ const monthEn = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
 const monthBtns = document.querySelectorAll('.month-btn');
 const yearsBtns = document.querySelectorAll('.years-btn');
 const dateTitle = document.querySelector('.date-title-control > .month');
-const date = new Date();
 const thisYear = String(date.getFullYear());
 const thisMonth = String(date.getMonth() + 1);
 focusChange(monthBtns);
@@ -160,11 +222,11 @@ const mutationObserver = new MutationObserver(function (mutations) {
     if (phoneDateSelect.value !== '選擇日期') {
       const seleteArray = phoneDateSelect.value.split('-');
       dateTitle.nextElementSibling.textContent = `,${seleteArray[0]}`;
-      if(seleteArray[1] === '10' || seleteArray[1] === '11' || seleteArray[1] === '12'){
+      if (seleteArray[1] === '10' || seleteArray[1] === '11' || seleteArray[1] === '12') {
         dateTitle.textContent = monthEn[seleteArray[1] - 1];
         dateTitle.previousElementSibling.textContent = monthData[seleteArray[1] - 1];
       }
-      else{
+      else {
         const titleMonth = seleteArray[1].split('0');
         dateTitle.textContent = monthEn[titleMonth[1] - 1];
         dateTitle.previousElementSibling.textContent = monthData[titleMonth[1] - 1];
@@ -299,29 +361,29 @@ const swiper = new Swiper('.swiper-container', {
   speed: 500,
   loop: true,
   slideToClickedSlide: true,
-  breakpoints:{
+  breakpoints: {
     1366: {
-      slidesPerView:5,
+      slidesPerView: 5,
       spaceBetween: 150,
     },
     1024: {
-      slidesPerView:5,
+      slidesPerView: 5,
       spaceBetween: 110,
     },
     768: {
-      slidesPerView:3,
+      slidesPerView: 3,
       spaceBetween: 70,
     },
     540: {
-      slidesPerView:2.5,
+      slidesPerView: 2.5,
       spaceBetween: 60,
     },
     375: {
-      slidesPerView:1.75,
+      slidesPerView: 1.75,
       spaceBetween: 30,
     },
-    320:{
-      slidesPerView:1.75,
+    320: {
+      slidesPerView: 1.75,
       spaceBetween: 30,
     },
   },

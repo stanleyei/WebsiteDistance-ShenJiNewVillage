@@ -34,12 +34,21 @@ navToggle.addEventListener('click', function () {
   header.classList.toggle('header-shady');
 });
 main.addEventListener('click', function () {
+  navRemove();
+});
+header.addEventListener('click', function (e) {
+  if(e.target !== navToggle){
+    navRemove();
+  };
+});
+
+function navRemove(){
   navToggle.classList.remove('active');
   navbar.classList.remove('active');
   ulbar.classList.remove('active');
   navimg.classList.remove('active');
   header.classList.remove('header-shady');
-});
+};
 
 //關於審計-Swiper輪播套件
 const aboutUsSwiper = new Swiper(".aboutUsSwiper", {

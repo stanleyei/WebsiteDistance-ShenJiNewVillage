@@ -140,7 +140,7 @@ class FrontendController extends Controller
             $data[] = $dataAnnouncement;
             // 3 最新消息
             $data[] = $dataNews;
-    
+            
             return $data;
         }
         return 'give me month & year!';

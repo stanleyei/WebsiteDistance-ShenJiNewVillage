@@ -13,12 +13,21 @@ navToggle.addEventListener('click', function () {
   header.classList.toggle('header-shady');
 });
 main.addEventListener('click', function () {
+  navRemove();
+});
+header.addEventListener('click', function (e) {
+  if(e.target !== navToggle){
+    navRemove();
+  };
+});
+
+function navRemove(){
   navToggle.classList.remove('active');
   navbar.classList.remove('active');
   ulbar.classList.remove('active');
   navimg.classList.remove('active');
   header.classList.remove('header-shady');
-});
+};
 
 // 生出活動內容結構
 const contentInfsNow = document.querySelector('#content-infs-now');

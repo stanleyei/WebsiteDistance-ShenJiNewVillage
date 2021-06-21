@@ -38,12 +38,30 @@ const navbar = document.querySelector('nav');
 const ulbar = document.querySelector('.ulbar');
 const navimg = document.querySelector('.nav-img');
 const header = document.querySelector('header');
-document.querySelector('.toggle').onclick = function () {
-    this.classList.toggle('active');
-    navbar.classList.toggle('active');
-    ulbar.classList.toggle('active');
-    navimg.classList.toggle('active');
-    header.classList.toggle('header-shady');
+const navToggle = document.querySelector('.toggle');
+const main = document.querySelector('main');
+navToggle.addEventListener('click', function () {
+  this.classList.toggle('active');
+  navbar.classList.toggle('active');
+  ulbar.classList.toggle('active');
+  navimg.classList.toggle('active');
+  header.classList.toggle('header-shady');
+});
+main.addEventListener('click', function () {
+  navRemove();
+});
+header.addEventListener('click', function (e) {
+  if(e.target !== navToggle){
+    navRemove();
+  };
+});
+
+function navRemove(){
+  navToggle.classList.remove('active');
+  navbar.classList.remove('active');
+  ulbar.classList.remove('active');
+  navimg.classList.remove('active');
+  header.classList.remove('header-shady');
 };
 </script>
 @endsection

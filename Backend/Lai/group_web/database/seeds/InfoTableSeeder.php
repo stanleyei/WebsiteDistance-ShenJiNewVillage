@@ -30,7 +30,7 @@ class InfoTableSeeder extends Seeder
                 前來散步逛街拍照的你我他還是可以往店家去嚇店員呦
                 #真的只是黑了點但照常營業                
                 ',
-                'img' => '123',
+                'img' => '/img/news/01-Shen-Ji-announcement/Shen-Ji-announcement-photoes/January-01.jpg',
                 'date_start' => Carbon::parse('2021-01-20 13:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-01-20 15:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -51,7 +51,7 @@ class InfoTableSeeder extends Seeder
                 但是
                 真的只有部分，所以還是要來哦~    
                 ',
-                'img' => '123',
+                'img' => '/img/news/01-Shen-Ji-announcement/Shen-Ji-announcement-photoes/January-02.jpg',
                 'date_start' => Carbon::parse('2021-01-26 09:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-01-26 16:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -70,7 +70,7 @@ class InfoTableSeeder extends Seeder
                 日日鬆餅-營業至下午6點
                 Clayway銀黏土-營業至下午6點
                 ',
-                'img' => '123',
+                'img' => '/img/news/01-Shen-Ji-announcement/Shen-Ji-announcement-photoes/February-01.jpg',
                 'date_start' => Carbon::parse('2021-02-11 10:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-02-11 19:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -78,6 +78,130 @@ class InfoTableSeeder extends Seeder
                 'calendar' => '活動花絮的資訊之一日曆',
                 'created_at' => Carbon::parse('2021-02-08 10:00:00')->toDateTimeString(),
                 'updated_at' => Carbon::parse('2021-02-08 10:00:00')->toDateTimeString(),
+            ],
+            [
+                'type_id' => '1',
+                'name' => '緊急通知-園區公廁暫時無水源供應',
+                'content' => '🥺村長，我被芒果打到還吃掉了想洗手‼️
+                宣布一件很傷心的事
+                公共廁所在昨天中午開始鬧脾氣停水
+                水電叔叔跟村長找問題一整天
+                今天依舊鬧脾氣
+                先跟前來園區逛街以及市集人員緊急通知
+                ⚠️「這幾天公廁不開放」⚠️
+                將會持續與相關單位處理請多包涵🙏🏻
+                ',
+                'img' => '/img/news/01-Shen-Ji-announcement/Shen-Ji-announcement-photoes/May-01.jpg',
+                'date_start' => Carbon::parse('2021-05-08 10:00:00')->toDateTimeString(),
+                'date_end' => Carbon::parse('2021-05-17 19:00:00')->toDateTimeString(),
+                'location' => '台中市西區民生路368巷',
+                'organizer' => '審計新村',
+                'calendar' => '活動花絮的資訊之一日曆',
+                'created_at' => Carbon::parse('2021-05-05 10:00:00')->toDateTimeString(),
+                'updated_at' => Carbon::parse('2021-05-05 10:00:00')->toDateTimeString(),
+            ],
+            [
+                'type_id' => '1',
+                'name' => '村長公告-藝行@香港2021版_藝文書刊歡迎索取',
+                'content' => '以「香港綠色生活、山林郊野」為主軸的📚藝行@香港2021版裡頭有實踐環保的行動家、有機農場、生態保育園區等，跟著書本探索香港及自然環境背後的不為人知小故事‼️
+                審計管理室有幾本藝文書刊都能索取！有興趣歡迎索取唷😆
+                ',
+                'img' => '/img/news/01-Shen-Ji-announcement/Shen-Ji-announcement-photoes/May-02.jpg',
+                'date_start' => Carbon::parse('2021-05-11 10:00:00')->toDateTimeString(),
+                'date_end' => Carbon::parse('2021-06-11 19:00:00')->toDateTimeString(),
+                'location' => '台中市西區民生路368巷',
+                'organizer' => '審計新村',
+                'calendar' => '活動花絮的資訊之一日曆',
+                'created_at' => Carbon::parse('2021-05-11 10:00:00')->toDateTimeString(),
+                'updated_at' => Carbon::parse('2021-05-11 10:00:00')->toDateTimeString(),
+            ],
+            [
+                'type_id' => '1',
+                'name' => '村長公告-防疫重要通知',
+                'content' => '⚠️緊急‼️緊急報報⚠️
+                近日報導了許多讓全台人民驚驚的新聞
+                村長想跟大家說：
+                💬如果非必要真的不要出門，像村長必須捍衛村莊安全非得上工巡邏，但各位村民們好好照顧自己啦🥺
+                目前園區正常營運
+                ✏️請務必配合入園實名制登記
+                ✏️全程配戴口罩😷飲食完畢也是呦
+                台灣的安全由每個人都能落實及誠實！
+                村長㊗️平安
+                ',
+                'img' => '/img/news/01-Shen-Ji-announcement/Shen-Ji-announcement-photoes/May-03.jpg',
+                'date_start' => Carbon::parse('2021-05-13 10:00:00')->toDateTimeString(),
+                'date_end' => Carbon::parse('2021-06-28 19:00:00')->toDateTimeString(),
+                'location' => '台中市西區民生路368巷',
+                'organizer' => '審計新村',
+                'calendar' => '活動花絮的資訊之一日曆',
+                'created_at' => Carbon::parse('2021-05-13 10:00:00')->toDateTimeString(),
+                'updated_at' => Carbon::parse('2021-05-13 10:00:00')->toDateTimeString(),
+            ],
+            [
+                'type_id' => '1',
+                'name' => '村長廣播-相關資訊引導',
+                'content' => '叮叮叮重要資訊照過來
+                村長為迷路的村民們引導方向
+                
+                「審計園區」一直都是開放的
+                不需門票！沒有限制進入時間！
+                
+                「審計園區內店家」
+                各個店家營業時間及休息日不同
+                但大部分11AM就啟動啦
+                
+                「暮暮市集」
+                暮暮是審計新村的駐點市集
+                很多人不知道審計有個迷人的地方
+                就是不管『平日』還是『假日』
+                都！有！市！集！
+                （每天都有人問市集何時有，關於我是不是都沒在看，村長實在是太氣bubu惹）
+                但沒關係，現在你們知道囉
+    
+                好啦，村長要去歇息了
+                記得來園區要拍照拍照打卡打卡
+                ',
+                'img' => '/img/news/01-Shen-Ji-announcement/Shen-Ji-announcement-photoes/July-01.jpg',
+                'date_start' => Carbon::parse('2021-07-10 10:00:00')->toDateTimeString(),
+                'date_end' => Carbon::parse('2021-07-10 19:00:00')->toDateTimeString(),
+                'location' => '台中市西區民生路368巷',
+                'organizer' => '審計新村',
+                'calendar' => '活動花絮的資訊之一日曆',
+                'created_at' => Carbon::parse('2021-07-10 10:00:00')->toDateTimeString(),
+                'updated_at' => Carbon::parse('2021-07-10 10:00:00')->toDateTimeString(),
+            ],
+            [
+                'type_id' => '1',
+                'name' => '村長公告-園區進行消毒',
+                'content' => '為了保障遊客的安全
+                審計新村將於9/16-18進行園區消毒
+                一同守護你我的健康
+                ',
+                'img' => '/img/news/01-Shen-Ji-announcement/Shen-Ji-announcement-photoes/September-01.jpg',
+                'date_start' => Carbon::parse('2021-09-16 16:00:00')->toDateTimeString(),
+                'date_end' => Carbon::parse('2021-09-18 17:00:00')->toDateTimeString(),
+                'location' => '台中市西區民生路368巷',
+                'organizer' => '審計新村',
+                'calendar' => '活動花絮的資訊之一日曆',
+                'created_at' => Carbon::parse('2021-09-15 10:00:00')->toDateTimeString(),
+                'updated_at' => Carbon::parse('2021-09-15 10:00:00')->toDateTimeString(),
+            ],
+            [
+                'type_id' => '1',
+                'name' => '11/30 審計園區休息一天',
+                'content' => '審計村長報告
+                110.11.30（一）
+                『審計園區休息一天』
+                『暮暮市集休市一天』
+                ',
+                'img' => '/img/news/01-Shen-Ji-announcement/Shen-Ji-announcement-photoes/November-01.jpg',
+                'date_start' => Carbon::parse('2021-11-30 10:00:00')->toDateTimeString(),
+                'date_end' => Carbon::parse('2021-11-30 19:00:00')->toDateTimeString(),
+                'location' => '台中市西區民生路368巷',
+                'organizer' => '審計新村',
+                'calendar' => '活動花絮的資訊之一日曆',
+                'created_at' => Carbon::parse('2021-11-05 10:00:00')->toDateTimeString(),
+                'updated_at' => Carbon::parse('2021-11-05 10:00:00')->toDateTimeString(),
             ],
             [
                 'type_id' => '2',
@@ -89,7 +213,7 @@ class InfoTableSeeder extends Seeder
                 古夜天工坊
                 Tadpole Teak 得寶老柚木
                 ',
-                'img' => '/img/news/02-活動資訊/一月-01.jpg',
+                'img' => '/img/news/02-event/jan-01.jpg',
                 'date_start' => Carbon::parse('2021-01-20 10:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-01-31 19:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -108,7 +232,7 @@ class InfoTableSeeder extends Seeder
                 翻滾酪梨 Rolin is rolling
                 鳥人鳥事多
                 ',
-                'img' => '/img/news/02-活動資訊/二月-01.jpg',
+                'img' => '/img/news/02-event/feb-01.jpg',
                 'date_start' => Carbon::parse('2021-02-10 10:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-02-18 19:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -124,7 +248,7 @@ class InfoTableSeeder extends Seeder
                 藍天白雲的好天氣，來審計過生活！
                 讓市集成為生活的一部分🧚‍♀️
                 ',
-                'img' => '/img/news/02-活動資訊/二月-02.jpg',
+                'img' => '/img/news/02-event/feb-02.jpg',
                 'date_start' => Carbon::parse('2021-02-18 10:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-02-28 19:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -152,7 +276,7 @@ class InfoTableSeeder extends Seeder
                 雨誌
                 Gai aa lobi 麻辣滷味                
                 ',
-                'img' => '/img/news/02-活動資訊/三月-01.jpg',
+                'img' => '/img/news/02-event/mar-01.jpg',
                 'date_start' => Carbon::parse('2021-04-10 10:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-04-18 19:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -174,7 +298,7 @@ class InfoTableSeeder extends Seeder
                 ・Maybee 手作
                 ・可可看世界                
                 ',
-                'img' => '/img/news/02-活動資訊/五月-01.jpg',
+                'img' => '/img/news/02-event/may-01.jpg',
                 'date_start' => Carbon::parse('2021-05-07 10:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-05-15 19:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -194,7 +318,7 @@ class InfoTableSeeder extends Seeder
                 ・Sunny魚手創工作坊
                 ・可可看世界                
                 ',
-                'img' => '/img/news/02-活動資訊/五月-02.jpg',
+                'img' => '/img/news/02-event/may-02.jpg',
                 'date_start' => Carbon::parse('2021-05-13 10:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-05-22 19:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -214,7 +338,7 @@ class InfoTableSeeder extends Seeder
                 ・BULE
                 ・愛心小舖                                
                 ',
-                'img' => '/img/news/02-活動資訊/五月-03.jpg',
+                'img' => '/img/news/02-event/may-03.jpg',
                 'date_start' => Carbon::parse('2021-05-17 10:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-05-28 19:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -238,7 +362,7 @@ class InfoTableSeeder extends Seeder
                 亞典書店
                 朋 丁 pon ding      
                 ',
-                'img' => '/img/news/02-活動資訊/七月-01.jpg',
+                'img' => '/img/news/02-event/jul-01.jpg',
                 'date_start' => Carbon::parse('2021-07-08 10:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-07-15 19:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -257,7 +381,7 @@ class InfoTableSeeder extends Seeder
                 Flash hybrids
                 羅絲琴 Rose-Jin           
                 ',
-                'img' => '/img/news/02-活動資訊/九月-01.jpg',
+                'img' => '/img/news/02-event/sep-01.jpg',
                 'date_start' => Carbon::parse('2021-09-08 10:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-09-13 19:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -278,7 +402,7 @@ class InfoTableSeeder extends Seeder
                 雅樂廚苑
                 蘼樂餐酒                                
                 ',
-                'img' => '/img/news/02-活動資訊/十月-01.jpg',
+                'img' => '/img/news/02-event/oct-01.jpg',
                 'date_start' => Carbon::parse('2021-10-08 10:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-10-15 19:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -289,10 +413,10 @@ class InfoTableSeeder extends Seeder
             ],
             [
                 'type_id' => '3',
-                'name' => '活動花絮之一',
+                'name' => '暮暮市集活動花絮',
                 'content' => '活動花絮的資訊之一內容',
                 'img' => 'https://memes.tw/user-template/a03333632536be8fe3c13c453f5bcb31.png',
-                'date_start' => Carbon::parse('2021-6-15')->toDateTimeString(),
+                'date_start' => Carbon::parse('2021-5-15')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-10-15')->toDateTimeString(),
                 'location' => '活動花絮的資訊之一地點',
                 'organizer' => '活動花絮的資訊之一擁有者',
