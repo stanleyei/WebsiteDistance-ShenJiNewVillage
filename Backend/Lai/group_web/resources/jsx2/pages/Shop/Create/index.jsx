@@ -13,6 +13,7 @@ export default class Create extends Component {
             url: '',
             phone: '',
             content: '',
+            content_second: '',
             location: '',
         };
 
@@ -42,10 +43,12 @@ export default class Create extends Component {
             url,
             phone,
             // content,
+            // content_second,
             location,
         } = this.state
 
         const content = $('.textarea').summernote('code');
+        const content_second = $('.textarea2').summernote('code');
 
         let formData = new FormData()
         formData.append('type_id', type_id)
@@ -53,6 +56,7 @@ export default class Create extends Component {
         formData.append('url', url)
         formData.append('phone', phone)
         formData.append('content', content)
+        formData.append('content_second', content_second)
         formData.append('location', location)
 
         // // 判斷是否都存在，目前是全部都必填，新增按鈕才有效
@@ -79,6 +83,10 @@ export default class Create extends Component {
             width: '100%',
             height: 200,
         });
+        $('.textarea2').summernote({
+            width: '100%',
+            height: 200,
+        });
     }
 
     render() {
@@ -90,6 +98,7 @@ export default class Create extends Component {
             url,
             phone,
             content,
+            content_second,
             location,
         } = this.state
         return (
@@ -123,6 +132,10 @@ export default class Create extends Component {
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label" htmlFor="content">內容</label>
                         <textarea value={content} onChange={(c) => this.handleValue(c, 'content')} className="form-control textarea" id="content" name="content" cols="30" rows="10"></textarea>
+                    </div>
+                    <div className="form-group row">
+                        <label className="col-sm-2 col-form-label" htmlFor="content_second">副內容</label>
+                        <textarea value={content_second} onChange={(c) => this.handleValue(c, 'content_second')} className="form-control textarea2" id="content_second" name="content_second" cols="30" rows="10"></textarea>
                     </div>
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label" htmlFor="location">地點</label>

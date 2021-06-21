@@ -11,6 +11,7 @@ export default class Update extends Component {
             url,
             phone,
             content,
+            content_second,
             location
         } = this.props.needUpdateData
         // console.log(this.props.needUpdateData);
@@ -23,6 +24,7 @@ export default class Update extends Component {
             url,
             phone,
             content,
+            content_second,
             location,
         };
 
@@ -51,10 +53,12 @@ export default class Update extends Component {
             url,
             phone,
             // content,
+            // content_second,
             location,
         } = this.state
 
         const content = $('.textarea').summernote('code');
+        const content_second = $('.textarea2').summernote('code');
 
         let formData = new FormData()
         formData.append('_method', 'PUT')
@@ -63,6 +67,7 @@ export default class Update extends Component {
         formData.append('url', url)
         formData.append('phone', phone)
         formData.append('content', content)
+        formData.append('content_second', content_second)
         formData.append('location', location)
 
         // 取得要更新的資料
@@ -92,6 +97,10 @@ export default class Update extends Component {
             width: '100%',
             height: 200,
         });
+        $('.textarea2').summernote({
+            width: '100%',
+            height: 200,
+        });
     }
 
     render() {
@@ -103,9 +112,10 @@ export default class Update extends Component {
             url,
             phone,
             content,
+            content_second,
             location,
         } = this.state
-        
+
         return (
             <div className="container">
                 <h1 className="display-3 text-center">店家列表 編輯</h1>
@@ -137,6 +147,10 @@ export default class Update extends Component {
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label" htmlFor="content">內容</label>
                         <textarea value={content} onChange={(c) => this.handleValue(c, 'content')} className="form-control textarea" id="content" name="content" cols="30" rows="10"></textarea>
+                    </div>
+                    <div className="form-group row">
+                        <label className="col-sm-2 col-form-label" htmlFor="content_second">副內容</label>
+                        <textarea value={content_second} onChange={(c) => this.handleValue(c, 'content_second')} className="form-control textarea2" id="content_second" name="content_second" cols="30" rows="10"></textarea>
                     </div>
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label" htmlFor="location">地點</label>

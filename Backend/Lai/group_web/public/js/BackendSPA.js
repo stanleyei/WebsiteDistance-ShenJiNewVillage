@@ -44448,12 +44448,14 @@ var Create = /*#__PURE__*/function (_Component) {
           phone = _this$state.phone,
           location = _this$state.location;
       var content = $('.textarea').summernote('code');
+      var content_second = $('.textarea2').summernote('code');
       var formData = new FormData();
       formData.append('type_id', type_id);
       formData.append('name', name);
       formData.append('url', url);
       formData.append('phone', phone);
       formData.append('content', content);
+      formData.append('content_second', content_second);
       formData.append('location', location); // // 判斷是否都存在，目前是全部都必填，新增按鈕才有效
       // const checkExist = inputTypeinfoTypeId && inputName && inputContent && inputImg && inputDateStart && inputDateEnd && inputLocation && inputOrganizer && inputCalendar
       // request 後端新增資料
@@ -44481,6 +44483,7 @@ var Create = /*#__PURE__*/function (_Component) {
       url: '',
       phone: '',
       content: '',
+      content_second: '',
       location: ''
     }; // 新增頁面有上層關連的需要取得上層所有選項
     // 在controller新增取得此筆資料的method
@@ -44506,6 +44509,10 @@ var Create = /*#__PURE__*/function (_Component) {
         width: '100%',
         height: 200
       });
+      $('.textarea2').summernote({
+        width: '100%',
+        height: 200
+      });
     }
   }, {
     key: "render",
@@ -44520,6 +44527,7 @@ var Create = /*#__PURE__*/function (_Component) {
           url = _this$state2.url,
           phone = _this$state2.phone,
           content = _this$state2.content,
+          content_second = _this$state2.content_second,
           location = _this$state2.location;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "container"
@@ -44602,6 +44610,21 @@ var Create = /*#__PURE__*/function (_Component) {
         className: "form-control textarea",
         id: "content",
         name: "content",
+        cols: "30",
+        rows: "10"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "form-group row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+        className: "col-sm-2 col-form-label",
+        htmlFor: "content_second"
+      }, "\u526F\u5167\u5BB9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+        value: content_second,
+        onChange: function onChange(c) {
+          return _this2.handleValue(c, 'content_second');
+        },
+        className: "form-control textarea2",
+        id: "content_second",
+        name: "content_second",
         cols: "30",
         rows: "10"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -44702,6 +44725,7 @@ var Update = /*#__PURE__*/function (_Component) {
           phone = _this$state.phone,
           location = _this$state.location;
       var content = $('.textarea').summernote('code');
+      var content_second = $('.textarea2').summernote('code');
       var formData = new FormData();
       formData.append('_method', 'PUT');
       formData.append('type_id', type_id);
@@ -44709,6 +44733,7 @@ var Update = /*#__PURE__*/function (_Component) {
       formData.append('url', url);
       formData.append('phone', phone);
       formData.append('content', content);
+      formData.append('content_second', content_second);
       formData.append('location', location); // 取得要更新的資料
 
       var needUpdateData = _this.props.needUpdateData; // 發出更新的請求
@@ -44736,6 +44761,7 @@ var Update = /*#__PURE__*/function (_Component) {
         _url = _this$props$needUpdat.url,
         _phone = _this$props$needUpdat.phone,
         _content = _this$props$needUpdat.content,
+        _content_second = _this$props$needUpdat.content_second,
         _location = _this$props$needUpdat.location; // console.log(this.props.needUpdateData);
 
     _this.state = {
@@ -44746,6 +44772,7 @@ var Update = /*#__PURE__*/function (_Component) {
       url: _url,
       phone: _phone,
       content: _content,
+      content_second: _content_second,
       location: _location
     }; // 新增頁面有上層關連的需要取得上層所有選項
     // 在controller新增取得此筆資料的method
@@ -44770,6 +44797,10 @@ var Update = /*#__PURE__*/function (_Component) {
         width: '100%',
         height: 200
       });
+      $('.textarea2').summernote({
+        width: '100%',
+        height: 200
+      });
     }
   }, {
     key: "render",
@@ -44786,6 +44817,7 @@ var Update = /*#__PURE__*/function (_Component) {
           url = _this$state2.url,
           phone = _this$state2.phone,
           content = _this$state2.content,
+          content_second = _this$state2.content_second,
           location = _this$state2.location;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "container"
@@ -44868,6 +44900,21 @@ var Update = /*#__PURE__*/function (_Component) {
         className: "form-control textarea",
         id: "content",
         name: "content",
+        cols: "30",
+        rows: "10"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "form-group row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+        className: "col-sm-2 col-form-label",
+        htmlFor: "content_second"
+      }, "\u526F\u5167\u5BB9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+        value: content_second,
+        onChange: function onChange(c) {
+          return _this2.handleValue(c, 'content_second');
+        },
+        className: "form-control textarea2",
+        id: "content_second",
+        name: "content_second",
         cols: "30",
         rows: "10"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -45088,17 +45135,10 @@ var Shop = /*#__PURE__*/function (_Component) {
         style: {
           width: "100%"
         }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u985E\u578B"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u540D\u7A31"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u9023\u7D61\u96FB\u8A71"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u5167\u5BB9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u5730\u9EDE"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u7DE8\u8F2F"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u522A\u9664"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, tableData !== [] && tableData.map(function (data) {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u985E\u578B"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u540D\u7A31"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u9023\u7D61\u96FB\u8A71"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u5730\u9EDE"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u7DE8\u8F2F"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u522A\u9664"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, tableData !== [] && tableData.map(function (data) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
           key: data.id
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.shop_type.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.phone), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
-          style: {
-            maxWidth: 300
-          },
-          dangerouslySetInnerHTML: {
-            __html: data.content
-          }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.shop_type.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.phone), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "btn btn-primary",
           onClick: function onClick(e) {
             return _this2.updatePageUp(data.id);

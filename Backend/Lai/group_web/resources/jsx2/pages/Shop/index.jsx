@@ -109,7 +109,7 @@ export default class Shop extends Component {
                                     <th>類型</th>
                                     <th>名稱</th>
                                     <th>連絡電話</th>
-                                    <th>內容</th>
+                                    {/* <th>內容</th> */}
                                     <th>地點</th>
                                     <th>編輯</th>
                                     <th>刪除</th>
@@ -124,7 +124,7 @@ export default class Shop extends Component {
                                                 <td>{data.shop_type.name}</td>
                                                 <td>{data.name}</td>
                                                 <td>{data.phone}</td>
-                                                <td style={{maxWidth:300}} dangerouslySetInnerHTML={{__html: data.content}}></td>
+                                                {/* <td style={{maxWidth:300}} dangerouslySetInnerHTML={{__html: data.content}}></td> */}
                                                 <td>{data.location}</td>
                                                 <td><button className="btn btn-primary" onClick={(e) => this.updatePageUp(data.id)}>編輯</button></td>
                                                 <td><button className="btn btn-danger" onClick={(e) => this.destroyBtnFunction(data.id, data.name)}>刪除</button></td>

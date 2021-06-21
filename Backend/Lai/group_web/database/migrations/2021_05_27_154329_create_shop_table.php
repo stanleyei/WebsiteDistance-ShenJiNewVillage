@@ -20,6 +20,7 @@ class CreateShopTable extends Migration
             $table->longText('url');
             $table->string('phone');
             $table->longText('content');
+            $table->longText('content_second')->nullable();
             $table->string('location');
             $table->timestamps();
         });

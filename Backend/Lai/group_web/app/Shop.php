@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Shop extends Model
 {
     protected $table = 'shop';
-    protected $fillable = ['type_id', 'name', 'url', 'phone', 'content', 'location'];
+    protected $fillable = ['type_id', 'name', 'url', 'phone', 'content', 'content_second', 'location'];
 
     public function shopType()
     {
