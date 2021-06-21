@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'FrontendController@index');
 Route::get('/news', 'FrontendController@news');
-Route::get('/store', 'FrontendController@store');
+Route::get('/store{id}', 'FrontendController@store');
 Route::get('/tra_map', 'FrontendController@tra_map');
 Route::post('/newsInitialization', 'FrontendController@newsInitialization');
 Route::post('/news_switch', 'FrontendController@newsSwitch');

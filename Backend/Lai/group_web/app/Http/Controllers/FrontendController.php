@@ -31,9 +31,9 @@ class FrontendController extends Controller
         return view('frontend.news-page');
     }
 
-    public function store()
+    public function store($id)
     {
-        $shops = Shop::with('shopImgs')->get();
+        $shops = Shop::with('shopImgs')->find($id);
         return view('frontend.store-page', compact('shops'));
     }
 

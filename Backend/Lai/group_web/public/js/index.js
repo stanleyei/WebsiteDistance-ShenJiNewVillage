@@ -236,13 +236,13 @@ navTaps.forEach(tab => {
     });
     shopBtns.forEach(btn => {
       btn.classList.remove('bottom-line');
-      if (btn.dataset.img === '0' || btn.dataset.img === '7') {
+      if (btn.dataset.img === '0' || btn.dataset.img === '11') {
         btn.classList.add('bottom-line');
       }
     });
     windowTitles.forEach(title => {
       title.classList.add('title-hide');
-      if (title.dataset.title === '7' && this.dataset.title === '2') {
+      if (title.dataset.title === '11' && this.dataset.title === '2') {
         title.classList.remove('title-hide');
       } else if (title.dataset.title === '0' && this.dataset.title === '1') {
         title.classList.remove('title-hide');

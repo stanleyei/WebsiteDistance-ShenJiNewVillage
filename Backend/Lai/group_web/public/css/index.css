@@ -2473,7 +2473,7 @@ header .nav-img.active {
 
 #store .store-container article nav .shop-list {
   width: 100%;
-  height: 100%;
+  height: 46vh;
   padding: 3.7vh 0 0 1.6vw;
   background-color: #FBE6C3;
   -webkit-box-shadow: 0 7px #D28E76;
@@ -2484,6 +2484,7 @@ header .nav-img.active {
 @media (max-width: 768px) {
   #store .store-container article nav .shop-list {
     padding: 15px 0 0 20px;
+    height: 100%;
   }
 }
 

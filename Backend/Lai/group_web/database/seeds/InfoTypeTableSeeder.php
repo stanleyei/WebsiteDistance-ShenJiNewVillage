@@ -14,17 +14,17 @@ class InfoTypeTableSeeder extends Seeder
     {
         InfoTypes::insert([
             [
-                'name' => '活動花絮',
-                'created_at' => now()->toDateString(),
-                'updated_at' => now()->toDateString(),
-            ],
-            [
                 'name' => '審計公告',
                 'created_at' => now()->toDateString(),
                 'updated_at' => now()->toDateString(),
             ],
             [
-                'name' => '最新消息',
+                'name' => '活動訊息',
+                'created_at' => now()->toDateString(),
+                'updated_at' => now()->toDateString(),
+            ],
+            [
+                'name' => '活動花絮',
                 'created_at' => now()->toDateString(),
                 'updated_at' => now()->toDateString(),
             ],

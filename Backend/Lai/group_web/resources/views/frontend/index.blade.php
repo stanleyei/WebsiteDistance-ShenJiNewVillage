@@ -83,7 +83,7 @@
             </div>
             <article>
                 <div class="shop-window">
-                    <img src="/img/shop-window.png" alt="窗戶的裝飾圖">
+                    <img src="{{asset('/img/shop-window.png')}}" alt="窗戶的裝飾圖">
                     @foreach ($shops as $shop)
                     <ul data-list="{{$shop->id - 1}}" class="{{$shop->id == 1 ? '' : 'check-list-hide'}}">
                         <li>
@@ -91,7 +91,7 @@
                                 data-lightbox="food-shop-{{$shop->id}}">看大圖</a>
                         </li>
                         <li>
-                            <a href="/store" title="點我看介紹" class="check-btn shop-view">看介紹</a>
+                            <a href="/store{{$shop->id}}" title="點我看介紹" class="check-btn shop-view">看介紹</a>
                         </li>
                     </ul>
                     <div class="window-title {{$shop->id == 1 ? '' : 'title-hide'}}" data-title="{{$shop->id - 1}}">
@@ -131,7 +131,7 @@
                     <div class="trinket-shop shop-list list-active" data-title="2">
                         @foreach ($newShopTypes[1]->shops??[] as $shop)
                         <div>
-                            <span class="{{$shop->id == 8 ? 'bottom-line' : ''}}" data-img="{{$shop->id - 1}}"
+                            <span class="{{$shop->id == 12 ? 'bottom-line' : ''}}" data-img="{{$shop->id - 1}}"
                                 title="{{$shop->name}}">{{$shop->name}}</span>
                         </div>
                         @endforeach

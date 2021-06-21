@@ -590,16 +590,6 @@ class ShopTableSeeder extends Seeder
                 'created_at' => now()->toDateString(),
                 'updated_at' => now()->toDateString(),
             ],
-            [
-                'type_id' => '2',
-                'name' => '小物類假店家1',
-                'url' => '假網址',
-                'phone' => '假電話',
-                'content' => '假內容',
-                'location' => '假地點',
-                'created_at' => now()->toDateString(),
-                'updated_at' => now()->toDateString(),
-            ],
         ]);
     }
 }

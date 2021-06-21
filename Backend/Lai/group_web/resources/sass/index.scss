@@ -1468,7 +1468,7 @@ header {
                 }
 
                 .shop-list {
-                    @include size(100%, 100%);
+                    @include size(100%, 46vh);
                     padding: 3.7vh 0 0 1.6vw;
                     background-color: $store-list-bg;
                     box-shadow: 0 7px $title-bg;
@@ -1476,6 +1476,7 @@ header {
 
                     @include w768 {
                         padding: 15px 0 0 20px;
+                        height: 100%;
                     }
 
                     >div {
