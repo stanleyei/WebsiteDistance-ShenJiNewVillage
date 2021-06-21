@@ -43254,11 +43254,21 @@ var Info = /*#__PURE__*/function (_Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Create; });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _js_cropper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../js/cropper.js */ "./resources/jsx2/js/cropper.js");
+/* harmony import */ var _js_cropper_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_js_cropper_js__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -43285,6 +43295,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var Create = /*#__PURE__*/function (_Component) {
   _inherits(Create, _Component);
 
@@ -43297,36 +43308,55 @@ var Create = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "createNewData", function (event) {
-      // 避免button預設事件
-      event.preventDefault(); // 取得關閉新增頁、更新table的方法
+    _defineProperty(_assertThisInitialized(_this), "createNewData", /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(event) {
+        var _this$props, createPageDown, updateTable, _this$state, info_id, name, content, inputImg, formData;
 
-      var _this$props = _this.props,
-          createPageDown = _this$props.createPageDown,
-          updateTable = _this$props.updateTable; // 取得input value
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                // 避免button預設事件
+                event.preventDefault(); // 取得關閉新增頁、更新table的方法
 
-      var _this$state = _this.state,
-          info_id = _this$state.info_id,
-          name = _this$state.name,
-          content = _this$state.content,
-          img = _this$state.img;
-      var formData = new FormData();
-      formData.append('info_id', info_id);
-      formData.append('name', name);
-      formData.append('content', content);
-      formData.append('img', img); // // 判斷是否都存在，目前是全部都必填，新增按鈕才有效
-      // const checkExist = inputTypeinfoTypeId && inputName && inputContent && inputImg && inputDateStart && inputDateEnd && inputLocation && inputOrganizer && inputCalendar
-      // request 後端新增資料
-      // if (checkExist) {
-      // 不同頁面要不同路徑
+                _this$props = _this.props, createPageDown = _this$props.createPageDown, updateTable = _this$props.updateTable; // 取得input value
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('admin/info_img', formData).then(function (response) {
-        // 回傳的資料是新資料，直接丟回上層state
-        updateTable(response.data); // 關閉新增頁
+                _this$state = _this.state, info_id = _this$state.info_id, name = _this$state.name, content = _this$state.content; // 取得圖片檔案
 
-        createPageDown();
-      }); // }
-    });
+                _context.next = 5;
+                return _this.getCanvas();
+
+              case 5:
+                inputImg = _this.cropImg;
+                formData = new FormData();
+                formData.append('info_id', info_id);
+                formData.append('name', name);
+                formData.append('content', content);
+                formData.append('img', inputImg); // // 判斷是否都存在，目前是全部都必填，新增按鈕才有效
+                // const checkExist = inputTypeinfoTypeId && inputName && inputContent && inputImg && inputDateStart && inputDateEnd && inputLocation && inputOrganizer && inputCalendar
+                // request 後端新增資料
+                // if (checkExist) {
+                // 不同頁面要不同路徑
+
+                axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('admin/info_img', formData).then(function (response) {
+                  // 回傳的資料是新資料，直接丟回上層state
+                  updateTable(response.data); // 關閉新增頁
+
+                  createPageDown();
+                }); // }
+
+              case 12:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }());
 
     _defineProperty(_assertThisInitialized(_this), "handleValue", function (e, stateName) {
       // 在這裡處理input value的變動
@@ -43337,13 +43367,95 @@ var Create = /*#__PURE__*/function (_Component) {
       }
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleRatio", function (e, name) {
+      e.preventDefault();
+      var cropper = _this.state.cropper;
+
+      _this.setState({
+        ratioName: name
+      });
+
+      if (name === 'ratio169') {
+        cropper.setAspectRatio(16 / 9);
+      } else if (name === 'ratio43') {
+        cropper.setAspectRatio(4 / 3);
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleImgChange", function (params) {
+      var cropperArgs = _this.state.cropperArgs;
+      var cropper = _this.state.cropper;
+
+      if (cropper) {
+        cropper.destroy();
+      }
+
+      var image = document.getElementById('image');
+      var reader, file;
+      var files = params.target.files;
+
+      var done = function done(url) {
+        return image.src = url;
+      };
+
+      if (files && files.length > 0) {
+        file = files[0];
+
+        if (URL) {
+          done(URL.createObjectURL(file));
+        } else if (FileReader) {
+          reader = new FileReader();
+
+          reader.onload = function (e) {
+            done(reader.result);
+          };
+
+          reader.readAsDataURL(file);
+        }
+
+        _this.setState({
+          cropper: new _js_cropper_js__WEBPACK_IMPORTED_MODULE_3___default.a(image, cropperArgs)
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getCanvas", function (params) {
+      return new Promise(function (resolve) {
+        var _this$state2 = _this.state,
+            cropper = _this$state2.cropper,
+            canvasSize = _this$state2.canvasSize;
+
+        if (cropper) {
+          var canvas = cropper.getCroppedCanvas(canvasSize);
+
+          if (canvas !== null) {
+            canvas.toBlob(function (blob) {
+              _this.cropImg = new File([blob], "img");
+              resolve();
+            });
+          }
+        }
+      });
+    });
+
     _this.state = {
       // 避免一開始render 使用map時錯誤，先設定[]
       upperRelation: [],
       info_id: '',
       name: '',
       content: '',
-      img: ''
+      img: '',
+      ratioName: 'ratio43',
+      cropper: false,
+      cropperArgs: {
+        aspectRatio: 4 / 3,
+        viewMode: 3,
+        preview: '.preview'
+      },
+      canvasSize: {
+        width: 800,
+        height: 600
+      }
     }; // 新增頁面有上層關連的需要取得上層所有選項
     // 在controller新增取得此筆資料的method
     // 寫一固定路徑，依照傳過去的upperName回傳對應的上層資料
@@ -43367,25 +43479,27 @@ var Create = /*#__PURE__*/function (_Component) {
       var _this2 = this;
 
       var createPageDown = this.props.createPageDown;
-      var _this$state2 = this.state,
-          upperRelation = _this$state2.upperRelation,
-          info_id = _this$state2.info_id,
-          name = _this$state2.name,
-          content = _this$state2.content;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      var _this$state3 = this.state,
+          upperRelation = _this$state3.upperRelation,
+          info_id = _this$state3.info_id,
+          name = _this$state3.name,
+          content = _this$state3.content,
+          cropper = _this$state3.cropper,
+          ratioName = _this$state3.ratioName;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h1", {
         className: "display-3 text-center"
-      }, "\u8CC7\u8A0A\u526F\u5716\u7247 \u65B0\u589E"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+      }, "\u8CC7\u8A0A\u526F\u5716\u7247 \u65B0\u589E"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("form", {
         action: "",
         method: "POST",
         encType: "multipart/form-data"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "form-group row"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", {
         className: "col-sm-2 col-form-label",
         htmlFor: "info_id"
-      }, "\u9644\u5C6C\u65BC"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
+      }, "\u9644\u5C6C\u65BC"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("select", {
         value: info_id,
         onChange: function onChange(c) {
           return _this2.handleValue(c, 'info_id');
@@ -43394,16 +43508,16 @@ var Create = /*#__PURE__*/function (_Component) {
         name: "info_id",
         id: "info_id"
       }, upperRelation.map(function (data) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("option", {
           key: data.id,
           value: data.id
         }, data.name);
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "form-group row"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", {
         className: "col-sm-2 col-form-label",
         htmlFor: "name"
-      }, "\u540D\u7A31"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+      }, "\u540D\u7A31"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("input", {
         value: name,
         onChange: function onChange(c) {
           return _this2.handleValue(c, 'name');
@@ -43412,12 +43526,12 @@ var Create = /*#__PURE__*/function (_Component) {
         id: "name",
         name: "name",
         type: "text"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "form-group row"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", {
         className: "col-sm-2 col-form-label",
         htmlFor: "content"
-      }, "\u5167\u5BB9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+      }, "\u5167\u5BB9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("textarea", {
         value: content,
         onChange: function onChange(c) {
           return _this2.handleValue(c, 'content');
@@ -43427,24 +43541,52 @@ var Create = /*#__PURE__*/function (_Component) {
         name: "content",
         cols: "30",
         rows: "10"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "form-group row"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", {
         className: "col-sm-2 col-form-label",
         htmlFor: "img"
-      }, "\u5716\u7247"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-        onChange: function onChange(c) {
-          return _this2.handleValue(c, 'img');
-        },
-        className: "form-control",
+      }, "\u5716\u7247"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("input", {
+        onChange: this.handleImgChange,
+        className: "form-control image",
         id: "img",
         name: "img",
         type: "file",
         accept: "image/*"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "img-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "col-md-8"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("img", {
+        style: {
+          maxWidth: '100%',
+          display: 'block'
+        },
+        id: "image"
+      })), cropper && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "col-md-3 offset-1"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "preview",
+        style: {
+          overflow: 'hidden',
+          height: 200
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
+        onClick: function onClick(e) {
+          _this2.handleRatio(e, 'ratio43');
+        },
+        className: ratioName === 'ratio43' ? 'btn btn-success active' : 'btn btn-success'
+      }, "4 : 3"), "\xA0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
+        onClick: function onClick(e) {
+          _this2.handleRatio(e, 'ratio169');
+        },
+        className: ratioName === 'ratio169' ? 'btn btn-success active' : 'btn btn-success'
+      }, "16 : 9"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
         className: "btn btn-secondary",
         onClick: createPageDown
-      }, "\u53D6\u6D88"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+      }, "\u53D6\u6D88"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
         onClick: this.createNewData,
         className: "btn btn-primary"
       }, "\u65B0\u589E")));
@@ -43452,7 +43594,7 @@ var Create = /*#__PURE__*/function (_Component) {
   }]);
 
   return Create;
-}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_2__["Component"]);
 
 
 
@@ -45172,11 +45314,21 @@ var Shop = /*#__PURE__*/function (_Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Create; });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _js_cropper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../js/cropper.js */ "./resources/jsx2/js/cropper.js");
+/* harmony import */ var _js_cropper_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_js_cropper_js__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -45203,6 +45355,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var Create = /*#__PURE__*/function (_Component) {
   _inherits(Create, _Component);
 
@@ -45215,34 +45368,54 @@ var Create = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "createNewData", function (event) {
-      // 避免button預設事件
-      event.preventDefault(); // 取得關閉新增頁、更新table的方法
+    _defineProperty(_assertThisInitialized(_this), "createNewData", /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(event) {
+        var _this$props, createPageDown, updateTable, _this$state, shop_id, content, inputImg, formData;
 
-      var _this$props = _this.props,
-          createPageDown = _this$props.createPageDown,
-          updateTable = _this$props.updateTable; // 取得input value
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                // 避免button預設事件
+                event.preventDefault(); // 取得關閉新增頁、更新table的方法
 
-      var _this$state = _this.state,
-          shop_id = _this$state.shop_id,
-          content = _this$state.content,
-          img = _this$state.img;
-      var formData = new FormData();
-      formData.append('shop_id', shop_id);
-      formData.append('content', content);
-      formData.append('img', img); // // 判斷是否都存在，目前是全部都必填，新增按鈕才有效
-      // const checkExist = inputTypeinfoTypeId && inputName && inputContent && inputImg && inputDateStart && inputDateEnd && inputLocation && inputOrganizer && inputCalendar
-      // request 後端新增資料
-      // if (checkExist) {
-      // 不同頁面要不同路徑
+                _this$props = _this.props, createPageDown = _this$props.createPageDown, updateTable = _this$props.updateTable; // 取得input value
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('admin/shop_img', formData).then(function (response) {
-        // 回傳的資料是新資料，直接丟回上層state
-        updateTable(response.data); // 關閉新增頁
+                _this$state = _this.state, shop_id = _this$state.shop_id, content = _this$state.content; // 取得圖片檔案
 
-        createPageDown();
-      }); // }
-    });
+                _context.next = 5;
+                return _this.getCanvas();
+
+              case 5:
+                inputImg = _this.cropImg;
+                formData = new FormData();
+                formData.append('shop_id', shop_id);
+                formData.append('content', content);
+                formData.append('img', inputImg); // // 判斷是否都存在，目前是全部都必填，新增按鈕才有效
+                // const checkExist = inputTypeinfoTypeId && inputName && inputContent && inputImg && inputDateStart && inputDateEnd && inputLocation && inputOrganizer && inputCalendar
+                // request 後端新增資料
+                // if (checkExist) {
+                // 不同頁面要不同路徑
+
+                axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('admin/shop_img', formData).then(function (response) {
+                  // 回傳的資料是新資料，直接丟回上層state
+                  updateTable(response.data); // 關閉新增頁
+
+                  createPageDown();
+                }); // }
+
+              case 11:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }());
 
     _defineProperty(_assertThisInitialized(_this), "handleValue", function (e, stateName) {
       // 在這裡處理input value的變動
@@ -45253,12 +45426,94 @@ var Create = /*#__PURE__*/function (_Component) {
       }
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleRatio", function (e, name) {
+      e.preventDefault();
+      var cropper = _this.state.cropper;
+
+      _this.setState({
+        ratioName: name
+      });
+
+      if (name === 'ratio169') {
+        cropper.setAspectRatio(16 / 9);
+      } else if (name === 'ratio43') {
+        cropper.setAspectRatio(4 / 3);
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleImgChange", function (params) {
+      var cropperArgs = _this.state.cropperArgs;
+      var cropper = _this.state.cropper;
+
+      if (cropper) {
+        cropper.destroy();
+      }
+
+      var image = document.getElementById('image');
+      var reader, file;
+      var files = params.target.files;
+
+      var done = function done(url) {
+        return image.src = url;
+      };
+
+      if (files && files.length > 0) {
+        file = files[0];
+
+        if (URL) {
+          done(URL.createObjectURL(file));
+        } else if (FileReader) {
+          reader = new FileReader();
+
+          reader.onload = function (e) {
+            done(reader.result);
+          };
+
+          reader.readAsDataURL(file);
+        }
+
+        _this.setState({
+          cropper: new _js_cropper_js__WEBPACK_IMPORTED_MODULE_3___default.a(image, cropperArgs)
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getCanvas", function (params) {
+      return new Promise(function (resolve) {
+        var _this$state2 = _this.state,
+            cropper = _this$state2.cropper,
+            canvasSize = _this$state2.canvasSize;
+
+        if (cropper) {
+          var canvas = cropper.getCroppedCanvas(canvasSize);
+
+          if (canvas !== null) {
+            canvas.toBlob(function (blob) {
+              _this.cropImg = new File([blob], "img");
+              resolve();
+            });
+          }
+        }
+      });
+    });
+
     _this.state = {
       // 避免一開始render 使用map時錯誤，先設定[]
       upperRelation: [],
       shop_id: '',
       content: '',
-      img: ''
+      img: '',
+      ratioName: 'ratio43',
+      cropper: false,
+      cropperArgs: {
+        aspectRatio: 4 / 3,
+        viewMode: 3,
+        preview: '.preview'
+      },
+      canvasSize: {
+        width: 800,
+        height: 600
+      }
     }; // 新增頁面有上層關連的需要取得上層所有選項
     // 在controller新增取得此筆資料的method
     // 寫一固定路徑，依照傳過去的upperName回傳對應的上層資料
@@ -45282,24 +45537,26 @@ var Create = /*#__PURE__*/function (_Component) {
       var _this2 = this;
 
       var createPageDown = this.props.createPageDown;
-      var _this$state2 = this.state,
-          upperRelation = _this$state2.upperRelation,
-          shop_id = _this$state2.shop_id,
-          content = _this$state2.content;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      var _this$state3 = this.state,
+          upperRelation = _this$state3.upperRelation,
+          shop_id = _this$state3.shop_id,
+          content = _this$state3.content,
+          cropper = _this$state3.cropper,
+          ratioName = _this$state3.ratioName;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h1", {
         className: "display-3 text-center"
-      }, "\u5E97\u5BB6\u5716\u7247 \u65B0\u589E"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+      }, "\u5E97\u5BB6\u5716\u7247 \u65B0\u589E"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("form", {
         action: "",
         method: "POST",
         encType: "multipart/form-data"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "form-group row"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", {
         className: "col-sm-2 col-form-label",
         htmlFor: "shop_id"
-      }, "\u9644\u5C6C\u65BC"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
+      }, "\u9644\u5C6C\u65BC"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("select", {
         value: shop_id,
         onChange: function onChange(c) {
           return _this2.handleValue(c, 'shop_id');
@@ -45308,16 +45565,16 @@ var Create = /*#__PURE__*/function (_Component) {
         name: "shop_id",
         id: "shop_id"
       }, upperRelation.map(function (data) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("option", {
           key: data.id,
           value: data.id
         }, data.name);
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "form-group row"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", {
         className: "col-sm-2 col-form-label",
         htmlFor: "content"
-      }, "\u5167\u5BB9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+      }, "\u5167\u5BB9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("textarea", {
         value: content,
         onChange: function onChange(c) {
           return _this2.handleValue(c, 'content');
@@ -45327,24 +45584,52 @@ var Create = /*#__PURE__*/function (_Component) {
         name: "content",
         cols: "30",
         rows: "10"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "form-group row"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", {
         className: "col-sm-2 col-form-label",
         htmlFor: "img"
-      }, "\u5716\u7247"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-        onChange: function onChange(c) {
-          return _this2.handleValue(c, 'img');
-        },
-        className: "form-control",
+      }, "\u5716\u7247"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("input", {
+        onChange: this.handleImgChange,
+        className: "form-control image",
         id: "img",
         name: "img",
         type: "file",
         accept: "image/*"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "img-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "col-md-8"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("img", {
+        style: {
+          maxWidth: '100%',
+          display: 'block'
+        },
+        id: "image"
+      })), cropper && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "col-md-3 offset-1"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "preview",
+        style: {
+          overflow: 'hidden',
+          height: 200
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
+        onClick: function onClick(e) {
+          _this2.handleRatio(e, 'ratio43');
+        },
+        className: ratioName === 'ratio43' ? 'btn btn-success active' : 'btn btn-success'
+      }, "4 : 3"), "\xA0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
+        onClick: function onClick(e) {
+          _this2.handleRatio(e, 'ratio169');
+        },
+        className: ratioName === 'ratio169' ? 'btn btn-success active' : 'btn btn-success'
+      }, "16 : 9"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
         className: "btn btn-secondary",
         onClick: createPageDown
-      }, "\u53D6\u6D88"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+      }, "\u53D6\u6D88"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
         onClick: this.createNewData,
         className: "btn btn-primary"
       }, "\u65B0\u589E")));
@@ -45352,7 +45637,7 @@ var Create = /*#__PURE__*/function (_Component) {
   }]);
 
   return Create;
-}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_2__["Component"]);
 
 
 
@@ -46283,11 +46568,21 @@ var ShopType = /*#__PURE__*/function (_Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Create; });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _js_cropper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../js/cropper.js */ "./resources/jsx2/js/cropper.js");
+/* harmony import */ var _js_cropper_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_js_cropper_js__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -46314,6 +46609,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var Create = /*#__PURE__*/function (_Component) {
   _inherits(Create, _Component);
 
@@ -46326,34 +46622,54 @@ var Create = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "createNewData", function (event) {
-      // 避免button預設事件
-      event.preventDefault(); // 取得關閉新增頁、更新table的方法
+    _defineProperty(_assertThisInitialized(_this), "createNewData", /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(event) {
+        var _this$props, createPageDown, updateTable, _this$state, name, content, inputImg, formData;
 
-      var _this$props = _this.props,
-          createPageDown = _this$props.createPageDown,
-          updateTable = _this$props.updateTable; // 取得input value
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                // 避免button預設事件
+                event.preventDefault(); // 取得關閉新增頁、更新table的方法
 
-      var _this$state = _this.state,
-          name = _this$state.name,
-          img = _this$state.img,
-          content = _this$state.content;
-      var formData = new FormData();
-      formData.append('name', name);
-      formData.append('img', img);
-      formData.append('content', content); // // 判斷是否都存在，目前是全部都必填，新增按鈕才有效
-      // const checkExist = inputTypeinfoTypeId && inputName && inputContent && inputImg && inputDateStart && inputDateEnd && inputLocation && inputOrganizer && inputCalendar
-      // request 後端新增資料
-      // if (checkExist) {
-      // 不同頁面要不同路徑
+                _this$props = _this.props, createPageDown = _this$props.createPageDown, updateTable = _this$props.updateTable; // 取得input value
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('admin/slider', formData).then(function (response) {
-        // 回傳的資料是新資料，直接丟回上層state
-        updateTable(response.data); // 關閉新增頁
+                _this$state = _this.state, name = _this$state.name, content = _this$state.content; // 取得圖片檔案
 
-        createPageDown();
-      }); // }
-    });
+                _context.next = 5;
+                return _this.getCanvas();
+
+              case 5:
+                inputImg = _this.cropImg;
+                formData = new FormData();
+                formData.append('name', name);
+                formData.append('img', inputImg);
+                formData.append('content', content); // // 判斷是否都存在，目前是全部都必填，新增按鈕才有效
+                // const checkExist = inputTypeinfoTypeId && inputName && inputContent && inputImg && inputDateStart && inputDateEnd && inputLocation && inputOrganizer && inputCalendar
+                // request 後端新增資料
+                // if (checkExist) {
+                // 不同頁面要不同路徑
+
+                axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('admin/slider', formData).then(function (response) {
+                  // 回傳的資料是新資料，直接丟回上層state
+                  updateTable(response.data); // 關閉新增頁
+
+                  createPageDown();
+                }); // }
+
+              case 11:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }());
 
     _defineProperty(_assertThisInitialized(_this), "handleValue", function (e, stateName) {
       // 在這裡處理input value的變動
@@ -46364,10 +46680,92 @@ var Create = /*#__PURE__*/function (_Component) {
       }
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleRatio", function (e, name) {
+      e.preventDefault();
+      var cropper = _this.state.cropper;
+
+      _this.setState({
+        ratioName: name
+      });
+
+      if (name === 'ratio169') {
+        cropper.setAspectRatio(16 / 9);
+      } else if (name === 'ratio43') {
+        cropper.setAspectRatio(4 / 3);
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleImgChange", function (params) {
+      var cropperArgs = _this.state.cropperArgs;
+      var cropper = _this.state.cropper;
+
+      if (cropper) {
+        cropper.destroy();
+      }
+
+      var image = document.getElementById('image');
+      var reader, file;
+      var files = params.target.files;
+
+      var done = function done(url) {
+        return image.src = url;
+      };
+
+      if (files && files.length > 0) {
+        file = files[0];
+
+        if (URL) {
+          done(URL.createObjectURL(file));
+        } else if (FileReader) {
+          reader = new FileReader();
+
+          reader.onload = function (e) {
+            done(reader.result);
+          };
+
+          reader.readAsDataURL(file);
+        }
+
+        _this.setState({
+          cropper: new _js_cropper_js__WEBPACK_IMPORTED_MODULE_3___default.a(image, cropperArgs)
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getCanvas", function (params) {
+      return new Promise(function (resolve) {
+        var _this$state2 = _this.state,
+            cropper = _this$state2.cropper,
+            canvasSize = _this$state2.canvasSize;
+
+        if (cropper) {
+          var canvas = cropper.getCroppedCanvas(canvasSize);
+
+          if (canvas !== null) {
+            canvas.toBlob(function (blob) {
+              _this.cropImg = new File([blob], "img");
+              resolve();
+            });
+          }
+        }
+      });
+    });
+
     _this.state = {
       name: '',
       img: '',
-      content: ''
+      content: '',
+      ratioName: 'ratio43',
+      cropper: false,
+      cropperArgs: {
+        aspectRatio: 4 / 3,
+        viewMode: 3,
+        preview: '.preview'
+      },
+      canvasSize: {
+        width: 800,
+        height: 600
+      }
     };
     return _this;
   }
@@ -46378,23 +46776,25 @@ var Create = /*#__PURE__*/function (_Component) {
       var _this2 = this;
 
       var createPageDown = this.props.createPageDown;
-      var _this$state2 = this.state,
-          name = _this$state2.name,
-          content = _this$state2.content;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      var _this$state3 = this.state,
+          name = _this$state3.name,
+          content = _this$state3.content,
+          cropper = _this$state3.cropper,
+          ratioName = _this$state3.ratioName;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h1", {
         className: "display-3 text-center"
-      }, "Slider \u65B0\u589E"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+      }, "Slider \u65B0\u589E"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("form", {
         action: "",
         method: "POST",
         encType: "multipart/form-data"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "form-group row"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", {
         className: "col-sm-2 col-form-label",
         htmlFor: "name"
-      }, "\u540D\u7A31"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+      }, "\u540D\u7A31"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("input", {
         value: name,
         onChange: function onChange(c) {
           return _this2.handleValue(c, 'name');
@@ -46403,26 +46803,54 @@ var Create = /*#__PURE__*/function (_Component) {
         id: "name",
         name: "name",
         type: "text"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "form-group row"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", {
         className: "col-sm-2 col-form-label",
         htmlFor: "img"
-      }, "\u5716\u7247"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-        onChange: function onChange(c) {
-          return _this2.handleValue(c, 'img');
-        },
-        className: "form-control",
+      }, "\u5716\u7247"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("input", {
+        onChange: this.handleImgChange,
+        className: "form-control image",
         id: "img",
         name: "img",
         type: "file",
         accept: "image/*"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "img-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "col-md-8"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("img", {
+        style: {
+          maxWidth: '100%',
+          display: 'block'
+        },
+        id: "image"
+      })), cropper && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "col-md-3 offset-1"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "preview",
+        style: {
+          overflow: 'hidden',
+          height: 200
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
+        onClick: function onClick(e) {
+          _this2.handleRatio(e, 'ratio43');
+        },
+        className: ratioName === 'ratio43' ? 'btn btn-success active' : 'btn btn-success'
+      }, "4 : 3"), "\xA0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
+        onClick: function onClick(e) {
+          _this2.handleRatio(e, 'ratio169');
+        },
+        className: ratioName === 'ratio169' ? 'btn btn-success active' : 'btn btn-success'
+      }, "16 : 9"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "form-group row"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", {
         className: "col-sm-2 col-form-label",
         htmlFor: "content"
-      }, "\u5167\u5BB9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+      }, "\u5167\u5BB9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("textarea", {
         value: content,
         onChange: function onChange(c) {
           return _this2.handleValue(c, 'content');
@@ -46432,10 +46860,10 @@ var Create = /*#__PURE__*/function (_Component) {
         name: "content",
         cols: "30",
         rows: "10"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
         className: "btn btn-secondary",
         onClick: createPageDown
-      }, "\u53D6\u6D88"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+      }, "\u53D6\u6D88"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
         onClick: this.createNewData,
         className: "btn btn-primary"
       }, "\u65B0\u589E")));
@@ -46443,7 +46871,7 @@ var Create = /*#__PURE__*/function (_Component) {
   }]);
 
   return Create;
-}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_2__["Component"]);
 
 
 
@@ -47554,11 +47982,21 @@ var View = /*#__PURE__*/function (_Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Create; });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _js_cropper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../js/cropper.js */ "./resources/jsx2/js/cropper.js");
+/* harmony import */ var _js_cropper_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_js_cropper_js__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -47585,6 +48023,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var Create = /*#__PURE__*/function (_Component) {
   _inherits(Create, _Component);
 
@@ -47597,32 +48036,53 @@ var Create = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "createNewData", function (event) {
-      // 避免button預設事件
-      event.preventDefault(); // 取得關閉新增頁、更新table的方法
+    _defineProperty(_assertThisInitialized(_this), "createNewData", /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(event) {
+        var _this$props, createPageDown, updateTable, view_id, inputImg, formData;
 
-      var _this$props = _this.props,
-          createPageDown = _this$props.createPageDown,
-          updateTable = _this$props.updateTable; // 取得input value
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                // 避免button預設事件
+                event.preventDefault(); // 取得關閉新增頁、更新table的方法
 
-      var _this$state = _this.state,
-          view_id = _this$state.view_id,
-          img = _this$state.img;
-      var formData = new FormData();
-      formData.append('view_id', view_id);
-      formData.append('img', img); // // 判斷是否都存在，目前是全部都必填，新增按鈕才有效
-      // const checkExist = inputTypeinfoTypeId && inputName && inputContent && inputImg && inputDateStart && inputDateEnd && inputLocation && inputOrganizer && inputCalendar
-      // request 後端新增資料
-      // if (checkExist) {
-      // 不同頁面要不同路徑
+                _this$props = _this.props, createPageDown = _this$props.createPageDown, updateTable = _this$props.updateTable; // 取得input value
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('admin/view_img', formData).then(function (response) {
-        // 回傳的資料是新資料，直接丟回上層state
-        updateTable(response.data); // 關閉新增頁
+                view_id = _this.state.view_id; // 取得圖片檔案
 
-        createPageDown();
-      }); // }
-    });
+                _context.next = 5;
+                return _this.getCanvas();
+
+              case 5:
+                inputImg = _this.cropImg;
+                formData = new FormData();
+                formData.append('view_id', view_id);
+                formData.append('img', inputImg); // // 判斷是否都存在，目前是全部都必填，新增按鈕才有效
+                // const checkExist = inputTypeinfoTypeId && inputName && inputContent && inputImg && inputDateStart && inputDateEnd && inputLocation && inputOrganizer && inputCalendar
+                // request 後端新增資料
+                // if (checkExist) {
+                // 不同頁面要不同路徑
+
+                axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('admin/view_img', formData).then(function (response) {
+                  // 回傳的資料是新資料，直接丟回上層state
+                  updateTable(response.data); // 關閉新增頁
+
+                  createPageDown();
+                }); // }
+
+              case 10:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }());
 
     _defineProperty(_assertThisInitialized(_this), "handleValue", function (e, stateName) {
       // 在這裡處理input value的變動
@@ -47633,11 +48093,93 @@ var Create = /*#__PURE__*/function (_Component) {
       }
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleRatio", function (e, name) {
+      e.preventDefault();
+      var cropper = _this.state.cropper;
+
+      _this.setState({
+        ratioName: name
+      });
+
+      if (name === 'ratio169') {
+        cropper.setAspectRatio(16 / 9);
+      } else if (name === 'ratio43') {
+        cropper.setAspectRatio(4 / 3);
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleImgChange", function (params) {
+      var cropperArgs = _this.state.cropperArgs;
+      var cropper = _this.state.cropper;
+
+      if (cropper) {
+        cropper.destroy();
+      }
+
+      var image = document.getElementById('image');
+      var reader, file;
+      var files = params.target.files;
+
+      var done = function done(url) {
+        return image.src = url;
+      };
+
+      if (files && files.length > 0) {
+        file = files[0];
+
+        if (URL) {
+          done(URL.createObjectURL(file));
+        } else if (FileReader) {
+          reader = new FileReader();
+
+          reader.onload = function (e) {
+            done(reader.result);
+          };
+
+          reader.readAsDataURL(file);
+        }
+
+        _this.setState({
+          cropper: new _js_cropper_js__WEBPACK_IMPORTED_MODULE_3___default.a(image, cropperArgs)
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getCanvas", function (params) {
+      return new Promise(function (resolve) {
+        var _this$state = _this.state,
+            cropper = _this$state.cropper,
+            canvasSize = _this$state.canvasSize;
+
+        if (cropper) {
+          var canvas = cropper.getCroppedCanvas(canvasSize);
+
+          if (canvas !== null) {
+            canvas.toBlob(function (blob) {
+              _this.cropImg = new File([blob], "img");
+              resolve();
+            });
+          }
+        }
+      });
+    });
+
     _this.state = {
       // 避免一開始render 使用map時錯誤，先設定[]
       upperRelation: [],
       view_id: '',
-      img: ''
+      img: '',
+      ratioName: 'ratio43',
+      cropper: false,
+      cropperArgs: {
+        aspectRatio: 4 / 3,
+        viewMode: 3,
+        preview: '.preview'
+      },
+      canvasSize: {
+        width: 800,
+        height: 600
+      }
     }; // 新增頁面有上層關連的需要取得上層所有選項
     // 在controller新增取得此筆資料的method
     // 寫一固定路徑，依照傳過去的upperName回傳對應的上層資料
@@ -47663,21 +48205,23 @@ var Create = /*#__PURE__*/function (_Component) {
       var createPageDown = this.props.createPageDown;
       var _this$state2 = this.state,
           upperRelation = _this$state2.upperRelation,
-          view_id = _this$state2.view_id;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          view_id = _this$state2.view_id,
+          cropper = _this$state2.cropper,
+          ratioName = _this$state2.ratioName;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h1", {
         className: "display-3 text-center"
-      }, "\u666F\u9EDE\u5716\u7247 \u65B0\u589E"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+      }, "\u666F\u9EDE\u5716\u7247 \u65B0\u589E"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("form", {
         action: "",
         method: "POST",
         encType: "multipart/form-data"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "form-group row"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", {
         className: "col-sm-2 col-form-label",
         htmlFor: "view_id"
-      }, "\u9644\u5C6C\u65BC"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
+      }, "\u9644\u5C6C\u65BC"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("select", {
         value: view_id,
         onChange: function onChange(c) {
           return _this2.handleValue(c, 'view_id');
@@ -47686,28 +48230,56 @@ var Create = /*#__PURE__*/function (_Component) {
         name: "view_id",
         id: "view_id"
       }, upperRelation.map(function (data) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("option", {
           key: data.id,
           value: data.id
         }, data.name);
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "form-group row"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", {
         className: "col-sm-2 col-form-label",
         htmlFor: "img"
-      }, "\u5716\u7247"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-        onChange: function onChange(c) {
-          return _this2.handleValue(c, 'img');
-        },
-        className: "form-control",
+      }, "\u5716\u7247"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("input", {
+        onChange: this.handleImgChange,
+        className: "form-control image",
         id: "img",
         name: "img",
         type: "file",
         accept: "image/*"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "img-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "col-md-8"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("img", {
+        style: {
+          maxWidth: '100%',
+          display: 'block'
+        },
+        id: "image"
+      })), cropper && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "col-md-3 offset-1"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "preview",
+        style: {
+          overflow: 'hidden',
+          height: 200
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
+        onClick: function onClick(e) {
+          _this2.handleRatio(e, 'ratio43');
+        },
+        className: ratioName === 'ratio43' ? 'btn btn-success active' : 'btn btn-success'
+      }, "4 : 3"), "\xA0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
+        onClick: function onClick(e) {
+          _this2.handleRatio(e, 'ratio169');
+        },
+        className: ratioName === 'ratio169' ? 'btn btn-success active' : 'btn btn-success'
+      }, "16 : 9"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
         className: "btn btn-secondary",
         onClick: createPageDown
-      }, "\u53D6\u6D88"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+      }, "\u53D6\u6D88"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
         onClick: this.createNewData,
         className: "btn btn-primary"
       }, "\u65B0\u589E")));
@@ -47715,7 +48287,7 @@ var Create = /*#__PURE__*/function (_Component) {
   }]);
 
   return Create;
-}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_2__["Component"]);
 
 
 

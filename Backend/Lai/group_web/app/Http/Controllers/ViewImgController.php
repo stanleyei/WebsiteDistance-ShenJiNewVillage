@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\View;
 use App\ViewImg;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -41,6 +42,10 @@ class ViewImgController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->img) {
+            $request->img = $this->crop($request->img);
+        }
+
         $data = $request->all();
 
         if ($request->hasFile('img')) {
@@ -88,6 +93,10 @@ class ViewImgController extends Controller
      */
     public function update($id, Request $request)
     {
+        if ($request->img) {
+            $request->img = $this->crop($request->img);
+        }
+        
         $data = $request->all();
         $dbData = ViewImg::find($id);
         if ($request->hasFile('img')) {
@@ -144,5 +153,22 @@ class ViewImgController extends Controller
         $data = ['data' => $data];
 
         return ViewImg::with('view')->get();
+    }
+
+    public function crop($img)
+    {
+        // 先檢查有沒有base64的格式
+        if (!($img && Str::contains($img, ['src="data:image', 'src=\'data:image']))) {
+            return $img;
+        }
+
+        // ([^;]+) : 找的是冒號(;)前的所有(+的關係)字元
+        // ([^\"]+) : 找的是不等於"的所有(+的關係)字元，找到"為止
+        $pattern = '/(data:image\/)([^;]+)(;base64,)([^\"]+)/';
+
+        $check = preg_match($pattern, $img, $matches);
+        if ($check) {
+            return base64_decode($matches[4]);
+        }
     }
 }

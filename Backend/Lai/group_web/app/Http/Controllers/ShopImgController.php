@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\ShopImg;
 use App\Shop;
+use App\ShopImg;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -41,6 +42,10 @@ class ShopImgController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->img) {
+            $request->img = $this->crop($request->img);
+        }
+
         $data = $request->all();
 
         if ($request->hasFile('img')) {
@@ -88,6 +93,10 @@ class ShopImgController extends Controller
      */
     public function update($id, Request $request)
     {
+        if ($request->img) {
+            $request->img = $this->crop($request->img);
+        }
+        
         $data = $request->all();
         $dbData = ShopImg::find($id);
         if ($request->hasFile('img')) {
@@ -97,7 +106,7 @@ class ShopImgController extends Controller
             $data['img'] = $myfile->url($path);
             // 刪掉之前的圖片檔案
             File::delete(public_path($dbData->img));
-        }else{
+        } else {
             // 沒改放舊圖
             $data['img'] = $dbData->img;
         }
@@ -145,5 +154,22 @@ class ShopImgController extends Controller
         $data = ['data' => $data];
 
         return ShopImg::with('shop')->get();
+    }
+
+    public function crop($img)
+    {
+        // 先檢查有沒有base64的格式
+        if (!($img && Str::contains($img, ['src="data:image', 'src=\'data:image']))) {
+            return $img;
+        }
+
+        // ([^;]+) : 找的是冒號(;)前的所有(+的關係)字元
+        // ([^\"]+) : 找的是不等於"的所有(+的關係)字元，找到"為止
+        $pattern = '/(data:image\/)([^;]+)(;base64,)([^\"]+)/';
+
+        $check = preg_match($pattern, $img, $matches);
+        if ($check) {
+            return base64_decode($matches[4]);
+        }
     }
 }
