@@ -17,15 +17,21 @@ class InfoTableSeeder extends Seeder
         Info::insert([
             [
                 'type_id' => '1',
-                'name' => '活動花絮的資訊之一',
-                'content' => '123',
-                'img' => '123',
-                'date_start' => Carbon::parse('2021-10-15')->toDateTimeString(),
-                'date_end' => Carbon::parse('2021-11-15')->toDateTimeString(),
-                'location' => '活動花絮的資訊之一地點',
-                'organizer' => '活動花絮的資訊之一擁有者',
+                'name' => '小蝸牛市集出攤囉',
+                'content' => '出攤名單：
+                ［植栽 / 木作類］
+                深白曙光工房
+                Lady Is Gaga 手木系
+                古夜天工坊
+                Tadpole Teak 得寶老柚木
+                ',
+                'img' => 'img/',
+                'date_start' => Carbon::parse('2021-01-20 10:00:00')->toDateTimeString(),
+                'date_end' => Carbon::parse('2021-01-31 19:00:00')->toDateTimeString(),
+                'location' => '台中市西區民生路368巷',
+                'organizer' => '審計新村',
                 'calendar' => '活動花絮的資訊之一日曆',
-                'created_at' => now()->toDateString(),
+                'created_at' => Carbon::parse('2021-01-18 10:00:00')->toDateTimeString(),
                 'updated_at' => now()->toDateString(),
             ],
             [
