@@ -30,6 +30,24 @@ class ViewImgTableSeeder extends Seeder
                 'created_at' => now()->toDateString(),
                 'updated_at' => now()->toDateString(),
             ],
+            [
+                'view_id' => '4',
+                'img' => 'https://memes.tw/user-template/a03333632536be8fe3c13c453f5bcb31.png',
+                'created_at' => now()->toDateString(),
+                'updated_at' => now()->toDateString(),
+            ],
+            [
+                'view_id' => '5',
+                'img' => 'https://memes.tw/user-template/a03333632536be8fe3c13c453f5bcb31.png',
+                'created_at' => now()->toDateString(),
+                'updated_at' => now()->toDateString(),
+            ],
+            [
+                'view_id' => '6',
+                'img' => 'https://memes.tw/user-template/a03333632536be8fe3c13c453f5bcb31.png',
+                'created_at' => now()->toDateString(),
+                'updated_at' => now()->toDateString(),
+            ],
         ]);
     }
 }
