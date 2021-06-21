@@ -29,15 +29,15 @@
             <div class="news-content">
                 <div class="content-title" id="this-month-title">
                     <div class="date-title-control">
-                        <i class="fas fa-chevron-left" data-month="prev"></i>
+                        <i class="fas fa-chevron-left" data-month="prev" title="上個月"></i>
                         <h4></h4>
                         <div class="month"></div>
                         <div class="years"></div>
-                        <i class="fas fa-chevron-right" data-month="next"></i>
+                        <i class="fas fa-chevron-right" data-month="next" title="下個月"></i>
                     </div>
-                    <input type="button" id="datepicker" class="phone-date-btn" name="setuptime" value="選擇日期">
+                    <input type="button" id="datepicker" class="phone-date-btn" name="setuptime" title="選擇日期" value="選擇日期">
                     <div class="custom-select-list">
-                        <select name="" class="nwes-select">
+                        <select name="" class="nwes-select" title="選擇活動">
                             <option value="">全部照片</option>
                             <option value="">0501 小蝸牛市集</option>
                             <option value="">0513 幕幕市集</option>

@@ -130,7 +130,7 @@ h6 {
     &::after {
 
         @include w768 {
-            @include size(100vw, 100vh);
+            @include size(100vw, 105vh);
             content: '';
             position: absolute;
             right: -100vw;
@@ -262,7 +262,7 @@ header {
     }
 
     nav.active {
-        @include size(50vw, 100vh);
+        @include size(50vw, 105vh);
         background-color: $nav-bg;
 
         @include w768 {
@@ -405,10 +405,9 @@ main {
             @include size(100%, 5.56vh);
             @include flex(flex-end);
             margin-top: 3.7vh;
-            padding-right: 1.5625vw;
 
             @include w375 {
-                justify-content: center;
+                justify-content: space-between;
             }
 
             .aside-tab {
@@ -461,10 +460,10 @@ main {
         }
 
         article {
-            padding: 7.4vh 0 0 1.67vw;
+            padding: 3vh 0 0 1.67vw;
 
             @include w375 {
-                padding: 3vh 0 0 0;
+                padding: 0;
             }
 
             .news-date {
@@ -503,6 +502,10 @@ main {
                         }
                     }
                 }
+            }
+
+            .news-data-none{
+                display: none;
             }
 
             .content-title {
@@ -656,16 +659,11 @@ main {
                     @include size(192px, 28px);
                     display: none;
                     position: absolute;
-                    right: 5%;
+                    left: 0;
                     top: 0.926vh;
-
-                    @include w1024{
-                        right: 8.5%;
-                    }
 
                     @include w768{
                         width: 100%;
-                        right: 0;
                     }
 
                     &:hover {
@@ -717,8 +715,12 @@ main {
                     line-height: 28px;
 
                     @include w768{
-                        width: 78.33vw;
+                        width: 78.2vw;
                         text-align: center;
+                    }
+
+                    @include w375{
+                        width: 80vw;
                     }
                 }
 
@@ -1206,7 +1208,7 @@ main {
             }
 
             .feast-photo-wall {
-                padding: 1.85vh 80px 0 30px;
+                padding-top: 5vh;
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 grid-gap: 30px;

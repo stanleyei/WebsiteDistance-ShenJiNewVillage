@@ -32,7 +32,7 @@ for (let i = 3; i < 6; i++) {
 
 function infCard(id, i) {
   ic = `<div class="content-inf" data-toggle="collapse" data-target="#collapse${i}"
-  aria-expanded="true" aria-controls="collapse${i}" title="">
+  aria-expanded="true" aria-controls="collapse${i}" title="點我展開">
   <div class="inf-date">
       <div class="during">
           <div class="start-date">03</div>
@@ -114,6 +114,7 @@ const photoWall = document.querySelector('.feast-photo-wall');
 const phoneDateSelect = document.querySelector('.phone-date-btn');
 const contentInf = document.querySelectorAll('.content-inf');
 const dateTitleControl = document.querySelector('.date-title-control');
+const newsDate = document.querySelector('.news-date');
 asideTabs.forEach(tab => {
   if (newsUrl.searchParams.get('tap') === tab.dataset.tap) {
     if (tab.dataset.tap === '1') {
@@ -134,6 +135,8 @@ if (newsUrl.searchParams.get('tap') === '3') {
   customSelect.style = 'display:block';
   photoWall.style = 'display:grid';
   infsNone.style = 'display:none';
+  dateTitleControl.style = 'display:none';
+  newsDate.classList.add('news-data-none');
   phoneDateSelect.classList.add('phone-date-none');
   dateTitleControl.classList.add('date-title-control-none');
 };
@@ -273,11 +276,15 @@ asideTabs.forEach(tabs => {
       photoWall.style = 'display:grid';
       infsNone.style = 'display:none';
       phoneDateSelect.classList.add('phone-date-none');
+      dateTitleControl.style = 'display:none';
+      newsDate.classList.add('news-data-none');
     } else {
       customSelect.style = "display:none";
       photoWall.style = 'display:none';
       infsNone.style = 'display:block';
       phoneDateSelect.classList.remove('phone-date-none');
+      dateTitleControl.style = 'display:flex';
+      newsDate.classList.remove('news-data-none');
     }
     asideTabs.forEach(tab => {
       tab.classList.remove('news-tab-focus', 'event-tab-focus', 'festival-tab-focus');

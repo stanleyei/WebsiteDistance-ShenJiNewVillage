@@ -130,7 +130,7 @@ h6 {
     &::after {
 
         @include w768 {
-            @include size(100vw, 100vh);
+            @include size(100vw, 110vh);
             content: '';
             position: absolute;
             right: -100vw;
@@ -258,7 +258,7 @@ header {
     }
 
     nav.active {
-        @include size(50vw, 100vh);
+        @include size(50vw, 102vh);
         background-color: $nav-bg;
 
         @include w768 {
@@ -290,8 +290,8 @@ header {
             @include w768 {
                 @include size(37px, 50px);
                 background-image: url(../img/nav-hamburger.png);
-                top: 0;
-                left: -42%;
+                top: 5px;
+                left: -40%;
             }
         }
     }
@@ -310,7 +310,7 @@ header {
             }
 
             @include w375 {
-                top: 0.4vh;
+                top: 0.5vh;
                 left: -206px;
                 background-image: url(../img/nav-x.png);
             }
@@ -388,11 +388,6 @@ main {
         @include size(87.6vw, 100%);
         position: relative;
         margin: 0 auto;
-        padding-top: 8.7vh;
-
-        @include w768{
-            padding-top: 0;
-        }
 
         article {
             display: grid;
@@ -444,7 +439,7 @@ main {
                 }
 
                 .main-photo {
-                    @include size(38.95vw, 31.25vw);
+                    @include size(38.95vw, 27vw);
                     display: flex;
                     margin-bottom: 3.24vh;
                     transition: 1s ease-in-out;
@@ -457,7 +452,7 @@ main {
                     }
 
                     figure {
-                        @include size(38.95vw, 31.25vw);
+                        @include size(38.95vw, 27vw);
                         min-width: 38.95vw;
                         background-size: cover;
                         background-position: center;
