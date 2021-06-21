@@ -1958,6 +1958,12 @@ header .nav-img.active {
   padding-top: 9vh;
 }
 
+@media (max-width: 1366px) {
+  #store .store-container {
+    width: 80vw;
+  }
+}
+
 @media (max-width: 1024px) {
   #store .store-container {
     width: 90vw;
@@ -2082,7 +2088,7 @@ header .nav-img.active {
   position: relative;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1366px) {
   #store .store-container article .shop-window {
     margin-right: 50px;
   }
@@ -2107,6 +2113,12 @@ header .nav-img.active {
   height: 100%;
   position: relative;
   z-index: 48;
+}
+
+@media (max-width: 1366px) {
+  #store .store-container article .shop-window > img {
+    height: 35vw;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -2291,6 +2303,12 @@ header .nav-img.active {
   overflow: hidden;
 }
 
+@media (max-width: 1366px) {
+  #store .store-container article .shop-window .hide-area {
+    height: 33vw;
+  }
+}
+
 @media (max-width: 1024px) {
   #store .store-container article .shop-window .hide-area {
     width: 31vw;
@@ -2328,6 +2346,12 @@ header .nav-img.active {
   background-repeat: no-repeat;
   -webkit-transition: 1s ease-in-out;
   transition: 1s ease-in-out;
+}
+
+@media (max-width: 1366px) {
+  #store .store-container article .shop-window .hide-area .figure-box .tap-change figure {
+    height: 24vw;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -2371,7 +2395,7 @@ header .nav-img.active {
   padding-bottom: 5.56vh;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1366px) {
   #store .store-container article nav {
     width: 25%;
   }

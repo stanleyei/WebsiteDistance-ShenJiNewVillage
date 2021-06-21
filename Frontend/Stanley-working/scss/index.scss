@@ -1104,6 +1104,10 @@ header {
         @include size(75vw, 100%);
         padding-top: 9vh;
 
+        @include w1366 {
+            width: 80vw;
+        }
+
         @include w1024 {
             width: 90vw;
             padding-top: 6vh;
@@ -1187,9 +1191,9 @@ header {
                 margin-right: 100px;
                 position: relative;
 
-                @include w1024 {
+                @include w1366 {
                     margin-right: 50px;
-                }
+                }   
 
                 @include w768 {
                     @include size(100%, 50%);
@@ -1204,6 +1208,10 @@ header {
                     @include size(100%, 100%);
                     position: relative;
                     z-index: 48;
+
+                    @include w1366{
+                        height: 35vw;
+                    }
 
                     @include w1024 {
                         height: 45vw;
@@ -1338,6 +1346,10 @@ header {
                     position: absolute;
                     overflow: hidden;
 
+                    @include w1366{
+                        height: 33vw;
+                    }
+
                     @include w1024 {
                         @include size(31vw, 40vw);
                     }
@@ -1360,6 +1372,10 @@ header {
                                 background-position: center;
                                 background-repeat: no-repeat;
                                 transition: 1s ease-in-out;
+
+                                @include w1366{
+                                    height: 24vw;
+                                }
 
                                 @include w1024 {
                                     @include size(31vw, 30vw);
@@ -1396,7 +1412,7 @@ header {
                 font-weight: bold;
                 padding-bottom: 5.56vh;
 
-                @include w1024 {
+                @include w1366{
                     width: 25%;
                 }
 
