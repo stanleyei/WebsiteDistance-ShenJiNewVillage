@@ -86,6 +86,15 @@ export default class Create extends Component {
         $('.textarea2').summernote({
             width: '100%',
             height: 200,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['fontname', ['fontname']],
+                ['color', ['color']],
+                ['para', ['ol', 'ul', 'paragraph']],
+                ['table', ['table']],
+                ['view', ['undo', 'redo', 'codeview', 'help']]
+            ]
         });
     }
 
