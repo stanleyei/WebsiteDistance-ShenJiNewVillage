@@ -89,7 +89,7 @@ class InfoTableSeeder extends Seeder
                 古夜天工坊
                 Tadpole Teak 得寶老柚木
                 ',
-                'img' => '123',
+                'img' => '/img/news/02-活動資訊/一月-01.jpg',
                 'date_start' => Carbon::parse('2021-01-20 10:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-01-31 19:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -108,7 +108,7 @@ class InfoTableSeeder extends Seeder
                 翻滾酪梨 Rolin is rolling
                 鳥人鳥事多
                 ',
-                'img' => '123',
+                'img' => '/img/news/02-活動資訊/二月-01.jpg',
                 'date_start' => Carbon::parse('2021-02-10 10:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-02-18 19:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -124,7 +124,7 @@ class InfoTableSeeder extends Seeder
                 藍天白雲的好天氣，來審計過生活！
                 讓市集成為生活的一部分🧚‍♀️
                 ',
-                'img' => '123',
+                'img' => '/img/news/02-活動資訊/二月-02.jpg',
                 'date_start' => Carbon::parse('2021-02-18 10:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-02-28 19:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -152,7 +152,7 @@ class InfoTableSeeder extends Seeder
                 雨誌
                 Gai aa lobi 麻辣滷味                
                 ',
-                'img' => '123',
+                'img' => '/img/news/02-活動資訊/三月-01.jpg',
                 'date_start' => Carbon::parse('2021-04-10 10:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-04-18 19:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -174,7 +174,7 @@ class InfoTableSeeder extends Seeder
                 ・Maybee 手作
                 ・可可看世界                
                 ',
-                'img' => '123',
+                'img' => '/img/news/02-活動資訊/五月-01.jpg',
                 'date_start' => Carbon::parse('2021-05-07 10:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-05-15 19:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -194,7 +194,7 @@ class InfoTableSeeder extends Seeder
                 ・Sunny魚手創工作坊
                 ・可可看世界                
                 ',
-                'img' => '123',
+                'img' => '/img/news/02-活動資訊/五月-02.jpg',
                 'date_start' => Carbon::parse('2021-05-13 10:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-05-22 19:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -214,7 +214,7 @@ class InfoTableSeeder extends Seeder
                 ・BULE
                 ・愛心小舖                                
                 ',
-                'img' => '123',
+                'img' => '/img/news/02-活動資訊/五月-03.jpg',
                 'date_start' => Carbon::parse('2021-05-17 10:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-05-28 19:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -238,7 +238,7 @@ class InfoTableSeeder extends Seeder
                 亞典書店
                 朋 丁 pon ding      
                 ',
-                'img' => '123',
+                'img' => '/img/news/02-活動資訊/七月-01.jpg',
                 'date_start' => Carbon::parse('2021-07-08 10:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-07-15 19:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -257,7 +257,7 @@ class InfoTableSeeder extends Seeder
                 Flash hybrids
                 羅絲琴 Rose-Jin           
                 ',
-                'img' => '123',
+                'img' => '/img/news/02-活動資訊/九月-01.jpg',
                 'date_start' => Carbon::parse('2021-09-08 10:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-09-13 19:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
@@ -278,7 +278,7 @@ class InfoTableSeeder extends Seeder
                 雅樂廚苑
                 蘼樂餐酒                                
                 ',
-                'img' => '123',
+                'img' => '/img/news/02-活動資訊/十月-01.jpg',
                 'date_start' => Carbon::parse('2021-10-08 10:00:00')->toDateTimeString(),
                 'date_end' => Carbon::parse('2021-10-15 19:00:00')->toDateTimeString(),
                 'location' => '台中市西區民生路368巷',
