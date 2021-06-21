@@ -325,7 +325,7 @@ h6 {
 @media (max-width: 768px) {
   .header-shady::after {
     width: 100vw;
-    height: 100vh;
+    height: 110vh;
     content: '';
     position: absolute;
     right: -100vw;
@@ -489,7 +489,7 @@ header nav .nav-img {
 
 header nav.active {
   width: 50vw;
-  height: 100vh;
+  height: 102vh;
   background-color: rgba(84, 41, 28, 0.9);
 }
 
@@ -529,8 +529,8 @@ header .toggle::before {
     width: 37px;
     height: 50px;
     background-image: url(../img/nav-hamburger.png);
-    top: 0;
-    left: -42%;
+    top: 5px;
+    left: -40%;
   }
 }
 
@@ -553,7 +553,7 @@ header .toggle.active::before {
 
 @media (max-width: 375px) {
   header .toggle.active::before {
-    top: 0.4vh;
+    top: 0.5vh;
     left: -206px;
     background-image: url(../img/nav-x.png);
   }
@@ -645,13 +645,6 @@ main .store-page-container {
   height: 100%;
   position: relative;
   margin: 0 auto;
-  padding-top: 8.7vh;
-}
-
-@media (max-width: 768px) {
-  main .store-page-container {
-    padding-top: 0;
-  }
 }
 
 main .store-page-container article {
@@ -717,7 +710,7 @@ main .store-page-container article .photo-wall {
 
 main .store-page-container article .photo-wall .main-photo {
   width: 38.95vw;
-  height: 31.25vw;
+  height: 27vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -737,7 +730,7 @@ main .store-page-container article .photo-wall .main-photo {
 
 main .store-page-container article .photo-wall .main-photo figure {
   width: 38.95vw;
-  height: 31.25vw;
+  height: 27vw;
   min-width: 38.95vw;
   background-size: cover;
   background-position: center;

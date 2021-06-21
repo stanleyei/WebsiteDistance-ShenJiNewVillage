@@ -57,13 +57,13 @@
                 <div class="news-content">
                     <div class="content-title">
                         <div class="date-title-control">
-                            <i class="fas fa-chevron-left" data-month="prev"></i>
+                            <i class="fas fa-chevron-left" data-month="prev" title="上個月"></i>
                             <h3></h3>
                             <div class="month"></div>
                             <div class="years"></div>
-                            <i class="fas fa-chevron-right" data-month="next"></i>
+                            <i class="fas fa-chevron-right" data-month="next" title="下個月"></i>
                         </div>
-                        <input type="button" id="datepicker" class="phone-date-btn" name="setuptime" value="選擇日期">
+                        <input type="button" id="datepicker" class="phone-date-btn" name="setuptime" title="選擇日期" value="選擇日期">
                     </div>
                     <div class="content-infs"></div>
                 </div>
@@ -158,7 +158,7 @@
                             <div class="view-card">
                                 <p>{{$view->name}}</p>
                                 <p class="fas fa-map"> {{$view->phone}}</p>
-                                <a href="{{$view->viewImgs[0]->img??''}}" data-lightbox="roadtrip-{{$view->id}}">
+                                <a href="{{$view->viewImgs[0]->img??''}}" data-lightbox="roadtrip-{{$view->id}}" title="點我看大圖">
                                     <span class="view-card-img"
                                         style="background-image: url('{{$view->viewImgs[0]->img??''}}');"></span>
                                 </a>

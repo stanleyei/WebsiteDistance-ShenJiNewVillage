@@ -260,6 +260,7 @@ main .news-page-container .aside .aside-tab {
   main .news-page-container .aside .aside-tab {
     width: 82px;
     height: 33px;
+    margin: 0;
   }
 }
 
@@ -428,7 +429,7 @@ h6 {
 @media (max-width: 768px) {
   .header-shady::after {
     width: 100vw;
-    height: 100vh;
+    height: 105vh;
     content: '';
     position: absolute;
     right: -100vw;
@@ -599,7 +600,7 @@ header nav .nav-img {
 
 header nav.active {
   width: 50vw;
-  height: 100vh;
+  height: 105vh;
   background-color: rgba(84, 41, 28, 0.9);
 }
 
@@ -792,14 +793,13 @@ main .news-page-container .aside {
       -ms-flex-align: center;
           align-items: center;
   margin-top: 3.7vh;
-  padding-right: 1.5625vw;
 }
 
 @media (max-width: 375px) {
   main .news-page-container .aside {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 }
 
@@ -848,12 +848,12 @@ main .news-page-container .aside .festival-tab-focus:hover {
 }
 
 main .news-page-container article {
-  padding: 7.4vh 0 0 1.67vw;
+  padding: 3vh 0 0 1.67vw;
 }
 
 @media (max-width: 375px) {
   main .news-page-container article {
-    padding: 3vh 0 0 0;
+    padding: 0;
   }
 }
 
@@ -905,6 +905,10 @@ main .news-page-container article .news-date .date-btns .focus-change {
 main .news-page-container article .news-date .date-btns button:hover {
   background-color: #D28E76;
   color: #ffffff;
+}
+
+main .news-page-container article .news-data-none {
+  display: none;
 }
 
 main .news-page-container article .content-title {
@@ -1119,20 +1123,13 @@ main .news-page-container article .content-title .custom-select-list {
   height: 28px;
   display: none;
   position: absolute;
-  right: 5%;
+  left: 0;
   top: 0.926vh;
-}
-
-@media (max-width: 1024px) {
-  main .news-page-container article .content-title .custom-select-list {
-    right: 8.5%;
-  }
 }
 
 @media (max-width: 768px) {
   main .news-page-container article .content-title .custom-select-list {
     width: 100%;
-    right: 0;
   }
 }
 
@@ -1198,8 +1195,15 @@ main .news-page-container article .content-title .select-selected {
 @media (max-width: 768px) {
   main .news-page-container article .content-title .select-items div,
   main .news-page-container article .content-title .select-selected {
-    width: 78.33vw;
+    width: 78.2vw;
     text-align: center;
+  }
+}
+
+@media (max-width: 375px) {
+  main .news-page-container article .content-title .select-items div,
+  main .news-page-container article .content-title .select-selected {
+    width: 80vw;
   }
 }
 
@@ -1863,7 +1867,7 @@ main .news-page-container article .inf-focus {
 }
 
 main .news-page-container article .feast-photo-wall {
-  padding: 1.85vh 80px 0 30px;
+  padding-top: 5vh;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
