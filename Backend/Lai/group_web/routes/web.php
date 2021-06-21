@@ -18,7 +18,6 @@ Route::get('/', 'FrontendController@index');
 Route::get('/news', 'FrontendController@news');
 Route::get('/store{id}', 'FrontendController@store');
 Route::get('/tra_map', 'FrontendController@tra_map');
-// Route::post('/news_switch', 'FrontendController@newsSwitch');
 
 
 Route::get('/test', 'AdminController@test')->name('test');

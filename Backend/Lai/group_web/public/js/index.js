@@ -27,8 +27,9 @@ fetch('/get_date_data', {
         </div>
         `;
       } else {
+        const startMonth = data.date_start.split('-');
         contentInfs.innerHTML +=
-          `<a class='content-inf' href='/news?tap=${data.info_type.id}' title='前往${data.info_type.name}'>
+          `<a class='content-inf' href='/news?tap=${data.info_type.id}&month=${startMonth[1]}&year=${startMonth[0]}' title='前往${data.info_type.name}'>
           <div class='inf-date'>
               <div class='during'>
                   <div class='start-date'></div>
@@ -155,7 +156,7 @@ monthData.forEach(data => {
   dataValue++;
 });
 for (let i = 0; i < 5; i++) {
-  yearsList.innerHTML += `<button class="years-btn" title="${2019 + i}">${2019 + i}</button>`;
+  yearsList.innerHTML += `<button class="years-btn" data-year="${2019 + i}" title="${2019 + i}">${2019 + i}</button>`;
 };
 
 //審計新訊-切換選擇日期的效果
@@ -221,8 +222,9 @@ function focusChange(dateBtns) {
               </div>
               `;
             } else {
+              const startMonth = data.date_start.split('-');
               contentInfs.innerHTML +=
-                `<a class='content-inf' href='/news?tap=${data.info_type.id}' title='前往${data.info_type.name}'>
+                `<a class='content-inf' href='/news?tap=${data.info_type.id}&month=${startMonth[1]}&year=${startMonth[0]}' title='前往${data.info_type.name}'>
                 <div class='inf-date'>
                     <div class='during'>
                         <div class='start-date'></div>
@@ -276,7 +278,7 @@ dateTitleControl.addEventListener('click', function (e) {
 
 function monthLoop(e, direction, startIndex, finalIndex, count) {
   if (e.target.dataset.month === `${direction}`) {
-    const changeYear = dateTitle.nextElementSibling.textContent;
+    const changeYear = dateTitle.nextElementSibling.textContent.slice(-4);
     const formData = new FormData;
     formData.append('month', changeMonth + count);
     formData.append('year', changeYear);
@@ -302,8 +304,9 @@ function monthLoop(e, direction, startIndex, finalIndex, count) {
             </div>
             `;
           } else {
+            const startMonth = data.date_start.split('-');
             contentInfs.innerHTML +=
-              `<a class='content-inf' href='/news?tap=${data.info_type.id}' title='前往${data.info_type.name}'>
+              `<a class='content-inf' href='/news?tap=${data.info_type.id}&month=${startMonth[1]}&year=${startMonth[0]}' title='前往${data.info_type.name}'>
               <div class='inf-date'>
                   <div class='during'>
                       <div class='start-date'></div>
@@ -350,7 +353,7 @@ function monthLoop(e, direction, startIndex, finalIndex, count) {
     else {
       dateTitle.previousElementSibling.textContent = monthData[finalIndex];
       dateTitle.textContent = monthEn[finalIndex];
-      dateTitle.nextElementSibling.textContent = yearsIndex + count;
+      dateTitle.nextElementSibling.textContent = `,${yearsIndex + count}`;
       yearsIndex = yearsIndex + count;
       monthIndex = finalIndex;
     };
@@ -395,8 +398,9 @@ const mutationObserver = new MutationObserver(function (mutations) {
                 </div>
                 `;
               } else {
+                const startMonth = data.date_start.split('-');
                 contentInfs.innerHTML +=
-                  `<a class='content-inf' href='/news?tap=${data.info_type.id}' title='前往${data.info_type.name}'>
+                  `<a class='content-inf' href='/news?tap=${data.info_type.id}&month=${startMonth[1]}&year=${startMonth[0]}' title='前往${data.info_type.name}'>
                   <div class='inf-date'>
                       <div class='during'>
                           <div class='start-date'></div>
@@ -421,13 +425,13 @@ const mutationObserver = new MutationObserver(function (mutations) {
                 dataArray.push(dataNumber[0]);
               };
             });
-
+  
             let x = 0;
             document.querySelectorAll('.start-date').forEach(date => {
               date.textContent = dataArray[x];
               x++;
             });
-
+  
             let i = 0;
             document.querySelectorAll('.inf-date > span').forEach(month => {
               month.textContent = monthData[monthArray[i] - 1];
@@ -467,8 +471,9 @@ const mutationObserver = new MutationObserver(function (mutations) {
                 </div>
                 `;
               } else {
+                const startMonth = data.date_start.split('-');
                 contentInfs.innerHTML +=
-                  `<a class='content-inf' href='/news?tap=${data.info_type.id}' title='前往${data.info_type.name}'>
+                  `<a class='content-inf' href='/news?tap=${data.info_type.id}&month=${startMonth[1]}&year=${startMonth[0]}' title='前往${data.info_type.name}'>
                   <div class='inf-date'>
                       <div class='during'>
                           <div class='start-date'></div>
@@ -493,13 +498,13 @@ const mutationObserver = new MutationObserver(function (mutations) {
                 dataArray.push(dataNumber[0]);
               };
             });
-
+  
             let x = 0;
             document.querySelectorAll('.start-date').forEach(date => {
               date.textContent = dataArray[x];
               x++;
             });
-
+  
             let i = 0;
             document.querySelectorAll('.inf-date > span').forEach(month => {
               month.textContent = monthData[monthArray[i] - 1];

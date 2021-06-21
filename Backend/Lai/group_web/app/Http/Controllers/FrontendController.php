@@ -28,7 +28,14 @@ class FrontendController extends Controller
 
     public function news()
     {
-        return view('frontend.news-page');
+        $year = $_GET['year'];
+        $month = $_GET['month'];
+        $tap = $_GET['tap'];
+        $range = [];
+        $range[] = Carbon::parse("$year-$month-10")->firstOfMonth();
+        $range[] = Carbon::parse("$year-$month-10")->lastOfMonth();
+        $infos = Info::with('infoType', 'infoImgs')->whereBetween('date_start', $range)->orderBy('updated_at', 'DESC')->where('type_id', $tap)->get();
+        return view('frontend.news-page', compact('infos'));
     }
 
     public function store($id)
@@ -40,51 +47,6 @@ class FrontendController extends Controller
     public function tra_map()
     {
         return view('frontend.tra-map');
-    }
-
-    public function newsSwitch(Request $request)
-    {
-        $infs = InfoTypes::with('infos')->get();
-        $thisMonth = Carbon::now()->month;
-        $startOfMonth = Carbon::now()->startOfMonth()->toDateTimeString();
-        $endOfMonth = Carbon::now()->endOfMonth()->toDateTimeString();
-        $monthData = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
-
-        $noEvents = '';
-        $noEvents .=
-            "<div class='content-inf'>
-                <div class='inf-detail ml-4'>
-                    <h4 style='line-height:9.25vh'>No Events</h4>
-                </div>
-            </div>";
-
-        $hasEvents = '';
-        foreach ($infs as $inf) {
-            $eventDay = Carbon::create($inf->infos[0]->created_at->toDateTimeString())->day;
-            $eventMonth = Carbon::create($inf->infos[0]->created_at->toDateTimeString())->month;
-            $hasEvents .=
-                "<a class='content-inf' href='/news?tap={$inf->id}' title='前往{$inf->name}'>
-                <div class='inf-date'>
-                    <div class='during'>
-                        <div class='start-date'>{$eventDay}</div>
-                    </div>
-                    <span>{$monthData[$eventMonth - 1]}</span>
-                </div>
-                <div class='inf-detail'>
-                    <div class='inf-tag'>{$inf->name}</div>
-                    <h4>{$inf->infos[0]->name}</h4>
-                </div>
-                <span>more</span>
-                <i class='fas fa-chevron-right'></i>
-            </a>";
-        };
-
-        // dd($infs[0]->infos->whereBetween('created_at', array($startOfMonth, $endOfMonth))->first());
-        if ($request->month == $thisMonth) {
-            return $hasEvents;
-        } else {
-            return $noEvents;
-        };
     }
 
     public function getDateData(Request $request)

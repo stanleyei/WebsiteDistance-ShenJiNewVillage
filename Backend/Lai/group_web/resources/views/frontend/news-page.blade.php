@@ -35,7 +35,8 @@
                         <div class="years"></div>
                         <i class="fas fa-chevron-right" data-month="next" title="下個月"></i>
                     </div>
-                    <input type="button" id="datepicker" class="phone-date-btn" name="setuptime" title="選擇日期" value="選擇日期">
+                    <input type="button" id="datepicker" class="phone-date-btn" name="setuptime" title="選擇日期"
+                        value="選擇日期">
                     <div class="custom-select-list">
                         <select name="" class="nwes-select" title="選擇活動">
                             <option value="">全部照片</option>
@@ -47,7 +48,66 @@
                     </div>
                 </div>
                 <div id="content-infs-none">
-                    <div class="content-infs" id="content-infs-now"></div>
+                    <div class="content-infs" id="content-infs-now">
+                        @foreach ($infos as $info)
+                        <div class="content-inf" data-toggle="collapse" data-target="#collapse{{$info->id}}" aria-expanded="true"
+                            aria-controls="collapse{{$info->id}}" title="點我展開">
+                            <div class="inf-date">
+                                <div class="during">
+                                    <div class="start-date">03</div>
+                                </div>
+                                <span>五月</span>
+                            </div>
+                            <h5>{{$info->name}}</h5>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="inf-detail collapse" id="collapse{{$info->id}}" aria-labelledby="heading{{$info->id}}"
+                            data-parent="#content-infs-now">
+                            <span class="far fa-edit"> 活動詳情</span>
+                            <div class="card-body">
+                                <div class="card-imgs">
+                                    <figure style="background-image: url({{asset($info->img)}});"></figure>
+                                </div>
+                                <div class="card-content">{{$info->content}}</div>
+                            </div>
+                            <div class="card-other-inf">
+                                <div class="event-time">
+                                    <div>
+                                        <i class="far fa-clock"></i>
+                                        <div>時間</div>
+                                    </div>
+                                    <time>
+                                        <div>
+                                            <span>2021/05/03(一)</span>
+                                            <span>-05/14(五)</span>
+                                        </div>
+                                        <div>10:00-19:00</div>
+                                    </time>
+                                </div>
+                                <div class="event-place">
+                                    <div>
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <div>地點</div>
+                                    </div>
+                                    <span>{{$info->location}}</span>
+                                </div>
+                                <div class="event-organizer">
+                                    <i class="fas fa-suitcase"></i>
+                                    <span>主辦單位</span>
+                                    <span class="ml-sm-1">{{$info->organizer}}</span>
+                                </div>
+                                <div class="event-calendar">
+                                    <a target="_blank"
+                                        href="http://www.google.com/calendar/event?action=TEMPLATE&text={{$info->name}}&dates=20210710T183000/20210711T235900&details=第一屆 pokemon go 會員大會，聚餐時間與注意事項%0A1.來吃飯%0A2.帶妹來%0A3.自備飲料&location=道館&trp=false"
+                                        title="加入google日曆">
+                                        <i class="far fa-calendar-minus"></i>
+                                        <div>加入google日曆</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
                     <h3>下月活動預告</h3>
                     <div class="content-title" id="next-month-title">
                         <h4></h4>
