@@ -81,19 +81,6 @@ class InfoTableSeeder extends Seeder
             ],
             [
                 'type_id' => '2',
-                'name' => '活動資訊之一',
-                'content' => '審計公告的資訊之一內容',
-                'img' => 'https://memes.tw/user-template/a03333632536be8fe3c13c453f5bcb31.png',
-                'date_start' => Carbon::parse('2021-6-15')->toDateTimeString(),
-                'date_end' => Carbon::parse('2021-10-15')->toDateTimeString(),
-                'location' => '審計公告的資訊之一地點',
-                'organizer' => '審計公告的資訊之一擁有者',
-                'calendar' => '審計公告的資訊之一日曆',
-                'created_at' => now()->toDateString(),
-                'updated_at' => now()->toDateString(),
-            ],
-            [
-                'type_id' => '3',
                 'name' => '小蝸牛市集出攤囉',
                 'content' => '出攤名單：
                 ［植栽 / 木作類］
@@ -112,7 +99,7 @@ class InfoTableSeeder extends Seeder
                 'updated_at' => Carbon::parse('2021-01-18 10:00:00')->toDateTimeString(),
             ],
             [
-                'type_id' => '3',
+                'type_id' => '2',
                 'name' => '暮暮市集出攤公告！',
                 'content' => '出攤名單：
                 [ 平面設計 / 手繪類 ]
@@ -131,7 +118,7 @@ class InfoTableSeeder extends Seeder
                 'updated_at' => Carbon::parse('2021-02-05 10:00:00')->toDateTimeString(),
             ],
             [
-                'type_id' => '3',
+                'type_id' => '2',
                 'name' => '寧夏市集出攤通知',
                 'content' => '市集日常
                 藍天白雲的好天氣，來審計過生活！
@@ -147,7 +134,7 @@ class InfoTableSeeder extends Seeder
                 'updated_at' => Carbon::parse('2021-02-16 10:00:00')->toDateTimeString(),
             ],
             [
-                'type_id' => '3',
+                'type_id' => '2',
                 'name' => '散策市集出攤公告',
                 'content' => '出攤名單：
                 喜喜茶室
@@ -175,7 +162,7 @@ class InfoTableSeeder extends Seeder
                 'updated_at' => Carbon::parse('2021-04-05 10:00:00')->toDateTimeString(),
             ],
             [
-                'type_id' => '3',
+                'type_id' => '2',
                 'name' => '暮暮市集出攤囉',
                 'content' => '＝優質攤商＝
                 ・交心食堂
@@ -197,7 +184,7 @@ class InfoTableSeeder extends Seeder
                 'updated_at' => Carbon::parse('2021-05-03 10:00:00')->toDateTimeString(),
             ],
             [
-                'type_id' => '3',
+                'type_id' => '2',
                 'name' => '微涼市集攤商店家公告',
                 'content' => '＝優質攤商＝
                 ・交心食堂
@@ -217,7 +204,7 @@ class InfoTableSeeder extends Seeder
                 'updated_at' => Carbon::parse('2021-05-11 10:00:00')->toDateTimeString(),
             ],
             [
-                'type_id' => '3',
+                'type_id' => '2',
                 'name' => '小蝸牛市集攤商名單',
                 'content' => '＝小老闆攤商＝
                 ・洪昱捷
@@ -237,7 +224,7 @@ class InfoTableSeeder extends Seeder
                 'updated_at' => Carbon::parse('2021-05-16 10:00:00')->toDateTimeString(),
             ],
             [
-                'type_id' => '3',
+                'type_id' => '2',
                 'name' => '暮暮市集出攤囉',
                 'content' => '攤販名單：
                 在福岡的越境芸術人（陣)
@@ -261,7 +248,7 @@ class InfoTableSeeder extends Seeder
                 'updated_at' => Carbon::parse('2021-07-05 10:00:00')->toDateTimeString(),
             ],
             [
-                'type_id' => '3',
+                'type_id' => '2',
                 'name' => '草地市集攤販名單公告',
                 'content' => '市集攤販名單：
                 柯基沒有尾巴
@@ -280,7 +267,7 @@ class InfoTableSeeder extends Seeder
                 'updated_at' => Carbon::parse('2021-09-03 10:00:00')->toDateTimeString(),
             ],
             [
-                'type_id' => '3',
+                'type_id' => '2',
                 'name' => '微風市集',
                 'content' => '出攤名單：
                 胖奇熱狗堡 Punch Hotdog
@@ -299,6 +286,19 @@ class InfoTableSeeder extends Seeder
                 'calendar' => '活動花絮的資訊之一日曆',
                 'created_at' => Carbon::parse('2021-10-03 10:00:00')->toDateTimeString(),
                 'updated_at' => Carbon::parse('2021-10-03 10:00:00')->toDateTimeString(),
+            ],
+            [
+                'type_id' => '3',
+                'name' => '活動花絮之一',
+                'content' => '活動花絮的資訊之一內容',
+                'img' => 'https://memes.tw/user-template/a03333632536be8fe3c13c453f5bcb31.png',
+                'date_start' => Carbon::parse('2021-6-15')->toDateTimeString(),
+                'date_end' => Carbon::parse('2021-10-15')->toDateTimeString(),
+                'location' => '活動花絮的資訊之一地點',
+                'organizer' => '活動花絮的資訊之一擁有者',
+                'calendar' => '活動花絮的資訊之一日曆',
+                'created_at' => now()->toDateString(),
+                'updated_at' => now()->toDateString(),
             ],
         ]);
     }
