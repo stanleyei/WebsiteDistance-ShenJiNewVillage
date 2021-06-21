@@ -52,11 +52,11 @@ class FrontendController extends Controller
         // dd($infs[0]->infos->whereBetween('created_at', array($startOfMonth, $endOfMonth))->first());
         $monthData = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
         $hasEvents = '';
-        foreach ($infs as $inf){
+        foreach ($infs as $inf) {
             $eventDay = Carbon::create($inf->infos[0]->created_at->toDateTimeString())->day;
             $eventMonth = Carbon::create($inf->infos[0]->created_at->toDateTimeString())->month;
-            $hasEvents .= 
-            "<a class='content-inf' href='/news?tap={$inf->id}' title='前往{$inf->name}'>
+            $hasEvents .=
+                "<a class='content-inf' href='/news?tap={$inf->id}' title='前往{$inf->name}'>
                 <div class='inf-date'>
                     <div class='during'>
                         <div class='start-date'>{$eventDay}</div>
@@ -91,11 +91,11 @@ class FrontendController extends Controller
             </div>";
 
         $hasEvents = '';
-        foreach ($infs as $inf){
+        foreach ($infs as $inf) {
             $eventDay = Carbon::create($inf->infos[0]->created_at->toDateTimeString())->day;
             $eventMonth = Carbon::create($inf->infos[0]->created_at->toDateTimeString())->month;
-            $hasEvents .= 
-            "<a class='content-inf' href='/news?tap={$inf->id}' title='前往{$inf->name}'>
+            $hasEvents .=
+                "<a class='content-inf' href='/news?tap={$inf->id}' title='前往{$inf->name}'>
                 <div class='inf-date'>
                     <div class='during'>
                         <div class='start-date'>{$eventDay}</div>
@@ -117,5 +117,32 @@ class FrontendController extends Controller
         } else {
             return $noEvents;
         };
+    }
+
+    public function getDateData(Request $request)
+    {
+        if ($request->year && $request->month) {
+            $year = $request->year;
+            $month = $request->month;
+            // 返回該年月，三種活動中更新時間最新的第一筆資料，共三筆
+            // 取得當月第一天跟最後一天
+            $range = [];
+            $range[] = Carbon::parse("$year-$month-10")->firstOfMonth();
+            $range[] = Carbon::parse("$year-$month-10")->lastOfMonth();
+            // 取得當月資料
+            $dataAction = Info::with('infoType', 'infoImgs')->whereBetween('date_start', $range)->orderBy('updated_at', 'DESC')->where('type_id', 1)->first();
+            $dataAnnouncement = Info::with('infoType', 'infoImgs')->whereBetween('date_start', $range)->orderBy('updated_at', 'DESC')->where('type_id', 2)->first();
+            $dataNews = Info::with('infoType', 'infoImgs')->whereBetween('date_start', $range)->orderBy('updated_at', 'DESC')->where('type_id', 3)->first();
+            $data = [];
+            // 1 活動花絮 
+            $data[] = $dataAction;
+            // 2 審計公告
+            $data[] = $dataAnnouncement;
+            // 3 最新消息
+            $data[] = $dataNews;
+    
+            return $data;
+        }
+        return 'give me month & year!';
     }
 }

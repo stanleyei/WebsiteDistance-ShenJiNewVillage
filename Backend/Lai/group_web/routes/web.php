@@ -28,6 +28,7 @@ Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('admin');
 Route::post('/react_user_name', 'AdminController@reactUserName');
+Route::post('/get_date_data', 'FrontendController@getDateData');
 
 Route::prefix('admin')->middleware('auth')->group(function () {
 
