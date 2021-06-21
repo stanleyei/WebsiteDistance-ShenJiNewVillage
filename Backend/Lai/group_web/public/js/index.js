@@ -32,6 +32,7 @@ new fullpage('#fullpage', {
   //導航欄
   anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage', 'sixthPage', 'seventhPage'],
   menu: '#myMenu',
+  normalScrollElements: '.shop-list',
 });
 
 //header的點擊拉出效果
@@ -264,7 +265,7 @@ shopBtns.forEach(btns => {
         ?
         photo.style.transform = `translateX(-${this.dataset.img * 100}%)`
         :
-        photo.style.transform = `translateX(-${(Number(this.dataset.img) - 7) * 100}%)`
+        photo.style.transform = `translateX(-${(Number(this.dataset.img) - 11) * 100}%)`
     });
     windowTitles.forEach(title => {
       title.classList.add('title-hide');

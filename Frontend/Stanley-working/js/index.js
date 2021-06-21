@@ -16,6 +16,7 @@ new fullpage('#fullpage', {
   //導航欄
   anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage', 'sixthPage', 'seventhPage'],
   menu: '#myMenu',
+  normalScrollElements: '.shop-list',
 });
 
 //header的點擊拉出效果

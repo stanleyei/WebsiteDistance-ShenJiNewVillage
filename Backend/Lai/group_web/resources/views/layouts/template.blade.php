@@ -125,7 +125,8 @@
             <p>Copyright © 審計新村走九遍 All reserved</p>
         </div>
     </footer>
-
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v10.0"
+        nonce="gw7gekne"></script>
     <script src="{{asset('js/jquery.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('js/swiper-bundle.min.js')}}"></script>

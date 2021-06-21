@@ -16,7 +16,7 @@ class SliderTableSeeder extends Seeder
         Slider::insert([
             [
                 'name' => '審計新村照片',
-                'img' => '/img/aboutUs/備用/審計新村-05',
+                'img' => '/img/aboutUs/backup/swiper (4)',
                 'content' => '審計新村照片',
                 'created_at' => now()->toDateString(),
                 'updated_at' => now()->toDateString(),
