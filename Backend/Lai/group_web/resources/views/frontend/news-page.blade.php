@@ -40,10 +40,16 @@
                     <div class="custom-select-list">
                         <select name="" class="nwes-select" title="選擇活動">
                             <option value="">全部照片</option>
-                            <option value="">0501 小蝸牛市集</option>
-                            <option value="">0513 幕幕市集</option>
-                            <option value="">0522 散策市集</option>
-                            <option value="">0527 寧夏微涼市集</option>
+                            <option value="">0120 小蝸牛市集</option>
+                            <option value="">0210 暮暮市集</option>
+                            <option value="">0218 寧夏市集</option>
+                            <option value="">0410 散策市集</option>
+                            <option value="">0507 暮暮市集</option>
+                            <option value="">0513 微涼市集</option>
+                            <option value="">0517 小蝸牛市集</option>
+                            <option value="">0708 暮暮市集</option>
+                            <option value="">0908 草地市集</option>
+                            <option value="">1008 微風市集</option>
                         </select>
                     </div>
                 </div>
@@ -177,7 +183,70 @@
                 </div>
                 <div class="feast-photo-wall">
                     @foreach ($eventInfos[0]->infoImgs as $img)
-                    <a href="{{asset($img->img)}}" data-lightbox="{{$img->id}}">
+                    <a href="{{asset($img->img)}}" data-lightbox="{{$img->info_id}}" data-title="{{$img->name}}">
+                        <figure style="background-image: url({{asset($img->img)}});">
+                            <div class="figure-hover-appear">{{$img->name}}</div>
+                        </figure>
+                    </a>
+                    @endforeach
+                    @foreach ($eventInfos[1]->infoImgs as $img)
+                    <a href="{{asset($img->img)}}" data-lightbox="{{$img->info_id}}" data-title="{{$img->name}}">
+                        <figure style="background-image: url({{asset($img->img)}});">
+                            <div class="figure-hover-appear">{{$img->name}}</div>
+                        </figure>
+                    </a>
+                    @endforeach
+                    @foreach ($eventInfos[2]->infoImgs as $img)
+                    <a href="{{asset($img->img)}}" data-lightbox="{{$img->info_id}}" data-title="{{$img->name}}">
+                        <figure style="background-image: url({{asset($img->img)}});">
+                            <div class="figure-hover-appear">{{$img->name}}</div>
+                        </figure>
+                    </a>
+                    @endforeach
+                    @foreach ($eventInfos[3]->infoImgs as $img)
+                    <a href="{{asset($img->img)}}" data-lightbox="{{$img->info_id}}" data-title="{{$img->name}}">
+                        <figure style="background-image: url({{asset($img->img)}});">
+                            <div class="figure-hover-appear">{{$img->name}}</div>
+                        </figure>
+                    </a>   
+                    @endforeach
+                    @foreach ($eventInfos[4]->infoImgs as $img)
+                    <a href="{{asset($img->img)}}" data-lightbox="{{$img->info_id}}" data-title="{{$img->name}}">
+                        <figure style="background-image: url({{asset($img->img)}});">
+                            <div class="figure-hover-appear">{{$img->name}}</div>
+                        </figure>
+                    </a>   
+                    @endforeach
+                    @foreach ($eventInfos[5]->infoImgs as $img)
+                    <a href="{{asset($img->img)}}" data-lightbox="{{$img->info_id}}" data-title="{{$img->name}}">
+                        <figure style="background-image: url({{asset($img->img)}});">
+                            <div class="figure-hover-appear">{{$img->name}}</div>
+                        </figure>
+                    </a>  
+                    @endforeach
+                    @foreach ($eventInfos[6]->infoImgs as $img)
+                    <a href="{{asset($img->img)}}" data-lightbox="{{$img->info_id}}" data-title="{{$img->name}}">
+                        <figure style="background-image: url({{asset($img->img)}});">
+                            <div class="figure-hover-appear">{{$img->name}}</div>
+                        </figure>
+                    </a>   
+                    @endforeach
+                    @foreach ($eventInfos[7]->infoImgs as $img)
+                    <a href="{{asset($img->img)}}" data-lightbox="{{$img->info_id}}" data-title="{{$img->name}}">
+                        <figure style="background-image: url({{asset($img->img)}});">
+                            <div class="figure-hover-appear">{{$img->name}}</div>
+                        </figure>
+                    </a>
+                    @endforeach
+                    @foreach ($eventInfos[8]->infoImgs as $img)
+                    <a href="{{asset($img->img)}}" data-lightbox="{{$img->info_id}}" data-title="{{$img->name}}">
+                        <figure style="background-image: url({{asset($img->img)}});">
+                            <div class="figure-hover-appear">{{$img->name}}</div>
+                        </figure>
+                    </a> 
+                    @endforeach
+                    @foreach ($eventInfos[9]->infoImgs as $img)
+                    <a href="{{asset($img->img)}}" data-lightbox="{{$img->info_id}}" data-title="{{$img->name}}">
                         <figure style="background-image: url({{asset($img->img)}});">
                             <div class="figure-hover-appear">{{$img->name}}</div>
                         </figure>

@@ -64,7 +64,7 @@ class InfoImgTableSeeder extends Seeder
             ],
             [
                 'info_id' => '11',
-                'name' => '0210 幕幕市集',
+                'name' => '0210 暮暮市集',
                 'content' => 'none',
                 'img' => '/img/news/03-Activity-Photoes/0210-Moon-Market/0210-Moon-Market-01.jpg',
                 'created_at' => now()->toDateString(),
@@ -72,7 +72,7 @@ class InfoImgTableSeeder extends Seeder
             ],
             [
                 'info_id' => '11',
-                'name' => '0210 幕幕市集',
+                'name' => '0210 暮暮市集',
                 'content' => 'none',
                 'img' => '/img/news/03-Activity-Photoes/0210-Moon-Market/0210-Moon-Market-02.jpg',
                 'created_at' => now()->toDateString(),
@@ -80,7 +80,7 @@ class InfoImgTableSeeder extends Seeder
             ],
             [
                 'info_id' => '11',
-                'name' => '0210 幕幕市集',
+                'name' => '0210 暮暮市集',
                 'content' => 'none',
                 'img' => '/img/news/03-Activity-Photoes/0210-Moon-Market/0210-Moon-Market-03.jpg',
                 'created_at' => now()->toDateString(),
@@ -88,7 +88,7 @@ class InfoImgTableSeeder extends Seeder
             ],
             [
                 'info_id' => '11',
-                'name' => '0210 幕幕市集',
+                'name' => '0210 暮暮市集',
                 'content' => 'none',
                 'img' => '/img/news/03-Activity-Photoes/0210-Moon-Market/0210-Moon-Market-04.jpg',
                 'created_at' => now()->toDateString(),
@@ -192,7 +192,7 @@ class InfoImgTableSeeder extends Seeder
             ],
             [
                 'info_id' => '14',
-                'name' => '0507 幕幕市集',
+                'name' => '0507 暮暮市集',
                 'content' => 'none',
                 'img' => '/img/news/03-Activity-Photoes/0507-Moon-Market/0507-Moon-Market-01.jpg',
                 'created_at' => now()->toDateString(),
@@ -200,7 +200,7 @@ class InfoImgTableSeeder extends Seeder
             ],
             [
                 'info_id' => '14',
-                'name' => '0507 幕幕市集',
+                'name' => '0507 暮暮市集',
                 'content' => 'none',
                 'img' => '/img/news/03-Activity-Photoes/0507-Moon-Market/0507-Moon-Market-02.jpg',
                 'created_at' => now()->toDateString(),
@@ -208,7 +208,7 @@ class InfoImgTableSeeder extends Seeder
             ],
             [
                 'info_id' => '14',
-                'name' => '0507 幕幕市集',
+                'name' => '0507 暮暮市集',
                 'content' => 'none',
                 'img' => '/img/news/03-Activity-Photoes/0507-Moon-Market/0507-Moon-Market-03.jpg',
                 'created_at' => now()->toDateString(),
@@ -216,7 +216,7 @@ class InfoImgTableSeeder extends Seeder
             ],
             [
                 'info_id' => '14',
-                'name' => '0507 幕幕市集',
+                'name' => '0507 暮暮市集',
                 'content' => 'none',
                 'img' => '/img/news/03-Activity-Photoes/0507-Moon-Market/0507-Moon-Market-04.jpg',
                 'created_at' => now()->toDateString(),
@@ -224,7 +224,7 @@ class InfoImgTableSeeder extends Seeder
             ],
             [
                 'info_id' => '14',
-                'name' => '0507 幕幕市集',
+                'name' => '0507 暮暮市集',
                 'content' => 'none',
                 'img' => '/img/news/03-Activity-Photoes/0507-Moon-Market/0507-Moon-Market-05.jpg',
                 'created_at' => now()->toDateString(),
@@ -336,7 +336,7 @@ class InfoImgTableSeeder extends Seeder
             ],
             [
                 'info_id' => '17',
-                'name' => '0708 幕幕市集',    
+                'name' => '0708 暮暮市集',    
                 'content' => 'none',
                 'img' => '/img/news/03-Activity-Photoes/0708-Moon-Market/0708-Moon-Market-01.jpg',
                 'created_at' => now()->toDateString(),
@@ -344,7 +344,7 @@ class InfoImgTableSeeder extends Seeder
             ],
             [
                 'info_id' => '17',
-                'name' => '0708 幕幕市集',    
+                'name' => '0708 暮暮市集',    
                 'content' => 'none',
                 'img' => '/img/news/03-Activity-Photoes/0708-Moon-Market/0708-Moon-Market-02.jpg',
                 'created_at' => now()->toDateString(),
@@ -352,7 +352,7 @@ class InfoImgTableSeeder extends Seeder
             ],
             [
                 'info_id' => '17',
-                'name' => '0708 幕幕市集',    
+                'name' => '0708 暮暮市集',    
                 'content' => 'none',
                 'img' => '/img/news/03-Activity-Photoes/0708-Moon-Market/0708-Moon-Market-03.jpg',
                 'created_at' => now()->toDateString(),
@@ -360,7 +360,7 @@ class InfoImgTableSeeder extends Seeder
             ],
             [
                 'info_id' => '17',
-                'name' => '0708 幕幕市集',    
+                'name' => '0708 暮暮市集',    
                 'content' => 'none',
                 'img' => '/img/news/03-Activity-Photoes/0708-Moon-Market/0708-Moon-Market-04.jpg',
                 'created_at' => now()->toDateString(),
@@ -368,7 +368,7 @@ class InfoImgTableSeeder extends Seeder
             ],
             [
                 'info_id' => '17',
-                'name' => '0708 幕幕市集',    
+                'name' => '0708 暮暮市集',    
                 'content' => 'none',
                 'img' => '/img/news/03-Activity-Photoes/0708-Moon-Market/0708-Moon-Market-05.jpg',
                 'created_at' => now()->toDateString(),
