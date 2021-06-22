@@ -47,7 +47,7 @@ class FrontendController extends Controller
 
     public function store($id)
     {
-        $shops = Shop::with('shopImgs')->find($id);
+        $shops = Shop::with('shopImgs', 'shopType')->find($id);
         return view('frontend.store-page', compact('shops'));
     }
 
