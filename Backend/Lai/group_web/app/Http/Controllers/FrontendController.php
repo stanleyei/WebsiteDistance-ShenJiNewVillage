@@ -40,6 +40,8 @@ class FrontendController extends Controller
         $infos = Info::with('infoType', 'infoImgs')->whereBetween('date_start', $range)->orderBy('updated_at', 'DESC')->where('type_id', $tap)->get();
         $eventInfos = Info::with('infoType', 'infoImgs')->orderBy('date_start', 'ASC')->where('type_id', 2)->get();
         $nextInfos = Info::with('infoType', 'infoImgs')->whereBetween('date_start', $nextRange)->orderBy('updated_at', 'DESC')->where('type_id', $tap)->get();
+        
+        // dd($eventInfos[1]);
         return view('frontend.news-page', compact('infos', 'nextInfos', 'eventInfos'));
     }
 
@@ -102,6 +104,7 @@ class FrontendController extends Controller
             if(count($dataNews) == 0){
                 return [];
             }else{
+                dd($dataNews);
                 return $dataNews;
             }
         }

@@ -16,12 +16,12 @@ main.addEventListener('click', function () {
   navRemove();
 });
 header.addEventListener('click', function (e) {
-  if(e.target !== navToggle){
+  if (e.target !== navToggle) {
     navRemove();
   };
 });
 
-function navRemove(){
+function navRemove() {
   navToggle.classList.remove('active');
   navbar.classList.remove('active');
   ulbar.classList.remove('active');
@@ -55,26 +55,18 @@ function infCard(id, i) {
   data-parent="#content-infs-${id}">
   <span class="far fa-edit"> 活動詳情</span>
   <div class="card-body">
-      <div class="card-imgs">
-          <figure style="background-image: url(./img/news-event-image-1.png);"></figure>
-          <figure style="background-image: url(./img/news-event-image-2.png);"></figure>
-      </div>
-      <div class="card-content">
-          <p>
-              <span>☆平面設計 / 手繪類</span>
-              <span>#Drifting In Life</span>
-              <span>#小田月所</span>
-              <span>翻滾酪梨 Rolin is rolling</span>
-              <span>鳥人鳥事多</span>
-          </p>
-          <p>
-              <span>☆植栽 / 木作類</span>
-              <span>深白曙光工房</span>
-              <span>Lady Is Gaga 手木系</span>
-              <span>古夜天工坊</span>
-              <span>Tadpole Teak 得寶老柚木</span>
-          </p>
-      </div>
+  <figure style="background-image: url(./img/2020-11-26.jpg);"></figure>
+  <p>據說在110年01月20日（三）
+  將會有很黑暗的一面
+  聽我說聽我說
+  莫慌莫急莫害怕
+  ..
+  ...
+  原來是園區停電啦
+  但不要緊
+  「因為店家是不會因此休息的」
+  前來散步逛街拍照的你我他還是可以往店家去嚇店員呦
+  #真的只是黑了點但照常營業</p>
   </div>
   <div class="card-other-inf">
       <div class="event-time">

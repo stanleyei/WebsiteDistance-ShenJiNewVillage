@@ -71,10 +71,8 @@
                             aria-labelledby="heading{{$info->id}}" data-parent="#content-infs-now">
                             <span class="far fa-edit"> 活動詳情</span>
                             <div class="card-body">
-                                <div class="card-imgs">
-                                    <figure style="background-image: url({{asset($info->img)}});"></figure>
-                                </div>
-                                <div class="card-content">{!!$info->content!!}</div>
+                                <figure style="background-image: url({{asset($info->img)}});"></figure>
+                                <p>{!!$info->content!!}</p>
                             </div>
                             <div class="card-other-inf">
                                 <div class="event-time">
@@ -208,28 +206,28 @@
                         <figure style="background-image: url({{asset($img->img)}});">
                             <div class="figure-hover-appear">{{$img->name}}</div>
                         </figure>
-                    </a>   
+                    </a>
                     @endforeach
                     @foreach ($eventInfos[4]->infoImgs as $img)
                     <a href="{{asset($img->img)}}" data-lightbox="{{$img->info_id}}" data-title="{{$img->name}}">
                         <figure style="background-image: url({{asset($img->img)}});">
                             <div class="figure-hover-appear">{{$img->name}}</div>
                         </figure>
-                    </a>   
+                    </a>
                     @endforeach
                     @foreach ($eventInfos[5]->infoImgs as $img)
                     <a href="{{asset($img->img)}}" data-lightbox="{{$img->info_id}}" data-title="{{$img->name}}">
                         <figure style="background-image: url({{asset($img->img)}});">
                             <div class="figure-hover-appear">{{$img->name}}</div>
                         </figure>
-                    </a>  
+                    </a>
                     @endforeach
                     @foreach ($eventInfos[6]->infoImgs as $img)
                     <a href="{{asset($img->img)}}" data-lightbox="{{$img->info_id}}" data-title="{{$img->name}}">
                         <figure style="background-image: url({{asset($img->img)}});">
                             <div class="figure-hover-appear">{{$img->name}}</div>
                         </figure>
-                    </a>   
+                    </a>
                     @endforeach
                     @foreach ($eventInfos[7]->infoImgs as $img)
                     <a href="{{asset($img->img)}}" data-lightbox="{{$img->info_id}}" data-title="{{$img->name}}">
@@ -243,7 +241,7 @@
                         <figure style="background-image: url({{asset($img->img)}});">
                             <div class="figure-hover-appear">{{$img->name}}</div>
                         </figure>
-                    </a> 
+                    </a>
                     @endforeach
                     @foreach ($eventInfos[9]->infoImgs as $img)
                     <a href="{{asset($img->img)}}" data-lightbox="{{$img->info_id}}" data-title="{{$img->name}}">
