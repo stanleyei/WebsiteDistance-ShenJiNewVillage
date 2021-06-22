@@ -74,7 +74,7 @@
                                 <div class="card-imgs">
                                     <figure style="background-image: url({{asset($info->img)}});"></figure>
                                 </div>
-                                <div class="card-content">{{$info->content}}</div>
+                                <div class="card-content">{!!$info->content!!}</div>
                             </div>
                             <div class="card-other-inf">
                                 <div class="event-time">
