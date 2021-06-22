@@ -186,10 +186,6 @@ body {
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
-.map-area::-webkit-scrollbar {
-  display: none;
-}
-
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -552,13 +548,12 @@ header {
 .map .map-container .map-area .map-bgc .map-black-bgc {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0);
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-transition: 1s ease-in-out;
-  transition: 1s ease-in-out;
-  display: none;
+  -webkit-transition: 2s ease-in-out;
+  transition: 2s ease-in-out;
 }
 
 .map .map-container .map-area .map-bgc .map-message {
@@ -592,8 +587,8 @@ header {
 }
 
 .map .map-container .map-area .map-bgc .map-message .map-shopname .shopname-logo {
-  width: 22.5px;
-  height: 22.5px;
+  width: 25px;
+  height: 25.5px;
   margin-right: 5px;
   margin-left: -5px;
 }
@@ -642,7 +637,7 @@ header {
 .map .map-container .map-area .map-bgc .map-a02:hover ~ .map-black-bgc,
 .map .map-container .map-area .map-bgc .map-a03:hover ~ .map-black-bgc,
 .map .map-container .map-area .map-bgc .map-a04:hover ~ .map-black-bgc {
-  display: block;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .map .map-container .map-area .map-bgc .map-a01 {
@@ -703,7 +698,7 @@ header {
 .map .map-container .map-area .map-bgc .map-b04:hover ~ .map-black-bgc,
 .map .map-container .map-area .map-bgc .map-b05:hover ~ .map-black-bgc,
 .map .map-container .map-area .map-bgc .map-b06:hover ~ .map-black-bgc {
-  display: block;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .map .map-container .map-area .map-bgc .map-b01 {
@@ -795,7 +790,7 @@ header {
 .map .map-container .map-area .map-bgc .map-c09:hover ~ .map-black-bgc,
 .map .map-container .map-area .map-bgc .map-c10:hover ~ .map-black-bgc,
 .map .map-container .map-area .map-bgc .map-c11:hover ~ .map-black-bgc {
-  display: block;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .map .map-container .map-area .map-bgc .map-c01 {
@@ -953,7 +948,7 @@ header {
 .map .map-container .map-area .map-bgc .map-d10:hover ~ .map-black-bgc,
 .map .map-container .map-area .map-bgc .map-d11:hover ~ .map-black-bgc,
 .map .map-container .map-area .map-bgc .map-d12:hover ~ .map-black-bgc {
-  display: block;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .map .map-container .map-area .map-bgc .map-d01 {
