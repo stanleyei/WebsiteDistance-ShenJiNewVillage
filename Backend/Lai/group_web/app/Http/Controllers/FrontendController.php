@@ -38,9 +38,9 @@ class FrontendController extends Controller
         $nextRange[] = Carbon::parse("$year-$month-10")->addMonth()->firstOfMonth();
         $nextRange[] = Carbon::parse("$year-$month-10")->addMonth()->lastOfMonth();
         $infos = Info::with('infoType', 'infoImgs')->whereBetween('date_start', $range)->orderBy('updated_at', 'DESC')->where('type_id', $tap)->get();
-        $eventInfos = Info::with('infoType', 'infoImgs')->orderBy('updated_at', 'DESC')->where('type_id', 2)->get();
+        $eventInfos = Info::with('infoType', 'infoImgs')->orderBy('date_start', 'ASC')->where('type_id', 2)->get();
         $nextInfos = Info::with('infoType', 'infoImgs')->whereBetween('date_start', $nextRange)->orderBy('updated_at', 'DESC')->where('type_id', $tap)->get();
-        return view('frontend.news-page', compact('infos', 'nextInfos'));
+        return view('frontend.news-page', compact('infos', 'nextInfos', 'eventInfos'));
     }
 
     public function store($id)

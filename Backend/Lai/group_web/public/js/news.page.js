@@ -732,10 +732,10 @@ function infsFocusStyle(infsName, iconsName) {
 }
 
 //生成活動花絮結構
-for (let i = 1; i < 13; i++) {
-  photoWall.innerHTML +=
-    `<a href="/img/ShenJiNewVillage-27.png" data-lightbox="image-1"><figure style="background-image: url(/img/ShenJiNewVillage-27.png);"><div class="figure-hover-appear">0501 小蝸牛市集</div></figure></a>`;
-};
+// for (let i = 1; i < 13; i++) {
+//   photoWall.innerHTML +=
+//     `<a href="/img/ShenJiNewVillage-27.png" data-lightbox="image-1"><figure style="background-image: url(/img/ShenJiNewVillage-27.png);"><div class="figure-hover-appear">0501 小蝸牛市集</div></figure></a>`;
+// };
 
 //日期選擇jquery.datepicker套件
 $(function () {

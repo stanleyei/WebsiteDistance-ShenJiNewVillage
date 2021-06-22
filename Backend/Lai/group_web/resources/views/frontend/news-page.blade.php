@@ -175,7 +175,15 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="feast-photo-wall"></div>
+                <div class="feast-photo-wall">
+                    @foreach ($eventInfos[0]->infoImgs as $img)
+                    <a href="{{asset($img->img)}}" data-lightbox="{{$img->id}}">
+                        <figure style="background-image: url({{asset($img->img)}});">
+                            <div class="figure-hover-appear">{{$img->name}}</div>
+                        </figure>
+                    </a>
+                    @endforeach
+                </div>
             </div>
         </article>
     </div>
