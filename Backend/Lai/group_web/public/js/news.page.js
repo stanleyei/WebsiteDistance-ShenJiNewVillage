@@ -95,6 +95,42 @@ if (urlMonth === '10' || urlMonth === '11' || urlMonth === '12') {
   thisMonthTitle.nextElementSibling.textContent = monthEn[Number(monthNumber[1]) - 1];
   nextMonthTitle.nextElementSibling.textContent = monthEn[Number(monthNumber[1])];
 };
+let temporarilyArray = [];
+let temporarilyDateArray = [];
+infos.forEach(info => {
+  const arrayData = info.created_at.split('-');
+  const arrayDuring = arrayData[2].split('T');
+  temporarilyArray.push(arrayData[1]);
+  temporarilyDateArray.push(arrayDuring[0]);
+  let i = 0;
+  document.querySelectorAll('#content-infs-now .inf-date > span').forEach(span => {
+    span.textContent = monthData[Number(temporarilyArray[i]) - 1];
+    i++;
+  });
+  let x = 0;
+  document.querySelectorAll('#content-infs-now .during').forEach(during => {
+    during.textContent = temporarilyDateArray[x];
+    x++;
+  });
+});
+let temporarilyNextArray = [];
+let temporarilyNextDateArray = [];
+nextInfos.forEach(info => {
+  const arrayData = info.created_at.split('-');
+  const arrayDuring = arrayData[2].split('T');
+  temporarilyArray.push(arrayData[1]);
+  temporarilyDateArray.push(arrayDuring[0]);
+  let i = 0;
+  document.querySelectorAll('#content-infs-next .inf-date > span').forEach(span => {
+    span.textContent = monthData[Number(temporarilyArray[i]) - 1];
+    i++;
+  });
+  let x = 0;
+  document.querySelectorAll('#content-infs-next .during').forEach(during => {
+    during.textContent = temporarilyDateArray[x];
+    x++;
+  });
+});
 
 
 //審計新訊-生成按鈕
@@ -135,6 +171,120 @@ function focusChange(dateBtns) {
           :
           nextMonthTitle.nextElementSibling.textContent = monthEn[this.dataset.month];
         monthChoose(this);
+
+        const focusYear = document.querySelector('#this-month-title .years').textContent.slice(-4);
+        let focusType = 0;
+        asideTabs.forEach(tab => {
+          if(tab.className === 'aside-tab event-tab-focus'){
+            focusType = 2;
+          }else if(tab.className === 'aside-tab news-tab-focus'){
+            focusType = 1;
+          };
+        });
+        const infsData = new FormData;
+        infsData.append('_token', token);
+        infsData.append('month', this.dataset.month);
+        infsData.append('year', focusYear);
+        infsData.append('infType', focusType);
+        fetch('/all_news_data', {
+          method: 'POST',
+          body: infsData,
+        })
+          .then(response => response.json())
+          .then(result => {
+            const monthArray = [];
+            const dataArray = [];
+            contentInfsNow.innerHTML = '';
+            result.forEach(data => {
+              if (data === 'none') {
+                contentInfsNow.innerHTML +=
+                  `<div class='content-inf'>
+                  <div class='inf-detail ml-4'>
+                    <h4 style='line-height:9.25vh'>No Events</h4>
+                  </div>
+                </div>`;
+              } else {
+                contentInfsNow.innerHTML +=
+                  `<div class="content-inf ${focusType === 2 ? 'event-content-inf' : ''}" data-toggle="collapse" data-target="#collapse${data.id}"
+            aria-expanded="true" aria-controls="collapse${data.id}" title="點我展開">
+                <div class="inf-date">
+                    <div class="during">
+                        <div class="start-date"></div>
+                    </div>
+                    <span></span>
+                </div>
+                <h5>${data.name}</h5>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="inf-detail collapse" id="collapse${data.id}"
+            aria-labelledby="heading${data.id}" data-parent="#content-infs-now">
+            <span class="far fa-edit"> 活動詳情</span>
+            <div class="card-body">
+                <div class="card-imgs">
+                    <figure style="background-image: url(${data.img});"></figure>
+                </div>
+                <div class="card-content">${data.content}</div>
+            </div>
+            <div class="card-other-inf">
+                <div class="event-time">
+                    <div>
+                        <i class="far fa-clock"></i>
+                        <div>時間</div>
+                    </div>
+                    <time>
+                        <div>
+                            <span>2021/05/03(一)</span>
+                            <span>-05/14(五)</span>
+                        </div>
+                        <div>10:00-19:00</div>
+                    </time>
+                </div>
+                <div class="event-place">
+                    <div>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>地點</div>
+                    </div>
+                    <span>${data.location}</span>
+                </div>
+                <div class="event-organizer">
+                    <i class="fas fa-suitcase"></i>
+                    <span>主辦單位</span>
+                    <span class="ml-sm-1">${data.organizer}</span>
+                </div>
+                <div class="event-calendar">
+                    <a target="_blank"
+                        href="http://www.google.com/calendar/event?action=TEMPLATE&text=${data.name}&dates=20210710T183000/20210711T235900&details=第一屆 pokemon go 會員大會，聚餐時間與注意事項%0A1.來吃飯%0A2.帶妹來%0A3.自備飲料&location=道館&trp=false"
+                        title="加入google日曆">
+                        <i class="far fa-calendar-minus"></i>
+                        <div>加入google日曆</div>
+                    </a>
+                </div>
+            </div>
+            </div>`;
+                const monthNumber = data.created_at.split('-');
+                if (monthNumber[1] === '10' || monthNumber[1] === '11' || monthNumber[1] === '12') {
+                  monthArray.push(monthNumber[1]);
+                } else {
+                  const singleMonth = monthNumber[1].split('0');
+                  monthArray.push(singleMonth[1]);
+                };
+                const dataNumber = monthNumber[2].split('T');
+                dataArray.push(dataNumber[0]);
+              };
+            });
+
+            let x = 0;
+            document.querySelectorAll('.start-date').forEach(date => {
+              date.textContent = dataArray[x];
+              x++;
+            });
+
+            let i = 0;
+            document.querySelectorAll('.inf-date > span').forEach(month => {
+              month.textContent = monthData[monthArray[i] - 1];
+              i++
+            });
+          });
       }
       else if (this.getAttribute('class') === 'years-btn') {
         yearsTitle.forEach(title => {
@@ -259,10 +409,10 @@ asideTabs.forEach(tabs => {
             if (data === 'none') {
               contentInfsNow.innerHTML +=
                 `<div class='content-inf'>
-              <div class='inf-detail ml-4'>
-                  <h4 style='line-height:9.25vh'>No Events</h4>
-              </div>
-            </div>`;
+                  <div class='inf-detail ml-4'>
+                    <h4 style='line-height:9.25vh'>No Events</h4>
+                  </div>
+                </div>`;
             } else {
               contentInfsNow.innerHTML +=
                 `<div class="content-inf event-content-inf" data-toggle="collapse" data-target="#collapse${data.id}"

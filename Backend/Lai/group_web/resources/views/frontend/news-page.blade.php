@@ -54,9 +54,9 @@
                             aria-expanded="true" aria-controls="collapse{{$info->id}}" title="點我展開">
                             <div class="inf-date">
                                 <div class="during">
-                                    <div class="start-date">03</div>
+                                    <div class="start-date"></div>
                                 </div>
-                                <span>五月</span>
+                                <span></span>
                             </div>
                             <h5>{{$info->name}}</h5>
                             <i class="fas fa-chevron-down"></i>
@@ -183,5 +183,9 @@
 @endsection
 
 @section('js')
+<script>
+    const infos = {!! $infos !!};
+    const nextInfos = {!! $nextInfos !!};
+</script>
 <script src="{{asset('/js/news.page.js')}}"></script>
 @endsection
