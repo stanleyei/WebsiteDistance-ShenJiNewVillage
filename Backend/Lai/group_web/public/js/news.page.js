@@ -196,7 +196,7 @@ function focusChange(dateBtns) {
             const dataArray = [];
             contentInfsNow.innerHTML = '';
             result.forEach(data => {
-              if (data === 'none') {
+              if (result.length == 0) {
                 contentInfsNow.innerHTML +=
                   `<div class='content-inf'>
                   <div class='inf-detail ml-4'>
@@ -731,12 +731,6 @@ function infsFocusStyle(infsName, iconsName) {
   });
 }
 
-//生成活動花絮結構
-// for (let i = 1; i < 13; i++) {
-//   photoWall.innerHTML +=
-//     `<a href="/img/ShenJiNewVillage-27.png" data-lightbox="image-1"><figure style="background-image: url(/img/ShenJiNewVillage-27.png);"><div class="figure-hover-appear">0501 小蝸牛市集</div></figure></a>`;
-// };
-
 //日期選擇jquery.datepicker套件
 $(function () {
   $('#datepicker').datepicker({
@@ -805,3 +799,4 @@ lightbox.option({
     resize: () => { goTopMove(); }
   });
 })();
+

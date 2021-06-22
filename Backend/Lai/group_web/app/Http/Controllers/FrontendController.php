@@ -98,8 +98,12 @@ class FrontendController extends Controller
             }else{
                 $dataNews = Info::with('infoType', 'infoImgs')->whereBetween('date_start', $range)->orderBy('updated_at', 'DESC')->where('type_id', 2)->get();
             };
-            
-            return $dataNews;
+
+            if(count($dataNews) == 0){
+                return [];
+            }else{
+                return $dataNews;
+            }
         }
         return 'give me month & year!';
     }
