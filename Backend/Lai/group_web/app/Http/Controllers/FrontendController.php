@@ -104,7 +104,6 @@ class FrontendController extends Controller
             if(count($dataNews) == 0){
                 return [];
             }else{
-                dd($dataNews);
                 return $dataNews;
             }
         }
