@@ -123,7 +123,7 @@ export default class Contact extends Component {
                                                 <td>{data.contact_content_type.name}</td>
                                                 <td>{data.sender}</td>
                                                 <td>{data.mail}</td>
-                                                <td>{data.content}</td>
+                                                <td className="list-content">{data.content}</td>
                                                 <td><button className="btn btn-primary" onClick={(e) => this.updatePageUp(data.id)}>編輯</button></td>
                                                 <td><button className="btn btn-danger" onClick={(e) => this.destroyBtnFunction(data.id, data.name)}>刪除</button></td>
                                             </tr>
