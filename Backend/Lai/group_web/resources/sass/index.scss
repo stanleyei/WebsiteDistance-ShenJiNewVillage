@@ -1082,6 +1082,806 @@ header {
     }
 }
 
+#map {
+    @include size(100%, 100vh);
+    @include flex;
+    border: 1.04vw solid $main-color;
+    position: relative;
+    // overflow-x: hidden;
+
+    @include w1366 {
+        border: 1.46vw solid $main-color;
+    }
+
+    @include w1024 {
+        border: 1.95vw solid $main-color;
+    }
+
+    @include w768 {
+        border: 2.67vw solid $main-color;
+    }
+
+    .map-container {
+        @include size($w:80vw, $h:80vh);
+        // overflow: hidden;
+        @media(max-width:895px) {
+            @include size(85vw, 85vh);
+        }
+
+        //test
+        .map-title {
+            position: relative;
+            padding-left: 3.125vw;
+            transform: translate(-20px, -20px);
+
+            @include w1366 {
+                margin: 0;
+                padding-left: 40px;
+            }
+
+            @include w375 {
+                height: 30px;
+                padding-left: 60px;
+            }
+
+            &::before {
+                @extend %title-cube;
+            }
+
+            h2 {
+                @include font(2.24vw, start, inherit);
+                letter-spacing: 0.3em;
+
+                @include w1366 {
+                    font-size: 1.8rem;
+                }
+
+                @include w375 {
+                    font-size: 1rem;
+                }
+            }
+
+            span {
+                @include font(1.25vw);
+
+                @include w1366 {
+                    font-size: 1rem;
+                }
+
+                @include w375 {
+                    letter-spacing: 0;
+                    font-size: 0.7rem;
+                    display: inline-block;
+                    transform: translate(-15%, -50%) scale(0.7);
+                }
+
+                &::before {
+                    @extend %title-vertical-text;
+                    content: 'SHOP';
+                }
+            }
+        }
+
+        //test
+
+        // .map-title {
+        //     position: relative;
+        //     padding-left: 60px;
+
+        //     &::before {
+        //         @extend %title-cube;
+        //         @include size(60px, 60px);
+        //         transform: translate(-50px, -20px);
+        //         z-index: -1;
+        //     }
+
+        //     h2 {
+        //         @include font($h1, start);
+        //         letter-spacing: 0.3em;
+        //     }
+
+        //     span {
+        //         @include font($h5);
+        //         letter-spacing: 0.1em;
+
+        //         &::before {
+        //             @extend %title-vertical-text;
+        //             content: 'Map';
+
+        //         }
+        //     }
+        // }
+        .map-area {
+            @include size(800px, 560px);
+            @include position(56%,50%);
+            margin: auto;
+            z-index: 30;
+
+            @media(max-width:895px) {
+                @include size(86vw, 80vh);
+                @include position(calc(56% - 55px),50%);
+                padding-top: 90px;
+                overflow-x: scroll;
+                overflow-y: scroll;
+                
+
+            }
+
+            @media(max-width:768px) {
+
+                // @include size(700px, 490px);
+
+            }
+
+            @media(max-width:576px) {
+
+                // @include size(500px, 350px);
+            }
+
+            @media(max-width:480px) {
+
+                // @include size(400px, 280px);
+            }
+
+            @media(max-width:375px) {
+
+                // @include size(300px, 210px);
+            }
+
+            .map-bgc {
+                @include size(800px, 560px);
+                background-color: #ffffff;
+                background-image: url(../img/map-bgc.svg);
+                background-position: cover;
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: relative;
+
+                @media(max-width:1080px) {
+                    // @include size(720px, 504px);
+
+                }
+              
+
+                .map-black-bgc {
+                    @include size(100%, 100%);
+                    background-color: rgba(0, 0, 0, 0);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    transition: 2s ease-in-out;
+                   
+
+                }
+
+               
+
+                .map-message {
+                    @include size(20%, 19.7%);
+                    background-image: url(../img/message-red.svg);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    display: none;
+                    cursor: pointer;
+                    z-index: 15;
+                    padding: 10px 20px 20px;
+
+                    .map-shopname {
+                        // height: 22.5px;
+                        margin: 0 auto 3px;
+                        display: flex;
+                        align-items: center;
+                        font-size: 12px;
+                        line-height: 22.5px;
+                        letter-spacing: 0.1em;
+                        color: #54291C;
+
+                        .shopname-logo {
+                            @include size(25px, 25.5px);
+                            // map-bgc w:13.7%,h:20%
+                            margin-right: 5px;
+                            margin-left: -5px;
+                        }
+
+
+                    }
+
+                    .map-businesshour {
+                        // height: 20px;
+                        margin: auto;
+                        display: flex;
+                        align-items: center;
+                        font-size: 12px;
+                        line-height: 20px;
+                        letter-spacing: 0.1em;
+                        color: #54291C;
+
+                        .businesshour-logo {
+                            @include size(14px, 14px);
+                            margin-right: 5px;
+                        }
+
+
+                    }
+
+                    .map-shopphone {
+                        // height: 20px;
+                        margin: auto;
+                        display: flex;
+                        align-items: center;
+                        font-size: 12px;
+                        line-height: 20px;
+                        letter-spacing: 0.1em;
+                        color: #54291C;
+
+                        .shopphone-logo {
+                            @include size(14px, 14px);
+                            margin-right: 5px;
+                        }
+                    }
+                }
+
+                .map-a01,
+                .map-a02,
+                .map-a03,
+                .map-a04 {
+                    @extend %map-house;
+
+                    &:hover {
+                        @extend %map-househover;
+
+                        ~.map-black-bgc {
+                            background-color: rgba(0, 0, 0, 0.6);
+                            
+                        }
+                    }
+                }
+
+                .map-a01 {
+                    top: 4.9%;
+                    left: 20.9%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: -13.5%;
+                            left: 18.9%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-a02 {
+                    top: 4.8%;
+                    left: 29.7%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: -13.5%;
+                            left: 27.9%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-a03 {
+                    top: 30.8%;
+                    left: 3.7%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 12.9%;
+                            left: 1.9%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-a04 {
+                    top: 30.8%;
+                    left: 13.7%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 12.9%;
+                            left: 11.9%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-b01,
+                .map-b02,
+                .map-b03,
+                .map-b04,
+                .map-b05,
+                .map-b06 {
+                    @extend %map-house;
+
+                    &:hover {
+                        @extend %map-househover;
+
+                        ~.map-black-bgc {
+                            background-color: rgba(0, 0, 0, 0.6);
+                        }
+                    }
+                }
+
+                .map-b01 {
+                    top: 48.8%;
+                    left: 4.6%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 30.6%;
+                            left: 2.7%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-b02 {
+                    top: 48.7%;
+                    left: 16.5%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 30.6%;
+                            left: 14.7%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-b03 {
+                    top: 48.6%;
+                    left: 26.3%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 30.4%;
+                            left: 24.2%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-b04 {
+                    top: 69%;
+                    left: 4%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 50.6%;
+                            left: 2.2%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-b05 {
+                    top: 69%;
+                    left: 13.6%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 50.6%;
+                            left: 11.7%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-b06 {
+                    top: 69%;
+                    left: 23.6%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 50.6%;
+                            left: 21.7%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-c01,
+                .map-c02,
+                .map-c03,
+                .map-c04,
+                .map-c05,
+                .map-c06,
+                .map-c07,
+                .map-c08,
+                .map-c09,
+                .map-c10,
+                .map-c11 {
+                    @extend %map-house;
+
+                    &:hover {
+                        @extend %map-househover;
+
+                        ~.map-black-bgc {
+                            background-color: rgba(0, 0, 0, 0.6);
+                        }
+                    }
+                }
+
+                .map-c01 {
+                    top: 3.35%;
+                    left: 45.5%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: -15.2%;
+                            left: 43.7%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-c02 {
+                    top: 3.4%;
+                    left: 54.5%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: -15.3%;
+                            left: 52.7%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-c03 {
+                    top: 3.4%;
+                    left: 63.5%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: -15.3%;
+                            left: 61.5%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-c04 {
+                    top: 3.2%;
+                    left: 72.5%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: -15.3%;
+                            left: 70.5%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-c05 {
+                    top: 2.9%;
+                    left: 81%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: -15.7%;
+                            left: 79%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-c06 {
+                    top: 23.9%;
+                    left: 42%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 5.3%;
+                            left: 40.5%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-c07 {
+                    top: 23.9%;
+                    left: 50.8%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 5.3%;
+                            left: 48.7%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-c08 {
+                    top: 23.3%;
+                    left: 59.8%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 4.9%;
+                            left: 58%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-c09 {
+                    top: 23.3%;
+                    left: 68.8%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 4.9%;
+                            left: 67%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-c10 {
+                    top: 23.3%;
+                    left: 77.8%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 4.9%;
+                            left: 76%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-c11 {
+                    top: 23.3%;
+                    left: 86.8%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 4.7%;
+                            left: 84.5%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-d01,
+                .map-d02,
+                .map-d03,
+                .map-d04,
+                .map-d05,
+                .map-d06,
+                .map-d07,
+                .map-d08,
+                .map-d09,
+                .map-d10,
+                .map-d11,
+                .map-d12 {
+                    @extend %map-house;
+
+                    &:hover {
+                        @extend %map-househover;
+
+                        ~.map-black-bgc {
+                            background-color: rgba(0, 0, 0, 0.6);
+                        }
+                    }
+                }
+
+                .map-d01 {
+                    top: 42.3%;
+                    left: 43.5%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 23.7%;
+                            left: 41.8%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-d02 {
+                    top: 42%;
+                    left: 52%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 23.5%;
+                            left: 50%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-d03 {
+                    top: 42%;
+                    left: 60.5%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 23.5%;
+                            left: 58.5%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-d04 {
+                    top: 42%;
+                    left: 69%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 23.5%;
+                            left: 67.2%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-d05 {
+                    top: 41.9%;
+                    left: 77.5%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 23.5%;
+                            left: 75.8%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-d06 {
+                    top: 41.6%;
+                    left: 86.2%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 23.2%;
+                            left: 84.2%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-d07 {
+                    top: 69.1%;
+                    left: 41.2%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 50.7%;
+                            left: 39.6%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-d08 {
+                    top: 69.1%;
+                    left: 50.2%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 50.7%;
+                            left: 48.4%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-d09 {
+                    top: 69.1%;
+                    left: 59%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 50.7%;
+                            left: 57%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-d10 {
+                    top: 69.1%;
+                    left: 67.5%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 50.7%;
+                            left: 65.8%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-d11 {
+                    top: 69.1%;
+                    left: 76.2%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 50.7%;
+                            left: 74.2%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+
+                .map-d12 {
+                    top: 69.1%;
+                    left: 84.8%;
+
+                    &:hover {
+                        ~.map-message {
+                            display: block;
+                            top: 50.7%;
+                            left: 82.8%;
+                            transform: translate(-35px, -10px);
+                        }
+                    }
+                }
+            }
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 17px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: $tag-bg;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #E2A06F;
+        }
+    }
+}
+
 #store {
     @include size(100%, 100vh);
     @include flex();

@@ -37,7 +37,7 @@
                 container.classList.add('complete');
                 clearInterval(loading_timer);
                 setTimeout(() => {
-                    location.href = "/";
+                    location.href = "/index";
                 }, 1000);
             }
         }, random);

@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', 'FrontendController@index');
+Route::get('/', 'FrontendController@loading');
+Route::get('/index', 'FrontendController@index');
 Route::get('/news', 'FrontendController@news');
 Route::get('/store{id}', 'FrontendController@store');
 Route::get('/tra_map', 'FrontendController@tra_map');

@@ -16,7 +16,7 @@ new fullpage('#fullpage', {
   //導航欄
   anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage', 'sixthPage', 'seventhPage'],
   menu: '#myMenu',
-  normalScrollElements: '.shop-list',
+  normalScrollElements: '.shop-list, .map-area',
 });
 
 //header的點擊拉出效果
@@ -37,12 +37,12 @@ main.addEventListener('click', function () {
   navRemove();
 });
 header.addEventListener('click', function (e) {
-  if(e.target !== navToggle){
+  if (e.target !== navToggle) {
     navRemove();
   };
 });
 
-function navRemove(){
+function navRemove() {
   navToggle.classList.remove('active');
   navbar.classList.remove('active');
   ulbar.classList.remove('active');
@@ -138,11 +138,11 @@ const mutationObserver = new MutationObserver(function (mutations) {
     if (phoneDateSelect.value !== '選擇日期') {
       const seleteArray = phoneDateSelect.value.split('-');
       dateTitle.nextElementSibling.textContent = `,${seleteArray[0]}`;
-      if(seleteArray[1] === '10' || seleteArray[1] === '11' || seleteArray[1] === '12'){
+      if (seleteArray[1] === '10' || seleteArray[1] === '11' || seleteArray[1] === '12') {
         dateTitle.textContent = monthEn[seleteArray[1] - 1];
         dateTitle.previousElementSibling.textContent = monthData[seleteArray[1] - 1];
       }
-      else{
+      else {
         const titleMonth = seleteArray[1].split('0');
         dateTitle.textContent = monthEn[titleMonth[1] - 1];
         dateTitle.previousElementSibling.textContent = monthData[titleMonth[1] - 1];
@@ -267,6 +267,57 @@ lightbox.option({
   'disableScrolling': true,
   'positionFromTop': 100,
 });
+
+//審計地圖js
+const MapStores = document.querySelectorAll('.map-bgc div');
+const MapMessage = document.querySelector('.map-message');
+MapStores.forEach(function (MapStore) {
+  MapStore.addEventListener('mouseover', function () {
+
+    const ShopId = this.getAttribute('value');
+    const ShopStyle = this.getAttribute('data-name');
+    const ShopPhone = this.getAttribute('data-phone');
+    const ShopTime = this.getAttribute('data-time');
+    // 先判斷是不是碰觸到背景
+    if (this.getAttribute('class') == 'map-black-bgc') {
+
+      MapMessage.style.display = 'none';
+    } else {
+      MapMessage.style.display = 'block';
+      // 在判斷是否有登入營業資料
+      if (!ShopId) {
+
+        MapMessage.style.backgroundImage = ' url(../img/message-green.svg)';
+        MapMessage.children[0].children[0].src = './img/Logo-img.png';
+        MapMessage.children[0].children[1].innerHTML = '目前尚未登記';
+        MapMessage.children[1].children[1].innerHTML = '敬請期待';
+        MapMessage.children[2].children[1].innerHTML = '敬請期待';
+
+      } else {
+
+        // 最後，判斷是哪一個類型的商家
+        if (ShopStyle == 'food') {
+          MapMessage.style.backgroundImage = ' url(../img/message-yellow.svg)';
+          MapMessage.children[0].children[0].src = './img/res-icon.svg';
+          MapMessage.children[0].children[1].innerHTML = ShopId;
+          MapMessage.children[1].children[1].innerHTML = ShopTime;
+          MapMessage.children[2].children[1].innerHTML = ShopPhone;
+
+
+        } else {
+          MapMessage.style.backgroundImage = ' url(../img/message-red.svg)';
+          MapMessage.children[0].children[0].src = './img/shopping-icon.svg';
+          MapMessage.children[0].children[1].innerHTML = ShopId;
+          MapMessage.children[1].children[1].innerHTML = ShopTime;
+          MapMessage.children[2].children[1].innerHTML = ShopPhone;
+
+        }
+
+      }
+    }
+
+  })
+})
 
 //周邊景點-swiper效果
 const swiper = new Swiper('.swiper-container', {

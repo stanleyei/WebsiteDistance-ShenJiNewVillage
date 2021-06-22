@@ -8,7 +8,7 @@
 <main id="fullpage">
     <section id="about-us" class="section">
         <div class="effect-area">
-            <a href="/" class="logo-link" title="回到首頁">
+            <a href="/index" class="logo-link" title="回到首頁">
                 <img class="logo-img" src="{{asset('/img/Logo-img.png')}}" alt="審計新村LOGO插圖">
                 <img class="logo-text" src="{{asset('/img/Logo-text.png')}}" alt="審計新村LOGO文字">
             </a>
@@ -39,7 +39,7 @@
         </div>
     </section>
     <section id="news" class="section">
-        <a href="/" class="logo-link" title="回到首頁">
+        <a href="/index" class="logo-link" title="回到首頁">
             <img class="logo-img" src="{{asset('/img/Logo-img.png')}}" alt="審計新村LOGO插圖">
             <img class="logo-text" src="{{asset('/img/Logo-text.png')}}" alt="審計新村LOGO文字">
         </a>
@@ -70,9 +70,94 @@
             </article>
         </div>
     </section>
-    <section id="map" class="map"></section>
+    <section id="map" class="section">
+        <a href="/index" class="logo-link" title="回到首頁">
+            <img class="logo-img" src="./img/Logo-img.png" alt="審計新村LOGO插圖">
+            <img class="logo-text" src="./img/Logo-text.png" alt="審計新村LOGO文字">
+        </a>
+        <div class="map-container">
+            <div class="map-title">
+                <h2>園區地圖</h2>
+                <span>Shen Ji New Village</span>
+            </div>
+            <div class="map-area">
+                <div class="map-bgc">
+
+                    <div class="map-a01" data-name="" value=""></div>
+                    <div class="map-a02" data-name="food" data-phone="04-2301-2826" data-time="11:00~20:00"
+                        value="繞輪司"></div>
+                    <div class="map-a03" data-name="" value=""></div>
+                    <div class="map-a04" data-name="" value=""></div>
+                    <div class="map-b01" data-name="" value=""></div>
+                    <div class="map-b02" data-name="food" data-phone="04-23026882" data-time="10:00~21:00"
+                        value="成真咖啡"></div>
+                    <div class="map-b03" data-name="food" data-phone="04-23026882" data-time="10:00~21:00"
+                        value="成真咖啡"></div>
+                    <div class="map-b04" data-name="" value=""></div>
+                    <div class="map-b05" data-name="food" data-phone="04-23026882" data-time="10:00~21:00"
+                        value="成真咖啡"></div>
+                    <div class="map-b06" data-name="food" data-phone="04-23026882" data-time="10:00~21:00"
+                        value="成真咖啡"></div>
+                    <div class="map-c01" data-name="" value=""></div>
+                    <div class="map-c02" data-name="gift" value="Kou-Jewellery"></div>
+                    <div class="map-c03" data-name="gift" data-phone="0989-438-877" data-time="12:00~19:00"
+                        value="森多水耕"></div>
+                    <div class="map-c04" data-name="food" data-phone="0989-438-877" data-time="10:00~20:00"
+                        value="甜月亮"></div>
+                    <div class="map-c05" data-name="gift" data-phone="0963-165-181" data-time="10:00~20:00"
+                        value="KerKerland"></div>
+                    <div class="map-c06" data-name="" value=""></div>
+                    <div class="map-c07" data-name="" value=""></div>
+                    <div class="map-c08" data-name="gift" data-phone="等等呢~~" data-time="11:00~18:00" value="愚室實驗所">
+                    </div>
+                    <div class="map-c09" data-name="" value=""></div>
+                    <div class="map-c10" data-name="gift" data-phone="04-22226160" data-time="11:00~20:00"
+                        value="Ficelle妃紗"></div>
+                    <div class="map-c11" data-name="food" data-phone="0923-312-545" data-time="12:00~19:30"
+                        value="Two-Day"></div>
+                    <div class="map-d01" data-name="" value=""></div>
+                    <div class="map-d02" data-name="gift" data-phone="等等呢~~" data-time="11:00~19:30" value="BAGCOM">
+                    </div>
+                    <div class="map-d03" data-name="gift" data-phone="等等呢~~" data-time="11:00~21:00" value="能藝文具">
+                    </div>
+                    <div class="map-d04" data-name="gift" data-phone="04-23019262" data-time="11:00~19:00"
+                        value="品墨良行"></div>
+                    <div class="map-d05" data-name="gift" data-phone="04-23019580" data-time="11:00~19:30"
+                        value="小日子商號"></div>
+                    <div class="map-d06" data-name="" value=""></div>
+                    <div class="map-d07" data-name="food" data-phone="04-22023121" data-time="10:00~19:00"
+                        value="KOI-THE"></div>
+                    <div class="map-d08" data-name="food" data-phone="04-23019569" data-time="11:00~19:00"
+                        value="艸水木堂"></div>
+                    <div class="map-d09" data-name="food" data-phone="04-23012715" data-time="11:00~19:00"
+                        value="森林島嶼"></div>
+                    <div class="map-d10" data-name="food" data-phone="04-23012715" data-time="11:00~19:00"
+                        value="森林島嶼"></div>
+                    <div class="map-d11" data-name="food" data-phone="04-23011911" data-time="11:00~19:00"
+                        value="旅禾泡芙之家"></div>
+                    <div class="map-d12" data-name="food" data-phone="04-23017301" data-time="11:00~18:30"
+                        value="三時杏仁"></div>
+                    <div class="map-black-bgc"></div>
+                    <div class="map-message">
+                        <div class="map-shopname">
+                            <img class="shopname-logo" src="/img/shopping-icon.svg" alt="">
+                            <span>森多水耕植研所</span>
+                        </div>
+                        <div class="map-businesshour">
+                            <img class="businesshour-logo" src="/img/clock02-icon.svg" alt="">
+                            <span>12:00~19:00</span>
+                        </div>
+                        <div class="map-shopphone">
+                            <img class="shopphone-logo" src="/img/phone-icon.svg" alt="">
+                            <span>無</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="store" class="section">
-        <a href="/" class="logo-link" title="回到首頁">
+        <a href="/index" class="logo-link" title="回到首頁">
             <img class="logo-img" src="{{asset('/img/Logo-img.png')}}" alt="審計新村LOGO插圖">
             <img class="logo-text" src="{{asset('/img/Logo-text.png')}}" alt="審計新村LOGO文字">
         </a>
@@ -141,7 +226,7 @@
         </div>
     </section>
     <section id="view" class="section">
-        <a href="/" class="logo-link" title="回到首頁">
+        <a href="/index" class="logo-link" title="回到首頁">
             <img class="logo-img" src="./img/Logo-img.png" alt="">
             <img class="logo-text" src="./img/Logo-text.png" alt="">
         </a>
@@ -166,17 +251,13 @@
                             </div>
                         </div>
                         @endforeach
-                        {{-- {{dd($views[0]->viewImgs[0]->img)}} --}}
-                        @foreach ($views[0]->viewImgs as $img)
-                        <a href="{{$img->img}}" data-lightbox="roadtrip-{{$img->view_id}}></a>            
-                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <section id="traffic" class="section">
-        <a href="/" class="logo-link" title="回到首頁">
+        <a href="/index" class="logo-link" title="回到首頁">
             <img class="logo-img" src="{{asset('/img/Logo-img.png')}}" alt="審計新村LOGO插圖">
             <img class="logo-text" src="{{asset('/img/Logo-text.png')}}" alt="審計新村LOGO文字">
         </a>
@@ -225,7 +306,7 @@
             </div>
     </section>
     <section id="contact" class="section">
-        <a href="/" class="logo-link" title="回到首頁">
+        <a href="/index" class="logo-link" title="回到首頁">
             <img class="logo-img" src="{{asset('/img/Logo-img.png')}}" alt="審計新村LOGO插圖">
             <img class="logo-text" src="{{asset('/img/Logo-text.png')}}" alt="審計新村LOGO文字">
         </a>

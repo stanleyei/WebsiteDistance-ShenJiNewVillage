@@ -6,7 +6,7 @@
 
 @section('main')
 <main class="traffic">
-    <a href="/#sixthPage" class="logo-link" title="回到首頁">
+    <a href="/index#sixthPage" class="logo-link" title="回到首頁">
         <img class="logo-img" src="./img/Logo-img.png" alt="審計新村LOGO插圖">
         <img class="logo-text" src="./img/Logo-text.png" alt="審計新村LOGO文字">
     </a>

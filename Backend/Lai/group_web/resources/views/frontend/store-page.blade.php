@@ -6,7 +6,7 @@
 
 @section('main')
 <main>
-    <a href="/?type={{$shops->type_id}}#thirdPage" class="logo-link" title="回到首頁">
+    <a href="/index?type={{$shops->type_id}}#fourthPage" class="logo-link" title="回到首頁">
         <img class="logo-img" src="{{asset('/img/Logo-img.png')}}" alt="審計新村LOGO插圖">
         <img class="logo-text" src="{{asset('/img/Logo-text.png')}}" alt="審計新村LOGO文字">
     </a>
@@ -38,7 +38,7 @@
             </div>
             <div class="down-content-photo" style="background-image: url({{asset($shops->shopImgs[5]->img??'')}});"></div>
             <p>{{$shops->content_second}}</p>
-            <a href="/?type={{$shops->type_id}}#thirdPage" title="回到首頁" class="back-btn">回上一頁</a>
+            <a href="/index?type={{$shops->type_id}}#fourthPage" title="回到首頁" class="back-btn">回上一頁</a>
         </article>
     </div>
 </main>

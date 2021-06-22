@@ -13,6 +13,12 @@ use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
+    public function loading()
+    {
+        return view('frontend.loading');
+    }
+
+
     public function index()
     {
         $sliders = Slider::get();
