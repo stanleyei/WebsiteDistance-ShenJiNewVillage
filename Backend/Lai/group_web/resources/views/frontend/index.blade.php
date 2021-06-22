@@ -87,7 +87,7 @@
                     @foreach ($shops as $shop)
                     <ul data-list="{{$shop->id - 1}}" class="{{$shop->id == 1 ? '' : 'check-list-hide'}}">
                         <li>
-                            <a href="{{$shop->shopImgs[0]->img??''}}" title="點我看大圖" class="check-btn photo-view"
+                            <a href="{{$shop->shopImgs[2]->img??''}}" title="點我看大圖" class="check-btn photo-view"
                                 data-lightbox="food-shop-{{$shop->id}}">看大圖</a>
                         </li>
                         <li>
@@ -101,12 +101,12 @@
                         <div class="figure-box">
                             <div class="tap-change" data-title="1">
                                 @foreach ($foodShops as $shop)
-                                <figure style="background-image: url({{$shop->shopImgs[0]->img??''}});"></figure>
+                                <figure style="background-image: url({{$shop->shopImgs[2]->img??''}});"></figure>
                                 @endforeach
                             </div>
                             <div class="tap-change" data-title="2">
                                 @foreach ($trinketShops as $shop)
-                                <figure style="background-image: url({{$shop->shopImgs[0]->img??''}});"></figure>
+                                <figure style="background-image: url({{$shop->shopImgs[2]->img??''}});"></figure>
                                 @endforeach
                             </div>
                         </div>
