@@ -35,9 +35,10 @@ const whiteMasks = document.querySelectorAll('.nav-photo > figure');
 const navPhotos = document.querySelector('.nav-photo');
 navPhotos.addEventListener('click', function (e) {
   if(e.target !== navPhotos){
-    for (let i = 0; i < mainPhotos.length; i++) {
-      photoCarousel(e, i+1, i * -100);
-    }
+    mainPhotos.forEach(photo => {
+      const displacement = e.target.dataset.photo % 6 - 1;
+      photo.style.transform = `translateX(${displacement * -100}%)`;
+    });
     whiteMasks.forEach(photo => {
       photo.classList.add('white-mask');
         if(photo.dataset.photo === e.target.dataset.photo){
@@ -46,14 +47,6 @@ navPhotos.addEventListener('click', function (e) {
     });
   }
 });
-
-function photoCarousel(e, dataValue, distance) {
-  if(e.target.dataset.photo === `${dataValue}`){
-    mainPhotos.forEach(photo => {
-      photo.style.transform = `translateX(${distance}%)`;
-    });
-  };
-}
 
 //回到頂端按鈕
 (function () {

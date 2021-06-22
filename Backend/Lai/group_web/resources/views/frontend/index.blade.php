@@ -158,14 +158,17 @@
                             <div class="view-card">
                                 <p>{{$view->name}}</p>
                                 <p class="fas fa-map"> {{$view->phone}}</p>
-                                <a href="{{$view->viewImgs[0]->img??''}}" data-lightbox="roadtrip-{{$view->id}}" title="點我看大圖">
+                                <a href="{{$view->viewImgs[0]->img??''}}" data-lightbox="roadtrip-{{$view->id}}" title="點我看大圖" data-title="{{$view->name}}">
                                     <span class="view-card-img"
                                         style="background-image: url('{{$view->viewImgs[0]->img??''}}');"></span>
                                 </a>
-                                {{-- <a href="{{$view->viewImgs[1]->img??''}}" data-lightbox="roadtrip-{{$view->id}}"></a> --}}
                                 <p>{{$view->content}}</p>
                             </div>
                         </div>
+                        @endforeach
+                        {{-- {{dd($views[0]->viewImgs[0]->img)}} --}}
+                        @foreach ($views[0]->viewImgs as $img)
+                        <a href="{{$img->img}}" data-lightbox="roadtrip-{{$img->view_id}}></a>            
                         @endforeach
                     </div>
                 </div>

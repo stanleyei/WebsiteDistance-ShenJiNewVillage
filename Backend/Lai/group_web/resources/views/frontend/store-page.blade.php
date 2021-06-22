@@ -32,11 +32,11 @@
                 <div class="nav-photo">
                     @foreach ($shopimgs as $img)
                     <figure class="{{$img->id % 6 == 3 || $img->id == 3 ? '' : 'white-mask'}}" style="background-image: url({{asset($img->img)}});"
-                        data-photo="{{$img->id}}"></figure>    
+                        data-photo="{{$img->id}}" title="點我切換"></figure>    
                     @endforeach
                 </div>
             </div>
-            <div class="down-content-photo" style="background-image: url({{asset($shops->shopImgs[5]->img)}});"></div>
+            <div class="down-content-photo" style="background-image: url({{asset($shops->shopImgs[5]->img??'')}});"></div>
             <p>{{$shops->content_second}}</p>
             <a href="/?type={{$shops->type_id}}#thirdPage" title="回到首頁" class="back-btn">回上一頁</a>
         </article>
