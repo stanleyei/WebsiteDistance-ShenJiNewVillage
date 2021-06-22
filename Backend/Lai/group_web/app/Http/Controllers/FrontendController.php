@@ -38,6 +38,7 @@ class FrontendController extends Controller
         $nextRange[] = Carbon::parse("$year-$month-10")->addMonth()->firstOfMonth();
         $nextRange[] = Carbon::parse("$year-$month-10")->addMonth()->lastOfMonth();
         $infos = Info::with('infoType', 'infoImgs')->whereBetween('date_start', $range)->orderBy('updated_at', 'DESC')->where('type_id', $tap)->get();
+        $eventInfos = Info::with('infoType', 'infoImgs')->orderBy('updated_at', 'DESC')->where('type_id', 2)->get();
         $nextInfos = Info::with('infoType', 'infoImgs')->whereBetween('date_start', $nextRange)->orderBy('updated_at', 'DESC')->where('type_id', $tap)->get();
         return view('frontend.news-page', compact('infos', 'nextInfos'));
     }
@@ -76,6 +77,29 @@ class FrontendController extends Controller
             $data[] = $dataNews ?? 'none';
 
             return $data;
+        }
+        return 'give me month & year!';
+    }
+
+    public function allNewsData(Request $request)
+    {
+        if ($request->year && $request->month && $request->infType) {
+            $year = $request->year;
+            $month = $request->month;
+            $infType = $request->infType;
+            // 返回該年月，三種活動中更新時間最新的第一筆資料，共三筆
+            // 取得當月第一天跟最後一天
+            $range = [];
+            $range[] = Carbon::parse("$year-$month-10")->firstOfMonth();
+            $range[] = Carbon::parse("$year-$month-10")->lastOfMonth();
+            // 取得當月資料
+            if($infType == 1){
+                $dataNews = Info::with('infoType', 'infoImgs')->whereBetween('date_start', $range)->orderBy('updated_at', 'DESC')->where('type_id', 1)->get();
+            }else{
+                $dataNews = Info::with('infoType', 'infoImgs')->whereBetween('date_start', $range)->orderBy('updated_at', 'DESC')->where('type_id', 2)->get();
+        
+            };
+            return $dataNews;
         }
         return 'give me month & year!';
     }

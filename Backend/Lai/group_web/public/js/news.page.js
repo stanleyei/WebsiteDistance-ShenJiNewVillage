@@ -1,3 +1,5 @@
+const token = document.querySelector('[name="csrf-token"]').getAttribute('content');
+
 //header的點擊拉出效果
 const navbar = document.querySelector('nav');
 const ulbar = document.querySelector('.ulbar');
@@ -16,12 +18,12 @@ main.addEventListener('click', function () {
   navRemove();
 });
 header.addEventListener('click', function (e) {
-  if(e.target !== navToggle){
+  if (e.target !== navToggle) {
     navRemove();
   };
 });
 
-function navRemove(){
+function navRemove() {
   navToggle.classList.remove('active');
   navbar.classList.remove('active');
   ulbar.classList.remove('active');
@@ -32,6 +34,11 @@ function navRemove(){
 //判斷傳進來的url值後切換到對應的分類
 const getUrlString = location.href;
 const newsUrl = new URL(getUrlString);
+const urlTap = newsUrl.searchParams.get('tap');
+const urlyear = newsUrl.searchParams.get('year');
+const urlMonth = newsUrl.searchParams.get('month');
+const monthData = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+const monthEn = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const asideTabs = document.querySelectorAll('.aside-tab');
 const customSelect = document.querySelector('.custom-select-list');
 const infsNone = document.querySelector('#content-infs-none');
@@ -40,8 +47,11 @@ const phoneDateSelect = document.querySelector('.phone-date-btn');
 const contentInf = document.querySelectorAll('.content-inf');
 const dateTitleControl = document.querySelector('.date-title-control');
 const newsDate = document.querySelector('.news-date');
+const thisMonthTitle = document.querySelector('#this-month-title h4');
+const nextMonthTitle = document.querySelector('#next-month-title h4');
+const yearsTitle = document.querySelectorAll('.years');
 asideTabs.forEach(tab => {
-  if (newsUrl.searchParams.get('tap') === tab.dataset.tap) {
+  if (urlTap === tab.dataset.tap) {
     if (tab.dataset.tap === '1') {
       tab.classList.add('news-tab-focus');
     }
@@ -56,7 +66,7 @@ asideTabs.forEach(tab => {
     };
   };
 });
-if (newsUrl.searchParams.get('tap') === '3') {
+if (urlTap === '3') {
   customSelect.style = 'display:block';
   photoWall.style = 'display:grid';
   infsNone.style = 'display:none';
@@ -65,11 +75,31 @@ if (newsUrl.searchParams.get('tap') === '3') {
   phoneDateSelect.classList.add('phone-date-none');
   dateTitleControl.classList.add('date-title-control-none');
 };
+yearsTitle.forEach(title => {
+  title.textContent = `,${urlyear}`;
+});
+if (urlMonth === '10' || urlMonth === '11' || urlMonth === '12') {
+  thisMonthTitle.textContent = monthData[urlMonth - 1];
+  thisMonthTitle.nextElementSibling.textContent = monthEn[urlMonth - 1];
+  if (urlMonth === '12') {
+    nextMonthTitle.textContent = '一月';
+    nextMonthTitle.nextElementSibling.textContent = 'January';
+  } else {
+    nextMonthTitle.textContent = monthData[urlMonth];
+    nextMonthTitle.nextElementSibling.textContent = monthEn[urlMonth - 1];
+  };
+} else {
+  const monthNumber = urlMonth.split('0');
+  thisMonthTitle.textContent = monthData[Number(monthNumber[1]) - 1];
+  nextMonthTitle.textContent = monthData[Number(monthNumber[1])];
+  thisMonthTitle.nextElementSibling.textContent = monthEn[Number(monthNumber[1]) - 1];
+  nextMonthTitle.nextElementSibling.textContent = monthEn[Number(monthNumber[1])];
+};
+
 
 //審計新訊-生成按鈕
 const monthList = document.querySelector('#month-list');
 const yearsList = document.querySelector('#years-list');
-const monthData = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
 let dataValue = 1;
 monthData.forEach(data => {
   monthList.innerHTML += `<button class="month-btn" data-month="${dataValue}" title="${data}">${data}</button>`
@@ -80,12 +110,8 @@ for (let i = 0; i < 5; i++) {
 };
 
 //審計新訊-切換選擇日期的效果
-const monthEn = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const monthBtns = document.querySelectorAll('.month-btn');
 const yearsBtns = document.querySelectorAll('.years-btn');
-const thisMonthTitle = document.querySelector('#this-month-title h4');
-const nextMonthTitle = document.querySelector('#next-month-title h4');
-const yearsTitle = document.querySelectorAll('.content-title .years');
 const date = new Date();
 const thisYear = String(date.getFullYear());
 const thisMonth = String(date.getMonth() + 1);
@@ -93,17 +119,11 @@ focusChange(monthBtns);
 focusChange(yearsBtns);
 
 function focusChange(dateBtns) {
-  thisMonthTitle.nextElementSibling.textContent = monthEn[date.getMonth()];
-  nextMonthTitle.nextElementSibling.textContent = monthEn[date.getMonth() + 1];
-  yearsTitle.forEach(title => {
-    title.textContent = `,${thisYear}`;
-  });
   dateBtns.forEach(btns => {
     if (btns.textContent === thisYear) {
       btns.classList.add('focus-change');
     }
     else if (btns.dataset.month === thisMonth) {
-      monthChoose(btns);
       btns.classList.add('focus-change');
     }
     btns.addEventListener('click', function () {
@@ -146,11 +166,11 @@ const mutationObserver = new MutationObserver(function (mutations) {
     if (phoneDateSelect.value !== '選擇日期') {
       const seleteArray = phoneDateSelect.value.split('-');
       yearsTitle[0].textContent = `,${seleteArray[0]}`;
-      if(seleteArray[1] === '10' || seleteArray[1] === '11' || seleteArray[1] === '12'){
+      if (seleteArray[1] === '10' || seleteArray[1] === '11' || seleteArray[1] === '12') {
         thisMonthTitle.nextElementSibling.textContent = monthEn[seleteArray[1] - 1];
         thisMonthTitle.textContent = monthData[seleteArray[1] - 1];
       }
-      else{
+      else {
         const titleMonth = seleteArray[1].split('0');
         thisMonthTitle.nextElementSibling.textContent = monthEn[titleMonth[1] - 1];
         thisMonthTitle.textContent = monthData[titleMonth[1] - 1];
@@ -194,6 +214,9 @@ function monthLoop(e, direction, startIndex, finalIndex, count) {
 
 //news-aside-tap被點擊後的效果
 const feastPhoto = document.querySelector('#feast-photo');
+const feastNews = document.querySelector('#feast-news');
+const contentInfsNow = document.querySelector('#content-infs-now');
+const contentInfsNext = document.querySelector('#content-infs-next');
 asideTabs.forEach(tabs => {
   tabs.addEventListener('click', function (tab) {
     if (tab.target === feastPhoto) {
@@ -203,6 +226,125 @@ asideTabs.forEach(tabs => {
       phoneDateSelect.classList.add('phone-date-none');
       dateTitleControl.style = 'display:none';
       newsDate.classList.add('news-data-none');
+    } else if (tab.target === feastNews) {
+      customSelect.style = "display:none";
+      photoWall.style = 'display:none';
+      infsNone.style = 'display:block';
+      phoneDateSelect.classList.remove('phone-date-none');
+      dateTitleControl.style = 'display:flex';
+      newsDate.classList.remove('news-data-none');
+
+      const focusYear = document.querySelector('#this-month-title .years').textContent.slice(-4);
+      let focusMonth = 0;
+      monthBtns.forEach(btn => {
+        if (btn.className === 'month-btn focus-change') {
+          focusMonth = btn.dataset.month;
+        };
+      });
+      const infsData = new FormData;
+      infsData.append('_token', token);
+      infsData.append('month', focusMonth);
+      infsData.append('year', focusYear);
+      infsData.append('infType', this.dataset.tap);
+      fetch('/all_news_data', {
+        method: 'POST',
+        body: infsData,
+      })
+        .then(response => response.json())
+        .then(result => {
+          const monthArray = [];
+          const dataArray = [];
+          contentInfsNow.innerHTML = '';
+          result.forEach(data => {
+            if (data === 'none') {
+              contentInfsNow.innerHTML +=
+                `<div class='content-inf'>
+              <div class='inf-detail ml-4'>
+                  <h4 style='line-height:9.25vh'>No Events</h4>
+              </div>
+            </div>`;
+            } else {
+              contentInfsNow.innerHTML +=
+                `<div class="content-inf event-content-inf" data-toggle="collapse" data-target="#collapse${data.id}"
+            aria-expanded="true" aria-controls="collapse${data.id}" title="點我展開">
+                <div class="inf-date">
+                    <div class="during">
+                        <div class="start-date"></div>
+                    </div>
+                    <span></span>
+                </div>
+                <h5>${data.name}</h5>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="inf-detail collapse" id="collapse${data.id}"
+            aria-labelledby="heading${data.id}" data-parent="#content-infs-now">
+            <span class="far fa-edit"> 活動詳情</span>
+            <div class="card-body">
+                <div class="card-imgs">
+                    <figure style="background-image: url(${data.img});"></figure>
+                </div>
+                <div class="card-content">${data.content}</div>
+            </div>
+            <div class="card-other-inf">
+                <div class="event-time">
+                    <div>
+                        <i class="far fa-clock"></i>
+                        <div>時間</div>
+                    </div>
+                    <time>
+                        <div>
+                            <span>2021/05/03(一)</span>
+                            <span>-05/14(五)</span>
+                        </div>
+                        <div>10:00-19:00</div>
+                    </time>
+                </div>
+                <div class="event-place">
+                    <div>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>地點</div>
+                    </div>
+                    <span>${data.location}</span>
+                </div>
+                <div class="event-organizer">
+                    <i class="fas fa-suitcase"></i>
+                    <span>主辦單位</span>
+                    <span class="ml-sm-1">${data.organizer}</span>
+                </div>
+                <div class="event-calendar">
+                    <a target="_blank"
+                        href="http://www.google.com/calendar/event?action=TEMPLATE&text=${data.name}&dates=20210710T183000/20210711T235900&details=第一屆 pokemon go 會員大會，聚餐時間與注意事項%0A1.來吃飯%0A2.帶妹來%0A3.自備飲料&location=道館&trp=false"
+                        title="加入google日曆">
+                        <i class="far fa-calendar-minus"></i>
+                        <div>加入google日曆</div>
+                    </a>
+                </div>
+            </div>
+            </div>`;
+              const monthNumber = data.created_at.split('-');
+              if (monthNumber[1] === '10' || monthNumber[1] === '11' || monthNumber[1] === '12') {
+                monthArray.push(monthNumber[1]);
+              } else {
+                const singleMonth = monthNumber[1].split('0');
+                monthArray.push(singleMonth[1]);
+              };
+              const dataNumber = monthNumber[2].split('T');
+              dataArray.push(dataNumber[0]);
+            };
+          });
+
+          let x = 0;
+          document.querySelectorAll('.start-date').forEach(date => {
+            date.textContent = dataArray[x];
+            x++;
+          });
+
+          let i = 0;
+          document.querySelectorAll('.inf-date > span').forEach(month => {
+            month.textContent = monthData[monthArray[i] - 1];
+            i++
+          });
+        });
     } else {
       customSelect.style = "display:none";
       photoWall.style = 'display:none';
@@ -210,6 +352,118 @@ asideTabs.forEach(tabs => {
       phoneDateSelect.classList.remove('phone-date-none');
       dateTitleControl.style = 'display:flex';
       newsDate.classList.remove('news-data-none');
+
+      const focusYear = document.querySelector('#this-month-title .years').textContent.slice(-4);
+      let focusMonth = 0;
+      monthBtns.forEach(btn => {
+        if (btn.className === 'month-btn focus-change') {
+          focusMonth = btn.dataset.month;
+        };
+      });
+      const infsData = new FormData;
+      infsData.append('_token', token);
+      infsData.append('month', focusMonth);
+      infsData.append('year', focusYear);
+      infsData.append('infType', this.dataset.tap);
+      fetch('/all_news_data', {
+        method: 'POST',
+        body: infsData,
+      })
+        .then(response => response.json())
+        .then(result => {
+          const monthArray = [];
+          const dataArray = [];
+          contentInfsNow.innerHTML = '';
+          result.forEach(data => {
+            if (data === 'none') {
+              contentInfsNow.innerHTML +=
+                `<div class='content-inf'>
+              <div class='inf-detail ml-4'>
+                  <h4 style='line-height:9.25vh'>No Events</h4>
+              </div>
+            </div>`;
+            } else {
+              contentInfsNow.innerHTML +=
+                `<div class="content-inf" data-toggle="collapse" data-target="#collapse${data.id}"
+            aria-expanded="true" aria-controls="collapse${data.id}" title="點我展開">
+                <div class="inf-date">
+                    <div class="during">
+                        <div class="start-date"></div>
+                    </div>
+                    <span></span>
+                </div>
+                <h5>${data.name}</h5>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="inf-detail collapse" id="collapse${data.id}"
+            aria-labelledby="heading${data.id}" data-parent="#content-infs-now">
+            <span class="far fa-edit"> 活動詳情</span>
+            <div class="card-body">
+                <div class="card-imgs">
+                    <figure style="background-image: url(${data.img});"></figure>
+                </div>
+                <div class="card-content">${data.content}</div>
+            </div>
+            <div class="card-other-inf">
+                <div class="event-time">
+                    <div>
+                        <i class="far fa-clock"></i>
+                        <div>時間</div>
+                    </div>
+                    <time>
+                        <div>
+                            <span>2021/05/03(一)</span>
+                            <span>-05/14(五)</span>
+                        </div>
+                        <div>10:00-19:00</div>
+                    </time>
+                </div>
+                <div class="event-place">
+                    <div>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>地點</div>
+                    </div>
+                    <span>${data.location}</span>
+                </div>
+                <div class="event-organizer">
+                    <i class="fas fa-suitcase"></i>
+                    <span>主辦單位</span>
+                    <span class="ml-sm-1">${data.organizer}</span>
+                </div>
+                <div class="event-calendar">
+                    <a target="_blank"
+                        href="http://www.google.com/calendar/event?action=TEMPLATE&text=${data.name}&dates=20210710T183000/20210711T235900&details=第一屆 pokemon go 會員大會，聚餐時間與注意事項%0A1.來吃飯%0A2.帶妹來%0A3.自備飲料&location=道館&trp=false"
+                        title="加入google日曆">
+                        <i class="far fa-calendar-minus"></i>
+                        <div>加入google日曆</div>
+                    </a>
+                </div>
+            </div>
+            </div>`;
+              const monthNumber = data.created_at.split('-');
+              if (monthNumber[1] === '10' || monthNumber[1] === '11' || monthNumber[1] === '12') {
+                monthArray.push(monthNumber[1]);
+              } else {
+                const singleMonth = monthNumber[1].split('0');
+                monthArray.push(singleMonth[1]);
+              };
+              const dataNumber = monthNumber[2].split('T');
+              dataArray.push(dataNumber[0]);
+            };
+          });
+
+          let x = 0;
+          document.querySelectorAll('.start-date').forEach(date => {
+            date.textContent = dataArray[x];
+            x++;
+          });
+
+          let i = 0;
+          document.querySelectorAll('.inf-date > span').forEach(month => {
+            month.textContent = monthData[monthArray[i] - 1];
+            i++
+          });
+        });
     }
     asideTabs.forEach(tab => {
       tab.classList.remove('news-tab-focus', 'event-tab-focus', 'festival-tab-focus');
@@ -224,9 +478,6 @@ asideTabs.forEach(tabs => {
         else if (tab.dataset.tap === '2') {
           dateTitleControl.classList.remove('date-title-control-none');
           tab.classList.add('event-tab-focus');
-          contentInf.forEach(inf => {
-            inf.classList.add('event-content-inf');
-          });
         }
         else {
           dateTitleControl.classList.add('date-title-control-none');

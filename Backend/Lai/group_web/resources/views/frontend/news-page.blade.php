@@ -111,8 +111,8 @@
                     <h3>下月活動預告</h3>
                     <div class="content-title" id="next-month-title">
                         <h4></h4>
-                        <div></div>
-                        <div class="m-0"></div>
+                        <div class="month"></div>
+                        <div class="years m-0"></div>
                     </div>
                     <div class="content-infs" id="content-infs-next">
                         @foreach ($nextInfos as $info)
