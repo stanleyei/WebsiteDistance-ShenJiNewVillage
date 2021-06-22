@@ -10943,8 +10943,18 @@ a.text-dark:focus {
 }
 
 .pre-img-div {
-  width: 400px;
-  height: 300px;
+  height: 100px;
   background-size: cover;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 

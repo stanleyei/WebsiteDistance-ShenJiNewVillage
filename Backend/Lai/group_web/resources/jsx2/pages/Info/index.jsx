@@ -123,8 +123,8 @@ export default class Info extends Component {
                                         return (
                                             <tr key={data.id}>
                                                 <td>{data.info_type.name}</td>
-                                                <td>{data.name}</td>
-                                                <td dangerouslySetInnerHTML={{ __html: data.content }}></td>
+                                                <td className="list-name">{data.name}</td>
+                                                <td className="list-content" dangerouslySetInnerHTML={{ __html: data.content }}></td>
                                                 <td>{data.info_imgs.length}</td>
                                                 <td>{data.date_start}</td>
                                                 <td>{data.date_end}</td>

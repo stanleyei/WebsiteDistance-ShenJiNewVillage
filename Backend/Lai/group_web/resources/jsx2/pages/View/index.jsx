@@ -109,7 +109,7 @@ export default class View extends Component {
                                     <th>名稱</th>
                                     <th>內容</th>
                                     <th>圖片數</th>
-                                    <th>連絡電話</th>
+                                    <th>距離</th>
                                     <th>地點</th>
                                     <th>營業時間</th>
                                     <th>編輯</th>
@@ -123,7 +123,7 @@ export default class View extends Component {
                                         return (
                                             <tr key={data.id}>
                                                 <td>{data.name}</td>
-                                                <td>{data.content}</td>
+                                                <td className="list-content">{data.content}</td>
                                                 <td>{data.view_imgs.length}</td>
                                                 <td>{data.phone}</td>
                                                 <td>{data.address}</td>
