@@ -247,6 +247,12 @@
                                     <span class="view-card-img"
                                         style="background-image: url('{{$view->viewImgs[0]->img??''}}');"></span>
                                 </a>
+                                @php
+                                    $view->viewImgs->shift();
+                                @endphp
+                                @foreach ($view->viewImgs as $img)
+                                <a href="{{$img->img}}" data-lightbox="roadtrip-{{$img->view_id}}"></a>
+                                @endforeach
                                 <p>{{$view->content}}</p>
                             </div>
                         </div>
