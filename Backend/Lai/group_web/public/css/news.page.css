@@ -1843,6 +1843,19 @@ main .news-page-container article .feast-photo-wall figure {
   border-radius: 2px;
   -webkit-box-shadow: 0 0 3px #596E79;
           box-shadow: 0 0 3px #596E79;
+  -webkit-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+  -webkit-animation: fadeout 2s;
+          animation: fadeout 2s;
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 main .news-page-container article .feast-photo-wall figure:hover .figure-hover-appear {

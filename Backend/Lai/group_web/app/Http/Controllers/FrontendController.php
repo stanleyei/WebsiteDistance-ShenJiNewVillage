@@ -6,6 +6,7 @@ use App\Shop;
 use App\View;
 use App\Slider;
 use App\Info;
+use App\InfoImg;
 use App\ShopType;
 use App\InfoTypes;
 use Carbon\Carbon;
@@ -119,7 +120,11 @@ class FrontendController extends Controller
     {
         if ($request->id) {
             $id = $request->id;
-            $feastPhotos = Info::with('infoType', 'infoImgs')->find($id);
+            if($id == 'all'){
+                $feastPhotos = InfoImg::get();
+            }else{
+                $feastPhotos = Info::with('infoType', 'infoImgs')->find($id);
+            }
 
             return $feastPhotos;
         }

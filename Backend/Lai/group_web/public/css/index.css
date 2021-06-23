@@ -2151,8 +2151,8 @@ header .nav-img.active {
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-transition: 2s ease-in-out;
-  transition: 2s ease-in-out;
+  -webkit-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
 }
 
 #map .map-container .map-area .map-bgc .map-message {

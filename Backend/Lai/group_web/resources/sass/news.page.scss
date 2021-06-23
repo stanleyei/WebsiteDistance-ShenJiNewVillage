@@ -1186,6 +1186,18 @@ main {
                     background-repeat: no-repeat;
                     border-radius: 2px;
                     box-shadow: 0 0 3px $footer-bg;
+                    transition: 1s ease-in-out;
+                    animation: fadeout 2s;
+            
+                    @keyframes fadeout {
+                        0% {
+                            opacity: 0;
+                        }
+            
+                        100% {
+                            opacity: 1;
+                        }
+                    }
 
                     &:hover {
 

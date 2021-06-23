@@ -1249,12 +1249,8 @@ header {
                     position: absolute;
                     top: 0;
                     left: 0;
-                    transition: 2s ease-in-out;
-                   
-
+                    transition: 1s ease-in-out;
                 }
-
-               
 
                 .map-message {
                     @include size(20%, 19.7%);

@@ -637,6 +637,7 @@ asideTabs.forEach(tabs => {
 
 //下拉式選單切換不同日期活動
 document.querySelector('.dropdown-menu').addEventListener('click', function (e) {
+  document.querySelector('.btn-secondary').textContent = e.target.textContent;
   const infsData = new FormData;
   infsData.append('_token', token);
   infsData.append('id', e.target.dataset.market);
@@ -646,15 +647,26 @@ document.querySelector('.dropdown-menu').addEventListener('click', function (e) 
   })
     .then(response => response.json())
     .then(result => {
-      photoWall.innerHTML = '';
-      result.info_imgs.forEach(photo => {
-        photoWall.innerHTML += 
-        `<a href="${photo.img}" data-lightbox="${photo.info_id}" data-title="${photo.name}">
-        <figure style="background-image: url(${photo.img});">
-            <div class="figure-hover-appear">${photo.name}</div>
-        </figure>
-        </a>`
-      });
+      if(result.length > 1){
+        result.forEach(photo => {
+          photoWall.innerHTML += 
+          `<a href="${photo.img}" data-lightbox="${photo.info_id}" data-title="${photo.name}">
+          <figure style="background-image: url(${photo.img});">
+              <div class="figure-hover-appear">${photo.name}</div>
+          </figure>
+          </a>`
+        });
+      }else{
+        photoWall.innerHTML = '';
+        result.info_imgs.forEach(photo => {
+          photoWall.innerHTML += 
+          `<a href="${photo.img}" data-lightbox="${photo.info_id}" data-title="${photo.name}">
+          <figure style="background-image: url(${photo.img});">
+              <div class="figure-hover-appear">${photo.name}</div>
+          </figure>
+          </a>`
+        });
+      };
     });
 })
 
