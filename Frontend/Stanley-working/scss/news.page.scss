@@ -1152,6 +1152,18 @@ main {
                 grid-template-columns: repeat(3, 1fr);
                 grid-gap: 30px;
                 display: none;
+                transition: 1s ease-in-out;
+                animation: fadeout 2s;
+        
+                @keyframes fadeout {
+                    0% {
+                        opacity: 0;
+                    }
+        
+                    100% {
+                        opacity: 1;
+                    }
+                }
 
                 @include w1024 {
                     grid-gap: 20px;

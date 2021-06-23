@@ -99,7 +99,7 @@
                     <div class="map-b06" data-name="food" data-phone="04-23026882" data-time="10:00~21:00"
                         value="成真咖啡"></div>
                     <div class="map-c01" data-name="" value=""></div>
-                    <div class="map-c02" data-name="gift" value="Kou-Jewellery"></div>
+                    <div class="map-c02" data-name="gift" data-phone="0930-676-529" data-time="12:00~17:30" value="Kou-Jewellery"></div>
                     <div class="map-c03" data-name="gift" data-phone="0989-438-877" data-time="12:00~19:00"
                         value="森多水耕"></div>
                     <div class="map-c04" data-name="food" data-phone="0989-438-877" data-time="10:00~20:00"

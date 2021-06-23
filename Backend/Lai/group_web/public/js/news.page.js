@@ -658,7 +658,6 @@ document.querySelector('.dropdown-menu').addEventListener('click', function (e) 
     });
 })
 
-
 //活動資訊點擊後click變色效果
 const NowInfs = document.querySelectorAll('#content-infs-now .content-inf');
 const NextInfs = document.querySelectorAll('#content-infs-next .content-inf');
@@ -724,6 +723,14 @@ lightbox.option({
   'disableScrolling': true,
   'positionFromTop': 100,
 });
+
+//讓資訊展開時回到正中間
+// NowInfs.forEach(inf => {
+//   inf.addEventListener('click', function () {
+//     const infId = this.dataset.anchor;
+//     location.href = `./news#content-inf-${infId}`;
+//   });
+// });
 
 //回到頂端按鈕
 (function () {

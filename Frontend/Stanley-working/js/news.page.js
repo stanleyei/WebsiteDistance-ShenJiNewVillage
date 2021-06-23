@@ -40,7 +40,7 @@ for (let i = 3; i < 6; i++) {
 };
 
 function infCard(id, i) {
-  ic = `<div class="content-inf" data-toggle="collapse" data-target="#collapse${i}"
+  ic = `<div id="content-inf-${i}" data-anchor="${i}" class="content-inf" data-toggle="collapse" data-target="#collapse${i}"
   aria-expanded="true" aria-controls="collapse${i}" title="點我展開">
   <div class="inf-date">
       <div class="during">
@@ -313,70 +313,6 @@ asideTabs.forEach(tabs => {
   });
 });
 
-//客製化select下拉式選單
-// const x = document.querySelectorAll('.custom-select-list');
-// document.addEventListener("click", closeAllSelect);
-// for (let i = 0; i < x.length; i++) {
-//   let selElmnt = x[i].getElementsByTagName("select")[0];
-//   const a = document.createElement("DIV");
-//   a.setAttribute("class", "select-selected");
-//   a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-//   x[i].appendChild(a);
-//   const b = document.createElement("DIV");
-//   b.setAttribute("class", "select-items select-hide");
-//   for (let j = 0; j < selElmnt.length; j++) {
-//     const c = document.createElement("DIV");
-//     if (j === 0) {
-//       c.setAttribute("class", "active");
-//     }
-//     c.innerHTML = selElmnt.options[j].innerHTML;
-//     b.appendChild(c);
-//     c.addEventListener("click", function (e) {
-//       var y, s, h;
-//       s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-//       h = this.parentNode.previousSibling;
-//       a.classList.toggle('select-selected-focus');
-//       for (let i = 0; i < s.length; i++) {
-//         if (s.options[i].innerHTML === this.innerHTML) {
-//           s.selectedIndex = i;
-//           h.innerHTML = this.innerHTML;
-//           y = this.parentNode.querySelectorAll('.active');
-//           for (let k = 0; k < y.length; k++) {
-//             y[k].removeAttribute("class");
-//           }
-//           this.setAttribute("class", "active");
-//           break;
-//         }
-//       }
-//     });
-//   }
-//   x[i].appendChild(b);
-//   a.addEventListener("click", function (e) {
-//     e.stopPropagation();
-//     closeAllSelect(this);
-//     this.nextSibling.classList.toggle("select-hide");
-//     this.classList.toggle('select-selected-focus');
-//     window.addEventListener('click', function () {
-//       a.classList.remove('select-selected-focus');
-//     });
-//   });
-// }
-// function closeAllSelect(elmnt) {
-//   let x, y, arrNo = [];
-//   x = document.querySelectorAll('.select-items');
-//   y = document.querySelectorAll('.select-selected');
-//   for (let i = 0; i < y.length; i++) {
-//     if (elmnt === y[i]) {
-//       arrNo.push(i);
-//     }
-//   }
-//   for (let i = 0; i < x.length; i++) {
-//     if (arrNo.indexOf(i)) {
-//       x[i].classList.add("select-hide");
-//     }
-//   }
-// }
-
 //活動資訊點擊後click變色效果
 const NowInfs = document.querySelectorAll('#content-infs-now .content-inf');
 const NextInfs = document.querySelectorAll('#content-infs-next .content-inf');
@@ -449,8 +385,13 @@ lightbox.option({
   'positionFromTop': 100,
 });
 
-//花絮下拉式選單
-
+//讓資訊展開時回到正中間
+NowInfs.forEach(inf => {
+  inf.addEventListener('click', function () {
+    const infId = this.dataset.anchor;
+    location.href = `./news-page.html#content-inf-${infId}`;
+  });
+});
 
 //回到頂端按鈕
 (function () {
