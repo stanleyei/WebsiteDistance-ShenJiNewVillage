@@ -504,7 +504,7 @@ main {
                 }
             }
 
-            .news-data-none{
+            .news-data-none {
                 display: none;
             }
 
@@ -517,34 +517,34 @@ main {
                     margin: 2vh 0 3vh 0;
                 }
 
-                .date-title-control{
+                .date-title-control {
                     @include flex();
 
                     >i {
                         display: none;
                         cursor: pointer;
                         text-shadow: -2px 0px 4px lighten($nes-aside-tag, 30%);
-    
+
                         @include w768 {
                             display: block;
                         }
-    
+
                         &:active {
                             text-shadow: none;
                             transform: translateX(-1px);
                         }
-    
+
                         &:first-of-type() {
                             margin-right: 10px;
-    
+
                             @include w375 {
                                 margin: 0;
                             }
                         }
-    
+
                         &:last-of-type() {
                             margin-left: 10px;
-    
+
                             @include w375 {
                                 margin: 0;
                             }
@@ -552,8 +552,8 @@ main {
                     }
                 }
 
-                .date-title-control-none{
-                    @include w768{
+                .date-title-control-none {
+                    @include w768 {
                         display: none !important;
                     }
                 }
@@ -655,129 +655,57 @@ main {
                     display: none !important;
                 }
 
-                .custom-select-list {
+                .btn-secondary {
                     @include size(192px, 28px);
-                    display: none;
+                    background-color: $title-bg;
+                    color: $footer-text;
+                    border: none;
+                    letter-spacing: 0.1em;
+                    line-height: 28px;
+                    padding: 0;
                     position: absolute;
                     left: 0;
                     top: 0.926vh;
-
-                    @include w768{
-                        width: 100%;
-                    }
-
-                    &:hover {
-                        &::after {
-                            transform: translate(-1.041vw, -0.625vh);
-
-                            @include w768{
-                                transform: translate(-50%, -0.625vh);
-                            }
-                        }
-                    }
-
-                    &::after {
-                        @include size(1.5vw, 1.11vh);
-                        content: '';
-                        position: absolute;
-                        bottom: 0;
-                        right: -1vw;
-                        transform: translate(-1.041vw, -1.25vh);
-                        background-image: url(../img/select-down.png);
-                        background-repeat: no-repeat;
-                        transition: 0.5s ease-in-out;
-
-                        @include w1024{
-                            right: 0.5vw;
-                        }
-
-                        @include w768{
-                            width: 20px;
-                            right: 0;
-                            transform: translate(-50%,-1.25vh);
-                        }
-                    }
-                }
-
-                .custom-select-list select {
                     display: none;
+
+                    @include w768 {
+                        width: 78vw;
+                        height: 28px;
+                    }
                 }
 
-                .select-items div,
-                .select-selected {
-                    @include size(192px, 28px);
-                    padding: 0 0 0 0.625vw;
+                .dropdown-menu{
+                    width: 192px;
                     background-color: $title-bg;
-                    color: $footer-text;
-                    text-align: start;
-                    cursor: pointer;
-                    letter-spacing: 0.1em;
-                    line-height: 28px;
-
-                    @include w768{
-                        width: 78.2vw;
-                        text-align: center;
-                    }
-
-                    @include w375{
-                        width: 80vw;
-                    }
-                }
-
-                .select-items div:last-child() {
-                    border-bottom-left-radius: 4px;
-                    border-bottom-right-radius: 4px;
-                }
-
-                .select-selected {
-                    border-radius: 4px;
-                }
-
-                .select-selected-focus {
-                    border-bottom-left-radius: 0;
-                    border-bottom-right-radius: 0;
-                }
-
-                .select-items {
-                    position: absolute;
                     padding: 0;
-                    z-index: 999;
-                }
 
-                .select-hide {
-                    display: none;
-                }
-
-                .select-items div:hover {
-                    &::before {
-                        @include size(192px, 28px);
-                        content: '';
-                        position: absolute;
-                        transform: translateX(-0.625vw);
-                        background-color: $footer-text;
-                        opacity: 0.5;
-
-                        @include w768{
-                            width: 100%;
-                            left: 0;
-                            transform: translateX(0);
-                        }
+                    @include w768 {
+                        width: 78vw;
+                        height: 28px;
                     }
-                }
 
-                .select-items .active {
-                    &::before {
-                        @include size(192px, 28px);
-                        content: '';
-                        position: absolute;
-                        transform: translateX(-0.625vw);
-                        background-color: $footer-text;
-                        opacity: 0.2;
+                    .dropdown-item {
+                        background-color: $title-bg;
+                        color: $footer-text;
+                        cursor: pointer;
+                        letter-spacing: 0.1em;
+                        line-height: 28px;
+                        position: relative;
 
                         @include w768{
-                            width: 100%;
-                            left: 0;
-                            transform: translateX(0);
+                            text-align: center;
+                        }
+
+                        &:hover{
+                            &::before {
+                                width: 100%;
+                                height: 100%;
+                                content: '';
+                                position: absolute;
+                                background-color: $footer-text;
+                                opacity: 0.5;
+                                left: 0;
+                            }
                         }
                     }
                 }
@@ -951,7 +879,7 @@ main {
                         grid-template-columns: 60% 40%;
                         grid-template-rows: 400px;
 
-                        @include w768{
+                        @include w768 {
                             grid-template-columns: 100%;
                             grid-template-rows: 400px 130px;
                         }
@@ -961,7 +889,7 @@ main {
                             grid-template-rows: 4.5fr 1fr;
                         }
 
-                        @include w375{
+                        @include w375 {
                             grid-template-rows: 2fr 1fr;
                         }
 
@@ -970,31 +898,31 @@ main {
                             background-repeat: no-repeat;
                             background-size: contain;
 
-                            @include w768{
+                            @include w768 {
                                 margin: 0 auto;
                                 background-position: center;
                             }
                         }
-                        
-                        p{
+
+                        p {
                             margin: 0 auto;
                             padding: 50px 0 0 20px;
                             font-size: 24px;
 
-                            @include w1024{
+                            @include w1024 {
                                 font-size: 0.9rem;
                             }
 
-                            @include w768{
+                            @include w768 {
                                 padding: 20px 0 0 0;
                             }
 
-                            @include w576{
+                            @include w576 {
                                 font-size: 0.8rem;
                                 padding: 0;
                             }
 
-                            @include w375{
+                            @include w375 {
                                 font-size: 0.8rem;
                                 transform: scale(0.9);
                                 padding-top: 10px;
@@ -1225,17 +1153,17 @@ main {
                 grid-gap: 30px;
                 display: none;
 
-                @include w1024{
+                @include w1024 {
                     grid-gap: 20px;
                 }
 
-                @include w768{
+                @include w768 {
                     grid-gap: 15px;
                     padding: 15px 0 0 0;
                 }
-                
-                @include w375{
-                    padding-top: 35px; 
+
+                @include w375 {
+                    padding-top: 35px;
                 }
 
                 figure {
@@ -1269,31 +1197,33 @@ main {
     }
 }
 
-#ui-datepicker-div{
+#ui-datepicker-div {
     @extend %news-date-select;
     width: 140px;
     transform: translateX(-7.8vw);
 
-    .ui-datepicker-prev, .ui-datepicker-next, .ui-datepicker-calendar{
+    .ui-datepicker-prev,
+    .ui-datepicker-next,
+    .ui-datepicker-calendar {
         display: none;
     }
 
-    .ui-datepicker-header{
+    .ui-datepicker-header {
         @extend %news-date-select;
         border-bottom-left-radius: 0px;
         border-bottom-right-radius: 0px;
 
-        .ui-datepicker-title{
+        .ui-datepicker-title {
             @extend %news-date-select;
-    
-            .ui-datepicker-year{
+
+            .ui-datepicker-year {
                 @extend %news-date-select;
                 margin-right: 10px;
                 color: $main-color;
                 cursor: pointer;
             }
-    
-            .ui-datepicker-month{
+
+            .ui-datepicker-month {
                 @extend %news-date-select;
                 color: $main-color;
                 cursor: pointer;
@@ -1302,17 +1232,17 @@ main {
 
     }
 
-    .ui-widget-content{
+    .ui-widget-content {
         border-color: $store-list-bg;
         background-color: $store-list-bg;
         background: none $store-list-bg;
-    
-        >button{
+
+        >button {
             width: 67px;
             border-color: $store-list-bg;
             background-color: $store-list-bg;
             color: $main-color;
-            font-weight: bold;  
+            font-weight: bold;
         }
     }
 }

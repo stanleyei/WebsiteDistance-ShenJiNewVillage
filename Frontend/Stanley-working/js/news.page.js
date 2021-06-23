@@ -109,7 +109,7 @@ function infCard(id, i) {
 const getUrlString = location.href;
 const newsUrl = new URL(getUrlString);
 const asideTabs = document.querySelectorAll('.aside-tab');
-const customSelect = document.querySelector('.custom-select-list');
+const customSelect = document.querySelector('.btn-secondary');
 const infsNone = document.querySelector('#content-infs-none');
 const photoWall = document.querySelector('.feast-photo-wall');
 const phoneDateSelect = document.querySelector('.phone-date-btn');
@@ -314,68 +314,68 @@ asideTabs.forEach(tabs => {
 });
 
 //客製化select下拉式選單
-const x = document.querySelectorAll('.custom-select-list');
-document.addEventListener("click", closeAllSelect);
-for (let i = 0; i < x.length; i++) {
-  let selElmnt = x[i].getElementsByTagName("select")[0];
-  const a = document.createElement("DIV");
-  a.setAttribute("class", "select-selected");
-  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-  x[i].appendChild(a);
-  const b = document.createElement("DIV");
-  b.setAttribute("class", "select-items select-hide");
-  for (let j = 0; j < selElmnt.length; j++) {
-    const c = document.createElement("DIV");
-    if (j === 0) {
-      c.setAttribute("class", "active");
-    }
-    c.innerHTML = selElmnt.options[j].innerHTML;
-    b.appendChild(c);
-    c.addEventListener("click", function (e) {
-      var y, s, h;
-      s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-      h = this.parentNode.previousSibling;
-      a.classList.toggle('select-selected-focus');
-      for (let i = 0; i < s.length; i++) {
-        if (s.options[i].innerHTML === this.innerHTML) {
-          s.selectedIndex = i;
-          h.innerHTML = this.innerHTML;
-          y = this.parentNode.querySelectorAll('.active');
-          for (let k = 0; k < y.length; k++) {
-            y[k].removeAttribute("class");
-          }
-          this.setAttribute("class", "active");
-          break;
-        }
-      }
-    });
-  }
-  x[i].appendChild(b);
-  a.addEventListener("click", function (e) {
-    e.stopPropagation();
-    closeAllSelect(this);
-    this.nextSibling.classList.toggle("select-hide");
-    this.classList.toggle('select-selected-focus');
-    window.addEventListener('click', function () {
-      a.classList.remove('select-selected-focus');
-    });
-  });
-}
-function closeAllSelect(elmnt) {
-  let x, y, arrNo = [];
-  x = document.querySelectorAll('.select-items');
-  y = document.querySelectorAll('.select-selected');
-  for (let i = 0; i < y.length; i++) {
-    if (elmnt === y[i]) {
-      arrNo.push(i);
-    }
-  }
-  for (let i = 0; i < x.length; i++) {
-    if (arrNo.indexOf(i)) {
-      x[i].classList.add("select-hide");
-    }
-  }
-}
+// const x = document.querySelectorAll('.custom-select-list');
+// document.addEventListener("click", closeAllSelect);
+// for (let i = 0; i < x.length; i++) {
+//   let selElmnt = x[i].getElementsByTagName("select")[0];
+//   const a = document.createElement("DIV");
+//   a.setAttribute("class", "select-selected");
+//   a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+//   x[i].appendChild(a);
+//   const b = document.createElement("DIV");
+//   b.setAttribute("class", "select-items select-hide");
+//   for (let j = 0; j < selElmnt.length; j++) {
+//     const c = document.createElement("DIV");
+//     if (j === 0) {
+//       c.setAttribute("class", "active");
+//     }
+//     c.innerHTML = selElmnt.options[j].innerHTML;
+//     b.appendChild(c);
+//     c.addEventListener("click", function (e) {
+//       var y, s, h;
+//       s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+//       h = this.parentNode.previousSibling;
+//       a.classList.toggle('select-selected-focus');
+//       for (let i = 0; i < s.length; i++) {
+//         if (s.options[i].innerHTML === this.innerHTML) {
+//           s.selectedIndex = i;
+//           h.innerHTML = this.innerHTML;
+//           y = this.parentNode.querySelectorAll('.active');
+//           for (let k = 0; k < y.length; k++) {
+//             y[k].removeAttribute("class");
+//           }
+//           this.setAttribute("class", "active");
+//           break;
+//         }
+//       }
+//     });
+//   }
+//   x[i].appendChild(b);
+//   a.addEventListener("click", function (e) {
+//     e.stopPropagation();
+//     closeAllSelect(this);
+//     this.nextSibling.classList.toggle("select-hide");
+//     this.classList.toggle('select-selected-focus');
+//     window.addEventListener('click', function () {
+//       a.classList.remove('select-selected-focus');
+//     });
+//   });
+// }
+// function closeAllSelect(elmnt) {
+//   let x, y, arrNo = [];
+//   x = document.querySelectorAll('.select-items');
+//   y = document.querySelectorAll('.select-selected');
+//   for (let i = 0; i < y.length; i++) {
+//     if (elmnt === y[i]) {
+//       arrNo.push(i);
+//     }
+//   }
+//   for (let i = 0; i < x.length; i++) {
+//     if (arrNo.indexOf(i)) {
+//       x[i].classList.add("select-hide");
+//     }
+//   }
+// }
 
 //活動資訊點擊後click變色效果
 const NowInfs = document.querySelectorAll('#content-infs-now .content-inf');
@@ -409,7 +409,7 @@ function infsFocusStyle(infsName, iconsName) {
 //生成活動花絮結構
 for (let i = 1; i < 13; i++) {
   photoWall.innerHTML +=
-    `<a href="./img/ShenJiNewVillage-27.png" data-lightbox="image-1"><figure style="background-image: url(./img/ShenJiNewVillage-27.png);"><div class="figure-hover-appear">0501 小蝸牛市集</div></figure></a>`;
+    `<a href="./img/愚室實驗所插畫主題商店-01.jpg" data-lightbox="image-1"><figure style="background-image: url(./img/ShenJiNewVillage-27.png);"><div class="figure-hover-appear">0501 小蝸牛市集</div></figure></a>`;
 };
 
 //日期選擇jquery.datepicker套件
@@ -448,6 +448,9 @@ lightbox.option({
   'disableScrolling': true,
   'positionFromTop': 100,
 });
+
+//花絮下拉式選單
+
 
 //回到頂端按鈕
 (function () {

@@ -40,7 +40,7 @@ const urlMonth = newsUrl.searchParams.get('month');
 const monthData = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
 const monthEn = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const asideTabs = document.querySelectorAll('.aside-tab');
-const customSelect = document.querySelector('.custom-select-list');
+const customSelect = document.querySelector('.btn-secondary');
 const infsNone = document.querySelector('#content-infs-none');
 const photoWall = document.querySelector('.feast-photo-wall');
 const phoneDateSelect = document.querySelector('.phone-date-btn');
@@ -635,69 +635,29 @@ asideTabs.forEach(tabs => {
   });
 });
 
-//客製化select下拉式選單
-const x = document.querySelectorAll('.custom-select-list');
-document.addEventListener("click", closeAllSelect);
-for (let i = 0; i < x.length; i++) {
-  let selElmnt = x[i].getElementsByTagName("select")[0];
-  const a = document.createElement("DIV");
-  a.setAttribute("class", "select-selected");
-  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-  x[i].appendChild(a);
-  const b = document.createElement("DIV");
-  b.setAttribute("class", "select-items select-hide");
-  for (let j = 0; j < selElmnt.length; j++) {
-    const c = document.createElement("DIV");
-    if (j === 0) {
-      c.setAttribute("class", "active");
-    }
-    c.innerHTML = selElmnt.options[j].innerHTML;
-    b.appendChild(c);
-    c.addEventListener("click", function (e) {
-      var y, s, h;
-      s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-      h = this.parentNode.previousSibling;
-      a.classList.toggle('select-selected-focus');
-      for (let i = 0; i < s.length; i++) {
-        if (s.options[i].innerHTML === this.innerHTML) {
-          s.selectedIndex = i;
-          h.innerHTML = this.innerHTML;
-          y = this.parentNode.querySelectorAll('.active');
-          for (let k = 0; k < y.length; k++) {
-            y[k].removeAttribute("class");
-          }
-          this.setAttribute("class", "active");
-          break;
-        }
-      }
+//下拉式選單切換不同日期活動
+document.querySelector('.dropdown-menu').addEventListener('click', function (e) {
+  const infsData = new FormData;
+  infsData.append('_token', token);
+  infsData.append('id', e.target.dataset.market);
+  fetch('/feast_photo', {
+    method: 'POST',
+    body: infsData,
+  })
+    .then(response => response.json())
+    .then(result => {
+      photoWall.innerHTML = '';
+      result.info_imgs.forEach(photo => {
+        photoWall.innerHTML += 
+        `<a href="${photo.img}" data-lightbox="${photo.info_id}" data-title="${photo.name}">
+        <figure style="background-image: url(${photo.img});">
+            <div class="figure-hover-appear">${photo.name}</div>
+        </figure>
+        </a>`
+      });
     });
-  }
-  x[i].appendChild(b);
-  a.addEventListener("click", function (e) {
-    e.stopPropagation();
-    closeAllSelect(this);
-    this.nextSibling.classList.toggle("select-hide");
-    this.classList.toggle('select-selected-focus');
-    window.addEventListener('click', function () {
-      a.classList.remove('select-selected-focus');
-    });
-  });
-}
-function closeAllSelect(elmnt) {
-  let x, y, arrNo = [];
-  x = document.querySelectorAll('.select-items');
-  y = document.querySelectorAll('.select-selected');
-  for (let i = 0; i < y.length; i++) {
-    if (elmnt === y[i]) {
-      arrNo.push(i);
-    }
-  }
-  for (let i = 0; i < x.length; i++) {
-    if (arrNo.indexOf(i)) {
-      x[i].classList.add("select-hide");
-    }
-  }
-}
+})
+
 
 //活動資訊點擊後click變色效果
 const NowInfs = document.querySelectorAll('#content-infs-now .content-inf');

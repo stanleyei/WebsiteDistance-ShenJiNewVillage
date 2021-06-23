@@ -37,20 +37,23 @@
                     </div>
                     <input type="button" id="datepicker" class="phone-date-btn" name="setuptime" title="選擇日期"
                         value="選擇日期">
-                    <div class="custom-select-list">
-                        <select name="market" class="nwes-select" title="選擇活動">
-                            <option value="">全部照片</option>
-                            <option value="{{$eventInfos[0]->id??''}}">0120 小蝸牛市集</option>
-                            <option value="{{$eventInfos[1]->id??''}}">0210 暮暮市集</option>
-                            <option value="{{$eventInfos[2]->id??''}}">0218 寧夏市集</option>
-                            <option value="{{$eventInfos[3]->id??''}}">0410 散策市集</option>
-                            <option value="{{$eventInfos[4]->id??''}}">0507 暮暮市集</option>
-                            <option value="{{$eventInfos[5]->id??''}}">0513 微涼市集</option>
-                            <option value="{{$eventInfos[6]->id??''}}">0517 小蝸牛市集</option>
-                            <option value="{{$eventInfos[7]->id??''}}">0708 暮暮市集</option>
-                            <option value="{{$eventInfos[8]->id??''}}">0908 草地市集</option>
-                            <option value="{{$eventInfos[9]->id??''}}">1008 微風市集</option>
-                        </select>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            選擇活動
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="dropdown-item" data-market="10">0120 小蝸牛市集</div>
+                            <div class="dropdown-item" data-market="11">0210 幕幕市集</div>
+                            <div class="dropdown-item" data-market="12">0218 寧夏市集</div>
+                            <div class="dropdown-item" data-market="13">0410 散策市集</div>
+                            <div class="dropdown-item" data-market="14">0507 幕幕市集</div>
+                            <div class="dropdown-item" data-market="15">0513 微涼市集</div>
+                            <div class="dropdown-item" data-market="16">0517 小蝸牛市集</div>
+                            <div class="dropdown-item" data-market="17">0708 幕幕市集</div>
+                            <div class="dropdown-item" data-market="18">0708 草地市集</div>
+                            <div class="dropdown-item" data-market="19">1008 微風市集</div>
+                        </div>
                     </div>
                 </div>
                 <div id="content-infs-none">

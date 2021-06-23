@@ -114,4 +114,15 @@ class FrontendController extends Controller
         }
         return 'give me month & year!';
     }
+
+    public function feastPhoto(Request $request)
+    {
+        if ($request->id) {
+            $id = $request->id;
+            $feastPhotos = Info::with('infoType', 'infoImgs')->find($id);
+
+            return $feastPhotos;
+        }
+        return 'give me id!';
+    }
 }

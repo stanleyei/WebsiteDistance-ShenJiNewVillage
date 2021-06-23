@@ -20,6 +20,7 @@ Route::get('/news', 'FrontendController@news');
 Route::get('/store{id}', 'FrontendController@store');
 Route::get('/tra_map', 'FrontendController@tra_map');
 Route::post('/all_news_data', 'FrontendController@allNewsData');
+Route::post('/feast_photo', 'FrontendController@feastPhoto');
 
 
 Route::get('/test', 'AdminController@test')->name('test');
