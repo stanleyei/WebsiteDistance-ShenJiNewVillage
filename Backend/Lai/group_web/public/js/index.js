@@ -775,7 +775,6 @@ SelectBcg.addEventListener('click', function () {
       }
       // this.style.background = 'gray'; //给选中的li颜色变为red
       const koa = this.textContent;
-      console.log(this.value);
       SelectBcg.innerHTML = koa;
       Select.classList.remove('active');
       type_select(koa);
