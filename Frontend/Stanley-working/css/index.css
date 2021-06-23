@@ -3026,6 +3026,13 @@ header .nav-img.active {
   background-color: #ffffff3b;
 }
 
+@media (max-width: 1366px) {
+  #store .store-container article .shop-window > ul .check-btn {
+    -webkit-transform: translate(-125%, -10%);
+            transform: translate(-125%, -10%);
+  }
+}
+
 @media (max-width: 1024px) {
   #store .store-container article .shop-window > ul .check-btn {
     width: 8vw;
@@ -3069,6 +3076,13 @@ header .nav-img.active {
 #store .store-container article .shop-window > ul li:nth-child(2) > .check-btn {
   -webkit-transform: translate(-38%, -10%);
           transform: translate(-38%, -10%);
+}
+
+@media (max-width: 1366px) {
+  #store .store-container article .shop-window > ul li:nth-child(2) > .check-btn {
+    -webkit-transform: translate(-10%, -10%);
+            transform: translate(-10%, -10%);
+  }
 }
 
 @media (max-width: 1024px) {
@@ -3244,6 +3258,12 @@ header .nav-img.active {
           justify-content: space-between;
   margin-bottom: 2.31vh;
   padding: 0 5px;
+}
+
+@media (max-width: 1366px) {
+  #store .store-container article nav .nav-tap-list {
+    padding: 0 1.5vw;
+  }
 }
 
 @media (max-width: 1024px) {

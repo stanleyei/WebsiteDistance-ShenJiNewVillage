@@ -2093,6 +2093,10 @@ header {
                         cursor: pointer;
                         background-color: #ffffff3b;
 
+                        @include w1366{
+                            transform: translate(-125%, -10%);
+                        }
+
                         @include w1024 {
                             @include size(8vw, 3vw);
                             @include font($h2, center, 3vw);
@@ -2118,6 +2122,10 @@ header {
 
                     li:nth-child(2)>.check-btn {
                         transform: translate(-38%, -10%);
+
+                        @include w1366{
+                            transform: translate(-10%, -10%);
+                        }
 
                         @include w1024 {
                             transform: translate(55%, -10%);
@@ -2238,6 +2246,10 @@ header {
                     justify-content: space-between;
                     margin-bottom: 2.31vh;
                     padding: 0 5px;
+
+                    @include w1366{
+                        padding: 0 1.5vw
+                    }
 
                     @include w1024 {
                         padding: 0 10px;

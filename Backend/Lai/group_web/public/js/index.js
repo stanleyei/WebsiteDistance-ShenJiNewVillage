@@ -588,6 +588,7 @@ const tapChange = document.querySelectorAll('.tap-change');
 const shopPhotos = document.querySelectorAll('.figure-box figure');
 const shopBtns = document.querySelectorAll('.shop-list > div > span');
 const windowTitles = document.querySelectorAll('.window-title');
+const checkBtnLists = document.querySelectorAll('.shop-window > ul');
 navTaps.forEach(tab => {
   tab.addEventListener('click', function () {
     navTaps.forEach(tab => {
@@ -623,11 +624,80 @@ navTaps.forEach(tab => {
         title.classList.remove('title-hide');
       };
     });
+    checkBtnLists.forEach(list => {
+      list.classList.add('check-list-hide');
+      if (list.dataset.list === '7' && this.dataset.title === '2') {
+        list.classList.remove('check-list-hide');
+      } else if (list.dataset.list === '0' && this.dataset.title === '1') {
+        list.classList.remove('check-list-hide');
+      };
+    });
   });
 });
 
+//判斷傳進來的url值後切換到對應商家的分類
+const getUrlString = location.href;
+const newsUrl = new URL(getUrlString);
+const urlType = newsUrl.searchParams.get('type');
+const urlShop = newsUrl.searchParams.get('shop');
+if (urlType === '2') {
+  document.getElementsByClassName('nav-tap')[0].classList.remove('tap-active');
+  document.getElementsByClassName('nav-tap')[1].classList.add('tap-active');
+  document.getElementsByClassName('shop-list')[0].classList.add('list-active');
+  document.getElementsByClassName('shop-list')[1].classList.remove('list-active');
+  document.getElementsByClassName('tap-change')[0].classList.add('photo-none');
+  document.getElementsByClassName('tap-change')[1].classList.remove('photo-none');
+  shopBtns.forEach(btn => {
+    btn.classList.remove('bottom-line');
+    if (btn.dataset.img === '0' || btn.dataset.img === '7') {
+      btn.classList.add('bottom-line');
+    }
+  });
+  shopPhotos.forEach(photo => {
+    photo.style.transform = `translateX(0%)`;
+  });
+  windowTitles.forEach(title => {
+    title.classList.add('title-hide');
+    if (title.dataset.title === '7') {
+      title.classList.remove('title-hide');
+    }
+  });
+  checkBtnLists.forEach(list => {
+    list.classList.add('check-list-hide');
+    if(list.dataset.list === '7'){
+      list.classList.remove('check-list-hide');
+    };
+  });
+};
+if(urlShop !== null){
+  shopBtns.forEach(btn => {
+    btn.classList.remove('bottom-line');
+    if(String(urlShop - 1) === btn.dataset.img){
+      btn.classList.add('bottom-line');
+    };
+  });
+  shopPhotos.forEach(photo =>{
+    urlType === '1'
+      ?
+      photo.style.transform = `translateX(-${(urlShop - 1) * 100}%)`
+      :
+      photo.style.transform = `translateX(-${(urlShop - 8) * 100}%)`;
+  });
+  windowTitles.forEach(title => {
+    title.classList.add('title-hide');
+    if (String(urlShop - 1) === title.dataset.title) {
+      title.classList.remove('title-hide');
+    }
+  });
+  checkBtnLists.forEach(list => {
+    list.classList.add('check-list-hide');
+    if(String(urlShop - 1) === list.dataset.list){
+      list.classList.remove('check-list-hide');
+    };
+  });
+};
+
 //店家介紹-點擊店家名稱切換圖片效果
-const checkBtnLists = document.querySelectorAll('.shop-window > ul');
 shopBtns.forEach(btns => {
   btns.addEventListener('click', function () {
     shopBtns.forEach(btn => {

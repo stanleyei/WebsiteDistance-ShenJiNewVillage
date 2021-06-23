@@ -172,7 +172,7 @@
                     @foreach ($shops as $shop)
                     <ul data-list="{{$shop->id - 1}}" class="{{$shop->id == 1 ? '' : 'check-list-hide'}}">
                         <li>
-                            <a href="{{$shop->shopImgs[2]->img??''}}" title="點我看大圖" class="check-btn photo-view"
+                            <a href="{{$shop->shopImgs[2]->img??''}}" title="點我看大圖" data-title="{{$shop->name}}" class="check-btn photo-view"
                                 data-lightbox="food-shop-{{$shop->id}}">看大圖</a>
                         </li>
                         <li>
