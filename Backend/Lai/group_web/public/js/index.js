@@ -196,10 +196,11 @@ function focusChange(dateBtns) {
           btn.classList.remove('focus-change');
       });
 
-      const month = this.dataset.month;
+      const focisMonth = monthList.getElementsByClassName('month-btn focus-change')[0].dataset.month;
+      const focisYear = yearsList.getElementsByClassName('years-btn focus-change')[0].dataset.year;
       const formData = new FormData;
-      formData.append('month', month);
-      formData.append('year', postYear);
+      formData.append('month', focisMonth);
+      formData.append('year', focisYear);
       formData.append('_token', token);
       fetch('/get_date_data', {
         method: 'POST',
@@ -279,9 +280,9 @@ dateTitleControl.addEventListener('click', function (e) {
 function monthLoop(e, direction, startIndex, finalIndex, count) {
   if (e.target.dataset.month === `${direction}`) {
     const changeYear = dateTitle.nextElementSibling.textContent.slice(-4);
-    if(changeMonth === 1){
+    if (changeMonth === 1) {
       changeMonth = 12;
-    }else if(changeMonth === 12){
+    } else if (changeMonth === 12) {
       changeMonth = 1;
     };
     const formData = new FormData;
@@ -349,7 +350,7 @@ function monthLoop(e, direction, startIndex, finalIndex, count) {
           i++
         });
       });
-    changeMonth = changeMonth + count;  
+    changeMonth = changeMonth + count;
     if (dateTitle.previousElementSibling.textContent !== monthData[startIndex]) {
       dateTitle.previousElementSibling.textContent = monthData[monthIndex + count];
       dateTitle.textContent = monthEn[monthIndex + count];
@@ -430,13 +431,13 @@ const mutationObserver = new MutationObserver(function (mutations) {
                 dataArray.push(dataNumber[0]);
               };
             });
-  
+
             let x = 0;
             document.querySelectorAll('.start-date').forEach(date => {
               date.textContent = dataArray[x];
               x++;
             });
-  
+
             let i = 0;
             document.querySelectorAll('.inf-date > span').forEach(month => {
               month.textContent = monthData[monthArray[i] - 1];
@@ -503,13 +504,13 @@ const mutationObserver = new MutationObserver(function (mutations) {
                 dataArray.push(dataNumber[0]);
               };
             });
-  
+
             let x = 0;
             document.querySelectorAll('.start-date').forEach(date => {
               date.textContent = dataArray[x];
               x++;
             });
-  
+
             let i = 0;
             document.querySelectorAll('.inf-date > span').forEach(month => {
               month.textContent = monthData[monthArray[i] - 1];
