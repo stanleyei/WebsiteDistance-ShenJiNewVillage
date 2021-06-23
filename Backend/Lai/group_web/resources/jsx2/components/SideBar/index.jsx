@@ -45,7 +45,7 @@ export default class SideBar extends Component {
                 <li className="nav-item">
                     <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse-column-shop"
                         aria-expanded="true" aria-controls="collapse-column-shop">
-                        <i className="fas fa-fw fa-wrench"></i>
+                        <i className="fas fa-store-alt"></i>
                         <span>店家</span>
                     </a>
                     <div id="collapse-column-shop" className="collapse" aria-labelledby="headingUtilities"
@@ -62,7 +62,7 @@ export default class SideBar extends Component {
                 <li className="nav-item">
                     <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse-column-slider"
                         aria-expanded="true" aria-controls="collapse-column-slider">
-                        <i className="fas fa-fw fa-wrench"></i>
+                        <i className="fas fa-sliders-h"></i>
                         <span>Slider</span>
                     </a>
                     <div id="collapse-column-slider" className="collapse" aria-labelledby="headingUtilities"
@@ -77,7 +77,7 @@ export default class SideBar extends Component {
                 <li className="nav-item">
                     <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse-column-view"
                         aria-expanded="true" aria-controls="collapse-column-view">
-                        <i className="fas fa-fw fa-wrench"></i>
+                        <i className="fas fa-mountain"></i>
                         <span>景點</span>
                     </a>
                     <div id="collapse-column-view" className="collapse" aria-labelledby="headingUtilities"
@@ -93,7 +93,7 @@ export default class SideBar extends Component {
                 <li className="nav-item">
                     <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse-column-contact"
                         aria-expanded="true" aria-controls="collapse-column-contact">
-                        <i className="fas fa-fw fa-wrench"></i>
+                        <i className="fas fa-phone-square-alt"></i>                        
                         <span>連絡資料</span>
                     </a>
                     <div id="collapse-column-contact" className="collapse" aria-labelledby="headingUtilities"
