@@ -59,7 +59,7 @@
                 <div id="content-infs-none">
                     <div class="content-infs" id="content-infs-now">
                         @foreach ($infos as $info)
-                        <div class="content-inf" data-toggle="collapse" data-target="#collapse{{$info->id}}"
+                        <div class="content-inf" id="content-inf-{{$info->id}}" data-anchor="{{$info->id}}" data-toggle="collapse" data-target="#collapse{{$info->id}}"
                             aria-expanded="true" aria-controls="collapse{{$info->id}}" title="點我展開">
                             <div class="inf-date">
                                 <div class="during">

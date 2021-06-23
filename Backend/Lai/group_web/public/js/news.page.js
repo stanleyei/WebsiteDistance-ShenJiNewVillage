@@ -206,7 +206,7 @@ function focusChange(dateBtns) {
               contentInfsNow.innerHTML = '';
               result.forEach(data => {
                 contentInfsNow.innerHTML +=
-                  `<div class="content-inf ${focusType === 2 ? 'event-content-inf' : ''}" data-toggle="collapse" data-target="#collapse${data.id}"
+                  `<div class="content-inf ${focusType === 2 ? 'event-content-inf' : ''}" id="content-inf-${data.id}" data-anchor="${data.id}" data-toggle="collapse" data-target="#collapse${data.id}"
               aria-expanded="true" aria-controls="collapse${data.id}" title="點我展開">
                   <div class="inf-date">
                       <div class="during">
@@ -415,7 +415,7 @@ asideTabs.forEach(tabs => {
             contentInfsNow.innerHTML = '';
             result.forEach(data => {
               contentInfsNow.innerHTML +=
-                `<div class="content-inf event-content-inf" data-toggle="collapse" data-target="#collapse${data.id}"
+                `<div class="content-inf event-content-inf" id="content-inf-${data.id}" data-anchor="${data.id}" data-toggle="collapse" data-target="#collapse${data.id}"
               aria-expanded="true" aria-controls="collapse${data.id}" title="點我展開">
                   <div class="inf-date">
                       <div class="during">
@@ -533,7 +533,7 @@ asideTabs.forEach(tabs => {
             contentInfsNow.innerHTML = '';
             result.forEach(data => {
               contentInfsNow.innerHTML +=
-                `<div class="content-inf" data-toggle="collapse" data-target="#collapse${data.id}"
+                `<div class="content-inf" id="content-inf-${data.id}" data-anchor="${data.id}" data-toggle="collapse" data-target="#collapse${data.id}"
               aria-expanded="true" aria-controls="collapse${data.id}" title="點我展開">
                   <div class="inf-date">
                       <div class="during">
@@ -728,7 +728,7 @@ lightbox.option({
 // NowInfs.forEach(inf => {
 //   inf.addEventListener('click', function () {
 //     const infId = this.dataset.anchor;
-//     location.href = `./news#content-inf-${infId}`;
+//     location.href = `/news#content-inf-${infId}`;
 //   });
 // });
 
