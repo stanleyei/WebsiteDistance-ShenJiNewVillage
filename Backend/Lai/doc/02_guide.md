@@ -2,7 +2,7 @@
 - **下指令** composer install
 - **下指令** npm install
 - 複製 .env.example 更名成 .env
-- **下指令** php artisan generate:key
+- **下指令** php artisan key:generate
 - **開啟**MySQL
 - 在資料庫**新增**一個名稱group_web的資料庫
 - **下指令** php artisan migrate
