@@ -200,7 +200,7 @@ function focusChange(dateBtns) {
                 <h4 style='line-height:9.25vh' class='ml-3 ${focusType === 2 ? 'event-content-inf' : ''}'>No Events</h4>
               </div>
             </div>`;
-            }else{
+            } else {
               const monthArray = [];
               const dataArray = [];
               contentInfsNow.innerHTML = '';
@@ -270,13 +270,13 @@ function focusChange(dateBtns) {
                 const dataNumber = monthNumber[2].split('T');
                 dataArray.push(dataNumber[0]);
               });
-  
+
               let x = 0;
               document.querySelectorAll('.start-date').forEach(date => {
                 date.textContent = dataArray[x];
                 x++;
               });
-  
+
               let i = 0;
               document.querySelectorAll('.inf-date > span').forEach(month => {
                 month.textContent = monthData[monthArray[i] - 1];
@@ -339,6 +339,7 @@ mutationObserver.observe(phoneDateSelect, {
 //點擊前後箭頭更換月份
 let monthIndex = Number(thisMonth) - 1;
 let yearsIndex = date.getFullYear();
+let changeMonth = date.getMonth() + 1;
 dateTitleControl.addEventListener('click', function (e) {
   monthLoop(e, 'prev', 0, 11, -1);
   monthLoop(e, 'next', 11, 0, 1);
@@ -346,6 +347,127 @@ dateTitleControl.addEventListener('click', function (e) {
 
 function monthLoop(e, direction, startIndex, finalIndex, count) {
   if (e.target.dataset.month === `${direction}`) {
+    let focusType = 0;
+    asideTabs.forEach(tab => {
+      if (tab.className === 'aside-tab event-tab-focus') {
+        focusType = 2;
+      } else if (tab.className === 'aside-tab news-tab-focus') {
+        focusType = 1;
+      };
+    });
+    if(changeMonth === 1){
+      changeMonth = 12;
+    }else if(changeMonth === 12){
+      changeMonth = 1;
+    };
+    const year = yearsTitle[0].textContent.slice(-4);
+    const infsData = new FormData;
+    infsData.append('_token', token);
+    infsData.append('month', changeMonth + count);
+    infsData.append('year', year);
+    infsData.append('infType', focusType);
+    fetch('/all_news_data', {
+      method: 'POST',
+      body: infsData,
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(result => {
+        if (result.length == 0) {
+          contentInfsNow.innerHTML = '';
+          contentInfsNow.innerHTML +=
+            `<div class='content-inf'>
+          <div class='inf-detail ml-4'>
+            <h4 style='line-height:9.25vh' class='ml-3 ${focusType === 2 ? 'event-content-inf' : ''}'>No Events</h4>
+          </div>
+        </div>`;
+        } else {
+          const monthArray = [];
+          const dataArray = [];
+          contentInfsNow.innerHTML = '';
+          result.forEach(data => {
+            contentInfsNow.innerHTML +=
+              `<div class="content-inf ${focusType === 2 ? 'event-content-inf' : ''}" id="content-inf-${data.id}" data-anchor="${data.id}" data-toggle="collapse" data-target="#collapse${data.id}"
+          aria-expanded="true" aria-controls="collapse${data.id}" title="點我展開">
+              <div class="inf-date">
+                  <div class="during">
+                      <div class="start-date"></div>
+                  </div>
+                  <span></span>
+              </div>
+              <h5>${data.name}</h5>
+              <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="inf-detail collapse" id="collapse${data.id}"
+          aria-labelledby="heading${data.id}" data-parent="#content-infs-now">
+          <span class="far fa-edit"> 活動詳情</span>
+          <div class="card-body">
+              <figure style="background-image: url(${data.img});"></figure>
+              <p>${data.content}</p>
+          </div>
+          <div class="card-other-inf">
+              <div class="event-time">
+                  <div>
+                      <i class="far fa-clock"></i>
+                      <div>時間</div>
+                  </div>
+                  <time>
+                      <div>
+                          <span>2021/05/03(一)</span>
+                          <span>-05/14(五)</span>
+                      </div>
+                      <div>10:00-19:00</div>
+                  </time>
+              </div>
+              <div class="event-place">
+                  <div>
+                      <i class="fas fa-map-marker-alt"></i>
+                      <div>地點</div>
+                  </div>
+                  <span>${data.location}</span>
+              </div>
+              <div class="event-organizer">
+                  <i class="fas fa-suitcase"></i>
+                  <span>主辦單位</span>
+                  <span class="ml-sm-1">${data.organizer}</span>
+              </div>
+              <div class="event-calendar">
+                  <a target="_blank"
+                      href="http://www.google.com/calendar/event?action=TEMPLATE&text=${data.name}&dates=20210710T183000/20210711T235900&details=第一屆 pokemon go 會員大會，聚餐時間與注意事項%0A1.來吃飯%0A2.帶妹來%0A3.自備飲料&location=道館&trp=false"
+                      title="加入google日曆">
+                      <i class="far fa-calendar-minus"></i>
+                      <div>加入google日曆</div>
+                  </a>
+              </div>
+          </div>
+          </div>`;
+            const monthNumber = data.created_at.split('-');
+            if (monthNumber[1] === '10' || monthNumber[1] === '11' || monthNumber[1] === '12') {
+              monthArray.push(monthNumber[1]);
+            } else {
+              const singleMonth = monthNumber[1].split('0');
+              monthArray.push(singleMonth[1]);
+            };
+            const dataNumber = monthNumber[2].split('T');
+            dataArray.push(dataNumber[0]);
+          });
+
+          let x = 0;
+          document.querySelectorAll('.start-date').forEach(date => {
+            date.textContent = dataArray[x];
+            x++;
+          });
+
+          let i = 0;
+          document.querySelectorAll('.inf-date > span').forEach(month => {
+            month.textContent = monthData[monthArray[i] - 1];
+            i++
+          });
+        };
+      });
+      changeMonth = changeMonth + count;
+
     if (thisMonthTitle.textContent !== monthData[startIndex]) {
       thisMonthTitle.textContent = monthData[monthIndex + count];
       thisMonthTitle.nextElementSibling.textContent = monthEn[monthIndex + count];
@@ -354,7 +476,7 @@ function monthLoop(e, direction, startIndex, finalIndex, count) {
     else {
       thisMonthTitle.textContent = monthData[finalIndex];
       thisMonthTitle.nextElementSibling.textContent = monthEn[finalIndex];
-      yearsTitle[0].textContent = yearsIndex + count;
+      yearsTitle[0].textContent = `,${yearsIndex + count}`;
       yearsIndex = yearsIndex + count;
       monthIndex = finalIndex;
     };
@@ -409,7 +531,7 @@ asideTabs.forEach(tabs => {
                   <h4 style='line-height:9.25vh' class='ml-3 event-content-inf'>No Events</h4>
                 </div>
               </div>`;
-          }else{
+          } else {
             const monthArray = [];
             const dataArray = [];
             contentInfsNow.innerHTML = '';
@@ -479,13 +601,13 @@ asideTabs.forEach(tabs => {
               const dataNumber = monthNumber[2].split('T');
               dataArray.push(dataNumber[0]);
             });
-  
+
             let x = 0;
             document.querySelectorAll('.start-date').forEach(date => {
               date.textContent = dataArray[x];
               x++;
             });
-  
+
             let i = 0;
             document.querySelectorAll('.inf-date > span').forEach(month => {
               month.textContent = monthData[monthArray[i] - 1];
@@ -527,7 +649,7 @@ asideTabs.forEach(tabs => {
               <h4 style='line-height:9.25vh' class='ml-3'>No Events</h4>
             </div>
           </div>`;
-          }else{
+          } else {
             const monthArray = [];
             const dataArray = [];
             contentInfsNow.innerHTML = '';
@@ -597,13 +719,13 @@ asideTabs.forEach(tabs => {
               const dataNumber = monthNumber[2].split('T');
               dataArray.push(dataNumber[0]);
             });
-  
+
             let x = 0;
             document.querySelectorAll('.start-date').forEach(date => {
               date.textContent = dataArray[x];
               x++;
             });
-  
+
             let i = 0;
             document.querySelectorAll('.inf-date > span').forEach(month => {
               month.textContent = monthData[monthArray[i] - 1];
@@ -647,20 +769,20 @@ document.querySelector('.dropdown-menu').addEventListener('click', function (e) 
   })
     .then(response => response.json())
     .then(result => {
-      if(result.length > 1){
+      if (result.length > 1) {
         result.forEach(photo => {
-          photoWall.innerHTML += 
-          `<a href="${photo.img}" data-lightbox="${photo.info_id}" data-title="${photo.name}">
+          photoWall.innerHTML +=
+            `<a href="${photo.img}" data-lightbox="${photo.info_id}" data-title="${photo.name}">
           <figure style="background-image: url(${photo.img});">
               <div class="figure-hover-appear">${photo.name}</div>
           </figure>
           </a>`
         });
-      }else{
+      } else {
         photoWall.innerHTML = '';
         result.info_imgs.forEach(photo => {
-          photoWall.innerHTML += 
-          `<a href="${photo.img}" data-lightbox="${photo.info_id}" data-title="${photo.name}">
+          photoWall.innerHTML +=
+            `<a href="${photo.img}" data-lightbox="${photo.info_id}" data-title="${photo.name}">
           <figure style="background-image: url(${photo.img});">
               <div class="figure-hover-appear">${photo.name}</div>
           </figure>

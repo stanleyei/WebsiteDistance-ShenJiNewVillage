@@ -279,6 +279,11 @@ dateTitleControl.addEventListener('click', function (e) {
 function monthLoop(e, direction, startIndex, finalIndex, count) {
   if (e.target.dataset.month === `${direction}`) {
     const changeYear = dateTitle.nextElementSibling.textContent.slice(-4);
+    if(changeMonth === 1){
+      changeMonth = 12;
+    }else if(changeMonth === 12){
+      changeMonth = 1;
+    };
     const formData = new FormData;
     formData.append('month', changeMonth + count);
     formData.append('year', changeYear);
