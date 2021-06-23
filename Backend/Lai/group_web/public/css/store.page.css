@@ -692,7 +692,6 @@ main .store-page-container article > div > p {
   padding: 0 3.125vw;
   font-family: 'Noto Sans HK', sans-serif;
   color: #000000;
-  font-weight: bold;
 }
 
 main .store-page-container article .photo-wall {
@@ -832,7 +831,6 @@ main .store-page-container article > p {
   grid-area: F;
   font-family: 'Noto Sans HK', sans-serif;
   color: #000000;
-  font-weight: bold;
 }
 
 @media (max-width: 1024px) {
@@ -854,7 +852,7 @@ main .store-page-container article > p {
 main .store-page-container .back-btn {
   width: 150px;
   height: 60px;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   text-align: center;
   line-height: 60px;
   letter-spacing: 0.25em;

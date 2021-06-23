@@ -112,13 +112,13 @@
                         </div>
                         @endforeach
                     </div>
-                    <h3>下月活動預告</h3>
-                    <div class="content-title" id="next-month-title">
+                    <h3 class="d-none">下月活動預告</h3>
+                    <div class="content-title d-none" id="next-month-title">
                         <h4></h4>
                         <div class="month"></div>
                         <div class="years m-0"></div>
                     </div>
-                    <div class="content-infs" id="content-infs-next">
+                    <div class="content-infs d-none" id="content-infs-next">
                         @foreach ($nextInfos as $info)
                         <div class="content-inf" data-toggle="collapse" data-target="#collapse{{$info->id}}"
                             aria-expanded="true" aria-controls="collapse{{$info->id}}" title="點我展開">
