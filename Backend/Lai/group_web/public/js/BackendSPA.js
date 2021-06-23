@@ -36730,7 +36730,7 @@ var SideBar = /*#__PURE__*/function (_Component) {
         "aria-expanded": "true",
         "aria-controls": "collapse-column-shop"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-fw fa-wrench"
+        className: "fas fa-store-alt"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u5E97\u5BB6")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "collapse-column-shop",
         className: "collapse",
@@ -36759,7 +36759,7 @@ var SideBar = /*#__PURE__*/function (_Component) {
         "aria-expanded": "true",
         "aria-controls": "collapse-column-slider"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-fw fa-wrench"
+        className: "fas fa-sliders-h"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Slider")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "collapse-column-slider",
         className: "collapse",
@@ -36782,7 +36782,7 @@ var SideBar = /*#__PURE__*/function (_Component) {
         "aria-expanded": "true",
         "aria-controls": "collapse-column-view"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-fw fa-wrench"
+        className: "fas fa-mountain"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u666F\u9EDE")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "collapse-column-view",
         className: "collapse",
@@ -36808,7 +36808,7 @@ var SideBar = /*#__PURE__*/function (_Component) {
         "aria-expanded": "true",
         "aria-controls": "collapse-column-contact"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-fw fa-wrench"
+        className: "fas fa-phone-square-alt"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u9023\u7D61\u8CC7\u6599")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "collapse-column-contact",
         className: "collapse",
@@ -42266,7 +42266,7 @@ var Home = /*#__PURE__*/function (_Component) {
   _createClass(Home, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Home...");
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
     }
   }]);
 
