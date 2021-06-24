@@ -297,58 +297,7 @@ function monthLoop(e, direction, startIndex, finalIndex, count) {
         return response.json();
       })
       .then(result => {
-        const monthArray = [];
-        const dataArray = [];
-        contentInfs.innerHTML = '';
-        result.forEach(data => {
-          if (data === 'none') {
-            contentInfs.innerHTML +=
-              `<div class='content-inf'>
-              <div class='inf-detail ml-4'>
-                  <h4 style='line-height:9.25vh'>No Events</h4>
-              </div>
-            </div>
-            `;
-          } else {
-            const startMonth = data.date_start.split('-');
-            contentInfs.innerHTML +=
-              `<a class='content-inf' href='/news?tap=${data.info_type.id}&month=${startMonth[1]}&year=${startMonth[0]}' title='前往${data.info_type.name}'>
-              <div class='inf-date'>
-                  <div class='during'>
-                      <div class='start-date'></div>
-                  </div>
-                  <span></span>
-              </div>
-              <div class='inf-detail'>
-                  <div class='inf-tag'>${data.info_type.name}</div>
-                  <h4>${data.name}</h4>
-              </div>
-              <span>more</span>
-              <i class='fas fa-chevron-right'></i>
-            </a>`;
-            const monthNumber = data.created_at.split('-');
-            if (monthNumber[1] === '10' || monthNumber[1] === '11' || monthNumber[1] === '12') {
-              monthArray.push(monthNumber[1]);
-            } else {
-              const singleMonth = monthNumber[1].split('0');
-              monthArray.push(singleMonth[1]);
-            };
-            const dataNumber = monthNumber[2].split('T');
-            dataArray.push(dataNumber[0]);
-          };
-        });
-
-        let x = 0;
-        document.querySelectorAll('.start-date').forEach(date => {
-          date.textContent = dataArray[x];
-          x++;
-        });
-
-        let i = 0;
-        document.querySelectorAll('.inf-date > span').forEach(month => {
-          month.textContent = monthData[monthArray[i] - 1];
-          i++
-        });
+        
       });
     changeMonth = changeMonth + count;
     if (dateTitle.previousElementSibling.textContent !== monthData[startIndex]) {
@@ -364,6 +313,61 @@ function monthLoop(e, direction, startIndex, finalIndex, count) {
       monthIndex = finalIndex;
     };
   };
+};
+
+function infsInput(result) {
+  const monthArray = [];
+  const dataArray = [];
+  contentInfs.innerHTML = '';
+  result.forEach(data => {
+    if (data === 'none') {
+      contentInfs.innerHTML +=
+        `<div class='content-inf'>
+        <div class='inf-detail ml-4'>
+            <h4 style='line-height:9.25vh'>No Events</h4>
+        </div>
+      </div>
+      `;
+    } else {
+      const startMonth = data.date_start.split('-');
+      contentInfs.innerHTML +=
+        `<a class='content-inf' href='/news?tap=${data.info_type.id}&month=${startMonth[1]}&year=${startMonth[0]}' title='前往${data.info_type.name}'>
+        <div class='inf-date'>
+            <div class='during'>
+                <div class='start-date'></div>
+            </div>
+            <span></span>
+        </div>
+        <div class='inf-detail'>
+            <div class='inf-tag'>${data.info_type.name}</div>
+            <h4>${data.name}</h4>
+        </div>
+        <span>more</span>
+        <i class='fas fa-chevron-right'></i>
+      </a>`;
+      const monthNumber = data.created_at.split('-');
+      if (monthNumber[1] === '10' || monthNumber[1] === '11' || monthNumber[1] === '12') {
+        monthArray.push(monthNumber[1]);
+      } else {
+        const singleMonth = monthNumber[1].split('0');
+        monthArray.push(singleMonth[1]);
+      };
+      const dataNumber = monthNumber[2].split('T');
+      dataArray.push(dataNumber[0]);
+    };
+  });
+
+  let x = 0;
+  document.querySelectorAll('.start-date').forEach(date => {
+    date.textContent = dataArray[x];
+    x++;
+  });
+
+  let i = 0;
+  document.querySelectorAll('.inf-date > span').forEach(month => {
+    month.textContent = monthData[monthArray[i] - 1];
+    i++
+  });
 };
 
 //審計新訊-點擊選擇日期按鈕切換效果
@@ -591,11 +595,11 @@ const windowTitles = document.querySelectorAll('.window-title');
 const checkBtnLists = document.querySelectorAll('.shop-window > ul');
 navTaps.forEach(tab => {
   tab.addEventListener('click', function () {
-    navNone (shopList, this);
-    navNone (tapChange, this);
-    windowObjectNone (windowTitles, this);
-    windowObjectNone (checkBtnLists, this);
-    bottomLine ();
+    navNone(shopList, this);
+    navNone(tapChange, this);
+    windowObjectNone(windowTitles, this);
+    windowObjectNone(checkBtnLists, this);
+    bottomLine();
     photoResume();
     navTaps.forEach(tab => {
       tab.classList.remove('tap-active');
@@ -604,7 +608,7 @@ navTaps.forEach(tab => {
   });
 });
 
-function navNone (doms, event) {
+function navNone(doms, event) {
   doms.forEach(object => {
     object.classList.add('appear-none');
     if (object.dataset.title === event.dataset.title) {
@@ -613,7 +617,7 @@ function navNone (doms, event) {
   });
 };
 
-function windowObjectNone (doms, event) {
+function windowObjectNone(doms, event) {
   doms.forEach(object => {
     object.classList.add('appear-none');
     if (object.dataset.title === '7' && event.dataset.title === '2') {
@@ -624,7 +628,7 @@ function windowObjectNone (doms, event) {
   });
 };
 
-function bottomLine () {
+function bottomLine() {
   shopBtns.forEach(btn => {
     btn.classList.remove('bottom-line');
     if (btn.dataset.title === '0' || btn.dataset.title === '7') {
@@ -649,21 +653,21 @@ if (urlType === '2') {
   document.getElementsByClassName('nav-tap')[1].classList.add('tap-active');
   urlTypeNavChange('shop-list');
   urlTypeNavChange('tap-change');
-  urlTypeWindowObjectNone (windowTitles);
-  urlTypeWindowObjectNone (checkBtnLists);
-  bottomLine ();
+  urlTypeWindowObjectNone(windowTitles);
+  urlTypeWindowObjectNone(checkBtnLists);
+  bottomLine();
   photoResume();
 };
-if(urlShop !== null){
+if (urlShop !== null) {
   urlShopWindowObjectNone(windowTitles);
   urlShopWindowObjectNone(checkBtnLists);
   shopBtns.forEach(btn => {
     btn.classList.remove('bottom-line');
-    if(String(urlShop - 1) === btn.dataset.title){
+    if (String(urlShop - 1) === btn.dataset.title) {
       btn.classList.add('bottom-line');
     };
   });
-  shopPhotos.forEach(photo =>{
+  shopPhotos.forEach(photo => {
     urlType === '1'
       ?
       photo.style.transform = `translateX(-${(urlShop - 1) * 100}%)`
@@ -672,12 +676,12 @@ if(urlShop !== null){
   });
 };
 
-function urlTypeNavChange (doms) {
+function urlTypeNavChange(doms) {
   document.getElementsByClassName(`${doms}`)[0].classList.add('appear-none');
   document.getElementsByClassName(`${doms}`)[1].classList.remove('appear-none');
 };
 
-function urlTypeWindowObjectNone (doms) {
+function urlTypeWindowObjectNone(doms) {
   doms.forEach(object => {
     object.classList.add('appear-none');
     if (object.dataset.title === '7') {
@@ -686,7 +690,7 @@ function urlTypeWindowObjectNone (doms) {
   });
 };
 
-function urlShopWindowObjectNone (doms) {
+function urlShopWindowObjectNone(doms) {
   doms.forEach(title => {
     title.classList.add('appear-none');
     if (String(urlShop - 1) === title.dataset.title) {
@@ -698,8 +702,8 @@ function urlShopWindowObjectNone (doms) {
 //店家介紹-點擊店家名稱切換圖片效果
 shopBtns.forEach(btns => {
   btns.addEventListener('click', function () {
-    btnToWindowObjectNone (windowTitles, this);
-    btnToWindowObjectNone (checkBtnLists, this);
+    btnToWindowObjectNone(windowTitles, this);
+    btnToWindowObjectNone(checkBtnLists, this);
     shopBtns.forEach(btn => {
       btn.classList.remove('bottom-line');
     });
@@ -714,7 +718,7 @@ shopBtns.forEach(btns => {
   });
 });
 
-function btnToWindowObjectNone (doms, event) {
+function btnToWindowObjectNone(doms, event) {
   doms.forEach(title => {
     title.classList.add('appear-none');
     if (event.dataset.title === title.dataset.title) {
