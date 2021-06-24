@@ -385,12 +385,17 @@ lightbox.option({
   'positionFromTop': 100,
 });
 
-//讓資訊展開時回到頂端
-NowInfs.forEach(inf => {
-  inf.addEventListener('click', function () {
-    this.scrollIntoView({behavior: "smooth"});
+// 讓資訊展開時回到頂端
+toTop ();
+function toTop () {
+  document.querySelectorAll('#content-infs-now .content-inf').forEach(inf => {
+    inf.addEventListener('click', function () {
+      setTimeout(() => {
+        this.scrollIntoView({behavior: "smooth"});
+      }, 570);
+    });
   });
-});
+};
 
 //回到頂端按鈕
 (function () {
