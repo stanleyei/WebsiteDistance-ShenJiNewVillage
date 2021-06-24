@@ -488,6 +488,7 @@ asideTabs.forEach(tabs => {
               i++
             });
           };
+          toTop ();
         });
     } else {
       customSelect.style = "display:none";
@@ -616,6 +617,7 @@ asideTabs.forEach(tabs => {
               i++
             });
           };
+          toTop ();
         });
     }
     asideTabs.forEach(tab => {
@@ -788,13 +790,20 @@ lightbox.option({
   'positionFromTop': 100,
 });
 
-//讓資訊展開時回到正中間
+// 讓資訊展開時回到頂端
 // NowInfs.forEach(inf => {
 //   inf.addEventListener('click', function () {
-//     const infId = this.dataset.anchor;
-//     location.href = `/news#content-inf-${infId}`;
+//     this.scrollIntoView({behavior: "smooth"});
 //   });
 // });
+toTop ();
+function toTop () {
+  document.querySelectorAll('#content-infs-now .content-inf').forEach(inf => {
+    inf.addEventListener('click', function () {
+      this.scrollIntoView({behavior: "smooth"});
+    });
+  });
+};
 
 //回到頂端按鈕
 (function () {
@@ -931,4 +940,5 @@ function infsInput(result, focusType) {
       i++
     });
   };
+  toTop ();
 };

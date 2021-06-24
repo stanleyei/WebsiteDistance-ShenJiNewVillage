@@ -385,16 +385,10 @@ lightbox.option({
   'positionFromTop': 100,
 });
 
-//讓資訊展開時回到正中間
+//讓資訊展開時回到頂端
 NowInfs.forEach(inf => {
   inf.addEventListener('click', function () {
-    console.log(this.offsetTop - document.documentElement.scrollTop);
-    console.log(document.documentElement.clientHeight);
-    console.log(document.documentElement.scrollTop);
-    console.log(this.clientHeight);
-    const scrollTop = document.documentElement.clientHeight - this.clientHeight;
-    const windowHight = document.documentElement.clientHeight;
-    window.scrollTo({'behavior': 'smooth', 'top': 530});
+    this.scrollIntoView({behavior: "smooth"});
   });
 });
 
