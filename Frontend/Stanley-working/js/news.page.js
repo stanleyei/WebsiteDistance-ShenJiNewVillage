@@ -388,8 +388,13 @@ lightbox.option({
 //讓資訊展開時回到正中間
 NowInfs.forEach(inf => {
   inf.addEventListener('click', function () {
-    const infId = this.dataset.anchor;
-    location.href = `./news-page.html#content-inf-${infId}`;
+    console.log(this.offsetTop - document.documentElement.scrollTop);
+    console.log(document.documentElement.clientHeight);
+    console.log(document.documentElement.scrollTop);
+    console.log(this.clientHeight);
+    const scrollTop = document.documentElement.clientHeight - this.clientHeight;
+    const windowHight = document.documentElement.clientHeight;
+    window.scrollTo({'behavior': 'smooth', 'top': 530});
   });
 });
 
