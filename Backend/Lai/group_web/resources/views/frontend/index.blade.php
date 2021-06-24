@@ -170,7 +170,7 @@
                 <div class="shop-window">
                     <img src="{{asset('/img/shop-window.png')}}" alt="窗戶的裝飾圖">
                     @foreach ($shops as $shop)
-                    <ul data-list="{{$shop->id - 1}}" class="{{$shop->id == 1 ? '' : 'check-list-hide'}}">
+                    <ul data-title="{{$shop->id - 1}}" class="{{$shop->id == 1 ? '' : 'appear-none'}}">
                         <li>
                             <a href="{{$shop->shopImgs[2]->img??''}}" title="點我看大圖" data-title="{{$shop->name}}" class="check-btn photo-view"
                                 data-lightbox="food-shop-{{$shop->id}}">看大圖</a>
@@ -179,7 +179,7 @@
                             <a href="/store{{$shop->id}}" title="點我看介紹" class="check-btn shop-view">看介紹</a>
                         </li>
                     </ul>
-                    <div class="window-title {{$shop->id == 1 ? '' : 'title-hide'}}" data-title="{{$shop->id - 1}}">
+                    <div class="window-title {{$shop->id == 1 ? '' : 'appear-none'}}" data-title="{{$shop->id - 1}}">
                         {{$shop->name}}</div>
                     @endforeach
                     <div class="hide-area">
@@ -208,15 +208,15 @@
                     <div class="food-shop shop-list" data-title="1">
                         @foreach ($newShopTypes[0]->shops??[] as $shop)
                         <div>
-                            <span class="{{$shop->id == 1 ? 'bottom-line' : ''}}" data-img="{{$shop->id - 1}}"
+                            <span class="{{$shop->id == 1 ? 'bottom-line' : ''}}" data-title="{{$shop->id - 1}}"
                                 title="{{$shop->name}}">{{$shop->name}}</span>
                         </div>
                         @endforeach
                     </div>
-                    <div class="trinket-shop shop-list list-active" data-title="2">
+                    <div class="trinket-shop shop-list appear-none" data-title="2">
                         @foreach ($newShopTypes[1]->shops??[] as $shop)
                         <div>
-                            <span class="{{$shop->id == 12 ? 'bottom-line' : ''}}" data-img="{{$shop->id - 1}}"
+                            <span class="{{$shop->id == 12 ? 'bottom-line' : ''}}" data-title="{{$shop->id - 1}}"
                                 title="{{$shop->name}}">{{$shop->name}}</span>
                         </div>
                         @endforeach

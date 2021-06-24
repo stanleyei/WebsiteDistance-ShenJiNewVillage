@@ -591,49 +591,53 @@ const windowTitles = document.querySelectorAll('.window-title');
 const checkBtnLists = document.querySelectorAll('.shop-window > ul');
 navTaps.forEach(tab => {
   tab.addEventListener('click', function () {
+    navNone (shopList, this);
+    navNone (tapChange, this);
+    windowObjectNone (windowTitles, this);
+    windowObjectNone (checkBtnLists, this);
+    bottomLine ();
+    photoResume();
     navTaps.forEach(tab => {
       tab.classList.remove('tap-active');
     })
     this.classList.add('tap-active');
-    shopList.forEach(list => {
-      list.classList.add('list-active');
-      if (list.dataset.title === this.dataset.title) {
-        list.classList.remove('list-active');
-      }
-    })
-    tapChange.forEach(box => {
-      box.classList.add('photo-none');
-      if (box.dataset.title === this.dataset.title) {
-        box.classList.remove('photo-none');
-      };
-    });
-    shopPhotos.forEach(photo => {
-      photo.style.transform = `translateX(0%)`;
-    });
-    shopBtns.forEach(btn => {
-      btn.classList.remove('bottom-line');
-      if (btn.dataset.img === '0' || btn.dataset.img === '7') {
-        btn.classList.add('bottom-line');
-      }
-    });
-    windowTitles.forEach(title => {
-      title.classList.add('title-hide');
-      if (title.dataset.title === '7' && this.dataset.title === '2') {
-        title.classList.remove('title-hide');
-      } else if (title.dataset.title === '0' && this.dataset.title === '1') {
-        title.classList.remove('title-hide');
-      };
-    });
-    checkBtnLists.forEach(list => {
-      list.classList.add('check-list-hide');
-      if (list.dataset.list === '7' && this.dataset.title === '2') {
-        list.classList.remove('check-list-hide');
-      } else if (list.dataset.list === '0' && this.dataset.title === '1') {
-        list.classList.remove('check-list-hide');
-      };
-    });
   });
 });
+
+function navNone (doms, event) {
+  doms.forEach(object => {
+    object.classList.add('appear-none');
+    if (object.dataset.title === event.dataset.title) {
+      object.classList.remove('appear-none');
+    };
+  });
+};
+
+function windowObjectNone (doms, event) {
+  doms.forEach(object => {
+    object.classList.add('appear-none');
+    if (object.dataset.title === '7' && event.dataset.title === '2') {
+      object.classList.remove('appear-none');
+    } else if (object.dataset.title === '0' && event.dataset.title === '1') {
+      object.classList.remove('appear-none');
+    };
+  });
+};
+
+function bottomLine () {
+  shopBtns.forEach(btn => {
+    btn.classList.remove('bottom-line');
+    if (btn.dataset.title === '0' || btn.dataset.title === '7') {
+      btn.classList.add('bottom-line');
+    }
+  });
+};
+
+function photoResume() {
+  shopPhotos.forEach(photo => {
+    photo.style.transform = `translateX(0%)`;
+  });
+};
 
 //判斷傳進來的url值後切換到對應商家的分類
 const getUrlString = location.href;
@@ -643,36 +647,19 @@ const urlShop = newsUrl.searchParams.get('shop');
 if (urlType === '2') {
   document.getElementsByClassName('nav-tap')[0].classList.remove('tap-active');
   document.getElementsByClassName('nav-tap')[1].classList.add('tap-active');
-  document.getElementsByClassName('shop-list')[0].classList.add('list-active');
-  document.getElementsByClassName('shop-list')[1].classList.remove('list-active');
-  document.getElementsByClassName('tap-change')[0].classList.add('photo-none');
-  document.getElementsByClassName('tap-change')[1].classList.remove('photo-none');
-  shopBtns.forEach(btn => {
-    btn.classList.remove('bottom-line');
-    if (btn.dataset.img === '0' || btn.dataset.img === '7') {
-      btn.classList.add('bottom-line');
-    }
-  });
-  shopPhotos.forEach(photo => {
-    photo.style.transform = `translateX(0%)`;
-  });
-  windowTitles.forEach(title => {
-    title.classList.add('title-hide');
-    if (title.dataset.title === '7') {
-      title.classList.remove('title-hide');
-    }
-  });
-  checkBtnLists.forEach(list => {
-    list.classList.add('check-list-hide');
-    if(list.dataset.list === '7'){
-      list.classList.remove('check-list-hide');
-    };
-  });
+  urlTypeNavChange('shop-list');
+  urlTypeNavChange('tap-change');
+  urlTypeWindowObjectNone (windowTitles);
+  urlTypeWindowObjectNone (checkBtnLists);
+  bottomLine ();
+  photoResume();
 };
 if(urlShop !== null){
+  urlShopWindowObjectNone(windowTitles);
+  urlShopWindowObjectNone(checkBtnLists);
   shopBtns.forEach(btn => {
     btn.classList.remove('bottom-line');
-    if(String(urlShop - 1) === btn.dataset.img){
+    if(String(urlShop - 1) === btn.dataset.title){
       btn.classList.add('bottom-line');
     };
   });
@@ -683,16 +670,27 @@ if(urlShop !== null){
       :
       photo.style.transform = `translateX(-${(urlShop - 8) * 100}%)`;
   });
-  windowTitles.forEach(title => {
-    title.classList.add('title-hide');
-    if (String(urlShop - 1) === title.dataset.title) {
-      title.classList.remove('title-hide');
+};
+
+function urlTypeNavChange (doms) {
+  document.getElementsByClassName(`${doms}`)[0].classList.add('appear-none');
+  document.getElementsByClassName(`${doms}`)[1].classList.remove('appear-none');
+};
+
+function urlTypeWindowObjectNone (doms) {
+  doms.forEach(object => {
+    object.classList.add('appear-none');
+    if (object.dataset.title === '7') {
+      object.classList.remove('appear-none');
     }
   });
-  checkBtnLists.forEach(list => {
-    list.classList.add('check-list-hide');
-    if(String(urlShop - 1) === list.dataset.list){
-      list.classList.remove('check-list-hide');
+};
+
+function urlShopWindowObjectNone (doms) {
+  doms.forEach(title => {
+    title.classList.add('appear-none');
+    if (String(urlShop - 1) === title.dataset.title) {
+      title.classList.remove('appear-none');
     };
   });
 };
@@ -700,6 +698,8 @@ if(urlShop !== null){
 //店家介紹-點擊店家名稱切換圖片效果
 shopBtns.forEach(btns => {
   btns.addEventListener('click', function () {
+    btnToWindowObjectNone (windowTitles, this);
+    btnToWindowObjectNone (checkBtnLists, this);
     shopBtns.forEach(btn => {
       btn.classList.remove('bottom-line');
     });
@@ -707,24 +707,21 @@ shopBtns.forEach(btns => {
     shopPhotos.forEach(photo => {
       this.parentNode.parentNode.className === 'food-shop shop-list'
         ?
-        photo.style.transform = `translateX(-${this.dataset.img * 100}%)`
+        photo.style.transform = `translateX(-${this.dataset.title * 100}%)`
         :
-        photo.style.transform = `translateX(-${(Number(this.dataset.img) - 7) * 100}%)`
-    });
-    windowTitles.forEach(title => {
-      title.classList.add('title-hide');
-      if (this.dataset.img === title.dataset.title) {
-        title.classList.remove('title-hide');
-      };
-    });
-    checkBtnLists.forEach(list => {
-      list.classList.add('check-list-hide');
-      if (this.dataset.img === list.dataset.list) {
-        list.classList.remove('check-list-hide');
-      };
+        photo.style.transform = `translateX(-${(Number(this.dataset.title) - 7) * 100}%)`
     });
   });
 });
+
+function btnToWindowObjectNone (doms, event) {
+  doms.forEach(title => {
+    title.classList.add('appear-none');
+    if (event.dataset.title === title.dataset.title) {
+      title.classList.remove('appear-none');
+    };
+  });
+};
 
 //店家介紹-燈箱套件
 lightbox.option({
@@ -826,18 +823,18 @@ function type_select(koa) {
     // 把位於form表單下面的下拉是選單清空
     FormOp.innerHTML = ``;
     ChanSelect.innerHTML =
-      `<li value="我">我</li>
-    <li value="超">超</li>
-    <li value="率">率</li>`
+      `<li value="進駐店家">進駐店家</li>
+    <li value="退出審計">退出審計</li>
+    <li value="其他狀況">其他狀況</li>`
     FormDescription.innerHTML = '詳細資訊';
   } else {
     FormStorename.innerHTML = '顧客名稱/暱稱';
     FormProducttype.innerHTML = '意見類別';
     FormOp.innerHTML = ``;
     ChanSelect.innerHTML =
-      `<li value="我">我</li>
-    <li value="超">超</li>
-    <li value="鄭">鄭</li>`
+      `<li value="心得回饋">心得回饋</li>
+    <li value="問題抱怨">問題抱怨</li>
+    <li value="其他狀況">其他狀況</li>`
     FormDescription.innerHTML = '建議內容/想對我們說';
   }
 };

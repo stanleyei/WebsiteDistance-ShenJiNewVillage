@@ -224,6 +224,10 @@ h6 {
     background-color: #596E79 !important;
 }
 
+.appear-none{
+    display: none !important;
+}
+
 .header-shady {
 
     &::after {
@@ -2058,10 +2062,6 @@ header {
                     }
                 }
 
-                .title-hide {
-                    display: none;
-                }
-
                 >ul {
                     position: absolute;
                     left: 24.5vw;
@@ -2141,10 +2141,6 @@ header {
                     }
                 }
 
-                .check-list-hide {
-                    display: none;
-                }
-
                 .hide-area {
                     @include size(55%, 54.7vh);
                     position: absolute;
@@ -2202,10 +2198,6 @@ header {
                                     transition: 1s ease-in-out;
                                 }
                             }
-                        }
-
-                        .photo-none {
-                            display: none;
                         }
                     }
                 }
@@ -2327,10 +2319,6 @@ header {
                             border-bottom: solid 3px $store-tag-f-bg;
                         }
                     }
-                }
-
-                .list-active {
-                    display: none;
                 }
 
                 ::-webkit-scrollbar {

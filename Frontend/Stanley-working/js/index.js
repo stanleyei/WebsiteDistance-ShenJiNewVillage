@@ -199,15 +199,15 @@ navTaps.forEach(tab => {
     })
     this.classList.add('tap-active');
     shopList.forEach(list => {
-      list.classList.add('list-active');
+      list.classList.add('appear-none');
       if (list.dataset.title === this.dataset.title) {
-        list.classList.remove('list-active');
+        list.classList.remove('appear-none');
       }
     })
     tapChange.forEach(box => {
-      box.classList.add('photo-none');
+      box.classList.add('appear-none');
       if (box.dataset.title === this.dataset.title) {
-        box.classList.remove('photo-none');
+        box.classList.remove('appear-none');
       };
     });
     shopPhotos.forEach(photo => {
@@ -220,11 +220,19 @@ navTaps.forEach(tab => {
       }
     });
     windowTitles.forEach(title => {
-      title.classList.add('title-hide');
+      title.classList.add('appear-none');
       if (title.dataset.title === '7' && this.dataset.title === '2') {
-        title.classList.remove('title-hide');
+        title.classList.remove('appear-none');
       } else if (title.dataset.title === '0' && this.dataset.title === '1') {
-        title.classList.remove('title-hide');
+        title.classList.remove('appear-none');
+      };
+    });
+    checkBtnLists.forEach(list => {
+      list.classList.add('appear-none');
+      if (list.dataset.list === '7' && this.dataset.title === '2') {
+        list.classList.remove('appear-none');
+      } else if (list.dataset.list === '0' && this.dataset.title === '1') {
+        list.classList.remove('appear-none');
       };
     });
   });
@@ -246,15 +254,15 @@ shopBtns.forEach(btns => {
         photo.style.transform = `translateX(-${(Number(this.dataset.img) - 7) * 100}%)`
     });
     windowTitles.forEach(title => {
-      title.classList.add('title-hide');
+      title.classList.add('appear-none');
       if (this.dataset.img === title.dataset.title) {
-        title.classList.remove('title-hide');
+        title.classList.remove('appear-none');
       };
     });
     checkBtnLists.forEach(list => {
-      list.classList.add('check-list-hide');
+      list.classList.add('appear-none');
       if (this.dataset.img === list.dataset.list) {
-        list.classList.remove('check-list-hide');
+        list.classList.remove('appear-none');
       };
     });
   });
