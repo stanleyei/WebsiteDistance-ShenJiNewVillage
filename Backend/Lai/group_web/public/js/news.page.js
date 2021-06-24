@@ -199,7 +199,7 @@ function focusChange(dateBtns) {
         yearsTitle.forEach(title => {
           title.textContent = `,${this.textContent}`;
         });
-        
+
         const focisMonth = monthList.getElementsByClassName('month-btn focus-change')[0].dataset.month;
         const focusYear = document.querySelector('#this-month-title .years').textContent.slice(-4);
         let focusType = 0;
@@ -688,7 +688,53 @@ function infsFocusStyle(infsName, iconsName) {
       });
     });
   });
-}
+};
+
+//手風琴資訊列表內的開始結束時間
+let startTimeArray = [];
+let endTimeArray = [];
+const eventStart = document.querySelectorAll('.event-start');
+const eventEnd = document.querySelectorAll('.event-end');
+infos.forEach(info => {
+  const startStr = info.date_start.replace(/-/g, '/');
+  const endStr = info.date_end.replace(/-/g, '/').slice(5);
+  const endDataStr = new Date(endStr);
+  const startDataStr = new Date(startStr);
+  daySwitch (startDataStr);
+  startTimeArray.push(startStr + dayOfWeek);
+  daySwitch (endDataStr);
+  endTimeArray.push(endStr + dayOfWeek);
+});
+let startCount = 0;
+let endCount = 0;
+putTime (eventStart, startTimeArray, startCount);
+putTime (eventEnd, endTimeArray, endCount);
+
+function daySwitch (dateStr) {
+  switch (dateStr.getDay()) {
+    case 0: dayOfWeek = '(日)';
+      break;
+    case 1: dayOfWeek = '(一)';
+      break;
+    case 2: dayOfWeek = '(二)';
+      break;
+    case 3: dayOfWeek = '(三)';
+      break;
+    case 4: dayOfWeek = '(四)';
+      break;
+    case 5: dayOfWeek = '(五)';
+      break;
+    case 6: dayOfWeek = '(六)';
+      break;
+  }
+};
+
+function putTime (className, timeArray, count) {
+  className.forEach(date => {
+    date.textContent = timeArray[count];
+    count++;
+  });
+};
 
 //日期選擇jquery.datepicker套件
 $(function () {

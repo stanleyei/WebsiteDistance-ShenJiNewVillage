@@ -86,8 +86,8 @@
                                     </div>
                                     <time>
                                         <div>
-                                            <span>2021/06/03(一)</span>
-                                            <span>-06/14(五)</span>
+                                            <span class="event-start">2021/06/03(一)</span>
+                                            <span class="event-end">-06/14(五)</span>
                                         </div>
                                         <div>10:00-19:00</div>
                                     </time>
