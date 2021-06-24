@@ -295,7 +295,7 @@ MapStores.forEach(function (MapStore) {
       // 在判斷是否有登入營業資料
       if (!ShopId) {
 
-        MapMessage.style.backgroundImage = ' url(../img/message-green.svg)';
+        MapMessage.style.backgroundImage = 'url(../img/message-green.svg)';
         MapMessage.children[0].children[0].src = './img/Logo-img.png';
         MapMessage.children[0].children[1].innerHTML = '目前尚未登記';
         MapMessage.children[1].children[1].innerHTML = '敬請期待';
@@ -305,15 +305,13 @@ MapStores.forEach(function (MapStore) {
 
         // 最後，判斷是哪一個類型的商家
         if (ShopStyle == 'food') {
-          MapMessage.style.backgroundImage = ' url(../img/message-yellow.svg)';
+          MapMessage.style.backgroundImage = 'url(../img/message-yellow.svg)';
           MapMessage.children[0].children[0].src = './img/res-icon.svg';
           MapMessage.children[0].children[1].innerHTML = ShopId;
           MapMessage.children[1].children[1].innerHTML = ShopTime;
           MapMessage.children[2].children[1].innerHTML = ShopPhone;
-
-
         } else {
-          MapMessage.style.backgroundImage = ' url(../img/message-red.svg)';
+          MapMessage.style.backgroundImage = 'url(../img/message-red.svg)';
           MapMessage.children[0].children[0].src = './img/shopping-icon.svg';
           MapMessage.children[0].children[1].innerHTML = ShopId;
           MapMessage.children[1].children[1].innerHTML = ShopTime;
