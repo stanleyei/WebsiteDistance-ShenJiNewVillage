@@ -492,6 +492,7 @@ function btnToWindowObjectNone(doms, event) {
   });
 };
 
+
 //店家介紹-燈箱套件
 lightbox.option({
   'resizeDuration': 500,
