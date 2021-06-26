@@ -467,6 +467,9 @@ function urlShopWindowObjectNone(doms) {
 };
 
 //店家介紹-點擊店家名稱切換圖片效果
+const foodArray = [];
+const trinketArray = [];
+shopBtns.forEach(btns => btns.parentNode.parentNode.className === 'food-shop shop-list' ? foodArray.push(btns.dataset.title) : trinketArray.push(btns.dataset.title));
 shopBtns.forEach(btns => {
   btns.addEventListener('click', function () {
     btnToWindowObjectNone(windowTitles, this);
@@ -476,9 +479,9 @@ shopBtns.forEach(btns => {
     shopPhotos.forEach(photo => {
       this.parentNode.parentNode.className === 'food-shop shop-list'
         ?
-        photo.style.transform = `translateX(-${this.dataset.title * 100}%)`
+        photo.style.transform = `translateX(-${foodArray.indexOf(this.dataset.title) * 100}%)`
         :
-        photo.style.transform = `translateX(-${(Number(this.dataset.title) - 7) * 100}%)`
+        photo.style.transform = `translateX(-${trinketArray.indexOf(this.dataset.title) * 100}%)`
     });
   });
 });
