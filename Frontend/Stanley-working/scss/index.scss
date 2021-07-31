@@ -224,7 +224,7 @@ h6 {
     background-color: #596E79 !important;
 }
 
-.appear-none{
+.appear-none {
     display: none !important;
 }
 
@@ -796,28 +796,28 @@ header {
                     margin: 2vh 0 3vh 0;
                 }
 
-                .date-title-control{
+                .date-title-control {
                     @include flex();
 
                     h3 {
                         @include font(2.6rem, center, 5.56vh, 0.2em);
                         position: relative;
                         padding-left: 0.573vw;
-    
+
                         @include w1366 {
                             font-size: 1.875rem;
                         }
-    
+
                         @include w1024 {
                             font-size: 1.65rem;
                         }
-    
+
                         @include w375 {
                             line-height: 0.9rem;
                             font-size: 0.9rem;
                             margin: 0;
                         }
-    
+
                         &::before {
                             @include size(6.35vw, 2.22vh);
                             content: '';
@@ -827,28 +827,28 @@ header {
                             border-radius: 6px;
                             background-color: $store-list-bg;
                             z-index: -1;
-    
-                            @include w1366{
+
+                            @include w1366 {
                                 width: 86px;
                             }
-    
-                            @include w1024{
+
+                            @include w1024 {
                                 width: 73px;
                             }
-    
+
                             @include w375 {
                                 @include size(90%, 40%);
                                 transform: translate(0, -50%);
                             }
                         }
                     }
-    
+
                     div {
                         @include font($h7, center, inherit, 0.2em);
                         margin-left: 1.04vw;
                         padding-top: 1.39vh;
                         font-weight: bold;
-    
+
                         @include w375 {
                             letter-spacing: 0;
                             font-size: 0.7rem;
@@ -863,27 +863,27 @@ header {
                         display: none;
                         cursor: pointer;
                         text-shadow: -2px 0px 4px lighten($nes-aside-tag, 30%);
-    
+
                         @include w768 {
                             display: block;
                         }
-    
+
                         &:active {
                             text-shadow: none;
                             transform: translateX(-1px);
                         }
-    
+
                         &:first-of-type() {
                             margin-right: 10px;
-    
+
                             @include w375 {
                                 margin: 0;
                             }
                         }
-    
+
                         &:last-of-type() {
                             margin-left: 10px;
-    
+
                             @include w375 {
                                 margin: 0;
                             }
@@ -1107,6 +1107,7 @@ header {
 
     .map-container {
         @include size($w:80vw, $h:80vh);
+
         // overflow: hidden;
         @media(max-width:895px) {
             @include size(85vw, 85vh);
@@ -1197,17 +1198,17 @@ header {
         // }
         .map-area {
             @include size(800px, 560px);
-            @include position(56%,50%);
+            @include position(56%, 50%);
             margin: auto;
             z-index: 30;
 
             @media(max-width:895px) {
                 @include size(86vw, 80vh);
-                @include position(calc(56% - 55px),50%);
+                @include position(calc(56% - 55px), 50%);
                 padding-top: 90px;
                 overflow-x: scroll;
                 overflow-y: scroll;
-                
+
 
             }
 
@@ -1245,7 +1246,7 @@ header {
                     // @include size(720px, 504px);
 
                 }
-              
+
 
                 .map-black-bgc {
                     @include size(100%, 100%);
@@ -1336,7 +1337,7 @@ header {
 
                         ~.map-black-bgc {
                             background-color: rgba(0, 0, 0, 0.6);
-                            
+
                         }
                     }
                 }
@@ -1993,7 +1994,7 @@ header {
 
                 @include w1366 {
                     margin-right: 50px;
-                }   
+                }
 
                 @include w768 {
                     @include size(100%, 50%);
@@ -2009,7 +2010,7 @@ header {
                     position: relative;
                     z-index: 48;
 
-                    @include w1366{
+                    @include w1366 {
                         height: 35vw;
                     }
 
@@ -2093,7 +2094,7 @@ header {
                         cursor: pointer;
                         background-color: #ffffff3b;
 
-                        @include w1366{
+                        @include w1366 {
                             transform: translate(-125%, -10%);
                         }
 
@@ -2123,7 +2124,7 @@ header {
                     li:nth-child(2)>.check-btn {
                         transform: translate(-38%, -10%);
 
-                        @include w1366{
+                        @include w1366 {
                             transform: translate(-10%, -10%);
                         }
 
@@ -2146,7 +2147,7 @@ header {
                     position: absolute;
                     overflow: hidden;
 
-                    @include w1366{
+                    @include w1366 {
                         height: 33vw;
                     }
 
@@ -2173,7 +2174,7 @@ header {
                                 background-repeat: no-repeat;
                                 transition: 1s ease-in-out;
 
-                                @include w1366{
+                                @include w1366 {
                                     height: 24vw;
                                 }
 
@@ -2208,7 +2209,7 @@ header {
                 font-weight: bold;
                 padding-bottom: 5.56vh;
 
-                @include w1366{
+                @include w1366 {
                     width: 25%;
                 }
 
@@ -2239,7 +2240,7 @@ header {
                     margin-bottom: 2.31vh;
                     padding: 0 5px;
 
-                    @include w1366{
+                    @include w1366 {
                         padding: 0 1.5vw
                     }
 
@@ -2434,7 +2435,7 @@ header {
                         font-size: $h7;
 
                         .view-card {
-                            @include size(208px, 40vh);
+                            @include size(250px, 40vh);
                             min-height: 310px;
                             background-color: $title-bg;
                             border-radius: 20px;
@@ -2443,6 +2444,13 @@ header {
                             color: $body-bg;
                             line-height: 2.78vh;
                             padding-top: 2.31vh;
+                            padding: 20px 25px;
+                            display: flex;
+                            flex-direction: column;
+
+                            @include w1366 {
+                                width: 206px;
+                            }
 
                             @include w576 {
                                 border-radius: 10px;
@@ -2453,7 +2461,7 @@ header {
                             }
 
                             .view-card-img {
-                                @include size(150px, 120px);
+                                @include size(100%, 15vh);
                                 display: block;
                                 margin: 10px auto 0;
                                 background-position: center;
@@ -2475,10 +2483,15 @@ header {
                             }
 
                             p:last-child {
+                                margin-top: 10px;
                                 letter-spacing: 0.2em;
                                 line-height: 2.31vh;
-                                font-size: 0.8rem;
-                                transform: scale(0.8);
+
+                                @media(max-width:1366px) {
+                                    margin-top: 0;
+                                    font-size: 0.8rem;
+                                    transform: scale(0.8);
+                                }
                             }
                         }
                     }
@@ -3088,31 +3101,33 @@ header {
     }
 }
 
-#ui-datepicker-div{
+#ui-datepicker-div {
     @extend %news-date-select;
     width: 140px;
     transform: translateX(-7.8vw);
 
-    .ui-datepicker-prev, .ui-datepicker-next, .ui-datepicker-calendar{
+    .ui-datepicker-prev,
+    .ui-datepicker-next,
+    .ui-datepicker-calendar {
         display: none;
     }
 
-    .ui-datepicker-header{
+    .ui-datepicker-header {
         @extend %news-date-select;
         border-bottom-left-radius: 0px;
         border-bottom-right-radius: 0px;
 
-        .ui-datepicker-title{
+        .ui-datepicker-title {
             @extend %news-date-select;
-    
-            .ui-datepicker-year{
+
+            .ui-datepicker-year {
                 @extend %news-date-select;
                 margin-right: 10px;
                 color: $main-color;
                 cursor: pointer;
             }
-    
-            .ui-datepicker-month{
+
+            .ui-datepicker-month {
                 @extend %news-date-select;
                 color: $main-color;
                 cursor: pointer;
@@ -3121,17 +3136,17 @@ header {
 
     }
 
-    .ui-widget-content{
+    .ui-widget-content {
         border-color: $store-list-bg;
         background-color: $store-list-bg;
         background: none $store-list-bg;
-    
-        >button{
+
+        >button {
             width: 67px;
             border-color: $store-list-bg;
             background-color: $store-list-bg;
             color: $main-color;
-            font-weight: bold;  
+            font-weight: bold;
         }
     }
 }
